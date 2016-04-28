@@ -95,7 +95,7 @@ alias gs='git show'
 alias gundo='git reset --soft HEAD~ && git reset HEAD .'
 # Show random cat gif in terminal (requires imgcat script and iTerm3 nightly)
 alias catnip='curl -s http://edgecats.net/first | imgcat'
-alias edit='vim ~/.vimrc'
+alias edit='vim ~/dev/dotfiles/.vimrc'
 alias find='open https://github.com/wimdu/wimdu/find/master'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

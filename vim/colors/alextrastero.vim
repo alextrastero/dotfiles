@@ -1,207 +1,363 @@
-" Name: Luna vim colorscheme
-" Author: Pratheek
-" URL: http://github.com/Pychimp/vim-luna
-" (see this url for latest release & screenshots)
-" License: MIT (see LICENSE.rst in the root of project)
-" Created: In the middle of Earth's Rotation
-" Version: 0.0.7
+" Tomorrow - Full Colour and 256 Colour
+" http://chriskempson.com
 "
-" ---------------------------------------------------------------------
-" MODIFY VIMRC:
-" ---------------------------------------------------------------------
-"
-" After either manual or pathogen installation, put the following two lines in your
-" .vimrc:
-"
-" syntax enable
-" colorscheme luna
-" }}}
-"
-" Colorscheme initialization "{{{
-" ---------------------------------------------------------------------
-set background=dark
-highlight clear
-if exists("syntax_on")
-    syntax reset
+" Hex colour conversion functions borrowed from the theme "Desert256""
+
+" Default GUI Colours
+let s:foreground = "4d4d4c"
+let s:background = "fafafa"
+let s:selection = "d6d6d6"
+let s:line = "efefef"
+let s:comment = "8e908c"
+let s:red = "c82829"
+let s:orange = "f5871f"
+let s:yellow = "eab700"
+let s:green = "718c00"
+let s:aqua = "3e999f"
+let s:blue = "4271ae"
+let s:purple = "8959a8"
+let s:window = "efefef"
+
+set background=light
+hi clear
+syntax reset
+
+let g:colors_name = "Tomorrow"
+
+if has("gui_running") || &t_Co == 88 || &t_Co == 256
+	" Returns an approximate grey index for the given grey level
+	fun <SID>grey_number(x)
+		if &t_Co == 88
+			if a:x < 23
+				return 0
+			elseif a:x < 69
+				return 1
+			elseif a:x < 103
+				return 2
+			elseif a:x < 127
+				return 3
+			elseif a:x < 150
+				return 4
+			elseif a:x < 173
+				return 5
+			elseif a:x < 196
+				return 6
+			elseif a:x < 219
+				return 7
+			elseif a:x < 243
+				return 8
+			else
+				return 9
+			endif
+		else
+			if a:x < 14
+				return 0
+			else
+				let l:n = (a:x - 8) / 10
+				let l:m = (a:x - 8) % 10
+				if l:m < 5
+					return l:n
+				else
+					return l:n + 1
+				endif
+			endif
+		endif
+	endfun
+
+	" Returns the actual grey level represented by the grey index
+	fun <SID>grey_level(n)
+		if &t_Co == 88
+			if a:n == 0
+				return 0
+			elseif a:n == 1
+				return 46
+			elseif a:n == 2
+				return 92
+			elseif a:n == 3
+				return 115
+			elseif a:n == 4
+				return 139
+			elseif a:n == 5
+				return 162
+			elseif a:n == 6
+				return 185
+			elseif a:n == 7
+				return 208
+			elseif a:n == 8
+				return 231
+			else
+				return 255
+			endif
+		else
+			if a:n == 0
+				return 0
+			else
+				return 8 + (a:n * 10)
+			endif
+		endif
+	endfun
+
+	" Returns the palette index for the given grey index
+	fun <SID>grey_colour(n)
+		if &t_Co == 88
+			if a:n == 0
+				return 16
+			elseif a:n == 9
+				return 79
+			else
+				return 79 + a:n
+			endif
+		else
+			if a:n == 0
+				return 16
+			elseif a:n == 25
+				return 231
+			else
+				return 231 + a:n
+			endif
+		endif
+	endfun
+
+	" Returns an approximate colour index for the given colour level
+	fun <SID>rgb_number(x)
+		if &t_Co == 88
+			if a:x < 69
+				return 0
+			elseif a:x < 172
+				return 1
+			elseif a:x < 230
+				return 2
+			else
+				return 3
+			endif
+		else
+			if a:x < 75
+				return 0
+			else
+				let l:n = (a:x - 55) / 40
+				let l:m = (a:x - 55) % 40
+				if l:m < 20
+					return l:n
+				else
+					return l:n + 1
+				endif
+			endif
+		endif
+	endfun
+
+	" Returns the actual colour level for the given colour index
+	fun <SID>rgb_level(n)
+		if &t_Co == 88
+			if a:n == 0
+				return 0
+			elseif a:n == 1
+				return 139
+			elseif a:n == 2
+				return 205
+			else
+				return 255
+			endif
+		else
+			if a:n == 0
+				return 0
+			else
+				return 55 + (a:n * 40)
+			endif
+		endif
+	endfun
+
+	" Returns the palette index for the given R/G/B colour indices
+	fun <SID>rgb_colour(x, y, z)
+		if &t_Co == 88
+			return 16 + (a:x * 16) + (a:y * 4) + a:z
+		else
+			return 16 + (a:x * 36) + (a:y * 6) + a:z
+		endif
+	endfun
+
+	" Returns the palette index to approximate the given R/G/B colour levels
+	fun <SID>colour(r, g, b)
+		" Get the closest grey
+		let l:gx = <SID>grey_number(a:r)
+		let l:gy = <SID>grey_number(a:g)
+		let l:gz = <SID>grey_number(a:b)
+
+		" Get the closest colour
+		let l:x = <SID>rgb_number(a:r)
+		let l:y = <SID>rgb_number(a:g)
+		let l:z = <SID>rgb_number(a:b)
+
+		if l:gx == l:gy && l:gy == l:gz
+			" There are two possibilities
+			let l:dgr = <SID>grey_level(l:gx) - a:r
+			let l:dgg = <SID>grey_level(l:gy) - a:g
+			let l:dgb = <SID>grey_level(l:gz) - a:b
+			let l:dgrey = (l:dgr * l:dgr) + (l:dgg * l:dgg) + (l:dgb * l:dgb)
+			let l:dr = <SID>rgb_level(l:gx) - a:r
+			let l:dg = <SID>rgb_level(l:gy) - a:g
+			let l:db = <SID>rgb_level(l:gz) - a:b
+			let l:drgb = (l:dr * l:dr) + (l:dg * l:dg) + (l:db * l:db)
+			if l:dgrey < l:drgb
+				" Use the grey
+				return <SID>grey_colour(l:gx)
+			else
+				" Use the colour
+				return <SID>rgb_colour(l:x, l:y, l:z)
+			endif
+		else
+			" Only one possibility
+			return <SID>rgb_colour(l:x, l:y, l:z)
+		endif
+	endfun
+
+	" Returns the palette index to approximate the 'rrggbb' hex string
+	fun <SID>rgb(rgb)
+		let l:r = ("0x" . strpart(a:rgb, 0, 2)) + 0
+		let l:g = ("0x" . strpart(a:rgb, 2, 2)) + 0
+		let l:b = ("0x" . strpart(a:rgb, 4, 2)) + 0
+
+		return <SID>colour(l:r, l:g, l:b)
+	endfun
+
+	" Sets the highlighting for the given group
+	fun <SID>X(group, fg, bg, attr)
+		if a:fg != ""
+			exec "hi " . a:group . " guifg=#" . a:fg . " ctermfg=" . <SID>rgb(a:fg)
+		endif
+		if a:bg != ""
+			exec "hi " . a:group . " guibg=#" . a:bg . " ctermbg=" . <SID>rgb(a:bg)
+		endif
+		if a:attr != ""
+			exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
+		endif
+	endfun
+
+	" Vim Highlighting
+	call <SID>X("Normal", s:foreground, s:background, "")
+  highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+	call <SID>X("NonText", s:selection, "", "")
+	call <SID>X("SpecialKey", s:selection, "", "")
+	call <SID>X("Search", s:foreground, s:yellow, "")
+	call <SID>X("TabLine", s:foreground, s:background, "reverse")
+	call <SID>X("StatusLine", s:window, s:yellow, "reverse")
+	call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
+	call <SID>X("VertSplit", s:window, s:window, "none")
+	call <SID>X("Visual", "", s:selection, "")
+	call <SID>X("Directory", s:blue, "", "")
+	call <SID>X("ModeMsg", s:green, "", "")
+	call <SID>X("MoreMsg", s:green, "", "")
+	call <SID>X("Question", s:green, "", "")
+	call <SID>X("WarningMsg", s:red, "", "")
+	call <SID>X("MatchParen", "", s:selection, "")
+	call <SID>X("Folded", s:comment, s:background, "")
+	call <SID>X("FoldColumn", s:comment, s:background, "")
+	if version >= 700
+		call <SID>X("CursorLine", "", s:line, "none")
+		call <SID>X("CursorColumn", "", s:line, "none")
+		call <SID>X("PMenu", s:foreground, s:selection, "none")
+		call <SID>X("PMenuSel", s:foreground, s:selection, "reverse")
+		call <SID>X("SignColumn", "", s:background, "none")
+	end
+	if version >= 703
+		call <SID>X("ColorColumn", "", s:line, "none")
+	end
+
+	" Standard Highlighting
+	call <SID>X("Comment", s:comment, "", "")
+	call <SID>X("Todo", s:comment, s:background, "")
+	call <SID>X("Title", s:comment, "", "")
+	call <SID>X("Identifier", s:red, "", "none")
+	call <SID>X("Statement", s:foreground, "", "")
+	call <SID>X("Conditional", s:foreground, "", "")
+	call <SID>X("Repeat", s:foreground, "", "")
+	call <SID>X("Structure", s:purple, "", "")
+	call <SID>X("Function", s:blue, "", "")
+	call <SID>X("Constant", s:orange, "", "")
+	call <SID>X("String", s:green, "", "")
+	call <SID>X("Special", s:foreground, "", "")
+	call <SID>X("PreProc", s:purple, "", "")
+	call <SID>X("Operator", s:aqua, "", "none")
+	call <SID>X("Type", s:blue, "", "none")
+	call <SID>X("Define", s:purple, "", "none")
+	call <SID>X("Include", s:blue, "", "")
+	"call <SID>X("Ignore", "666666", "", "")
+
+	" Vim Highlighting
+	call <SID>X("vimCommand", s:red, "", "none")
+
+	" C Highlighting
+	call <SID>X("cType", s:yellow, "", "")
+	call <SID>X("cStorageClass", s:purple, "", "")
+	call <SID>X("cConditional", s:purple, "", "")
+	call <SID>X("cRepeat", s:purple, "", "")
+
+	" PHP Highlighting
+	call <SID>X("phpVarSelector", s:red, "", "")
+	call <SID>X("phpKeyword", s:purple, "", "")
+	call <SID>X("phpRepeat", s:purple, "", "")
+	call <SID>X("phpConditional", s:purple, "", "")
+	call <SID>X("phpStatement", s:purple, "", "")
+	call <SID>X("phpMemberSelector", s:foreground, "", "")
+
+	" Ruby Highlighting
+	call <SID>X("rubySymbol", s:green, "", "")
+	call <SID>X("rubyConstant", s:yellow, "", "")
+	call <SID>X("rubyAttribute", s:blue, "", "")
+	call <SID>X("rubyInclude", s:blue, "", "")
+	call <SID>X("rubyLocalVariableOrMethod", s:orange, "", "")
+	call <SID>X("rubyCurlyBlock", s:orange, "", "")
+	call <SID>X("rubyStringDelimiter", s:green, "", "")
+	call <SID>X("rubyInterpolationDelimiter", s:orange, "", "")
+	call <SID>X("rubyConditional", s:purple, "", "")
+	call <SID>X("rubyRepeat", s:purple, "", "")
+
+	" Python Highlighting
+	call <SID>X("pythonInclude", s:purple, "", "")
+	call <SID>X("pythonStatement", s:purple, "", "")
+	call <SID>X("pythonConditional", s:purple, "", "")
+	call <SID>X("pythonRepeat", s:purple, "", "")
+	call <SID>X("pythonException", s:purple, "", "")
+	call <SID>X("pythonFunction", s:blue, "", "")
+
+	" Go Highlighting
+	call <SID>X("goStatement", s:purple, "", "")
+	call <SID>X("goConditional", s:purple, "", "")
+	call <SID>X("goRepeat", s:purple, "", "")
+	call <SID>X("goException", s:purple, "", "")
+	call <SID>X("goDeclaration", s:blue, "", "")
+	call <SID>X("goConstants", s:yellow, "", "")
+	call <SID>X("goBuiltins", s:orange, "", "")
+
+	" CoffeeScript Highlighting
+	call <SID>X("coffeeKeyword", s:purple, "", "")
+	call <SID>X("coffeeConditional", s:purple, "", "")
+
+	" JavaScript Highlighting
+	call <SID>X("javaScriptBraces", s:foreground, "", "")
+	call <SID>X("javaScriptFunction", s:purple, "", "")
+	call <SID>X("javaScriptConditional", s:purple, "", "")
+	call <SID>X("javaScriptRepeat", s:purple, "", "")
+	call <SID>X("javaScriptNumber", s:orange, "", "")
+	call <SID>X("javaScriptMember", s:orange, "", "")
+
+	" HTML Highlighting
+	call <SID>X("htmlTag", s:red, "", "")
+	call <SID>X("htmlTagName", s:red, "", "")
+	call <SID>X("htmlArg", s:red, "", "")
+	call <SID>X("htmlScriptTag", s:red, "", "")
+
+	" Diff Highlighting
+	call <SID>X("diffAdded", s:green, "", "")
+	call <SID>X("diffRemoved", s:red, "", "")
+
+	" Delete Functions
+	delf <SID>X
+	delf <SID>rgb
+	delf <SID>colour
+	delf <SID>rgb_colour
+	delf <SID>rgb_level
+	delf <SID>rgb_number
+	delf <SID>grey_colour
+	delf <SID>grey_level
+	delf <SID>grey_number
 endif
-let g:colors_name = "alextrastero"
-" }}}
-"
-" Gvim Highlighting: (see :help highlight-groups)"{{{
-" ---------------------------------------------------------------------
-" First, the Normal
-hi Normal        guifg=#e5e5e5 guibg=#212121 gui=NONE
-" ---------------------------------------------------------------------
-" The Languages stuff
-hi Title         guifg=#c9f0fa guibg=NONE    gui=NONE
-" ---------------------------------------------------------------------
-hi Comment       guifg=#616161 guibg=NONE    gui=NONE
-" ---------------------------------------------------------------------
-" hi Constant      guifg=#e3588d guibg=NONE    gui=NONE
-hi Constant      guifg=#fff159 guibg=NONE    gui=NONE
-hi String        guifg=#60bdf4 guibg=NONE    gui=NONE
-hi Character     guifg=#ff8da1 guibg=NONE    gui=NONE
-hi Number        guifg=#fff159 guibg=NONE    gui=NONE
-hi Boolean       guifg=#fff159 guibg=NONE    gui=NONE
-hi Float         guifg=#fff159 guibg=NONE    gui=NONE
-" ---------------------------------------------------------------------
-"hi Identifier    guifg=#40ffff guibg=NONE    gui=NONE
-hi Identifier    guifg=#00bcbc guibg=NONE    gui=NONE
-hi Function      guifg=#00bcbc guibg=NONE    gui=NONE
-" ---------------------------------------------------------------------
-"hi Statement     guifg=#ff8036 guibg=NONE    gui=NONE
-"hi Statement     guifg=#ee82ee guibg=NONE    gui=NONE
-"hi Statement     guifg=#f26d99 guibg=NONE    gui=NONE
-"hi Statement     guifg=#b06bfc guibg=NONE    gui=NONE
-"hi Statement     guifg=#f88379 guibg=NONE    gui=NONE
-hi Statement     guifg=#f64a8a guibg=NONE    gui=NONE
-"hi Conditional   guifg=#c72723 guibg=NONE    gui=NONE
-hi Conditional   guifg=#e4d00a guibg=NONE    gui=NONE
-" hi Repeat       guifg= guibg=NONE    gui=NONE
-" hi Label       guifg= guibg=NONE    gui=NONE
-hi Operator      guifg=#ff8036 guibg=NONE    gui=NONE
-" hi Keyword       guifg= guibg=NONE    gui=NONE
-hi Exception     guifg=#e4d00a guibg=NONE    gui=NONE
-" ---------------------------------------------------------------------
-hi PreProc       guifg=#bada55 guibg=NONE    gui=NONE
-" hi Include       guifg= guibg=NONE    gui=NONE
-"hi Define        guifg=#bada55 guibg=NONE    gui=NONE
-" hi Macro        guifg=#bada55 guibg=NONE    gui=NONE
-" hi PreCondit        guifg=#bada55 guibg=NONE    gui=NONE
-" ---------------------------------------------------------------------
-"hi Type          guifg=#26ffa1 guibg=NONE    gui=NONE
-"hi Type          guifg=#ff3800 guibg=NONE    gui=NONE
-hi Type          guifg=#ff4040 guibg=NONE    gui=NONE
-"hi StorageClass  guifg=#f4bbff guibg=NONE    gui=NONE
-hi StorageClass  guifg=#da8a67 guibg=NONE    gui=NONE
-" hi Structure  guifg= guibg=NONE    gui=NONE
-" hi Typedef  guifg= guibg=NONE    gui=NONE
-" ---------------------------------------------------------------------
-hi Special       guifg=#ff8da1 guibg=NONE    gui=NONE
-" hi SpecialChar       guifg=#ff8da1 guibg=NONE    gui=NONE
-" hi Tag           guifg= guibg=NONE    gui=NONE
-" hi Delimiter           guifg= guibg=NONE    gui=NONE
-" hi SpecialComment           guifg= guibg=NONE    gui=NONE
-" hi Debug           guifg= guibg=NONE    gui=NONE
-" ---------------------------------------------------------------------
-hi Underlined    guifg=#80a0ff guibg=NONE    gui=NONE
-" ---------------------------------------------------------------------
-" hi Ignore        guifg= guibg=NONE    gui=NONE
-" ---------------------------------------------------------------------
-hi Error         guifg=#870000 guibg=#ffa40b gui=NONE
-" ---------------------------------------------------------------------
-hi TODO          guifg=#ff0087 guibg=#ffff87 gui=NONE
-
-" ---------------------------------------------------------------------
-" Extended Highlighting
-
-hi NonText       guifg=#838383 guibg=NONE    gui=NONE
-hi Visual        guifg=#262626 guibg=#ffff4d gui=NONE
-hi ErrorMsg      guifg=#870000 guibg=#ffa40b gui=NONE
-hi IncSearch     guifg=#262626 guibg=#ff9933 gui=NONE
-hi Search        guifg=#262626 guibg=#ff9933 gui=NONE
-hi MoreMsg       guifg=#616161 guibg=NONE    gui=NONE
-hi ModeMsg       guifg=#616161 guibg=NONE    gui=NONE
-hi LineNr        guifg=#838383 guibg=NONE    gui=NONE
-hi VertSplit     guifg=#212121 guibg=#474747 gui=NONE
-hi VisualNOS     guifg=#262626 guibg=#ffff4d gui=NONE
-"hi Folded        guifg=#2e4545 guibg=#1e2d2d gui=NONE
-hi Folded        guifg=#426464 guibg=#1e2d2d gui=NONE
-hi DiffAdd       guifg=#ffffff guibg=#006600 gui=NONE
-hi DiffChange    guifg=#ffffff guibg=#007878 gui=NONE
-hi DiffDelete    guifg=#ff0101 guibg=#9a0000 gui=NONE
-hi DiffText      guifg=#000000 guibg=#ffb733 gui=NONE
-hi SpellBad      guifg=#d80000 guibg=#ffff9a gui=NONE
-hi SpellCap      guifg=#8b4600 guibg=#ffff9a gui=NONE
-hi SpellRare     guifg=#ff0000 guibg=#ffff9a gui=NONE
-hi SpellLocal    guifg=#008b00 guibg=#ffff9a gui=NONE
-" hi StatusLine    guifg=#000000 guibg=#8d8d8d gui=NONE
-" hi StatusLine    guifg=#ffffff guibg=#2e4545 gui=NONE
-" hi StatusLine    guifg=#ffffff guibg=#1e2d2d gui=NONE
-" hi StatusLine    guifg=#ffffff guibg=#353535 gui=NONE
-" hi StatusLine    guifg=#ffffff guibg=#1f2e2e gui=NONE
-hi StatusLine    guifg=#ffffff guibg=#002b2b gui=NONE
-hi StatusLineNC  guifg=#ffffff guibg=#474747 gui=NONE
-" hi Pmenu         guifg=#586e75 guibg=#fdf6e3 gui=NONE
-" hi PmenuSel      guifg=#fdf6e3 guibg=#2aa198 gui=NONE
-" hi PmenuSbar     guifg=#fdf6e3 guibg=#fdf6e3 gui=NONE
-" hi PmenuThumb    guifg=#fdf6e3 guibg=#fdf6e3 gui=NONE
-" hi Pmenu         guifg=#426464 guibg=#002b2b gui=NONE
-" hi Pmenu         guifg=#609292 guibg=#002b2b gui=NONE
-hi Pmenu         guifg=#7ca9a9 guibg=#002b2b gui=NONE
-hi PmenuSel      guifg=#002b2b guibg=#fdf6e3 gui=NONE
-hi PmenuSbar     guifg=#002b2b guibg=#002b2b gui=NONE
-hi PmenuThumb    guifg=#002b2b guibg=#002b2b gui=NONE
-hi MatchParen    guifg=#000000 guibg=#ff4040 gui=NONE
-hi CursorLine    guifg=NONE    guibg=#2e2e2e gui=NONE
-"hi CursorLineNr  guifg=#50c878 guibg=#2e2e2e gui=NONE
-"hi CursorLineNr  guifg=#3eb489 guibg=NONE    gui=NONE
-"hi CursorLineNr  guifg=#f5fffa guibg=NONE    gui=NONE
-hi CursorLineNr  guifg=#87ceeb guibg=NONE    gui=NONE
-hi CursorColumn  guifg=NONE    guibg=#2e2e2e gui=NONE
-hi ColorColumn   guifg=NONE    guibg=#3e3739 gui=NONE
-hi WildMenu      guifg=#002b2b guibg=#ffffff gui=NONE
-hi SignColumn    guifg=NONE    guibg=#212121 gui=NONE
-" }}}
-"
-" Language Specifics: {{{
-" ---------------------------------------------------------------------
-" These are language specifics. These are set explicitly to override the group
-" highlighting provided by vim (Simply to make the language that you're working
-" on more awesome, and fun to work with !)
-" ---------------------------------------------------------------------
-" Python Specifics
-"hi pythonDot        guifg=#00ffa5 guibg=NONE gui=NONE
-"hi pythonDot        guifg=#ffff31 guibg=NONE gui=NONE
-"hi pythonDot        guifg=#ff0800 guibg=NONE gui=NONE
-hi pythonDot                 guifg=#d70a53 guibg=NONE gui=NONE
-hi pythonParameters          guifg=#bada55 guibg=NONE gui=NONE
-hi pythonClassParameters     guifg=#bada55 guibg=NONE gui=NONE
-hi pythonClass               guifg=#00bcbc guibg=NONE gui=NONE
-"
-" ---------------------------------------------------------------------
-"  Ruby Specifics
-hi rubyInterpolation      guifg=#ff4040 guibg=NONE gui=NONE
-"hi rubyMethodBlock        guifg=#ff8da1 guibg=NONE gui=NONE
-"hi rubyMethodBlock        guifg=#8ddaff guibg=NONE gui=NONE
-hi rubyMethodBlock        guifg=#ffb28d guibg=NONE gui=NONE
-hi rubyCurlyBlock         guifg=#f64a8a guibg=NONE gui=NONE
-hi rubyDoBlock            guifg=#f64a8a guibg=NONE gui=NONE
-hi rubyBlockExpression    guifg=#f64a8a guibg=NONE gui=NONE
-hi rubyArrayDelimiter     guifg=#00bcbc guibg=NONE gui=NONE
-"
-" ---------------------------------------------------------------------
-" }}}
-"
-" Extras: {{{
-" ---------------------------------------------------------------------
-" These are extra parts for highlighting certain external plugins
-" ---------------------------------------------------------------------
-"
-" Startify (https://github.com/mhinz/vim-startify)
-"
-hi StartifyBracket  guifg=#b06bfc guibg=NONE gui=NONE
-hi StartifyNumber   guifg=#bada55 guibg=NONE gui=NONE
-hi StartifySpecial  guifg=#2e8857 guibg=NONE gui=NONE
-hi StartifyPath     guifg=#545454 guibg=NONE gui=NONE
-hi StartifySlash    guifg=#474747 guibg=NONE gui=NONE
-" hi StartifyFile     guifg=#00ffa5 guibg=NONE gui=NONE
-" hi StartifyFile     guifg=#2aa198 guibg=NONE gui=NONE
-" hi StartifyFile     guifg=#f0e68c guibg=NONE gui=NONE
-hi StartifyFile     guifg=#fa8072 guibg=NONE gui=NONE
-hi StartifyHeader   guifg=#f0e68c guibg=NONE gui=NONE
-hi StartifyFooter   guifg=#a0522d guibg=NONE gui=NONE
-"
-" ---------------------------------------------------------------------
-"
-" Signify (https://github.com/mhinz/vim-signify)
-"
-hi SignifySignAdd    guifg=#00ff00 guibg=#212121 gui=NONE
-hi SignifySignChange guifg=#ff5f00 guibg=#212121 gui=NONE
-hi SignifySignDelete guifg=#ff0000 guibg=#212121 gui=NONE
-"
-" ---------------------------------------------------------------------
-" }}}
-"
-" vim:foldmethod=marker:foldlevel=0:textwidth=79
-"

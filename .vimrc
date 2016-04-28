@@ -77,8 +77,7 @@ endif
 if has('gui_running')
   set guioptions-=T  " no toolbar
   set background=light
-  color Tomorrow
-  "colo alextrastero
+  colo alextrastero
 else
   set background=dark
 	colo solarized

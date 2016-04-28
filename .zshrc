@@ -80,16 +80,20 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# ///////////////// ALIASES ///////////////////////////////////////////////////
+# Go to project folder
 alias wim="cd ~/wimdu/"
+# Update git submobules
 alias update="git submodule update"
+# Open my github page in browser
 alias hub="open https://github.com/alextrastero/wimdu"
 alias watch="webpack-dev-server --progress --colors"
+# Show used ports
 alias ports="lsof -i -P | grep -i 'listen'"
 alias gs='git show'
+# Uncommit last commit and unstage - to see all new stuff in vim-git
 alias gundo='git reset --soft HEAD~ && git reset HEAD .'
+# Show random cat gif in terminal (requires imgcat script and iTerm3 nightly)
 alias catnip='curl -s http://edgecats.net/first | imgcat'
 alias edit='vim ~/.vimrc'
 alias find='open https://github.com/wimdu/wimdu/find/master'

@@ -146,6 +146,24 @@ let g:ctrlp_cmd = 'CtrlP'
 "Change color of bracket highlight
 hi MatchParen ctermbg=yellow guifg='white' guibg='#4271ae'
 
+"Change search highlihght color
+hi Search ctermbg=yellow guifg='white' guibg='#4271ae'
+
+" CUSTOM ***************************************
+" Damian Conway's Die Blinkënmatchen: highlight matches
+nnoremap <silent> n n:call HLNext(0.2)<cr>
+nnoremap <silent> N N:call HLNext(0.2)<cr>
+
+function! HLNext (blinktime)
+  let target_pat = '\c\%#'.@/
+  let ring = matchadd('ErrorMsg', target_pat, 101)
+  redraw
+  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+  call matchdelete(ring)
+  redraw
+endfunction
+" END CUSTOM ************************************
+
 "XML plugin config
 let xml_use_xhtml = 1
 let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'javascript.jsx' : 1 }

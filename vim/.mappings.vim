@@ -10,13 +10,21 @@ let g:mapleader = ","
 " leader + r - reload config and airline
 nmap <Leader>r :so $MYVIMRC<cr>:AirlineRefresh<cr>:IndentLinesEnable<cr>:echo "Updated"<cr>
 
+"jump to other tag
+nnoremap <leader>5 :MtaJumpToOtherTag<cr>
+
+" Remap search to search and don't go to next result
+nnoremap <Leader>d :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
 " Fast saving
 nmap <leader>w :w!<cr>
 " Better ESC key
 imap kj <ESC>
 
-nmap <leader>1 :bp<Return>
-nmap <leader>2 :bn<Return>
+nmap <leader>1 :bp<cr>
+nmap <leader>2 :bn<cr>
+nmap <leader>9 :bn<cr>
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -38,10 +46,6 @@ nnoremap <F3> :lclose<CR>
 
 " Hackatron
 nmap ; :
-
-" CMD 1 takes you to first buffer and CMD 9 to last
-nmap <D-1> :bfirst<cr>
-nmap <D-9> :blast<cr>
 
 " qq to delete buffer
 nmap qq :bd<cr>

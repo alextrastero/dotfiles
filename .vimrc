@@ -1,3 +1,4 @@
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -10,7 +11,6 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
 
 set nocompatible
 filetype off
@@ -143,6 +143,24 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+"Change color of bracket highlight
+hi MatchParen ctermbg=yellow guifg='white' guibg='#4271ae'
+
+"XML plugin config
+let xml_use_xhtml = 1
+let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'javascript.jsx' : 1 }
+let g:mta_use_matchparen_group=0
+let g:mta_set_default_matchtag_color=0
+hi MatchTag guifg='#c82829' guibg='white'
+
+"Fix closing color in XML
+highlight link xmlEndTag xmlTag
+
+"filenames like *.xml, *.html, *.xhtml, ...
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
+
+"show commands
+set showcmd
 
 " always split windows vertically
 set splitright

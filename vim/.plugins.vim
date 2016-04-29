@@ -15,3 +15,6 @@ Plugin 'mxw/vim-jsx'
 Plugin 'bronson/vim-trailing-whitespace'
 "BufExplorer Plugin for Vim
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'Valloric/MatchTagAlways'
+"Auto close (X)HTML tags
+Plugin 'alvan/vim-closetag'

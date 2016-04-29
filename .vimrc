@@ -147,16 +147,16 @@ let g:ctrlp_cmd = 'CtrlP'
 hi MatchParen ctermbg=yellow guifg='white' guibg='#4271ae'
 
 "Change search highlihght color
-hi Search ctermbg=yellow guifg='white' guibg='#4271ae'
+hi Search ctermbg=yellow guifg='white' guibg='#718c00'
 
 " CUSTOM ***************************************
 " Damian Conway's Die Blinkënmatchen: highlight matches
-nnoremap <silent> n n:call HLNext(0.2)<cr>
-nnoremap <silent> N N:call HLNext(0.2)<cr>
+nnoremap <silent> n n:call HLNext(0.1)<cr>
+nnoremap <silent> N N:call HLNext(0.1)<cr>
 
 function! HLNext (blinktime)
   let target_pat = '\c\%#'.@/
-  let ring = matchadd('ErrorMsg', target_pat, 101)
+  let ring = matchadd('Underlined', target_pat, 101)
   redraw
   exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
   call matchdelete(ring)

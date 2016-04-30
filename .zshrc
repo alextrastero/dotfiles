@@ -83,6 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # ///////////////// ALIASES ///////////////////////////////////////////////////
 # Go to project folder
 alias wim="cd ~/wimdu/"
+# Go to dev folder
+alias dev="cd ~/dev"
 # Update git submobules
 alias update="git submodule update"
 # Open my github page in browser

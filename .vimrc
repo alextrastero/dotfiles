@@ -64,6 +64,8 @@ else
     set wildignore+=.git\*,.hg\*,.svn\*
 endif
 
+let conceal_level = 0
+
 source ~/.vim/.mappings.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts

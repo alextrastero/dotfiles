@@ -117,10 +117,15 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
+" Airline Config
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
+" Remove arrows
+let g:airline_right_sep = ''
+let g:airline_left_sep = ''
 
+"Font Config
 "set guifont=Roboto\ Mono\ for\ Powerline:h13
 "set guifont=Inconsolata\ for\ Powerline:h14
 "set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15

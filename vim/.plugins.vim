@@ -18,3 +18,5 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'Valloric/MatchTagAlways'
 "Auto close (X)HTML tags
 Plugin 'alvan/vim-closetag'
+"Vim plugin for intensely orgasmic commenting
+Plugin 'scrooloose/nerdcommenter'

@@ -20,7 +20,7 @@ nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 " Fast saving
 nmap <leader>w :w!<cr>
 " Better ESC key
-imap kj <ESC>
+"imap kj <ESC>
 
 nmap <leader>1 :bp<cr>
 nmap <leader>2 :bn<cr>

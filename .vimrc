@@ -78,20 +78,37 @@ endif
 "Solarized
 if has('gui_running')
   set guioptions-=T  " no toolbar
-  set background=light
-  colo alextrastero
+  "dark
+  set background=dark
+  let g:airline_theme='base16'
+  colo base16-flat
+  let g:indentLine_color_gui = '#283038'
+  "Change search highlihght color
+  "hi Search ctermbg=yellow guifg='white' guibg='#718c00'
+  "Change color of bracket highlight
+  hi MatchTag guifg='#E74C3C' guibg='NONE'
+  hi MatchParen ctermbg='NONE' guibg='#3498DB' guifg='NONE'
+
+  "light
+  "set background=light
+  "let g:airline_theme='tomorrow'
+  "let g:indentLine_color_gui = '#E7DDED'
+  "hi MatchTag guifg='#c82829' guibg='white'
+  "colo tomorrow
+  "hi MatchParen ctermbg=yellow guifg='white' guibg='#4271ae'
 else
   set background=dark
 	colo solarized
+  let g:indentLine_color_term = 239
 endif
 
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
+  set guioptions-=T
+  set guioptions-=e
+  set t_Co=256
+  set guitablabel=%M\ %t
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -102,12 +119,13 @@ set ffs=unix,dos,mac
 
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline_theme='luna'
-let g:airline_theme='tomorrow'
 set laststatus=2
 
 "set guifont=Roboto\ Mono\ for\ Powerline:h13
-set guifont=Inconsolata\ for\ Powerline:h14
+"set guifont=Inconsolata\ for\ Powerline:h14
+"set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
+"set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+set guifont=Fira\ Code:h13
 
 "hide scrollbar
 set guioptions-=L
@@ -130,13 +148,17 @@ let g:syntastic_warning_symbol = "?"
 
 highlight FoldColumn guifg=white guibg=#043540
 
+
+"hi LineNr guibg=bg
+"set foldcolumn=2
+"hi foldcolumn guibg=bg
+hi VertSplit guibg=bg guifg=bg
+
 " vertical split borders
 "set fillchars+=vert:\
 
 "indentLine customization
-let g:indentLine_color_term = 239
 "GVim
-let g:indentLine_color_gui = '#E7DDED'
 
 "Ctrl Faster
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
@@ -144,12 +166,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-
-"Change color of bracket highlight
-hi MatchParen ctermbg=yellow guifg='white' guibg='#4271ae'
-
-"Change search highlihght color
-hi Search ctermbg=yellow guifg='white' guibg='#718c00'
 
 " CUSTOM ***************************************
 " Damian Conway's Die Blinkënmatchen: highlight matches
@@ -171,7 +187,6 @@ let xml_use_xhtml = 1
 let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'javascript.jsx' : 1 }
 let g:mta_use_matchparen_group=0
 let g:mta_set_default_matchtag_color=0
-hi MatchTag guifg='#c82829' guibg='white'
 
 "Fix closing color in XML
 highlight link xmlEndTag xmlTag

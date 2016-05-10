@@ -17,6 +17,13 @@ nnoremap <leader>5 :MtaJumpToOtherTag<cr>
 nnoremap <Leader>d :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
+" Resize splits
+nnoremap <silent> <Leader>] :exe "vertical resize -5"<CR>
+nnoremap <silent> <Leader>[ :exe "vertical resize +5"<CR>
+
+" Toggle numbrs
+nmap <leader>n :set invnumber<CR>
+
 " Fast saving
 nmap <leader>w :w!<cr>
 " Better ESC key

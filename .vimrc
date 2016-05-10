@@ -84,7 +84,7 @@ if has('gui_running')
   colo base16-flat
   let g:indentLine_color_gui = '#283038'
   "Change search highlihght color
-  "hi Search ctermbg=yellow guifg='white' guibg='#718c00'
+  hi Search ctermbg=yellow guifg='#2C3E50' guibg='#F1C40F'
   "Change color of bracket highlight
   hi MatchTag guifg='#E74C3C' guibg='NONE'
   hi MatchParen ctermbg='NONE' guibg='#3498DB' guifg='NONE'

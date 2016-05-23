@@ -12,6 +12,9 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
+"new color for past 80 column
+let &colorcolumn=join(range(81,999),",")
+
 set nocompatible
 filetype off
 
@@ -199,6 +202,9 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
 
 "show commands
 set showcmd
+
+"search for visual selected
+vnoremap // y/<C-R>"<CR>
 
 " always split windows vertically
 set splitright

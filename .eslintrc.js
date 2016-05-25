@@ -26,7 +26,9 @@ module.exports = {
     "react/react-in-jsx-scope": 0,
     "react/jsx-uses-vars": 2,
     "react/jsx-pascal-case": [ 2, "always" ],
-    "react/sort-prop-types": [ 2 , { "requiredFirst": true } ]
+    "react/sort-prop-types": [ 2 , { "requiredFirst": true } ],
+    "react/prop-types": 1,
+    "react/jsx-no-undef": 1
   },
   "globals": {
     "React": true

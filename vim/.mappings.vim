@@ -48,6 +48,7 @@ nnoremap <C-H> <C-W><C-H>
 imap <Tab> <C-n>
 
 nnoremap <F1> :NERDTreeToggle<CR>
+nnoremap <Leader>\ :NERDTreeFind<CR>
 nnoremap <F2> :lopen<CR>
 nnoremap <F3> :lclose<CR>
 

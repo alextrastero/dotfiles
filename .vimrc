@@ -146,7 +146,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_loc_list_height = 2
 let g:syntastic_javascript_eslint_args = "--no-eslintrc --config ~/.eslintrc.js"
 let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "?"
+let g:syntastic_warning_symbol = "♬"
 highlight SyntasticErrorSign guifg=#E74C3C guibg=#34495E
 "guibg=#043540
 "highlight SyntasticWarningSign guifg=#cb4b16 guibg=NONE

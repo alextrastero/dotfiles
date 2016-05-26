@@ -22,6 +22,7 @@ module.exports = {
     "quotes": [ "error", "single" ],
     "comma-dangle": [ "error", "never" ],
     "semi": [ "error", "always" ],
+    "object-shorthand": 2,
     "object-curly-spacing": [ "error", "always" ],
     "react/react-in-jsx-scope": 0,
     "react/jsx-uses-vars": 2,

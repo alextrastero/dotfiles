@@ -48,6 +48,10 @@ set smartcase
 set ignorecase
 set hlsearch
 set incsearch
+"
+"search for visual selected
+vnoremap // y/<C-R>"<CR>
+
 
 "set underline
 set guicursor+=n:hor20-Cursor/lCursor
@@ -87,7 +91,7 @@ if has('gui_running')
   colo base16-flat
   let g:indentLine_color_gui = '#283038'
   "Change search highlihght color
-  hi Search ctermbg=yellow guifg='#2C3E50' guibg='#F1C40F'
+  hi Search ctermbg=yellow guifg='#283038' guibg='#F1C40F'
   "Change color of bracket highlight
   hi MatchTag guifg='#E74C3C' guibg='NONE'
   hi MatchParen ctermbg='NONE' guibg='#3498DB' guifg='NONE'
@@ -131,7 +135,7 @@ set noshowmode
 "set guifont=Inconsolata\ for\ Powerline:h14
 "set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
 "set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-set guifont=Fira\ Code:h13
+set guifont=Fira\ Code:h14
 
 "hide scrollbar
 set guioptions-=L
@@ -200,11 +204,11 @@ highlight link xmlEndTag xmlTag
 "filenames like *.xml, *.html, *.xhtml, ...
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
 
+"Let js files be treated as JSX
+let g:jsx_ext_required = 0
+
 "show commands
 set showcmd
-
-"search for visual selected
-vnoremap // y/<C-R>"<CR>
 
 " always split windows vertically
 set splitright

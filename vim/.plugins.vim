@@ -20,3 +20,7 @@ Plugin 'Valloric/MatchTagAlways'
 Plugin 'alvan/vim-closetag'
 "Vim plugin for intensely orgasmic commenting
 Plugin 'scrooloose/nerdcommenter'
+"quoting/parenthesizing made simple
+Plugin 'tpope/vim-surround'
+"Git wrapper
+Plugin 'tpope/vim-fugitive'

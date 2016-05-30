@@ -211,6 +211,7 @@ let g:jsx_ext_required = 0
 set showcmd
 
 " always split windows vertically
+set splitbelow
 set splitright
 set diffopt+=vertical
 silent! set splitvertical

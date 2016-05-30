@@ -29,7 +29,7 @@ module.exports = {
     "react/jsx-pascal-case": [ 2, "always" ],
     "react/sort-prop-types": [ 2 , { "requiredFirst": true } ],
     "react/prop-types": 1,
-    "react/jsx-no-undef": 1
+    "react/jsx-no-undef": 2
   },
   "globals": {
     "React": true

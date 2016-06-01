@@ -5,6 +5,9 @@
 " Sets how many lines of history VIM has to remember
 set history=500
 
+" Hack to make buffers hide instead of close
+set hidden
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -51,7 +54,6 @@ set incsearch
 "
 "search for visual selected
 vnoremap // y/<C-R>"<CR>
-
 
 "set underline
 set guicursor+=n:hor20-Cursor/lCursor

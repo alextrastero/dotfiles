@@ -57,3 +57,7 @@ nmap ; :
 
 " qq to delete buffer
 nmap qq :bd<cr>
+
+" Paste in insert mode
+set pastetoggle=<F10>
+imap <C-V> <F10><C-r>"<F10>

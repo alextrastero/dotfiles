@@ -36,7 +36,8 @@ filetype plugin indent on    " required
 syntax on
 "set cursorline
 set number
-set numberwidth=1
+set numberwidth=2
+set foldcolumn=0
 set expandtab
 set modelines=0
 set shiftwidth=2
@@ -84,16 +85,40 @@ if !exists("g:syntax_on")
   syntax enable
 endif
 
+let base00 = "#2C3E50" "gray0
+let base01 = "#34495E" "gray1
+let base02 = "#7F8C8D" "gray2
+let base03 = "#95A5A6" "gray3
+let base04 = "#BDC3C7" "gray4
+let base05 = "#e0e0e0" "gray5
+let base06 = "#f5f5f5" "gray6
+let base07 = "#ECF0F1" "gray7
+
+let base08 = "#E74C3C" "red
+let base09 = "#E67E22" "orange
+let base0A = "#F1C40F" "yellow
+let base0B = "#2ECC71" "green
+let base0C = "#1ABC9C" "green-dark
+let base0D = "#3498DB" "blue
+let base0E = "#9B59B6" "purple
+let base0F = "#be643c" "brown
+
 "Solarized
 if has('gui_running')
+  set guioptions-=e
+  set t_Co=256
+  set guitablabel=%M\ %t
   set guioptions-=T  " no toolbar
   "dark
   set background=dark
   let g:airline_theme='base16'
   colo base16-flat
+  "Colors https://chriskempson.github.io/base16/#flat
   let g:indentLine_color_gui = '#283038'
   "Change search highlihght color
-  hi Search ctermbg=yellow guifg='#283038' guibg='#F1C40F'
+  exe 'hi Search guifg='.base07.' guibg='.base0E
+  "Change VISUAL color
+  exe 'hi Visual guifg='.base00.' guibg='.base0D
   "Change color of bracket highlight
   hi MatchTag guifg='#E74C3C' guibg='NONE'
   hi MatchParen ctermbg='NONE' guibg='#3498DB' guifg='NONE'
@@ -109,15 +134,6 @@ else
   set background=dark
 	colo solarized
   let g:indentLine_color_term = 239
-endif
-
-
-" Set extra options when running in GUI mode
-if has("gui_running")
-  set guioptions-=T
-  set guioptions-=e
-  set t_Co=256
-  set guitablabel=%M\ %t
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -152,7 +168,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_loc_list_height = 2
 let g:syntastic_javascript_eslint_args = "--no-eslintrc --config ~/.eslintrc.js"
 let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "♬"
+let g:syntastic_warning_symbol = "½"
 highlight SyntasticErrorSign guifg=#E74C3C guibg=#34495E
 "guibg=#043540
 "highlight SyntasticWarningSign guifg=#cb4b16 guibg=NONE

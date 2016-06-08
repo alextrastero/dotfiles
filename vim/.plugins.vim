@@ -24,3 +24,5 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 "Git wrapper
 Plugin 'tpope/vim-fugitive'
+"Jade plugin
+Plugin 'digitaltoad/vim-pug'

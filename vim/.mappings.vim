@@ -13,6 +13,15 @@ nmap <Leader>r :so $MYVIMRC<cr>:AirlineRefresh<cr>:IndentLinesEnable<cr>:echo "U
 "jump to other tag
 nnoremap <leader>5 :MtaJumpToOtherTag<cr>
 
+"search for vis1al selected
+vnoremap // y/<C-R>"<CR>
+
+"sort
+vnoremap ,, :sort<CR>
+
+" Indent entire file
+map <F7> mzgg=G`z
+
 " Remap search to search and don't go to next result
 nnoremap <Leader>d :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>

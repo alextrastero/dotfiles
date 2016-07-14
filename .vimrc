@@ -15,9 +15,6 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
-"new color for past 80 column
-let &colorcolumn=join(range(81,999),",")
-
 set nocompatible
 filetype off
 
@@ -35,7 +32,6 @@ filetype plugin indent on    " required
 
 syntax on
 "set cursorline
-set number
 set numberwidth=2
 set foldcolumn=0
 set expandtab
@@ -52,9 +48,6 @@ set smartcase
 set ignorecase
 set hlsearch
 set incsearch
-"
-"search for visual selected
-vnoremap // y/<C-R>"<CR>
 
 "set underline
 set guicursor+=n:hor20-Cursor/lCursor
@@ -69,10 +62,11 @@ set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 else
-    set wildignore+=.git\*,.hg\*,.svn\*
+  set wildignore+=.git\*,.hg\*,.svn\*
 endif
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,*.orig,.pdf,*.DS_Store
 
 let conceal_level = 0
 
@@ -109,19 +103,57 @@ if has('gui_running')
   set t_Co=256
   set guitablabel=%M\ %t
   set guioptions-=T  " no toolbar
+
   "dark
   set background=dark
   let g:airline_theme='base16'
   colo base16-flat
   "Colors https://chriskempson.github.io/base16/#flat
+
+  let g:gitgutter_override_sign_column_highlight=1
+  hi clear SignColumn
+
+  exe 'hi GitGutterAdd guifg='.base0B.' guibg='.base00
+  exe 'hi GitGutterChange guifg='.base0A.' guibg='.base00
+  exe 'hi GitGutterDelete guifg='.base08.' guibg='.base00
+  exe 'hi GitGutterChangeDelete guifg='.base0E.' guibg='.base00
+
+  " Add symbols
+  "let g:gitgutter_sign_added = '✚'
+  "let g:gitgutter_sign_modified = '♒︎'
+  "let g:gitgutter_sign_removed = '✦'
+  "let g:gitgutter_sign_removed_first_line = '⚓︎'
+  "let g:gitgutter_sign_modified_removed = '✈︎'
+
+  exe 'hi SyntasticErrorSign guifg='.base08.' guibg='.base00
+  exe 'hi SyntasticWarningSign guifg='.base09.' guibg='.base00
+  highlight FoldColumn guifg=white guibg=#043540
+
   let g:indentLine_color_gui = '#283038'
   "Change search highlihght color
-  exe 'hi Search guifg='.base07.' guibg='.base0E
+  exe 'hi Search guifg='.base06.' guibg='.base0E
   "Change VISUAL color
-  exe 'hi Visual guifg='.base00.' guibg='.base0D
-  "Change color of bracket highlight
+  exe 'hi Visual guifg='.base00.' guibg='.base0C
+  "Change Gutter color
+  exe 'hi SignColumn guibg='.base00.' guifg='.base0C
+  "Change number color
+  exe 'hi LineNr guifg='.base02.' guibg='.base00
+
+  "Change color of bracket highlight | Slows down
+  "hi MatchParen ctermbg='NONE' guibg='#3498DB' guifg='NONE'
   hi MatchTag guifg='#E74C3C' guibg='NONE'
-  hi MatchParen ctermbg='NONE' guibg='#3498DB' guifg='NONE'
+
+  "XML plugin config
+  let xml_use_xhtml = 1
+  let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'javascript.jsx' : 1 }
+  let g:mta_use_matchparen_group=0
+  let g:mta_set_default_matchtag_color=0
+
+  "Fix closing color in XML
+  highlight link xmlEndTag xmlTag
+
+  "filenames like *.xml, *.html, *.xhtml, ...
+  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
 
   "light
   "set background=light
@@ -135,6 +167,10 @@ else
 	colo solarized
   let g:indentLine_color_term = 239
 endif
+
+"new color for past 80 column
+exe 'hi ColorColumn guibg='.base01
+let &colorcolumn=join(range(81,300),",")
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -166,16 +202,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_loc_list_height = 2
-let g:syntastic_javascript_eslint_args = "--no-eslintrc --config ~/.eslintrc.js"
+let g:syntastic_javascript_eslint_args = '--no-eslintrc --config ~/.eslintrc.js'
 let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "½"
-highlight SyntasticErrorSign guifg=#E74C3C guibg=#34495E
-"guibg=#043540
-"highlight SyntasticWarningSign guifg=#cb4b16 guibg=NONE
-"guibg=#043540
-
-highlight FoldColumn guifg=white guibg=#043540
-
+let g:syntastic_warning_symbol = "☭"
 
 "hi LineNr guibg=bg
 "set foldcolumn=2
@@ -190,7 +219,6 @@ hi VertSplit guibg=bg guifg=bg
 
 "Ctrl Faster
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-"Help CtrlP set initial directory
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -209,18 +237,6 @@ function! HLNext (blinktime)
   redraw
 endfunction
 " END CUSTOM ************************************
-
-"XML plugin config
-let xml_use_xhtml = 1
-let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'javascript.jsx' : 1 }
-let g:mta_use_matchparen_group=0
-let g:mta_set_default_matchtag_color=0
-
-"Fix closing color in XML
-highlight link xmlEndTag xmlTag
-
-"filenames like *.xml, *.html, *.xhtml, ...
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
 
 "Let js files be treated as JSX
 let g:jsx_ext_required = 0

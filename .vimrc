@@ -97,6 +97,9 @@ let base0D = "#3498DB" "blue
 let base0E = "#9B59B6" "purple
 let base0F = "#be643c" "brown
 
+"filenames like *.xml, *.html, *.xhtml, ...
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
+
 "Solarized
 if has('gui_running')
   set guioptions-=e
@@ -125,8 +128,6 @@ if has('gui_running')
   "let g:gitgutter_sign_removed_first_line = '⚓︎'
   "let g:gitgutter_sign_modified_removed = '✈︎'
 
-  exe 'hi SyntasticErrorSign guifg='.base08.' guibg='.base00
-  exe 'hi SyntasticWarningSign guifg='.base09.' guibg='.base00
   highlight FoldColumn guifg=white guibg=#043540
 
   let g:indentLine_color_gui = '#283038'
@@ -152,9 +153,6 @@ if has('gui_running')
   "Fix closing color in XML
   highlight link xmlEndTag xmlTag
 
-  "filenames like *.xml, *.html, *.xhtml, ...
-  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
-
   "light
   "set background=light
   "let g:airline_theme='tomorrow'
@@ -163,9 +161,11 @@ if has('gui_running')
   "colo tomorrow
   "hi MatchParen ctermbg=yellow guifg='white' guibg='#4271ae'
 else
+  "let g:indentLine_color_term = '444'
   set background=dark
-	colo solarized
-  let g:indentLine_color_term = 239
+  colo default
+  "let g:indentLine_color_gui = '#E74C3C'
+	"colo solarized
 endif
 
 "new color for past 80 column
@@ -195,6 +195,9 @@ set guifont=Fira\ Code:h14
 set guioptions-=L
 set guioptions-=r
 
+exe 'hi SyntasticErrorSign guifg='.base08.' guibg='.base00
+exe 'hi SyntasticWarningSign guifg='.base09.' guibg='.base00
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
@@ -204,7 +207,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_loc_list_height = 2
 let g:syntastic_javascript_eslint_args = '--no-eslintrc --config ~/.eslintrc.js'
 let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "☭"
+let g:syntastic_warning_symbol = '⚠'
 
 "hi LineNr guibg=bg
 "set foldcolumn=2

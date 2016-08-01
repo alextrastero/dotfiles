@@ -1,12 +1,16 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Zsh to use the same colors as ls
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} 
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="spaceship"
-ZSH_THEME="theunraveler"
+ZSH_THEME="gitster"
+#ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -87,6 +91,7 @@ alias wim="cd ~/wimdu/"
 alias dev="cd ~/dev"
 # Update git submobules
 alias update="git submodule update"
+alias freshstart="git fetch upstream master && git reset --hard upstream/master && git push origin master"
 # Open my github page in browser
 alias hub="open https://github.com/alextrastero/wimdu"
 alias watch="webpack-dev-server --progress --colors"

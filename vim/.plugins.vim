@@ -26,3 +26,5 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 "Jade plugin
 Plugin 'digitaltoad/vim-pug'
+"Coffee plugin
+Plugin 'kchmck/vim-coffee-script'

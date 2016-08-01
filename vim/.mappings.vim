@@ -13,6 +13,7 @@ nmap <Leader>r :so $MYVIMRC<cr>:AirlineRefresh<cr>:IndentLinesEnable<cr>:echo "U
 "jump to other tag
 nnoremap <leader>5 :MtaJumpToOtherTag<cr>
 
+"move around tabs
 "search for vis1al selected
 vnoremap // y/<C-R>"<CR>
 
@@ -70,3 +71,6 @@ nmap qq :bd<cr>
 " Paste in insert mode
 set pastetoggle=<F10>
 imap <C-V> <F10><C-r>"<F10>
+
+" Remap ctrl-f to Ack
+nmap <C-F> :Ack<space><space>app/ <left><left><left><left><left><left>

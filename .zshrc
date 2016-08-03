@@ -105,6 +105,8 @@ alias catnip='curl -s http://edgecats.net/first | imgcat'
 alias edit='vim ~/dev/dotfiles/.vimrc'
 alias find='open https://github.com/wimdu/wimdu/find/master'
 
+alias gb="git branch --sort=committerdate"
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

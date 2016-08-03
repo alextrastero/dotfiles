@@ -28,6 +28,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'digitaltoad/vim-pug'
 "Coffee plugin
 Plugin 'kchmck/vim-coffee-script'
+"Handlebars
+Plugin 'mustache/vim-mustache-handlebars'
 "Typescript plugin
 Plugin 'leafgarland/typescript-vim'
 Plugin 'burnettk/vim-angular'

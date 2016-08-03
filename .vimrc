@@ -100,7 +100,18 @@ let base0F = "#be643c" "brown
 "filenames like *.xml, *.html, *.xhtml, ...
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
 
-"Solarized
+let g:gitgutter_sign_column_always = 1
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_loc_list_height = 2
+let g:syntastic_javascript_eslint_args = '--no-eslintrc --config ~/.eslintrc.js'
+
+"Base16 for mvim
 if has('gui_running')
   set guioptions-=e
   set t_Co=256
@@ -110,16 +121,24 @@ if has('gui_running')
   "dark
   set background=dark
   let g:airline_theme='base16'
-  colo base16-flat
   "Colors https://chriskempson.github.io/base16/#flat
+  colo base16-flat
 
-  let g:gitgutter_override_sign_column_highlight=1
   hi clear SignColumn
+  "Change Gutter color
+  let g:gitgutter_override_sign_column_highlight = 0
+  exe 'hi SignColumn guibg='.base00.' guifg='.base0C
 
   exe 'hi GitGutterAdd guifg='.base0B.' guibg='.base00
   exe 'hi GitGutterChange guifg='.base0A.' guibg='.base00
   exe 'hi GitGutterDelete guifg='.base08.' guibg='.base00
   exe 'hi GitGutterChangeDelete guifg='.base0E.' guibg='.base00
+
+  exe 'hi SyntasticErrorSign guifg='.base08.' guibg='.base00
+  exe 'hi SyntasticWarningSign guifg='.base09.' guibg='.base00
+
+  let g:syntastic_error_symbol = "✗"
+  let g:syntastic_warning_symbol = '⚠'
 
   " Add symbols
   "let g:gitgutter_sign_added = '✚'
@@ -135,8 +154,6 @@ if has('gui_running')
   exe 'hi Search guifg='.base06.' guibg='.base0E
   "Change VISUAL color
   exe 'hi Visual guifg='.base00.' guibg='.base0C
-  "Change Gutter color
-  exe 'hi SignColumn guibg='.base00.' guifg='.base0C
   "Change number color
   exe 'hi LineNr guifg='.base02.' guibg='.base00
 
@@ -163,9 +180,9 @@ if has('gui_running')
 else
   "let g:indentLine_color_term = '444'
   set background=dark
-  colo default
-  "let g:indentLine_color_gui = '#E74C3C'
-	"colo solarized
+  "colo default
+  let g:indentLine_color_gui = '#E74C3C'
+	colo solarized
 endif
 
 "new color for past 80 column
@@ -195,22 +212,7 @@ set guifont=Fira\ Code:h14
 set guioptions-=L
 set guioptions-=r
 
-exe 'hi SyntasticErrorSign guifg='.base08.' guibg='.base00
-exe 'hi SyntasticWarningSign guifg='.base09.' guibg='.base00
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_loc_list_height = 2
-let g:syntastic_javascript_eslint_args = '--no-eslintrc --config ~/.eslintrc.js'
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = '⚠'
-
 "hi LineNr guibg=bg
-"set foldcolumn=2
 "hi foldcolumn guibg=bg
 hi VertSplit guibg=bg guifg=bg
 
@@ -225,6 +227,11 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+"Change cursor color in different modes
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " CUSTOM ***************************************
 " Damian Conway's Die Blinkënmatchen: highlight matches

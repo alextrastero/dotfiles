@@ -73,4 +73,8 @@ set pastetoggle=<F10>
 imap <C-V> <F10><C-r>"<F10>
 
 " Remap ctrl-f to Ack
-nmap <C-F> :Ack<space><space>app/ <left><left><left><left><left><left>
+nmap <C-F> :Ack<space>
+
+" Navigate throu git hunks
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk

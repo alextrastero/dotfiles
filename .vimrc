@@ -180,9 +180,9 @@ if has('gui_running')
 else
   "let g:indentLine_color_term = '444'
   set background=dark
-  "colo default
+  colo solarized
   let g:indentLine_color_gui = '#E74C3C'
-	colo solarized
+  "colo base16-flat
 endif
 
 "new color for past 80 column
@@ -206,7 +206,7 @@ set noshowmode
 "set guifont=Inconsolata\ for\ Powerline:h14
 "set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
 "set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-set guifont=Fira\ Code:h14
+set guifont=Fira\ Code:h12
 
 "hide scrollbar
 set guioptions-=L

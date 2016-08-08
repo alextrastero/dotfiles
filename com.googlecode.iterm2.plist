@@ -31246,7 +31246,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 289 620 392 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>320 190 918 381 0 0 1280 800 </string>
+	<string>389 198 796 473 0 0 1280 777 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>80 193 592 584 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
@@ -31497,13 +31497,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.33684515953063965</real>
+				<real>0.31763121485710144</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.27730780839920044</real>
+				<real>0.25036346912384033</real>
 				<key>Red Component</key>
-				<real>0.20069397985935211</real>
+				<real>0.1781085878610611</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>

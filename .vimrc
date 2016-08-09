@@ -222,11 +222,8 @@ set guioptions-=r
 "hi foldcolumn guibg=bg
 hi VertSplit guibg=bg guifg=bg
 
-" vertical split borders
-"set fillchars+=vert:\
-
-"indentLine customization
-"GVim
+" Add space after comment
+let g:NERDSpaceDelims = 1
 
 "Ctrl Faster
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']

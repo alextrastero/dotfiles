@@ -138,10 +138,9 @@ if has('gui_running')
   exe 'hi SyntasticErrorSign guifg='.base08.' guibg='.base00
   exe 'hi SyntasticWarningSign guifg='.base09.' guibg='.base00
 
-  "let g:syntastic_error_symbol = "✗"
   "let g:syntastic_warning_symbol = '⚠'
 
-  let g:syntastic_error_symbol = '❌'
+  let g:syntastic_error_symbol = "✗"
   let g:syntastic_style_error_symbol = '⁉️'
   let g:syntastic_warning_symbol = '⚠️'
   let g:syntastic_style_warning_symbol = '💩'
@@ -189,6 +188,8 @@ else
   colo solarized
   let g:indentLine_color_gui = '#E74C3C'
   "colo base16-flat
+  let g:syntastic_warning_symbol = '?'
+  let g:syntastic_error_symbol = '!'
 endif
 
 "new color for past 80 column

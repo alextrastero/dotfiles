@@ -109,7 +109,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_loc_list_height = 2
-let g:syntastic_javascript_eslint_args = '--no-eslintrc --config ~/.eslintrc.js'
+let g:syntastic_javascript_eslint_args = '--ext .js,.jsx'
+" Requires global standard and a few more
 
 "Base16 for mvim
 if has('gui_running')
@@ -137,8 +138,13 @@ if has('gui_running')
   exe 'hi SyntasticErrorSign guifg='.base08.' guibg='.base00
   exe 'hi SyntasticWarningSign guifg='.base09.' guibg='.base00
 
-  let g:syntastic_error_symbol = "✗"
-  let g:syntastic_warning_symbol = '⚠'
+  "let g:syntastic_error_symbol = "✗"
+  "let g:syntastic_warning_symbol = '⚠'
+
+  let g:syntastic_error_symbol = '❌'
+  let g:syntastic_style_error_symbol = '⁉️'
+  let g:syntastic_warning_symbol = '⚠️'
+  let g:syntastic_style_warning_symbol = '💩'
 
   " Add symbols
   "let g:gitgutter_sign_added = '✚'

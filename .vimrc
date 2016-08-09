@@ -112,6 +112,15 @@ let g:syntastic_loc_list_height = 2
 let g:syntastic_javascript_eslint_args = '--ext .js,.jsx'
 " Requires global standard and a few more
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Color spellbad
+let g:syntastic_enable_highlighting = 1
+hi SpellBad ctermfg=050 ctermbg=123 guifg=#123123 guibg=#321321
+hi SpellCap ctermfg=040 ctermbg=321 guifg=#890890 guibg=#098098
+
 "Base16 for mvim
 if has('gui_running')
   set guioptions-=e
@@ -137,8 +146,6 @@ if has('gui_running')
 
   exe 'hi SyntasticErrorSign guifg='.base08.' guibg='.base00
   exe 'hi SyntasticWarningSign guifg='.base09.' guibg='.base00
-
-  "let g:syntastic_warning_symbol = '⚠'
 
   let g:syntastic_error_symbol = "✗"
   let g:syntastic_style_error_symbol = '⁉️'

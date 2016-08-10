@@ -298,6 +298,7 @@ call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('css', 'darkgreen', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('js', 'darkgreen', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('jsx', 'darkmagenta', 'none', '#ffa500', '#151515')
 
 " highlight file in nerdtree
 function! ChangeBuffer()

@@ -199,8 +199,10 @@ else
   colo solarized
   let g:indentLine_color_gui = '#E74C3C'
   "colo base16-flat
-  let g:syntastic_warning_symbol = '?'
-  let g:syntastic_error_symbol = '!'
+  let g:syntastic_warning_symbol = '⇢'
+  let g:syntastic_error_symbol = '→'
+  hi Normal ctermfg=NONE ctermbg=black
+  hi CursorLine cterm=NONE ctermbg=yellow ctermfg=black
 endif
 
 "new color for past 80 column

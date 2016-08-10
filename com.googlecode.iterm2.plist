@@ -31246,11 +31246,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 289 620 392 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>316 138 918 512 0 0 1280 800 </string>
+	<string>284 224 796 473 0 0 1280 800 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>80 193 592 584 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>3 350 710 427 0 0 1280 777 </string>
+	<string>0 350 710 427 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 30 1277 741 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -31315,13 +31315,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.93608629703521729</real>
+				<real>0.56363654136657715</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.93607044219970703</real>
+				<real>0.56485843658447266</real>
 				<key>Red Component</key>
-				<real>0.93609845638275146</real>
+				<real>0.50599193572998047</real>
 			</dict>
 			<key>Ansi 11 Color</key>
 			<dict>
@@ -32127,6 +32127,8 @@
 			<key>Use Cursor Guide</key>
 			<false/>
 			<key>Use Italic Font</key>
+			<true/>
+			<key>Use Non-ASCII Font</key>
 			<true/>
 			<key>Vertical Spacing</key>
 			<real>1.004418062876506</real>
@@ -37911,7 +37913,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-08-03T12:12:49Z</date>
+	<date>2016-08-09T14:30:09Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>

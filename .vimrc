@@ -161,6 +161,10 @@ if has('gui_running')
 
   highlight FoldColumn guifg=white guibg=#043540
 
+  " Vim
+  let g:indentLine_color_term = 239
+  "
+  " "GVim
   let g:indentLine_color_gui = '#283038'
   "Change search highlihght color
   exe 'hi Search guifg='.base06.' guibg='.base0E
@@ -279,3 +283,26 @@ if v:errmsg != ''
 else
   cabbrev hsplit hor split
 endif
+
+"Color different files in nerdtree
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('css', 'darkgreen', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('js', 'darkgreen', 'none', '#ffa500', '#151515')
+
+" highlight file in nerdtree
+function! ChangeBuffer()
+  if bufwinnr(t:NERDTreeBufName) != -1
+    exe "normal! :NERDTreeFind\<cr>\<c-w>\<c-w>"
+  endif
+endfunction
+let g:BufExplorerFuncRef = function('ChangeBuffer')

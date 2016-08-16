@@ -31202,7 +31202,7 @@
 	<key>NSColorPanelMode</key>
 	<string>6</string>
 	<key>NSFontPanelAttributes</key>
-	<string>1, 8</string>
+	<string>1, 4</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/dev/dotfiles</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -31238,25 +31238,23 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSColorPanel</key>
-	<string>29 1532 228 325 -296 800 1920 1057 </string>
+	<string>335 252 228 325 0 0 1366 745 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>610 180 529 329 0 0 1280 800 </string>
+	<string>775 110 525 369 0 0 1366 745 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>260 315 606 456 0 0 1280 777 </string>
+	<string>407 289 606 456 0 0 1366 745 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>785 423 400 129 0 0 1366 745 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>330 289 620 392 0 0 1280 777 </string>
+	<string>373 265 620 392 0 0 1366 745 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>219 242 796 473 0 0 1280 800 </string>
-	<key>NSWindow Frame UKCrashReporter</key>
-	<string>80 193 592 584 0 0 1280 777 </string>
+	<string>426 189 796 473 0 0 1366 768 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 350 710 427 0 0 1280 777 </string>
+	<string>0 314 710 427 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 30 1277 741 0 0 1280 777 </string>
+	<string>656 331 710 427 0 0 1366 768 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>272 239 710 427 0 0 1280 777 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1054 374 665 451 0 0 1920 1057 </string>
+	<string>684 5 682 740 0 0 1366 745 </string>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2_selection</key>
@@ -31277,7 +31275,7 @@
 			<key>AWDS Tab Option</key>
 			<string>Recycle</string>
 			<key>AWDS Window Directory</key>
-			<string>/Users/alex/wimdu</string>
+			<string>/Users/odella/dev</string>
 			<key>AWDS Window Option</key>
 			<string>Yes</string>
 			<key>Allow Title Reporting</key>
@@ -32145,7 +32143,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/alex/wimdu</string>
+			<string>/Users/odella/dev</string>
 		</dict>
 		<dict>
 			<key>ASCII Anti Aliased</key>
@@ -37830,26 +37828,34 @@
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>A14AA59F-D2A2-4465-B05B-054115899430</string>
+	<string>6704F9BD-6317-4EFC-9A5A-CCBF59039688</string>
 	<key>NoSyncLastTipTime</key>
-	<real>478692772.91373903</real>
+	<real>480458401.23249298</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
-	<false/>
+	<true/>
 	<key>NoSyncSuppressAnnyoingBellOffer</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>478606724.721268</real>
+	<real>478734751.26319402</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>477568284.354774</real>
+	<real>477530382.07136899</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>478429325.32716399</real>
+	<real>478720678.382433</real>
+	<key>NoSyncTipsDisabled</key>
+	<true/>
 	<key>NoSyncTipsToNotShow</key>
 	<array>
 		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+		<string>0002</string>
+		<string>0003</string>
+		<string>0004</string>
+		<string>0005</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -37901,7 +37907,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/alex/dev/dotfiles</string>
+	<string>/Users/odella/dev/dotfiles</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -37917,11 +37923,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing.xml?shard=87</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=74</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-08-09T14:30:09Z</date>
+	<date>2016-08-09T17:32:54Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -37961,8 +37967,6 @@
 	<true/>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
-	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1470834432</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>

@@ -177,7 +177,7 @@ if has('gui_running')
 
   "Change color of bracket highlight | Slows down
   "hi MatchParen ctermbg='NONE' guibg='#3498DB' guifg='NONE'
-  hi MatchTag guifg='#E74C3C' guibg='NONE'
+  hi MatchTag guifg='NONE' guibg='NONE'
 
   "XML plugin config
   let xml_use_xhtml = 1
@@ -186,15 +186,8 @@ if has('gui_running')
   let g:mta_set_default_matchtag_color=0
 
   "Fix closing color in XML
-  highlight link xmlEndTag xmlTag
+  " highlight link xmlEndTag xmlTag
 
-  "light
-  "set background=light
-  "let g:airline_theme='tomorrow'
-  "let g:indentLine_color_gui = '#E7DDED'
-  "hi MatchTag guifg='#c82829' guibg='white'
-  "colo tomorrow
-  "hi MatchParen ctermbg=yellow guifg='white' guibg='#4271ae'
 else
   "let g:indentLine_color_term = '444'
   set background=dark
@@ -210,9 +203,6 @@ endif
 "new color for past 80 column
 exe 'hi ColorColumn guibg='.base01
 let &colorcolumn=join(range(81,300),",")
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -307,3 +297,6 @@ endfunction
 let g:BufExplorerFuncRef = function('ChangeBuffer')
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let $FZF_DEFAULT_COMMAND= 'ag -g ""'
+
+"Copy paste ?
+set clipboard+=unnamedplus

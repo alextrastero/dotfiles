@@ -1,1 +1,3 @@
-tmux new-session -A -s ❐
+tmux new-session -A -s ❐ -d
+tmux split-window -h -t ❐
+tmux attach -t ❐

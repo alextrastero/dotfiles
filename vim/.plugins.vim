@@ -2,7 +2,6 @@
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mileszs/ack.vim'
@@ -33,3 +32,5 @@ Plugin 'mustache/vim-mustache-handlebars'
 "Typescript plugin
 Plugin 'leafgarland/typescript-vim'
 Plugin 'burnettk/vim-angular'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'junegunn/fzf.vim'

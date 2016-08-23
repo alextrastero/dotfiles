@@ -2,15 +2,14 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Zsh to use the same colors as ls
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} 
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="spaceship"
-ZSH_THEME="gitster"
-#ZSH_THEME="robbyrussell"
+# ZSH_THEME="gitster"
+ZSH_THEME="frisk"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -106,6 +105,7 @@ alias edit='vim ~/dev/dotfiles/.vimrc'
 alias find='open https://github.com/wimdu/wimdu/find/master'
 
 alias gb="git branch --sort=committerdate"
+alias vim="nvim"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

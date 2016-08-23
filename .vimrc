@@ -18,6 +18,8 @@ set autoread
 set nocompatible
 filetype off
 
+set rtp+=/usr/local/opt/fzf
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -239,12 +241,6 @@ hi VertSplit guibg=bg guifg=bg
 " Add space after comment
 let g:NERDSpaceDelims = 1
 
-"Ctrl Faster
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
 "Change cursor color in different modes
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
@@ -309,3 +305,5 @@ function! ChangeBuffer()
   endif
 endfunction
 let g:BufExplorerFuncRef = function('ChangeBuffer')
+let g:ackprg = 'ag --nogroup --nocolor --column'
+let $FZF_DEFAULT_COMMAND= 'ag -g ""'

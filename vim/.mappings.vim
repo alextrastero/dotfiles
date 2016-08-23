@@ -8,7 +8,8 @@ let mapleader = ","
 let g:mapleader = ","
 
 " leader + r - reload config and airline
-nmap <Leader>r :so $MYVIMRC<cr>:AirlineRefresh<cr>:IndentLinesEnable<cr>:echo "Updated"<cr>
+" nmap <Leader>r :so $MYVIMRC<cr>:AirlineRefresh<cr>:IndentLinesEnable<cr>:echo "Updated"<cr>
+nmap <Leader>r :so $MYVIMRC<cr>
 
 "jump to other tag
 nnoremap <leader>5 :MtaJumpToOtherTag<cr>
@@ -48,8 +49,6 @@ nmap <leader>w :w!<cr>
 noremap <Leader>e :noh<CR>
 noremap <C-e> :noh<cr>
 
-nnoremap <Tab> :CtrlPBuffer<CR>
-nnoremap <Leader>m :CtrlPMRU<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -78,3 +77,43 @@ nmap <C-F> :Ack<space>
 " Navigate throu git hunks
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
+
+"Use ctrl p as fzf
+map <C-p> :FZF<CR>
+" map <Tab> :CtrlPBuffer<CR>
+" map <Leader>m :CtrlPMRU<CR>
+
+
+" search in buffer
+function! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
+endfunction
+
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+
+nnoremap <silent> <Tab> :call fzf#run({
+\   'source':  reverse(<sid>buflist()),
+\   'sink':    function('<sid>bufopen'),
+\   'options': '+m',
+\   'down':    len(<sid>buflist()) + 2
+\ })<CR>
+
+command! FZFMru call fzf#run({
+\ 'source':  reverse(s:all_files()),
+\ 'sink':    'edit',
+\ 'options': '-m -x +s',
+\ 'down':    '40%' })
+
+function! s:all_files()
+  return extend(
+  \ filter(copy(v:oldfiles),
+  \        "v:val !~ 'fugitive:\\|NERD_tree\\|^/tmp/\\|.git/'"),
+  \ map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
+endfunction
+
+nnoremap <Leader>m :FZFMru<CR>

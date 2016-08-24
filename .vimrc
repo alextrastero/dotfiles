@@ -161,8 +161,6 @@ if has('gui_running')
   "let g:gitgutter_sign_removed_first_line = '⚓︎'
   "let g:gitgutter_sign_modified_removed = '✈︎'
 
-  highlight FoldColumn guifg=white guibg=#043540
-
   " Vim
   let g:indentLine_color_term = 239
   "
@@ -226,7 +224,10 @@ set guioptions-=r
 
 "hi LineNr guibg=bg
 "hi foldcolumn guibg=bg
-hi VertSplit guibg=bg guifg=bg
+
+hi FoldColumn guifg=white guibg=#043540
+hi VertSplit guibg=red guifg=black ctermfg=9 ctermbg=0
+set fillchars+=vert:│
 
 " Add space after comment
 let g:NERDSpaceDelims = 1
@@ -236,7 +237,7 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" CUSTOM ***************************************
+" CUSTOM **************************************
 " Damian Conway's Die Blinkënmatchen: highlight matches
 nnoremap <silent> n n:call HLNext(0.1)<cr>
 nnoremap <silent> N N:call HLNext(0.1)<cr>

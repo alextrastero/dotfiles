@@ -188,7 +188,7 @@ else
   let g:indentLine_color_gui = '#E74C3C'
   "colo base16-flat
   let g:syntastic_warning_symbol = '!'
-  let g:syntastic_error_symbol = '✖︎'
+  let g:syntastic_error_symbol = '✗'
   hi SyntasticErrorSign ctermfg=9
   hi SyntasticWarningSign ctermfg=3
   hi Normal ctermfg=NONE ctermbg=black

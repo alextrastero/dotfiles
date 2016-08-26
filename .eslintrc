@@ -26,4 +26,5 @@ rules:
   jsx-quotes: [2, prefer-single]
   react/jsx-no-bind: [0]
   react/prop-types: [0]
-  semi: ["error", "always"]
+  semi: [2, "always"]
+  react/prop-types: [0]

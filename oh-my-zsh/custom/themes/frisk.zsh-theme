@@ -1,4 +1,4 @@
-PROMPT=$'%{$fg[magenta]%}%~%{$reset_color%} $(git_prompt_info)$(bzr_prompt_info)% %{$fg[gray]%}%T%{$reset_color%}
+PROMPT=$'%{$fg[magenta]%}%~%{$reset_color%} $(git_prompt_info)$(bzr_prompt_info)%{$reset_color%}
 %{$fg[blue]%}>%{$reset_color%} '
 
 PROMPT2="%{$fg_blod[black]%}%_> %{$reset_color%}"

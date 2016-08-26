@@ -106,6 +106,7 @@ alias find='open https://github.com/wimdu/wimdu/find/master'
 
 alias gb="git branch --sort=committerdate"
 alias vim="nvim"
+alias hello="~/dev/dotfiles/startup"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

@@ -298,3 +298,10 @@ let $FZF_DEFAULT_COMMAND= 'ag -g ""'
 
 "Copy paste ?
 set clipboard+=unnamedplus
+
+" nvim specific CTRL-h mapping issue on OSX
+nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+
+" Save on tmux leave
+let g:tmux_navigator_save_on_switch = 1
+

@@ -54,12 +54,13 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-imap <Tab> <C-n>
-
 nnoremap <F1> :NERDTreeToggle<CR>
 nnoremap <Leader>\ :NERDTreeFind<CR>
 nnoremap <F2> :lopen<CR>
 nnoremap <F3> :lclose<CR>
+
+nnoremap <Tab> :CtrlPBuffer<cr>
+nnoremap <Leader>m :CtrlPMRU<cr>
 
 " Hackatron
 nmap ; :
@@ -78,12 +79,6 @@ nmap <C-F> :Ack<space>
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
-"Use ctrl p as fzf
-map <C-p> :FZF<CR>
-" map <Tab> :CtrlPBuffer<CR>
-" map <Leader>m :CtrlPMRU<CR>
-
-
 " search in buffer
 function! s:buflist()
   redir => ls
@@ -96,24 +91,7 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-nnoremap <silent> <Tab> :call fzf#run({
-\   'source':  reverse(<sid>buflist()),
-\   'sink':    function('<sid>bufopen'),
-\   'options': '+m',
-\   'down':    len(<sid>buflist()) + 2
-\ })<CR>
+inoremap <tab> <c-n>
 
-command! FZFMru call fzf#run({
-\ 'source':  reverse(s:all_files()),
-\ 'sink':    'edit',
-\ 'options': '-m -x +s',
-\ 'down':    '40%' })
-
-function! s:all_files()
-  return extend(
-  \ filter(copy(v:oldfiles),
-  \        "v:val !~ 'fugitive:\\|NERD_tree\\|^/tmp/\\|.git/'"),
-  \ map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
-endfunction
-
-nnoremap <Leader>m :FZFMru<CR>
+"https://github.com/sickill/vim-pasta
+nnoremap <leader>p p`[v`]=

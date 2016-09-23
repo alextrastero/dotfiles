@@ -8,17 +8,17 @@ set history=500
 " Hack to make buffers hide instead of close
 set hidden
 
+" Indent with spaces
+set autoindent
+set cindent
+
 " Enable filetype plugins
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
 
-set nocompatible
 filetype off
-
-set rtp+=/usr/local/opt/fzf
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -32,8 +32,6 @@ source ~/.vim/.plugins.vim
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-syntax on
-"set cursorline
 set numberwidth=2
 set foldcolumn=0
 set expandtab
@@ -41,7 +39,6 @@ set modelines=0
 set shiftwidth=2
 set tabstop=2
 set nowrap
-set expandtab
 set noswapfile
 set nobackup
 
@@ -59,7 +56,7 @@ set guicursor+=n:hor20-Cursor/lCursor
 
 autocmd VimEnter * set nosc
 
-" Turn on the WiLd menu
+" Turn on the Wild menu
 set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -69,38 +66,62 @@ else
   set wildignore+=.git\*,.hg\*,.svn\*
 endif
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,*.orig,.pdf,*.DS_Store
+set wildignore+=*/node_modules/*,*/vendor/*
 
-let conceal_level = 0
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 source ~/.vim/.mappings.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:indentLine_color_term = '008'
+set background=dark
+colo nova
+
+" Syntastic hacks
+let g:syntastic_warning_symbol = '!'
+let g:syntastic_error_symbol = '✗'
+hi SyntasticErrorSign ctermfg=9
+hi SyntasticWarningSign ctermfg=3
+
+hi Normal ctermfg=NONE ctermbg=black
+
+" hi CursorLine cterm=NONE ctermbg=002 ctermfg=black
 " Enable syntax highlighting
 if !exists("g:syntax_on")
   syntax enable
 endif
 
-let base00 = "#2C3E50" "gray0
-let base01 = "#34495E" "gray1
-let base02 = "#7F8C8D" "gray2
-let base03 = "#95A5A6" "gray3
-let base04 = "#BDC3C7" "gray4
-let base05 = "#e0e0e0" "gray5
-let base06 = "#f5f5f5" "gray6
-let base07 = "#ECF0F1" "gray7
+" NORMAL
+let black = "#3C4C55"
+let red = "#DF8C8C"
+let green = "#A8CE93"
+let yellow = "#DADA93"
+let blue = "#83AFE5"
+let magenta = "#9A93E1"
+let cyan = "#7FC1CA"
+let white = "#C5D4DD"
 
-let base08 = "#E74C3C" "red
-let base09 = "#E67E22" "orange
-let base0A = "#F1C40F" "yellow
-let base0B = "#2ECC71" "green
-let base0C = "#1ABC9C" "green-dark
-let base0D = "#3498DB" "blue
-let base0E = "#9B59B6" "purple
-let base0F = "#be643c" "brown
+" BRIGHT
+let bright_black = "#899BA6"
+let bright_red = "#F2C38F"
+let bright_magenta = "#D18EC2"
+let bright_white = "#E6EEF3"
 
-"filenames like *.xml, *.html, *.xhtml, ...
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
+" DECORATION
+let decoration_dark = "#1E272C"
+let decoration_medium = "#556873"
+let decoration_light = "#6A7D89"
 
 let g:gitgutter_sign_column_always = 1
 
@@ -123,80 +144,22 @@ let g:syntastic_enable_highlighting = 1
 hi SpellBad ctermfg=050 ctermbg=123 guifg=#123123 guibg=#321321
 hi SpellCap ctermfg=040 ctermbg=321 guifg=#890890 guibg=#098098
 
-"Base16 for mvim
-if has('gui_running')
-  set guioptions-=e
-  set t_Co=256
-  set guitablabel=%M\ %t
-  set guioptions-=T  " no toolbar
+""=====[ Bracket Highlight ]===================================================
+" let g:loaded_matchparen = 1
+hi MatchParen ctermbg=NONE ctermfg=005
 
-  "dark
-  set background=dark
-  let g:airline_theme='base16'
-  "Colors https://chriskempson.github.io/base16/#flat
-  colo base16-flat
-
-  hi clear SignColumn
-  "Change Gutter color
-  let g:gitgutter_override_sign_column_highlight = 0
-  exe 'hi SignColumn guibg='.base00.' guifg='.base0C
-
-  exe 'hi GitGutterAdd guifg='.base0B.' guibg='.base00
-  exe 'hi GitGutterChange guifg='.base0A.' guibg='.base00
-  exe 'hi GitGutterDelete guifg='.base08.' guibg='.base00
-  exe 'hi GitGutterChangeDelete guifg='.base0E.' guibg='.base00
-
-  exe 'hi SyntasticErrorSign guifg='.base08.' guibg='.base00
-  exe 'hi SyntasticWarningSign guifg='.base09.' guibg='.base00
-
-  " Add symbols
-  "let g:gitgutter_sign_added = '✚'
-  "let g:gitgutter_sign_modified = '♒︎'
-  "let g:gitgutter_sign_removed = '✦'
-  "let g:gitgutter_sign_removed_first_line = '⚓︎'
-  "let g:gitgutter_sign_modified_removed = '✈︎'
-
-  " Vim
-  let g:indentLine_color_term = 239
-  "
-  " "GVim
-  let g:indentLine_color_gui = '#283038'
-  "Change search highlihght color
-  exe 'hi Search guifg='.base06.' guibg='.base0E
-  "Change VISUAL color
-  exe 'hi Visual guifg='.base00.' guibg='.base0C
-  "Change number color
-  exe 'hi LineNr guifg='.base02.' guibg='.base00
-
-  "Change color of bracket highlight | Slows down
-  "hi MatchParen ctermbg='NONE' guibg='#3498DB' guifg='NONE'
-  hi MatchTag guifg='NONE' guibg='NONE'
-
+""=====[ XML MATCH PAREN ]=====================================================
   "XML plugin config
-  let xml_use_xhtml = 1
-  let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'javascript.jsx' : 1 }
-  let g:mta_use_matchparen_group=0
-  let g:mta_set_default_matchtag_color=0
+let xml_use_xhtml = 1
+let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'javascript.jsx' : 1 }
+let g:mta_use_matchparen_group=0
+let g:mta_set_default_matchtag_color=0
 
-  "Fix closing color in XML
-  " highlight link xmlEndTag xmlTag
-
-else
-  "let g:indentLine_color_term = '444'
-  set background=dark
-  colo solarized
-  let g:indentLine_color_gui = '#E74C3C'
-  "colo base16-flat
-  let g:syntastic_warning_symbol = '!'
-  let g:syntastic_error_symbol = '✗'
-  hi SyntasticErrorSign ctermfg=9
-  hi SyntasticWarningSign ctermfg=3
-  hi Normal ctermfg=NONE ctermbg=black
-  hi CursorLine cterm=NONE ctermbg=yellow ctermfg=black
-endif
+"Fix closing color in XML
+hi link xmlEndTag xmlTag
 
 "new color for past 80 column
-exe 'hi ColorColumn guibg='.base01
+hi ColorColumn ctermfg=008 ctermbg=000
 let &colorcolumn=join(range(81,300),",")
 
 " Use Unix as the standard file type
@@ -205,6 +168,7 @@ set ffs=unix,dos,mac
 " Airline Config
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='solarized'
 set laststatus=2
 set noshowmode
 
@@ -223,7 +187,7 @@ set guioptions-=r
 "hi foldcolumn guibg=bg
 
 hi FoldColumn guifg=white guibg=#043540
-hi VertSplit guibg=red guifg=black ctermfg=9 ctermbg=0
+hi VertSplit guibg=NONE guifg=#556873 ctermfg=9 ctermbg=0
 set fillchars+=vert:│
 
 " Add space after comment
@@ -270,21 +234,12 @@ else
   cabbrev hsplit hor split
 endif
 
-"Color different files in nerdtree
+" Color different files in nerdtree
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
-
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('css', 'darkgreen', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('js', 'darkgreen', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('jsx', 'darkmagenta', 'none', '#ffa500', '#151515')
 
 " highlight file in nerdtree
 function! ChangeBuffer()
@@ -293,10 +248,8 @@ function! ChangeBuffer()
   endif
 endfunction
 let g:BufExplorerFuncRef = function('ChangeBuffer')
-let g:ackprg = 'ag --nogroup --nocolor --column'
-let $FZF_DEFAULT_COMMAND= 'ag -g ""'
 
-"Copy paste ?
+" copy paste
 set clipboard+=unnamedplus
 
 " nvim specific CTRL-h mapping issue on OSX
@@ -305,3 +258,26 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 " Save on tmux leave
 let g:tmux_navigator_save_on_switch = 1
 
+"filenames like *.xml, *.html, *.xhtml, ...
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js"
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length = 5
+" deoplete-ternjs config
+" let g:tern_request_timeout = 1
+" let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+" Use tern_for_vim.
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+
+" Let <Tab> also do completion
+inoremap <silent><expr> <Tab>
+\ pumvisible() ? "\<C-n>" :
+\ deoplete#mappings#manual_complete()
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return deoplete#mappings#smart_close_popup() . "\<CR>"
+endfunction

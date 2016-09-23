@@ -4,11 +4,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
 Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'jelera/vim-javascript-syntax'*/
+Plugin 'othree/html5.vim'
+Plugin 'hail2u/vim-css3-syntax'
 Plugin 'mxw/vim-jsx'
 "Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 Plugin 'bronson/vim-trailing-whitespace'
@@ -24,13 +25,11 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 "Jade plugin
 Plugin 'digitaltoad/vim-pug'
-"Coffee plugin
-Plugin 'kchmck/vim-coffee-script'
-"Handlebars
-Plugin 'mustache/vim-mustache-handlebars'
-"Typescript plugin
-Plugin 'leafgarland/typescript-vim'
-Plugin 'burnettk/vim-angular'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'junegunn/fzf.vim'
+"Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'mileszs/ack.vim'
+"Ctrl p
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'trevordmiller/nova-vim'
+" Deoplete Neovim
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

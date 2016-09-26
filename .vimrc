@@ -9,7 +9,6 @@ set history=500
 set hidden
 
 " Indent with spaces
-set autoindent
 set cindent
 
 " Enable filetype plugins
@@ -95,6 +94,11 @@ hi SyntasticErrorSign guifg='#df8c8c'
 hi SyntasticWarningSign guifg='#f2c38f'
 
 hi Normal ctermfg=NONE ctermbg=black
+
+let g:xml_syntax_folding = 1
+set autoindent  " indent on enter
+set smartindent " do smart indenting when starting a new line
+set shiftround  " indent to the closest shiftwidth
 
 " hi CursorLine cterm=NONE ctermbg=002 ctermfg=black
 " Enable syntax highlighting

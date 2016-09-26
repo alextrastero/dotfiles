@@ -8,7 +8,7 @@
 let s:N1 = [ '#c5d4dd' , '#556873' , 232 , 2 ] " mode
 let s:N2 = [ '#899ba6' , '#32322F' , 2 , 'black' ] " info
 let s:N3 = [ '#899ba6' , '#3c4c55' , 2 , 233 ] " statusline
-let s:N4 = [ '#7fc1ca' , 10 ]                   " mode modified
+let s:N4 = [ '#1e272c' , 10 ]                   " mode modified
 
 " Insert mode
 let s:I1 = [ '#141413' , '#83afe5' , 232 , 3 ]

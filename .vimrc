@@ -91,8 +91,8 @@ colo nova
 " Syntastic hacks
 let g:syntastic_warning_symbol = '!'
 let g:syntastic_error_symbol = '✗'
-hi SyntasticErrorSign ctermfg=9
-hi SyntasticWarningSign ctermfg=3
+hi SyntasticErrorSign guifg='#df8c8c'
+hi SyntasticWarningSign guifg='#f2c38f'
 
 hi Normal ctermfg=NONE ctermbg=black
 
@@ -141,7 +141,7 @@ set statusline+=%*
 
 " Color spellbad
 let g:syntastic_enable_highlighting = 1
-hi SpellBad ctermfg=050 ctermbg=123 guifg=#123123 guibg=#321321
+hi SpellBad ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
 hi SpellCap ctermfg=040 ctermbg=321 guifg=#890890 guibg=#098098
 
 ""=====[ Bracket Highlight ]===================================================
@@ -168,7 +168,7 @@ set ffs=unix,dos,mac
 " Airline Config
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='solarized'
+let g:airline_theme='nova'
 set laststatus=2
 set noshowmode
 

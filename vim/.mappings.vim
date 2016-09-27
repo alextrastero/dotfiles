@@ -8,8 +8,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " leader + r - reload config and airline
-" nmap <Leader>r :so $MYVIMRC<cr>:AirlineRefresh<cr>:IndentLinesEnable<cr>:echo "Updated"<cr>
-nmap <Leader>r :so $MYVIMRC<cr>
+nmap <Leader>r :so $MYVIMRC<cr>:AirlineRefresh<cr>:IndentLinesEnable<cr>:echo "Updated"<cr>
 
 "jump to other tag
 nnoremap <leader>5 :MtaJumpToOtherTag<cr>
@@ -95,3 +94,10 @@ inoremap <tab> <c-n>
 
 "https://github.com/sickill/vim-pasta
 nnoremap <leader>p p`[v`]=
+
+"deoplete CR
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction

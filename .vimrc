@@ -163,8 +163,8 @@ let g:mta_set_default_matchtag_color=0
 hi link xmlEndTag xmlTag
 
 "new color for past 80 column
-hi ColorColumn ctermfg=008 ctermbg=000
-let &colorcolumn=join(range(81,300),",")
+" hi ColorColumn ctermfg=008 ctermbg=000
+" let &colorcolumn=join(range(81,300),",")
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -267,7 +267,7 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js"
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 5
+let g:deoplete#auto_complete_start_length = 3
 " deoplete-ternjs config
 " let g:tern_request_timeout = 1
 " let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
@@ -280,8 +280,8 @@ inoremap <silent><expr> <Tab>
 \ pumvisible() ? "\<C-n>" :
 \ deoplete#mappings#manual_complete()
 
-" <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return deoplete#mappings#smart_close_popup() . "\<CR>"
+  return pumvisible() ? deoplete#mappings#close_popup() : "\n"
 endfunction
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

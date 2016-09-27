@@ -36,3 +36,6 @@ Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Deoplete Neovim
 Plugin 'maxmellon/vim-jsx-pretty'
 " Plugin 'mxw/vim-jsx'
+
+" Fix my js <Leader>f
+Plugin 'ruanyl/vim-fixmyjs'

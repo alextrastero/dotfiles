@@ -101,3 +101,7 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function() abort
   return deoplete#close_popup() . "\<CR>"
 endfunction
+
+" Fix myjs
+noremap <Leader>f :Fixmyjs<CR>
+

@@ -83,28 +83,10 @@ source ~/.vim/.mappings.vim
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:indentLine_color_term = '008'
+let g:indentLine_color_gui = '#556873'
+
 set background=dark
 colo nova
-
-" Syntastic hacks
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_error_symbol = '✗'
-hi SyntasticErrorSign guifg='#df8c8c'
-hi SyntasticWarningSign guifg='#f2c38f'
-
-hi Normal ctermfg=NONE ctermbg=black
-
-let g:xml_syntax_folding = 1
-set autoindent  " indent on enter
-set smartindent " do smart indenting when starting a new line
-set shiftround  " indent to the closest shiftwidth
-
-" hi CursorLine cterm=NONE ctermbg=002 ctermfg=black
-" Enable syntax highlighting
-if !exists("g:syntax_on")
-  syntax enable
-endif
 
 " NORMAL
 let black = "#3C4C55"
@@ -127,6 +109,27 @@ let decoration_dark = "#1E272C"
 let decoration_medium = "#556873"
 let decoration_light = "#6A7D89"
 
+" Syntastic hacks
+let g:syntastic_warning_symbol = '!'
+let g:syntastic_error_symbol = '✗'
+hi SyntasticErrorSign guifg='#df8c8c'
+hi SyntasticWarningSign guifg='#f2c38f'
+
+hi Normal ctermfg=NONE ctermbg=black
+hi Search guibg=#556873 guifg=#DF8C8C
+hi Visual guifg=none guibg=#556873 gui=none
+
+
+let g:xml_syntax_folding = 1
+set autoindent  " indent on enter
+set smartindent " do smart indenting when starting a new line
+set shiftround  " indent to the closest shiftwidth
+
+" Enable syntax highlighting
+if !exists("g:syntax_on")
+  syntax enable
+endif
+
 let g:gitgutter_sign_column_always = 1
 
 let g:syntastic_always_populate_loc_list = 1
@@ -134,10 +137,20 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_loc_list_height = 2
 let g:syntastic_javascript_eslint_args = '--ext .js,.jsx'
 " Requires global standard and a few more
+
+fun! SetScssConfig()
+  let scssConfig = findfile('.scss-lint.yml', '.;')
+  if scssConfig != ''
+    let b:syntastic_scss_scss_lint_args = '--config ' . scssConfig
+  endif
+endf
+
+autocmd FileType scss :call SetScssConfig()
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -146,10 +159,12 @@ set statusline+=%*
 " Color spellbad
 let g:syntastic_enable_highlighting = 1
 hi SpellBad ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
-hi SpellCap ctermfg=040 ctermbg=321 guifg=#890890 guibg=#098098
+hi SpellCap ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
+" hi SpellCap ctermfg=040 ctermbg=321 guifg=#890890 guibg=#098098
 
 ""=====[ Bracket Highlight ]===================================================
-" let g:loaded_matchparen = 1
+" Disable
+let g:loaded_matchparen = 1
 hi MatchParen ctermbg=NONE ctermfg=005
 
 ""=====[ XML MATCH PAREN ]=====================================================
@@ -196,11 +211,6 @@ set fillchars+=vert:│
 
 " Add space after comment
 let g:NERDSpaceDelims = 1
-
-"Change cursor color in different modes
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " CUSTOM **************************************
 " Damian Conway's Die Blinkënmatchen: highlight matches
@@ -263,7 +273,10 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 let g:tmux_navigator_save_on_switch = 1
 
 "filenames like *.xml, *.html, *.xhtml, ...
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js,*.erb"
+
+"Set erb files to treat like JS
+autocmd BufNewFile,BufRead *.html.erb set syntax=javascript
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1

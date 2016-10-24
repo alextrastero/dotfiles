@@ -85,14 +85,18 @@ source $ZSH/oh-my-zsh.sh
 #
 # ///////////////// ALIASES ///////////////////////////////////////////////////
 # Go to project folder
-alias wim="cd ~/wimdu/"
+alias gogo="cd ~/dev/lessonnine/"
 # Go to dev folder
 alias dev="cd ~/dev"
 # Update git submobules
 alias update="git submodule update"
-alias freshstart="git fetch upstream master && git reset --hard upstream/master && git push origin master"
+alias freshstart="git fetch upstream master && git reset --hard upstream/master"
 # Open my github page in browser
-alias hub="open https://github.com/alextrastero/"
+# alias hub="open https://github.com/lessonnine/core.spa"
+function hub() {
+  open $(git config remote.origin.url | ruby -ne 'puts "https://" + $_.split(%r{[/:@]})[1..-1].join("/").sub(/\.git$/, "")')
+}
+
 alias watch="webpack-dev-server --progress --colors"
 # Show used ports
 alias ports="lsof -i -P | grep -i 'listen'"
@@ -108,9 +112,11 @@ alias gb="git branch --sort=committerdate"
 alias vim="nvim"
 alias hello="~/dev/dotfiles/startup"
 alias colors='for code in {000..15}; do print -P -- "$code: %F{$code}Test%f"; done'
+function own() {
+  sudo chown -v aodell $1
+}
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 export TERM=xterm-256color
+eval "$(rbenv init -)"

@@ -39,3 +39,9 @@ Plugin 'maxmellon/vim-jsx-pretty'
 
 " Fix my js <Leader>f
 Plugin 'ruanyl/vim-fixmyjs'
+
+" Use local eslint
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+
+" Handlebars
+Plugin 'nono/vim-handlebars'

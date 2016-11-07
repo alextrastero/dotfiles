@@ -8,7 +8,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " leader + r - reload config and airline
-nmap <Leader>r :so $MYVIMRC<cr>:AirlineRefresh<cr>:IndentLinesEnable<cr>:echo "Updated"<cr>
+nmap <Leader>r :so $MYVIMRC<cr>:AirlineRefresh<cr>:echo "Updated"<cr>
 
 "jump to other tag
 nnoremap <leader>5 :MtaJumpToOtherTag<cr>
@@ -104,4 +104,3 @@ endfunction
 
 " Fix myjs
 noremap <Leader>f :Fixmyjs<CR>
-

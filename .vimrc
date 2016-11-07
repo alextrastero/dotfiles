@@ -55,6 +55,9 @@ set guicursor+=n:hor20-Cursor/lCursor
 
 autocmd VimEnter * set nosc
 
+" Auto cursor
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 " Turn on the Wild menu
 set wildmenu
 " Ignore compiled files
@@ -82,7 +85,6 @@ source ~/.vim/.mappings.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 let g:indentLine_color_gui = '#556873'
 
 set background=dark
@@ -119,6 +121,10 @@ hi Normal ctermfg=NONE ctermbg=black
 hi Search guibg=#556873 guifg=#DF8C8C
 hi Visual guifg=none guibg=#556873 gui=none
 
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 2
+hi IndentGuidesOdd  guibg=#43545e ctermbg=3
+hi IndentGuidesEven guibg=none ctermbg=4
 
 let g:xml_syntax_folding = 1
 set autoindent  " indent on enter
@@ -133,14 +139,15 @@ endif
 let g:gitgutter_sign_column_always = 1
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_loc_list_height = 2
 let g:syntastic_javascript_eslint_args = '--ext .js,.jsx'
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'mode': 'passive' }
 " Requires global standard and a few more
 
 fun! SetScssConfig()
@@ -188,6 +195,7 @@ set ffs=unix,dos,mac
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='nova'
+let g:airline_section_y=''
 set laststatus=2
 set noshowmode
 

@@ -31528,10 +31528,12 @@
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>149 219 918 512 0 0 1280 777 </string>
+	<string>120 243 918 495 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 4 710 427 0 0 1280 777 </string>
+	<string>-332 809 1914 1071 -332 800 1920 1080 </string>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2_selection</key>
@@ -31867,7 +31869,7 @@
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Text</key>
-			<string>hello</string>
+			<string></string>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -32366,7 +32368,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
@@ -38975,6 +38977,8 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -38984,7 +38988,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-10-24T07:45:37Z</date>
+	<date>2016-11-04T09:00:37Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -39045,7 +39049,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.10</string>
+	<string>3.0.12</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

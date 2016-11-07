@@ -5,7 +5,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'Yggdroot/indentLine'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 " Plugin 'jelera/vim-javascript-syntax'*/
 Plugin 'othree/html5.vim'
@@ -45,3 +45,6 @@ Plugin 'mtscout6/syntastic-local-eslint.vim'
 
 " Handlebars
 Plugin 'nono/vim-handlebars'
+
+" nerdtree git
+Plugin 'Xuyuanp/nerdtree-git-plugin'

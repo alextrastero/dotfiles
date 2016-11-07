@@ -111,6 +111,7 @@ alias find='open https://github.com/wimdu/wimdu/find/master'
 alias gb="git branch --sort=committerdate"
 alias vim="nvim"
 alias hello="~/dev/dotfiles/startup"
+alias bye="~/dev/lessonnine/shutdown"
 alias colors='for code in {000..15}; do print -P -- "$code: %F{$code}Test%f"; done'
 function own() {
   sudo chown -v aodell $1
@@ -120,3 +121,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export TERM=xterm-256color
 eval "$(rbenv init -)"
+
+# Don't autocomplete some stuff
+zstyle ':completion:*:functions' ignored-patterns '_*'

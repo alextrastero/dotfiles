@@ -111,12 +111,6 @@ let decoration_dark = "#1E272C"
 let decoration_medium = "#556873"
 let decoration_light = "#6A7D89"
 
-" Syntastic hacks
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_error_symbol = '✗'
-hi SyntasticErrorSign guifg='#df8c8c'
-hi SyntasticWarningSign guifg='#f2c38f'
-
 hi Normal ctermfg=NONE ctermbg=black
 hi Search guibg=#556873 guifg=#DF8C8C
 hi Visual guifg=none guibg=#556873 gui=none
@@ -138,36 +132,43 @@ endif
 
 let g:gitgutter_sign_column_always = 1
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_scss_checkers = ['scss_lint']
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_loc_list_height = 2
-let g:syntastic_javascript_eslint_args = '--ext .js,.jsx'
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive' }
-" Requires global standard and a few more
+" ****************** Syntastic ************************
+"
+" let g:syntastic_warning_symbol = '!'
+" let g:syntastic_error_symbol = '✗'
+" hi SyntasticErrorSign guifg='#df8c8c'
+" hi SyntasticWarningSign guifg='#f2c38f'
 
-fun! SetScssConfig()
-  let scssConfig = findfile('.scss-lint.yml', '.;')
-  if scssConfig != ''
-    let b:syntastic_scss_scss_lint_args = '--config ' . scssConfig
-  endif
-endf
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_scss_checkers = ['scss_lint']
+" let g:syntastic_aggregate_errors = 1
+" let g:syntastic_loc_list_height = 2
+" let g:syntastic_javascript_eslint_args = '--ext .js,.jsx'
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_mode_map = { 'mode': 'passive' }
+"
+" fun! SetScssConfig()
+  " let scssConfig = findfile('.scss-lint.yml', '.;')
+  " if scssConfig != ''
+    " let b:syntastic_scss_scss_lint_args = '--config ' . scssConfig
+  " endif
+" endf
 
-autocmd FileType scss :call SetScssConfig()
+" autocmd FileType scss :call SetScssConfig()
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" ****************** Syntastic ************************
 
 " Color spellbad
 let g:syntastic_enable_highlighting = 1
 hi SpellBad ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
 hi SpellCap ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
-" hi SpellCap ctermfg=040 ctermbg=321 guifg=#890890 guibg=#098098
 
 ""=====[ Bracket Highlight ]===================================================
 " Disable
@@ -306,3 +307,27 @@ function! s:my_cr_function()
   return pumvisible() ? deoplete#mappings#close_popup() : "\n"
 endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" NEOMAKE !
+set statusline+=\ %#ErrorMsg#%{neomake#statusline#QflistStatus('qf:\ ')}
+
+autocmd! BufWritePost * Neomake
+
+" let g:neomake_place_signs = 1
+" let g:neomake_open_list = 2
+
+" Look for local eslint and if not use globally installed one
+let g:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let g:neomake_javascript_enabled_makers = ['eslint']
+
+" highlight NeomakeErrorMsg ctermfg=227 ctermbg=237
+" let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
+
+let g:neomake_error_sign = {
+            \ 'texthl': 'ErrorMsg',
+            \ }
+hi MyWarningMsg ctermbg=3 ctermfg=0
+let g:neomake_warning_sign = {
+            \ 'text': '>>',
+            \ 'texthl': 'MyWarningMsg',
+            \ }

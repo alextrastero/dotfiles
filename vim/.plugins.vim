@@ -1,13 +1,11 @@
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
-" Plugin 'jelera/vim-javascript-syntax'*/
 Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 "Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
@@ -24,7 +22,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 "Jade plugin
 Plugin 'digitaltoad/vim-pug'
-"Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mileszs/ack.vim'
 "Ctrl p
@@ -40,11 +37,12 @@ Plugin 'maxmellon/vim-jsx-pretty'
 " Fix my js <Leader>f
 Plugin 'ruanyl/vim-fixmyjs'
 
-" Use local eslint
-Plugin 'mtscout6/syntastic-local-eslint.vim'
-
 " Handlebars
 Plugin 'nono/vim-handlebars'
 
 " nerdtree git
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" neomake
+Plugin 'neomake/neomake'
+Plugin 'benjie/neomake-local-eslint.vim'

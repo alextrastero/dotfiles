@@ -1,6 +1,5 @@
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
@@ -23,7 +22,7 @@ Plugin 'tpope/vim-fugitive'
 "Jade plugin
 Plugin 'digitaltoad/vim-pug'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'mileszs/ack.vim'
+" Plugin 'mileszs/ack.vim'
 "Ctrl p
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'trevordmiller/nova-vim'
@@ -40,9 +39,13 @@ Plugin 'ruanyl/vim-fixmyjs'
 " Handlebars
 Plugin 'nono/vim-handlebars'
 
-" nerdtree git
+" Nerdtree
+Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " neomake
 Plugin 'neomake/neomake'
 Plugin 'benjie/neomake-local-eslint.vim'
+
+" denite
+Plugin 'Shougo/denite.nvim'

@@ -8,7 +8,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="gitster"
 ZSH_THEME="frisk"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -90,7 +89,7 @@ alias gogo="cd ~/dev/lessonnine/"
 alias dev="cd ~/dev"
 # Update git submobules
 alias update="git submodule update"
-alias freshstart="git fetch upstream master && git reset --hard upstream/master"
+alias freshstart="git fetch origin master && git reset --hard origin/master"
 # Open my github page in browser
 # alias hub="open https://github.com/lessonnine/core.spa"
 function hub() {
@@ -113,6 +112,8 @@ alias vim="nvim"
 alias hello="~/dev/dotfiles/startup"
 alias bye="~/dev/lessonnine/shutdown"
 alias colors='for code in {000..15}; do print -P -- "$code: %F{$code}Test%f"; done'
+alias c='clear'
+alias tree='tree -d'
 function own() {
   sudo chown -v aodell $1
 }

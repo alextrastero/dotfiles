@@ -28,8 +28,8 @@ nnoremap <Leader>d :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " Resize splits
-nnoremap <silent> <Leader>] :exe "vertical resize -5"<CR>
-nnoremap <silent> <Leader>[ :exe "vertical resize +5"<CR>
+nnoremap <silent> <Leader>- :exe "vertical resize -5"<CR>
+nnoremap <silent> <Leader>= :exe "vertical resize +5"<CR>
 
 " Toggle numbrs
 nmap <leader>n :set invnumber<CR>
@@ -71,8 +71,8 @@ nmap qq :bd<cr>
 set pastetoggle=<F10>
 imap <C-V> <F10><C-r>"<F10>
 
-" Remap ctrl-f to Ack
-nmap <C-F> :Ack<space>
+" Remap ctrl-f to Ag
+nmap <C-F> :Ag<space>
 
 " Navigate throu git hunks
 nmap ]h <Plug>GitGutterNextHunk

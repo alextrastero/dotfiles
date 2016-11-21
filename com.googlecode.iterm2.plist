@@ -31531,9 +31531,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>120 243 918 495 0 0 1280 777 </string>
+	<string>252 155 918 495 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-332 809 1914 1071 -332 800 1920 1080 </string>
+	<string>0 14 1277 763 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2_selection</key>
@@ -31772,7 +31772,7 @@
 			<key>Blink Allowed</key>
 			<true/>
 			<key>Blinking Cursor</key>
-			<true/>
+			<false/>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
@@ -31848,7 +31848,7 @@
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Flashing Bell</key>
-			<true/>
+			<false/>
 			<key>Foreground Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -38988,7 +38988,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-11-04T09:00:37Z</date>
+	<date>2016-11-18T11:17:20Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -38998,7 +38998,7 @@
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>ShowPaneTitles</key>

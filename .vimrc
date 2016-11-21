@@ -68,7 +68,7 @@ else
   set wildignore+=.git\*,.hg\*,.svn\*
 endif
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,*.orig,.pdf,*.DS_Store
-set wildignore+=*/node_modules/*,*/vendor/*
+set wildignore+=*/node_modules/*,*/vendor/*,*/bower_components/*
 
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -257,13 +257,6 @@ else
   cabbrev hsplit hor split
 endif
 
-" Color different files in nerdtree
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
 " highlight file in nerdtree
 function! ChangeBuffer()
   if bufwinnr(t:NERDTreeBufName) != -1
@@ -311,7 +304,8 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " NEOMAKE !
 set statusline+=\ %#ErrorMsg#%{neomake#statusline#QflistStatus('qf:\ ')}
 
-autocmd! BufWritePost * Neomake
+autocmd BufWritePost *.js Neomake
+" autocmd! BufWritePost * Neomake
 
 " let g:neomake_place_signs = 1
 " let g:neomake_open_list = 2
@@ -331,3 +325,38 @@ let g:neomake_warning_sign = {
             \ 'text': '>>',
             \ 'texthl': 'MyWarningMsg',
             \ }
+
+" nerdtree colors
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('ini', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('md', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('yml', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('config', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('conf', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('json', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('html', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('styl', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('css', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('coffee', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('js', 'none', 'none', 'none', 'none')
+call NERDTreeHighlightFile('php', 'none', 'none', 'none', 'none')
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!

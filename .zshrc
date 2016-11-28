@@ -3,6 +3,8 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu yes select
+# zstyle ':completion:*:warnings' format '✖︎'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -52,7 +54,11 @@ ZSH_THEME="frisk"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-completions)
+
+. ~/.oh-my-zsh/plugins/z/z.sh
+
+autoload -U compinit && compinit
 
 # User configuration
 
@@ -121,7 +127,10 @@ function own() {
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export TERM=xterm-256color
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# eval "$(rbenv init -)"
 
 # Don't autocomplete some stuff
 zstyle ':completion:*:functions' ignored-patterns '_*'
+
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn

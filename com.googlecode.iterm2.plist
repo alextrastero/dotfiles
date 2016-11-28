@@ -31531,9 +31531,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>252 155 918 495 0 0 1280 800 </string>
+	<string>252 155 796 473 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 14 1277 763 0 0 1280 777 </string>
+	<string>0 25 1280 752 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2_selection</key>
@@ -32198,7 +32198,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FiraCode-Retina 12</string>
+			<string>FiraCode-Retina 16</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -38988,7 +38988,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-11-18T11:17:20Z</date>
+	<date>2016-11-24T09:14:24Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

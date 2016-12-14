@@ -1,51 +1,55 @@
+call plug#begin()
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/html5.vim'
-Plugin 'hail2u/vim-css3-syntax'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
 "Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
-Plugin 'bronson/vim-trailing-whitespace'
-"BufExplorer Plugin for Vim
-Plugin 'jlanzarotta/bufexplorer'
+Plug 'bronson/vim-trailing-whitespace'
+"BufExplorer Plug for Vim
+Plug 'jlanzarotta/bufexplorer'
 "Auto close (X)HTML tags
-Plugin 'alvan/vim-closetag'
+Plug 'alvan/vim-closetag'
 "Vim plugin for intensely orgasmic commenting
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 "quoting/parenthesizing made simple
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 "Git wrapper
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 "Jade plugin
-Plugin 'digitaltoad/vim-pug'
-Plugin 'christoomey/vim-tmux-navigator'
-" Plugin 'mileszs/ack.vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'christoomey/vim-tmux-navigator'
+" Plug 'mileszs/ack.vim'
 "Ctrl p
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'trevordmiller/nova-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'trevordmiller/nova-vim'
 " Deoplete Neovim
-Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Deoplete Neovim
-Plugin 'maxmellon/vim-jsx-pretty'
-" Plugin 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'mxw/vim-jsx'
 
 " Fix my js <Leader>f
-Plugin 'ruanyl/vim-fixmyjs'
+Plug 'ruanyl/vim-fixmyjs'
 
 " Handlebars
-Plugin 'nono/vim-handlebars'
+Plug 'nono/vim-handlebars'
 
 " Nerdtree
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " neomake
-Plugin 'neomake/neomake'
-Plugin 'benjie/neomake-local-eslint.vim'
+Plug 'neomake/neomake'
+Plug 'benjie/neomake-local-eslint.vim'
 
-" denite
-Plugin 'Shougo/denite.nvim'
+Plug 'terryma/vim-multiple-cursors'
+
+"ternternjs/tern_for_vim
+Plug 'ternjs/tern_for_vim'
+
+call plug#end()

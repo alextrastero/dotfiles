@@ -24,7 +24,7 @@ vnoremap ,, :sort<CR>
 map <F7> mzgg=G`z
 
 " Remap search to search and don't go to next result
-nnoremap <Leader>d :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+" nnoremap <Leader>d :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " Resize splits
@@ -104,3 +104,14 @@ endfunction
 
 " Fix myjs
 noremap <Leader>f :Fixmyjs<CR>
+
+" replace selected text
+vnoremap <Leader>d "hy:%s/<C-r>h//gc<left><left><left>
+
+" multiple cursor hack
+" Default mapping
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+

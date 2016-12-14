@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu yes select
-# zstyle ':completion:*:warnings' format '✖︎'
+zstyle ':completion:*:warnings' format 'Nada'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -119,7 +119,6 @@ alias hello="~/dev/dotfiles/startup"
 alias bye="~/dev/lessonnine/shutdown"
 alias colors='for code in {000..15}; do print -P -- "$code: %F{$code}Test%f"; done'
 alias c='clear'
-alias tree='tree -d'
 function own() {
   sudo chown -v aodell $1
 }

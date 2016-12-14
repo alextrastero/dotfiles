@@ -19,16 +19,10 @@ set autoread
 
 filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
+" vim-plug
 source ~/.vim/.plugins.vim
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 
 set numberwidth=2
@@ -360,3 +354,13 @@ if executable('ag')
 endif
 
 command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
+if has('nvim')
+  set inccommand=nosplit
+ endif
+
+let g:multi_cursor_exit_from_visual_mode=0
+let g:multi_cursor_exit_from_insert_mode=0
+
+" Remove highlight of exec files
+hi NERDTreeExecFile ctermbg=3 ctermfg=0

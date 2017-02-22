@@ -10,7 +10,8 @@ zstyle ':completion:*:warnings' format 'Nada'
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="frisk"
+PURE_GIT_PULL=0
+ZSH_THEME="pure"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -58,7 +59,10 @@ plugins=(git zsh-completions)
 
 . ~/.oh-my-zsh/plugins/z/z.sh
 
-autoload -U compinit && compinit
+# fpath=( "$HOME/.zfunctions" $fpath )
+
+autoload -U promptinit; promptinit
+# prompt pure
 
 # User configuration
 
@@ -94,8 +98,7 @@ alias gogo="cd ~/dev/lessonnine/"
 # Go to dev folder
 alias dev="cd ~/dev"
 # Update git submobules
-alias update="git submodule update"
-alias freshstart="git fetch origin master && git reset --hard origin/master"
+alias freshstart="gfa && ggu"
 # Open my github page in browser
 # alias hub="open https://github.com/lessonnine/core.spa"
 function hub() {
@@ -114,14 +117,19 @@ alias edit='vim ~/dev/dotfiles/.vimrc'
 alias find='open https://github.com/wimdu/wimdu/find/master'
 
 alias gb="git branch --sort=committerdate"
+# Git count commits from param branch
+alias gch='function _blah(){ git rev-list --count HEAD ^$1; };_blah'
+
 alias vim="nvim"
 alias hello="~/dev/dotfiles/startup"
 alias bye="~/dev/lessonnine/shutdown"
 alias colors='for code in {000..15}; do print -P -- "$code: %F{$code}Test%f"; done'
 alias c='clear'
+alias gd='git diff --color | diff-so-fancy'
 function own() {
   sudo chown -v aodell $1
 }
+alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

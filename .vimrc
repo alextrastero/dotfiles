@@ -1,366 +1,103 @@
+" vim-plug
+source ~/.vim/.mappings.vim
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=500
+" Don't try to be vi compatible
+set nocompatible
 
-" Hack to make buffers hide instead of close
-set hidden
-
-" Indent with spaces
-set cindent
-
-" Enable filetype plugins
-filetype plugin indent on
-
-" Set to auto read when a file is changed from the outside
-set autoread
-
+" Helps force plugins to load correctly when it is turned back on below
 filetype off
 
-" vim-plug
-source ~/.vim/.plugins.vim
+" TODO: Load plugins here (pathogen or vundle)
 
-" All of your Plugins must be added before the following line
-filetype plugin indent on    " required
+" Turn on syntax highlighting
+syntax on
 
-set numberwidth=2
-set foldcolumn=0
-set expandtab
+" For plugins to load correctly
+filetype plugin indent on
+
+" TODO: Pick a leader key
+" let mapleader = ","
+
+" Security
 set modelines=0
-set shiftwidth=2
+
+" Show line numbers
+set number
+
+" Show file stats
+set ruler
+
+" Blink cursor on error instead of beeping (grr)
+set visualbell
+
+" Encoding
+set encoding=utf-8
+
+" Whitespace
+set wrap
+set textwidth=79
+set formatoptions=tcqrn1
 set tabstop=2
-set nowrap
-set noswapfile
-set nobackup
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
 
-"searching
-set smartcase
-set ignorecase
-set hlsearch
-set incsearch
+" Cursor motion
+set scrolloff=3
+set backspace=indent,eol,start
+set matchpairs+=<:> " use % to jump between pairs
+runtime! macros/matchit.vim
 
-"set underline
-set guicursor+=n:hor20-Cursor/lCursor
+" Move up/down editor lines
+nnoremap j gj
+nnoremap k gk
 
-"fix whitespace on save
-"autocmd BufWritePre * :%s/\s\+$//e
+" Allow hidden buffers
+set hidden
 
-autocmd VimEnter * set nosc
+" Rendering
+set ttyfast
 
-" Auto cursor
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
-" Turn on the Wild menu
-set wildmenu
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-else
-  set wildignore+=.git\*,.hg\*,.svn\*
-endif
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,*.orig,.pdf,*.DS_Store
-set wildignore+=*/node_modules/*,*/vendor/*,*/bower_components/*
-
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-
-source ~/.vim/.mappings.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:indentLine_color_gui = '#556873'
-
-set background=dark
-colo nova
-
-" NORMAL
-let black = "#3C4C55"
-let red = "#DF8C8C"
-let green = "#A8CE93"
-let yellow = "#DADA93"
-let blue = "#83AFE5"
-let magenta = "#9A93E1"
-let cyan = "#7FC1CA"
-let white = "#C5D4DD"
-
-" BRIGHT
-let bright_black = "#899BA6"
-let bright_red = "#F2C38F"
-let bright_magenta = "#D18EC2"
-let bright_white = "#E6EEF3"
-
-" DECORATION
-let decoration_dark = "#1E272C"
-let decoration_medium = "#556873"
-let decoration_light = "#6A7D89"
-
-hi Normal ctermfg=NONE ctermbg=black
-hi Search guibg=#556873 guifg=#DF8C8C
-hi Visual guifg=none guibg=#556873 gui=none
-
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 2
-hi IndentGuidesOdd  guibg=#43545e ctermbg=3
-hi IndentGuidesEven guibg=none ctermbg=4
-
-let g:xml_syntax_folding = 1
-set autoindent  " indent on enter
-set smartindent " do smart indenting when starting a new line
-set shiftround  " indent to the closest shiftwidth
-
-" Enable syntax highlighting
-if !exists("g:syntax_on")
-  syntax enable
-endif
-
-let g:gitgutter_sign_column_always = 1
-
-" ****************** Syntastic ************************
-"
-" let g:syntastic_warning_symbol = '!'
-" let g:syntastic_error_symbol = '✗'
-" hi SyntasticErrorSign guifg='#df8c8c'
-" hi SyntasticWarningSign guifg='#f2c38f'
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_scss_checkers = ['scss_lint']
-" let g:syntastic_aggregate_errors = 1
-" let g:syntastic_loc_list_height = 2
-" let g:syntastic_javascript_eslint_args = '--ext .js,.jsx'
-" let g:syntastic_auto_loc_list = 0
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_mode_map = { 'mode': 'passive' }
-"
-" fun! SetScssConfig()
-  " let scssConfig = findfile('.scss-lint.yml', '.;')
-  " if scssConfig != ''
-    " let b:syntastic_scss_scss_lint_args = '--config ' . scssConfig
-  " endif
-" endf
-
-" autocmd FileType scss :call SetScssConfig()
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" ****************** Syntastic ************************
-
-" Color spellbad
-let g:syntastic_enable_highlighting = 1
-hi SpellBad ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
-hi SpellCap ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
-
-""=====[ Bracket Highlight ]===================================================
-" Disable
-let g:loaded_matchparen = 1
-hi MatchParen ctermbg=NONE ctermfg=005
-
-""=====[ XML MATCH PAREN ]=====================================================
-  "XML plugin config
-let xml_use_xhtml = 1
-let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'javascript.jsx' : 1 }
-let g:mta_use_matchparen_group=0
-let g:mta_set_default_matchtag_color=0
-
-"Fix closing color in XML
-hi link xmlEndTag xmlTag
-
-"new color for past 80 column
-" hi ColorColumn ctermfg=008 ctermbg=000
-" let &colorcolumn=join(range(81,300),",")
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
-" Airline Config
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='nova'
-let g:airline_section_y=''
+" Status bar
 set laststatus=2
-set noshowmode
 
-"Font Config
-"set guifont=Roboto\ Mono\ for\ Powerline:h13
-"set guifont=Inconsolata\ for\ Powerline:h14
-"set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
-"set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-set guifont=Fira\ Code:h12
-
-"hide scrollbar
-set guioptions-=L
-set guioptions-=r
-
-"hi LineNr guibg=bg
-"hi foldcolumn guibg=bg
-
-hi FoldColumn guifg=white guibg=#043540
-hi VertSplit guibg=NONE guifg=#556873 ctermfg=9 ctermbg=0
-set fillchars+=vert:│
-
-" Add space after comment
-let g:NERDSpaceDelims = 1
-
-" CUSTOM **************************************
-" Damian Conway's Die Blinkënmatchen: highlight matches
-nnoremap <silent> n n:call HLNext(0.1)<cr>
-nnoremap <silent> N N:call HLNext(0.1)<cr>
-
-function! HLNext (blinktime)
-  let target_pat = '\c\%#'.@/
-  let ring = matchadd('Underlined', target_pat, 101)
-  redraw
-  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-  call matchdelete(ring)
-  redraw
-endfunction
-" END CUSTOM ************************************
-
-"Let js files be treated as JSX
-let g:jsx_ext_required = 0
-
-"show commands
+" Last line
+set showmode
 set showcmd
 
-" always split windows vertically
-set splitbelow
-set splitright
-set diffopt+=vertical
-silent! set splitvertical
-if v:errmsg != ''
-  cabbrev split vert split
-  cabbrev hsplit split
-  cabbrev help vert help
-  noremap <C-w>] :vert botright wincmd ]<CR>
-  noremap <C-w><C-]> :vert botright wincmd ]<CR>
-else
-  cabbrev hsplit hor split
-endif
+" Searching
+nnoremap / /\v
+vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+map <leader><space> :let @/=''<cr> " clear search
 
-" highlight file in nerdtree
-function! ChangeBuffer()
-  if bufwinnr(t:NERDTreeBufName) != -1
-    exe "normal! :NERDTreeFind\<cr>\<c-w>\<c-w>"
-  endif
-endfunction
-let g:BufExplorerFuncRef = function('ChangeBuffer')
+" Remap help key.
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+nnoremap <F1> :set invfullscreen<CR>
+vnoremap <F1> :set invfullscreen<CR>
 
-" copy paste
-set clipboard+=unnamedplus
+" Textmate holdouts
 
-" nvim specific CTRL-h mapping issue on OSX
-nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+" Formatting
+map <leader>q gqip
 
-" Save on tmux leave
-let g:tmux_navigator_save_on_switch = 1
+" Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+" Uncomment this to enable by default:
+" set list " To enable by default
+" Or use your leader key + l to toggle on/off
+map <leader>l :set list!<CR> " Toggle tabs and EOL
 
-"filenames like *.xml, *.html, *.xhtml, ...
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js,*.erb"
-
-"Set erb files to treat like JS
-autocmd BufNewFile,BufRead *.html.erb set syntax=javascript
-
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 3
-" deoplete-ternjs config
-" let g:tern_request_timeout = 1
-" let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
-" Use tern_for_vim.
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-
-" Let <Tab> also do completion
-inoremap <silent><expr> <Tab>
-\ pumvisible() ? "\<C-n>" :
-\ deoplete#mappings#manual_complete()
-
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return pumvisible() ? deoplete#mappings#close_popup() : "\n"
-endfunction
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" NEOMAKE !
-set statusline+=\ %#ErrorMsg#%{neomake#statusline#QflistStatus('qf:\ ')}
-
-autocmd BufWritePost *.js Neomake
-" autocmd! BufWritePost * Neomake
-
-" let g:neomake_place_signs = 1
-" let g:neomake_open_list = 2
-
-" Look for local eslint and if not use globally installed one
-let g:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-let g:neomake_javascript_enabled_makers = ['eslint']
-
-" highlight NeomakeErrorMsg ctermfg=227 ctermbg=237
-" let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
-
-let g:neomake_error_sign = {
-            \ 'texthl': 'ErrorMsg',
-            \ }
-hi MyWarningMsg ctermbg=3 ctermfg=0
-let g:neomake_warning_sign = {
-            \ 'text': '>>',
-            \ 'texthl': 'MyWarningMsg',
-            \ }
-
-" nerdtree colors
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-call NERDTreeHighlightFile('jade', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('ini', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('md', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('yml', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('config', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('conf', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('json', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('html', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('styl', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('css', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('coffee', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('js', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('php', 'none', 'none', 'none', 'none')
-
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
-command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-
-if has('nvim')
-  set inccommand=nosplit
- endif
-
-let g:multi_cursor_exit_from_visual_mode=0
-let g:multi_cursor_exit_from_insert_mode=0
-
-" Remove highlight of exec files
-hi NERDTreeExecFile ctermbg=3 ctermfg=0
+" Color scheme (terminal)
+set t_Co=256
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
+" in ~/.vim/colors/ and uncomment:
+colorscheme default

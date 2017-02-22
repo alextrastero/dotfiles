@@ -31,7 +31,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Deoplete Neovim
 Plug 'maxmellon/vim-jsx-pretty'
-" Plug 'mxw/vim-jsx'
 
 " Fix my js <Leader>f
 Plug 'ruanyl/vim-fixmyjs'
@@ -49,7 +48,13 @@ Plug 'benjie/neomake-local-eslint.vim'
 
 Plug 'terryma/vim-multiple-cursors'
 
-"ternternjs/tern_for_vim
-Plug 'ternjs/tern_for_vim'
+"autocompletion plugins
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+
+Plug 'othree/yajs.vim'
 
 call plug#end()

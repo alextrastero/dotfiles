@@ -357,4 +357,4 @@ set backupcopy=yes
 
 " 80 column mark
 highlight ColorColumn ctermbg=235 guifg=white
-let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(121,999),",")

@@ -1,0 +1,5 @@
+build/
+vendor/
+app/assets/learning/learning/translations.js
+node_modules/
+*.min.js

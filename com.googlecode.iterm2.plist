@@ -32091,11 +32091,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>110 988 796 473 -318 800 1920 1057 </string>
+	<string>94 1120 918 512 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-318 1380 810 477 -318 800 1920 1057 </string>
+	<string>-158 896 1594 873 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-318 800 1920 1080 -318 800 1920 1057 </string>
+	<string>-318 1380 810 477 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>648 804 954 1053 -318 800 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2</key>
@@ -32127,14 +32127,16 @@
 			<false/>
 			<key>Ansi 0 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.33333333333333331</real>
+				<real>0.26362374424934387</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.29803921568627451</real>
+				<real>0.2321510910987854</real>
 				<key>Red Component</key>
-				<real>0.23529411764705882</real>
+				<real>0.18037819862365723</real>
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
@@ -32281,14 +32283,16 @@
 			</dict>
 			<key>Ansi 8 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.65098039215686276</real>
+				<real>0.58504658937454224</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.60784313725490191</real>
+				<real>0.53784990310668945</real>
 				<key>Red Component</key>
-				<real>0.53725490196078429</real>
+				<real>0.46498900651931763</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
@@ -32388,14 +32392,16 @@
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.33333333333333331</real>
+				<real>0.26362374424934387</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.29803921568627451</real>
+				<real>0.2321510910987854</real>
 				<key>Red Component</key>
-				<real>0.23529411764705882</real>
+				<real>0.18037819862365723</real>
 			</dict>
 			<key>Cursor Type</key>
 			<integer>2</integer>
@@ -32433,7 +32439,7 @@
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Text</key>
-			<string>tmux attach -t base || tmux new -s base</string>
+			<string>tmux</string>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -42077,7 +42083,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-21T15:07:07Z</date>
+	<date>2017-02-22T15:18:25Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

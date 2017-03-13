@@ -57,4 +57,7 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 Plug 'othree/yajs.vim'
 
+" Distraction free mode
+Plug 'junegunn/goyo.vim'
+
 call plug#end()

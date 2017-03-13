@@ -125,7 +125,8 @@ alias hello="~/dev/dotfiles/startup"
 alias bye="~/dev/lessonnine/shutdown"
 alias colors='for code in {000..15}; do print -P -- "$code: %F{$code}Test%f"; done'
 alias c='clear'
-alias gd='git diff --color | diff-so-fancy'
+# alias gd='git diff --color | diff-so-fancy'
+# alias gd='git diff --color "$@" | diff-so-fancy  | less --tabs=4 -RFX'
 function own() {
   sudo chown -v aodell $1
 }
@@ -133,7 +134,7 @@ alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export TERM=xterm-256color
+[ -z "$TMUX" ] && export TERM="xterm-256color"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # eval "$(rbenv init -)"
 

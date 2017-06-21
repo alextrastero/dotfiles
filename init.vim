@@ -41,9 +41,6 @@ set guicursor+=n:hor20-Cursor/lCursor
 
 autocmd VimEnter * set nosc
 
-" Auto cursor
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 " Turn on the Wild menu
 set wildmenu
 " Ignore compiled files
@@ -73,38 +70,15 @@ source ~/.vim/.mappings.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_color_gui = '#556873'
 
-" for vim 8
-" if (has("termguicolors"))
- " set termguicolors
-" endif
 
 set background=dark
-colo nova
+" colo nova
+" colo solarized
+colo dracula
 
-" NORMAL
-let black = "#3C4C55"
-let red = "#DF8C8C"
-let green = "#A8CE93"
-let yellow = "#DADA93"
-let blue = "#83AFE5"
-let magenta = "#9A93E1"
-let cyan = "#7FC1CA"
-let white = "#C5D4DD"
-
-" BRIGHT
-let bright_black = "#899BA6"
-let bright_red = "#F2C38F"
-let bright_magenta = "#D18EC2"
-let bright_white = "#E6EEF3"
-
-" DECORATION
-let decoration_dark = "#1E272C"
-let decoration_medium = "#556873"
-let decoration_light = "#6A7D89"
-
-hi Normal ctermfg=NONE ctermbg=black
-hi Search guibg=#556873 guifg=#DF8C8C
-hi Visual guifg=none guibg=#556873 gui=none
+" hi Normal ctermfg=NONE ctermbg=black
+" hi Search guibg=#556873 guifg=#DF8C8C
+" hi Visual guifg=none guibg=#556873 gui=none
 
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 2
@@ -125,12 +99,11 @@ let g:gitgutter_sign_column_always = 1
 
 " Color spellbad
 let g:syntastic_enable_highlighting = 1
-hi SpellBad ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
-hi SpellCap ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
+" hi SpellBad ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
+" hi SpellCap ctermfg=050 ctermbg=123 guifg=#3c4c55 guibg=#df8c8c
 
 ""=====[ Bracket Highlight ]===================================================
-" Disable
-let g:loaded_matchparen = 1
+let g:loaded_matchparen = 0
 hi MatchParen ctermbg=NONE ctermfg=005
 
 ""=====[ XML MATCH PAREN ]=====================================================
@@ -151,19 +124,20 @@ hi link xmlEndTag xmlTag
 set ffs=unix,dos,mac
 
 " Airline Config
-let g:airline_powerline_fonts=1
+" let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='nova'
+" let g:airline_theme='solarized'
+" let g:airline_theme='nova'
 let g:airline_section_y=''
 set laststatus=2
 set noshowmode
 
 "Font Config
 "set guifont=Roboto\ Mono\ for\ Powerline:h13
-"set guifont=Inconsolata\ for\ Powerline:h14
+" set guifont=Inconsolata\ for\ Powerline:h14
 "set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
 "set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-set guifont=Fira\ Code:h12
+" set guifont=Fira\ Code:h12
 
 "hide scrollbar
 set guioptions-=L
@@ -259,31 +233,6 @@ function! s:my_cr_function()
 endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" NEOMAKE !
-set statusline+=\ %#ErrorMsg#%{neomake#statusline#QflistStatus('qf:\ ')}
-
-autocmd! BufWritePost *.js Neomake
-
-" let g:neomake_place_signs = 1
-" let g:neomake_open_list = 2
-
-" Look for local eslint and if not use globally installed one
-let g:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_jsx_enabled_makers = ['eslint']
-
-" highlight NeomakeErrorMsg ctermfg=227 ctermbg=237
-" let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
-
-let g:neomake_error_sign = {
-            \ 'texthl': 'ErrorMsg',
-            \ }
-hi MyWarningMsg ctermbg=3 ctermfg=0
-let g:neomake_warning_sign = {
-            \ 'text': '>>',
-            \ 'texthl': 'MyWarningMsg',
-            \ }
-
 " nerdtree colors
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -291,19 +240,19 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-call NERDTreeHighlightFile('jade', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('ini', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('md', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('yml', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('config', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('conf', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('json', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('html', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('styl', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('css', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('coffee', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('js', 'none', 'none', 'none', 'none')
-call NERDTreeHighlightFile('php', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('jade', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('ini', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('md', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('yml', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('config', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('conf', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('json', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('html', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('styl', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('css', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('coffee', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('js', 'none', 'none', 'none', 'none')
+" call NERDTreeHighlightFile('php', 'none', 'none', 'none', 'none')
 
 " The Silver Searcher
 if executable('ag')
@@ -343,18 +292,42 @@ let g:deoplete#sources['javascript.jsx'] = ['file', 'buffer', 'ternjs']
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 
+" Color tern dropdown
+hi Pmenu ctermfg=007 ctermbg=008
+hi PmenuSel ctermfg=015 ctermbg=008
+" highlight PmenuSbar  ctermfg=2 ctermbg=3 guifg=#ff0000 guibg=#00ff00
+" highlight PmenuThumb ctermfg=2 ctermbg=3 guifg=#ff0000 guibg=#00ff00
+
 " disable the preview window
 set completeopt-=preview
 
 " Trying to disable Tabs
 set list
-set listchars=tab:xx
+set listchars=tab:»»
 
 " show numbers
 set number
 
 set backupcopy=yes
 
+" Highlight CtrlP line
+" hi CursorLine guibg=darkred
+
+hi clear CursorLine
+hi clear CursorLineNR
+
 " 80 column mark
-highlight ColorColumn ctermbg=235 guifg=white
-let &colorcolumn=join(range(121,999),",")
+" highlight ColorColumn ctermbg=235 guifg=white
+" let &colorcolumn=join(range(121,999),",")
+
+" Neomake Config
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_scss_enabled_makers = ['stylelint']
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+let g:neomake_error_sign = {
+            \ 'texthl': 'ErrorMsg',
+            \ }
+
+" Run neomake on every write
+autocmd! BufWritePost,BufEnter * Neomake

@@ -113,7 +113,7 @@ alias gs='git show'
 alias gundo='git reset --soft HEAD~ && git reset HEAD .'
 # Show random cat gif in terminal (requires imgcat script and iTerm3 nightly)
 alias catnip='curl -s http://edgecats.net/first | imgcat'
-alias edit='vim ~/dev/dotfiles/.vimrc'
+alias edit='vim ~/.config/nvim/init.vim'
 alias find='open https://github.com/wimdu/wimdu/find/master'
 
 alias gb="git branch --sort=committerdate"
@@ -142,3 +142,5 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+source "$HOME/.env"

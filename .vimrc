@@ -94,4 +94,24 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 " Color scheme (terminal)
 set t_Co=256
 set background=light
-colorscheme github
+colorscheme solarizedlight
+
+" Config deoplete tab
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" tern
+nnoremap <silent> <buffer> gb :TernDef<CR>
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return deoplete#mappings#smart_close_popup() . "\<CR>"
+endfunction
+
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Q: I want to close the preview window after completion is done.
+autocmd CompleteDone * pclose!
+set completeopt-=preview
+set completeopt=menu,preview,noinsert

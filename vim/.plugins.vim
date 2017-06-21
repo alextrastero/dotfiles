@@ -42,10 +42,6 @@ Plug 'nono/vim-handlebars'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" neomake
-Plug 'neomake/neomake'
-Plug 'benjie/neomake-local-eslint.vim'
-
 Plug 'terryma/vim-multiple-cursors'
 
 "autocompletion plugins
@@ -58,6 +54,15 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/yajs.vim'
 
 " Distraction free mode
-Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/goyo.vim'
+
+" Solarized theme
+" Plug 'altercation/vim-colors-solarized'
+
+" Dracula theme
+Plug 'dracula/vim'
+
+" Neomake
+Plug 'neomake/neomake'
 
 call plug#end()

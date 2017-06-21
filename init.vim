@@ -325,6 +325,8 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_scss_enabled_makers = ['stylelint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+" Colors Error Symbol Neomake
+hi ErrorMsg ctermbg=NONE ctermfg=001
 let g:neomake_error_sign = {
             \ 'texthl': 'ErrorMsg',
             \ }

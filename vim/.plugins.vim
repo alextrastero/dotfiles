@@ -3,7 +3,7 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -25,7 +25,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'mileszs/ack.vim'
 "Ctrl p
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'trevordmiller/nova-vim'
+" Plug 'trevordmiller/nova-vim'
 " Deoplete Neovim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -36,13 +36,13 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'ruanyl/vim-fixmyjs'
 
 " Handlebars
-Plug 'nono/vim-handlebars'
+" Plug 'nono/vim-handlebars'
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 
 "autocompletion plugins
 " Plug 'SirVer/ultisnips'
@@ -62,7 +62,14 @@ Plug 'othree/yajs.vim'
 " Dracula theme
 Plug 'dracula/vim'
 
+" Oceanic Next theme
+Plug 'mhartington/oceanic-next'
+
 " Neomake
 Plug 'neomake/neomake'
 
+" Colors?
+" Plug 'guns/xterm-color-table.vim'
+
 call plug#end()
+

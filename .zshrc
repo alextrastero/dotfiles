@@ -120,6 +120,7 @@ alias gb="git branch --sort=committerdate"
 # Git count commits from param branch
 alias gch='function _blah(){ git rev-list --count HEAD ^$1; };_blah'
 
+alias gll="gfa && gf -p && gl"
 alias vim="nvim"
 alias hello="~/dev/dotfiles/startup"
 alias bye="~/dev/lessonnine/shutdown"
@@ -132,6 +133,8 @@ function own() {
 }
 alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 
+alias youtube="youtube-dl --extract-audio --audio-format mp3 $1"
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -z "$TMUX" ] && export TERM="xterm-256color"
@@ -143,4 +146,4 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
-source "$HOME/.env"
+# source "$HOME/.env"

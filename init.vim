@@ -37,7 +37,7 @@ set hlsearch
 set incsearch
 
 "set underline
-set guicursor+=n:hor20-Cursor/lCursor
+" set guicursor+=n:hor20-Cursor/lCursor
 
 autocmd VimEnter * set nosc
 
@@ -68,13 +68,46 @@ source ~/.vim/.mappings.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:indentLine_color_gui = '#556873'
+" let g:indentLine_color_gui = '#556873'
 
+" Or if you have Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
 
-set background=dark
-" colo nova
-" colo solarized
-colo dracula
+" Theme
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+colo OceanicNext
+let g:airline_theme='oceanicnext'
+
+hi link jsImport jsThis
+hi link jsFrom jsThis
+hi link jsClassDefinition jsClassFuncName
+hi Visual guibg=#14161a
+" hi link jsParens jsThis
+hi link jsxCloseTag jsxTag
+hi link jsxCloseString jsxTag
+
+" Restore cursor after exiting neovim
+au VimLeave * set guicursor=a:block-blinkon0
+
+" Highlight CtrlP line
+" hi CursorLine guibg=darkred
+" hi clear CursorLine
+" hi clear CursorLineNR
+" hi link CursorLine Visual
+
+let g:javascript_plugin_jsdoc = 1
+
+" Check what color group is used under cursor
+nmap <leader>sp :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 " hi Normal ctermfg=NONE ctermbg=black
 " hi Search guibg=#556873 guifg=#DF8C8C
@@ -82,7 +115,7 @@ colo dracula
 
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 2
-hi IndentGuidesOdd  guibg=#43545e ctermbg=3
+hi IndentGuidesOdd guibg=#43545e ctermbg=3
 hi IndentGuidesEven guibg=none ctermbg=4
 
 let g:xml_syntax_folding = 1
@@ -198,7 +231,9 @@ endfunction
 let g:BufExplorerFuncRef = function('ChangeBuffer')
 
 " copy paste
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
+set clipboard=unnamed
+
 
 " nvim specific CTRL-h mapping issue on OSX
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
@@ -309,12 +344,6 @@ set listchars=tab:»»
 set number
 
 set backupcopy=yes
-
-" Highlight CtrlP line
-" hi CursorLine guibg=darkred
-
-hi clear CursorLine
-hi clear CursorLineNR
 
 " 80 column mark
 " highlight ColorColumn ctermbg=235 guifg=white

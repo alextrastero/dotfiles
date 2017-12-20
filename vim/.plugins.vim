@@ -3,7 +3,7 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -58,9 +58,14 @@ Plug 'othree/yajs.vim'
 
 " Solarized theme
 " Plug 'altercation/vim-colors-solarized'
+" Plug 'dracula/vim'
+" Plug 'joshdick/onedark.vim'
+" Plug 'nightsense/carbonized'
+" Plug 'mhartington/oceanic-next'
 
-" Dracula theme
-Plug 'dracula/vim'
+" Plug 'tomasr/molokai'
+" Plug 'rakr/vim-one'
+Plug 'ayu-theme/ayu-vim'
 
 " Neomake
 Plug 'neomake/neomake'

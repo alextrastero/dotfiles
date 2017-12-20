@@ -95,6 +95,10 @@ inoremap <tab> <c-n>
 "https://github.com/sickill/vim-pasta
 nnoremap <leader>p p`[v`]=
 
+" Search and Replace
+nmap <Leader>f :%s//g<Left><Left>
+
+
 "deoplete CR
 " <CR>: close popup and save indent.
 " inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>

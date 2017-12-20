@@ -2,17 +2,19 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=500
+set history=500         " Sets how many lines of history VIM has to remember
+set hidden              " Hack to make buffers hide instead of close
+" set showmatch           " Show matching brackets.
+set cindent             " Indent with spaces
+set autoread            " Set to auto read when a file is changed from the outside
+" set formatoptions+=j    " Continue comment marker in new lines.
+set textwidth=0         " Hard-wrap long lines as you type them.
+set expandtab           " Insert spaces when TAB is pressed.
+set tabstop=2           " Render TABs using this many spaces.
+set shiftwidth=2        " Indentation amount for < and > commands.
 
-" Hack to make buffers hide instead of close
-set hidden
-
-" Indent with spaces
-set cindent
-
-" Set to auto read when a file is changed from the outside
-set autoread
+set linespace=0         " Set line-spacing to minimum.
+set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 
 " vim-plug
 source ~/.vim/.plugins.vim
@@ -22,22 +24,33 @@ filetype plugin indent on    " required
 
 set numberwidth=2
 set foldcolumn=0
-set expandtab
 set modelines=0
-set shiftwidth=2
-set tabstop=2
 set nowrap
 set noswapfile
 set nobackup
 
-"searching
-set smartcase
-set ignorecase
-set hlsearch
-set incsearch
+" set hlsearch
+" set incsearch
 
-"set underline
-set guicursor+=n:hor20-Cursor/lCursor
+" searching I prefer to have smart-case
+set ignorecase          " Make searching case insensitive
+set smartcase           " ... unless the query has capital letters.
+set gdefault            " Use 'g' flag by default with :s/foo/bar/.
+set magic               " Use 'magic' patterns (extended regular expressions).
+
+" Tell Vim which characters to show for expanded TABs,
+" trailing whitespace, and end-of-lines. VERY useful!
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+set list                " Show problematic characters.
+
+" Also highlight all tabs and trailing whitespace characters.
+hi ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$\|\t/
+
+" set underline
+" set guicursor+=n:hor20-Cursor/lCursor
 
 autocmd VimEnter * set nosc
 
@@ -68,22 +81,39 @@ source ~/.vim/.mappings.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:indentLine_color_gui = '#556873'
+" let g:indentLine_color_gui = '#556873'
+if (has("termguicolors"))
+ " IF COLOR HAS TERM COLORS UNCOMMENT BELOW
+ set termguicolors
+endif
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-set background=dark
-" colo nova
-" colo solarized
-colo dracula
+" set background=dark
+" let g:airline_theme='molokai'
+" let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+colo ayu
+" colo oceanicnext
+let g:airline_theme='ayu'
+hi link jsxCloseTag Function
 
 " hi Normal ctermfg=NONE ctermbg=black
 " hi Search guibg=#556873 guifg=#DF8C8C
 " hi Visual guifg=none guibg=#556873 gui=none
 
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 2
-hi IndentGuidesOdd  guibg=#43545e ctermbg=3
-hi IndentGuidesEven guibg=none ctermbg=4
+" IndentLine {{
+" let g:indentLine_char = '│'
+" let g:indentLine_setColors = 0
+" }}
+
+" IndentGuides {{
+" let g:indent_guides_auto_colors = 0
+" let g:indent_guides_guide_size = 2
+" hi IndentGuidesOdd  guibg=#43545e ctermbg=3
+" hi IndentGuidesEven guibg=none ctermbg=4
+" }}
 
 let g:xml_syntax_folding = 1
 set autoindent  " indent on enter
@@ -128,6 +158,7 @@ set ffs=unix,dos,mac
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline_theme='solarized'
 " let g:airline_theme='nova'
+" let g:airline_theme='dracula'
 let g:airline_section_y=''
 set laststatus=2
 set noshowmode
@@ -147,7 +178,9 @@ set guioptions-=r
 "hi foldcolumn guibg=bg
 
 hi FoldColumn guifg=white guibg=#043540
-hi VertSplit guibg=NONE guifg=#556873 ctermfg=8 ctermbg=0
+" hi VertSplit guibg=NONE guifg=#1d2c35 guibg=#fac863
+hi VertSplit ctermbg=NONE ctermfg=black
+
 set fillchars+=vert:│
 
 " Add space after comment
@@ -190,12 +223,16 @@ else
 endif
 
 " highlight file in nerdtree
-function! ChangeBuffer()
-  if bufwinnr(t:NERDTreeBufName) != -1
-    exe "normal! :NERDTreeFind\<cr>\<c-w>\<c-w>"
-  endif
-endfunction
-let g:BufExplorerFuncRef = function('ChangeBuffer')
+" function! ChangeBuffer()
+  " if bufwinnr(t:NERDTreeBufName) != -1
+    " exe "normal! :NERDTreeFind\<cr>\<c-w>\<c-w>"
+  " endif
+" endfunction
+
+
+
+
+" let g:BufExplorerFuncRef = function('ChangeBuffer')
 
 " copy paste
 set clipboard+=unnamedplus
@@ -204,13 +241,13 @@ set clipboard+=unnamedplus
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
 " Save on tmux leave
-let g:tmux_navigator_save_on_switch = 1
+" let g:tmux_navigator_save_on_switch = 1
 
 "filenames like *.xml, *.html, *.xhtml, ...
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js,*.erb"
 
 "Set erb files to treat like JS
-autocmd BufNewFile,BufRead *.html.erb set syntax=javascript
+" autocmd BufNewFile,BufRead *.html.erb set syntax=javascript
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -235,10 +272,10 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " nerdtree colors
 " NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
+" function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ " exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ " exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+" endfunction
 
 " call NERDTreeHighlightFile('jade', 'none', 'none', 'none', 'none')
 " call NERDTreeHighlightFile('ini', 'none', 'none', 'none', 'none')
@@ -276,7 +313,7 @@ let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 
 " Remove highlight of exec files
-hi NERDTreeExecFile ctermbg=3 ctermfg=0
+hi NERDTreeExecFile ctermbg=NONE ctermfg=NONE
 
 " overwrite omnifuncs for specific filetypes
 " autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -332,4 +369,14 @@ let g:neomake_error_sign = {
             \ }
 
 " Run neomake on every write
-autocmd! BufWritePost,BufEnter * Neomake
+autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost,BufEnter * Neomake
+" autocmd! BufReadPost, BufWritePost * Neomake
+let g:neomake_serialize = 1
+let g:neomake_serialize_abort_on_error = 1
+
+" Performance improvments
+
+set lazyredraw
+" set synmaxcol=128
+syntax sync minlines=256

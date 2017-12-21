@@ -70,4 +70,7 @@ Plug 'ayu-theme/ayu-vim'
 " Neomake
 Plug 'neomake/neomake'
 
+" Prettier
+Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'json', 'graphql', 'markdown'] }
+
 call plug#end()

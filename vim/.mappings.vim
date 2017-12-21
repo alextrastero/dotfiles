@@ -107,7 +107,7 @@ nmap <Leader>f :%s//g<Left><Left>
 "endfunction
 
 " Fix myjs
-noremap <Leader>f :Fixmyjs<CR>
+noremap <Leader>f :PrettierAsync<CR>
 
 " replace selected text
 vnoremap <Leader>d "hy:%s/<C-r>h//gc<left><left><left>

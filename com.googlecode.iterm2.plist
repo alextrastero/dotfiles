@@ -34017,7 +34017,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>315</string>
+		<string>330</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -34033,11 +34033,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>444 1377 918 394 -318 800 1920 1057 </string>
+	<string>204 366 918 394 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1280 800 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-318 800 1920 1080 -318 800 1920 1057 </string>
+	<string>0 300 810 477 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>-158 896 1594 873 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -34948,7 +34948,7 @@
 			<key>Visual Bell</key>
 			<false/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Working Directory</key>
 			<string>/Users/odella/dev</string>
 		</dict>
@@ -35905,7 +35905,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-12-15T10:24:36Z</date>
+	<date>2017-12-20T13:45:22Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

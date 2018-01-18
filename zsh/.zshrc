@@ -98,6 +98,7 @@ eval "$(fasd --init auto)"
 
 # Set tmux colors ?
 [ -z "$TMUX" ] && export TERM="xterm-256color"
+if [ "$TMUX" = "" ]; then tmux; fi
 
 # Init rbven ?
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

@@ -125,7 +125,7 @@ if !exists("g:syntax_on")
   syntax enable
 endif
 
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " Color spellbad
 let g:syntastic_enable_highlighting = 1

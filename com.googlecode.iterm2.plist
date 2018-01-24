@@ -34033,11 +34033,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>146 1217 918 381 -318 800 1920 1057 </string>
+	<string>146 1204 918 512 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-158 896 1594 873 -318 800 1920 1057 </string>
+	<string>-318 1380 810 477 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 300 810 477 0 0 1280 777 </string>
+	<string>-318 1380 810 477 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>-158 896 1594 873 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -34064,7 +34064,7 @@
 			<key>AWDS Tab Option</key>
 			<string>Recycle</string>
 			<key>AWDS Window Directory</key>
-			<string>/Users/odella/dev</string>
+			<string>/Users/aodell/dev</string>
 			<key>AWDS Window Option</key>
 			<string>Yes</string>
 			<key>Allow Title Reporting</key>
@@ -35861,7 +35861,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-16T09:14:19Z</date>
+	<date>2018-01-23T15:41:34Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

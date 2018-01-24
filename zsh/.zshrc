@@ -132,3 +132,14 @@ function own() { # Own a file $1
 }
 
 export NVM_DIR="$HOME/.nvm"
+
+# Configure FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Feed the output of ag into fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
+alias fzf="fzf --bind ctrl-j:accept"
+
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

@@ -1,0 +1,12 @@
+coverage
+*.min.js
+*.swp
+.bundle-cache
+.cache
+log
+tmp
+.tmp
+node_modules/
+.git
+.svn
+bundle.js

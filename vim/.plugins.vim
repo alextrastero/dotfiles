@@ -2,7 +2,7 @@ call plug#begin()
 " let Vundle manage Vundle, required
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter' " HEAVY DISABLED
 " Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
@@ -10,7 +10,7 @@ Plug 'hail2u/vim-css3-syntax'
 "Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 Plug 'bronson/vim-trailing-whitespace'
 "BufExplorer Plug for Vim
-Plug 'jlanzarotta/bufexplorer'
+" Plug 'jlanzarotta/bufexplorer' " HEAVY DISABLED
 "Auto close (X)HTML tags
 Plug 'alvan/vim-closetag'
 "Vim plugin for intensely orgasmic commenting
@@ -19,6 +19,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 "Git wrapper
 Plug 'tpope/vim-fugitive'
+"Github wrapper
+Plug 'tpope/vim-rhubarb'
 "Jade plugin
 Plug 'digitaltoad/vim-pug'
 Plug 'christoomey/vim-tmux-navigator'
@@ -33,16 +35,16 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'maxmellon/vim-jsx-pretty'
 
 " Fix my js <Leader>f
-Plug 'ruanyl/vim-fixmyjs'
+" Plug 'ruanyl/vim-fixmyjs' " HEAVY DISABLED
 
 " Handlebars
 Plug 'nono/vim-handlebars'
 
 " Nerdtree
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree' " HEAVY DISABLED
+" Plug 'Xuyuanp/nerdtree-git-plugin' " HEAVY DISABLED
 
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors' " HEAVY
 
 "autocompletion plugins
 " Plug 'SirVer/ultisnips'
@@ -72,5 +74,8 @@ Plug 'neomake/neomake'
 
 " Prettier
 Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'json', 'graphql', 'markdown'] }
+
+" Raimondi/delimitMate
+" Plug 'Raimondi/delimitMate' " HEAVY
 
 call plug#end()

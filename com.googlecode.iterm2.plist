@@ -24,6 +24,10 @@
 	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
+	<key>BadgeFont</key>
+	<string>Fira Code</string>
+	<key>BadgeMaxHeightFraction</key>
+	<real>0.05000000074505806</real>
 	<key>CheckTestRelease</key>
 	<true/>
 	<key>ClosingHotkeySwitchesSpaces</key>
@@ -34033,13 +34037,13 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>146 1204 918 512 -318 800 1920 1057 </string>
+	<string>-100 1294 918 512 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-318 1380 810 477 -318 800 1920 1057 </string>
+	<string>-158 890 1594 879 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-318 1380 810 477 -318 800 1920 1057 </string>
+	<string>-158 890 1594 879 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>-158 896 1594 873 -318 800 1920 1057 </string>
+	<string>-158 890 1594 879 -318 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>173 27 810 477 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2</key>
@@ -34301,18 +34305,18 @@
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
-				<real>0.5</real>
-				<key>Blue Component</key>
-				<real>0.0</real>
-				<key>Color Space</key>
-				<string>Calibrated</string>
-				<key>Green Component</key>
-				<real>0.0</real>
-				<key>Red Component</key>
 				<real>1</real>
+				<key>Blue Component</key>
+				<real>0.3369903564453125</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
+				<key>Green Component</key>
+				<real>0.26285247802734374</real>
+				<key>Red Component</key>
+				<real>0.21567382812499997</real>
 			</dict>
 			<key>Badge Text</key>
-			<string></string>
+			<string>If applied, this commit will 😭</string>
 			<key>Blend</key>
 			<real>0.050000000000000003</real>
 			<key>Blink Allowed</key>
@@ -34942,6 +34946,8 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Use Tab Color</key>
+			<false/>
+			<key>Use Underline Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
 			<real>1.004418062876506</real>
@@ -35861,7 +35867,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-23T15:41:34Z</date>
+	<date>2018-02-27T10:10:46Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -35890,6 +35896,8 @@
 	<integer>0</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
+	<key>TerminalVMargin</key>
+	<integer>5</integer>
 	<key>ThreeFingerEmulates</key>
 	<false/>
 	<key>TmuxDashboardLimit</key>
@@ -35924,7 +35932,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.5.beta.2</string>
+	<string>3.1.6beta3</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

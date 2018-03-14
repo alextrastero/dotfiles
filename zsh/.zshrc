@@ -1,3 +1,4 @@
+# zmodload zsh/zprof # debuggin
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -94,14 +95,18 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Start fasd_cd
-eval "$(fasd --init auto)"
+
+eval "$(command fasd --init auto)"
 
 # Set tmux colors ?
 [ -z "$TMUX" ] && export TERM="xterm-256color"
 if [ "$TMUX" = "" ]; then tmux; fi
 
-# Init rbven ?
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# Init rbven
+rbenv() {
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
 
 # ///////////////// ALIASES ////////////////////////////////////////////////////
 alias dev="cd ~/dev" # Go to dev folder
@@ -137,9 +142,18 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Feed the output of ag into fzf
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore -g ""'
+
+# Speed up oh-my-zsh
+export DISABLE_UPDATE_PROMPT=true
 
 alias fzf="fzf --bind ctrl-j:accept"
+alias npm5="npm i -g npm@5.x"
+alias ag="ag --path-to-ignore ~/.ignore"
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# added by travis gem
+[ -f /Users/aodell/.travis/travis.sh ] && source /Users/aodell/.travis/travis.sh
+# zprof #debuggin

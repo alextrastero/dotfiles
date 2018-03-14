@@ -98,7 +98,6 @@ nnoremap <leader>p p`[v`]=
 " Search and Replace
 nmap <Leader>f :%s//g<Left><Left>
 
-
 "deoplete CR
 " <CR>: close popup and save indent.
 " inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -107,7 +106,7 @@ nmap <Leader>f :%s//g<Left><Left>
 "endfunction
 
 " Fix myjs
-noremap <Leader>f :PrettierAsync<CR>
+" noremap <Leader>f :PrettierAsync<CR>
 
 " replace selected text
 vnoremap <Leader>d "hy:%s/<C-r>h//gc<left><left><left>
@@ -127,5 +126,3 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-
-

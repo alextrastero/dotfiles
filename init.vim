@@ -96,7 +96,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
 colo ayu
-" colo oceanicnext
 let g:airline_theme='ayu'
 hi link jsxCloseTag Function
 
@@ -364,10 +363,10 @@ let g:neomake_scss_enabled_makers = ['stylelint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 " Colors Error Symbol Neomake
-hi ErrorMsg ctermbg=NONE ctermfg=001
 let g:neomake_error_sign = {
             \ 'texthl': 'ErrorMsg',
             \ }
+hi ErrorMsg guifg=#272d39 guibg=white
 
 " Run neomake on every write
 autocmd! BufWritePost * Neomake
@@ -377,7 +376,6 @@ let g:neomake_serialize = 1
 let g:neomake_serialize_abort_on_error = 1
 
 " Performance improvments
-
 set lazyredraw
 " set synmaxcol=128
 syntax sync minlines=256

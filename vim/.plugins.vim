@@ -27,7 +27,6 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'mileszs/ack.vim'
 "Ctrl p
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'trevordmiller/nova-vim'
 " Deoplete Neovim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 

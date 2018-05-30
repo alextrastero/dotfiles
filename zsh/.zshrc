@@ -132,6 +132,11 @@ alias gb="git branch --sort=-committerdate"
 function hub() { # Open github on folder
   open $(git config remote.origin.url | ruby -ne 'puts "https://" + $_.split(%r{[/:@]})[1..-1].join("/").sub(/\.git$/, "")')
 }
+
+function pulls() { # Open my pulls for this project
+  open $(git config remote.origin.url | ruby -ne 'puts "https://" + $_.split(%r{[/:@]})[1..-1].join("/").sub(/\.git$/, "/pulls/alextrastero")')
+}
+
 function own() { # Own a file $1
   sudo chown -v aodell $1
 }

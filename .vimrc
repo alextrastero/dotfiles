@@ -37,8 +37,12 @@ set visualbell
 " Encoding
 set encoding=utf-8
 
+" dont wrap lines
+set nowrap
+
 " Whitespace
-set wrap
+"set wrap
+
 "set textwidth=79
 set textwidth=0
 set formatoptions=tcqrn1
@@ -136,3 +140,6 @@ if has("clipboard")
     set clipboard+=unnamedplus
   endif
 endif
+
+" hide status line
+set laststatus=0

@@ -71,8 +71,13 @@ nmap qq :bd<cr>
 set pastetoggle=<F10>
 imap <C-V> <F10><C-r>"<F10>
 
+" https://robots.thoughtbot.com/faster-grepping-in-vim
+" bind \ (backward slash) to grep shortcut
+"command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
 " Remap ctrl-f to Ag
 nmap <C-F> :Ag<space>
+nnoremap \ :Ag<SPACE>
 
 " Navigate throu git hunks
 nmap ]h <Plug>GitGutterNextHunk
@@ -98,25 +103,8 @@ nnoremap <leader>p p`[v`]=
 " Search and Replace
 nmap <Leader>f :%s//g<Left><Left>
 
-"deoplete CR
-" <CR>: close popup and save indent.
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function() abort
-  "return deoplete#close_popup() . "\<CR>"
-"endfunction
-
-" Fix myjs
-" noremap <Leader>f :PrettierAsync<CR>
-
 " replace selected text
 vnoremap <Leader>d "hy:%s/<C-r>h//gc<left><left><left>
-
-" multiple cursor hack
-" Default mapping
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
 
 " Show syntax highlighting groups for word under cursor
 nmap <leader>z :call <SID>SynStack()<CR>

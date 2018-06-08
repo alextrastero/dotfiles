@@ -147,3 +147,19 @@ let NERDSpaceDelims=1
 " Webpack to ignore swap files
 set dir=$HOME/.vim_tmp/swap
 if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
+
+" Setup ALE linter
+let b:ale_linters = ['eslint']
+let g:ale_linters_explicit = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '!'
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
+" Remove ALE gutter column
+let g:ale_set_signs = 0
+" Change ALE underline color
+hi SpellBad ctermbg=001 ctermfg=007
+hi link ALEError SpellBad

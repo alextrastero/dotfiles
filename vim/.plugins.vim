@@ -1,16 +1,12 @@
 call plug#begin()
 " let Vundle manage Vundle, required
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'airblade/vim-gitgutter' " HEAVY DISABLED
-" Plug 'Yggdroot/indentLine'
+"Plug 'airblade/vim-gitgutter'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 "Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 Plug 'bronson/vim-trailing-whitespace'
-"BufExplorer Plug for Vim
-" Plug 'jlanzarotta/bufexplorer' " HEAVY DISABLED
 "Auto close (X)HTML tags
 Plug 'alvan/vim-closetag'
 "Vim plugin for intensely orgasmic commenting
@@ -19,62 +15,37 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 "Git wrapper
 Plug 'tpope/vim-fugitive'
-"Github wrapper
-Plug 'tpope/vim-rhubarb'
 "Jade plugin
-Plug 'digitaltoad/vim-pug'
+"Plug 'digitaltoad/vim-pug'
 Plug 'christoomey/vim-tmux-navigator'
 " Plug 'mileszs/ack.vim'
 "Ctrl p
 Plug 'ctrlpvim/ctrlp.vim'
-" Deoplete Neovim
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" Deoplete Neovim
-Plug 'maxmellon/vim-jsx-pretty'
 
 " Fix my js <Leader>f
-" Plug 'ruanyl/vim-fixmyjs' " HEAVY DISABLED
+"Plug 'ruanyl/vim-fixmyjs'
 
 " Handlebars
-Plug 'nono/vim-handlebars'
+"Plug 'nono/vim-handlebars'
 
 " Nerdtree
-Plug 'scrooloose/nerdtree' " HEAVY DISABLED
-" Plug 'Xuyuanp/nerdtree-git-plugin' " HEAVY DISABLED
+Plug 'scrooloose/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" Plug 'terryma/vim-multiple-cursors' " HEAVY
+Plug 'terryma/vim-multiple-cursors'
 
 "autocompletion plugins
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 Plug 'othree/yajs.vim'
 
-" Distraction free mode
-" Plug 'junegunn/goyo.vim'
+" Color
+Plug 'altercation/vim-colors-solarized'
 
-" Solarized theme
-" Plug 'altercation/vim-colors-solarized'
-" Plug 'dracula/vim'
-" Plug 'joshdick/onedark.vim'
-" Plug 'nightsense/carbonized'
-" Plug 'mhartington/oceanic-next'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-" Plug 'tomasr/molokai'
-" Plug 'rakr/vim-one'
-Plug 'ayu-theme/ayu-vim'
-
-" Neomake
-Plug 'neomake/neomake'
-
-" Prettier
-Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'json', 'graphql', 'markdown'] }
-
-" Raimondi/delimitMate
-" Plug 'Raimondi/delimitMate' " HEAVY
+" Linter
+Plug 'w0rp/ale'
 
 call plug#end()

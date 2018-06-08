@@ -3,7 +3,7 @@ language en_US
 " *************************************
 
 source ~/.vim/.mappings.vim
-source ~/.vim/.plugins-vim.vim
+source ~/.vim/.plugins.vim
 
 " *************************************
 
@@ -129,9 +129,6 @@ let g:loaded_matchparen=1
 " Show command completitions
 set wildmenu
 
-" Remove highlight when entering VIM
-autocmd VimEnter * set nosc
-
 " yank to clipboard
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
@@ -143,3 +140,10 @@ endif
 
 " hide status line
 set laststatus=0
+
+" add space after comment for NERDcommenter
+let NERDSpaceDelims=1
+
+" Webpack to ignore swap files
+set dir=$HOME/.vim_tmp/swap
+if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif

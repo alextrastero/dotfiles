@@ -1,3 +1,5 @@
+language en_US
+
 " *************************************
 
 source ~/.vim/.mappings.vim
@@ -12,7 +14,7 @@ set nocompatible
 filetype off
 
 " Turn on syntax highlighting
-syntax off
+syntax on
 
 " For plugins to load correctly
 filetype plugin indent on
@@ -37,7 +39,8 @@ set encoding=utf-8
 
 " Whitespace
 set wrap
-set textwidth=79
+"set textwidth=79
+set textwidth=0
 set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2
@@ -49,7 +52,8 @@ set noshiftround
 set scrolloff=3
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
+" enable this?
+"runtime! macros/matchit.vim
 
 " Move up/down editor lines
 nnoremap j gj
@@ -74,8 +78,8 @@ vnoremap / /\v
 set hlsearch
 set incsearch
 set ignorecase
-set smartcase
-set showmatch
+"set smartcase
+"set showmatch
 map <leader><space> :let @/=''<cr> " clear search
 
 " Remap help key.
@@ -97,11 +101,38 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
 set t_Co=256
+"set termguicolors
 set background=dark
+colo solarized
+
+" Show tabline
+let g:airline#extensions#tabline#enabled = 1
 
 " Config deoplete tab
 " deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " tern
 nnoremap <silent> <buffer> gb :TernDef<CR>
+
+" CTRLP to ignore .gitignore files
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" Disable parens hi
+set noshowmatch
+let g:loaded_matchparen=1
+
+" Show command completitions
+set wildmenu
+
+" Remove highlight when entering VIM
+autocmd VimEnter * set nosc
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif

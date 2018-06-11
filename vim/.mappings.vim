@@ -10,18 +10,12 @@ let g:mapleader = ","
 " leader + r - reload config and airline
 nmap <Leader>r :so $MYVIMRC<cr>:AirlineRefresh<cr>:echo "Updated"<cr>
 
-"jump to other tag
-nnoremap <leader>5 :MtaJumpToOtherTag<cr>
-
 "move around tabs
 "search for vis1al selected
 vnoremap // y/<C-R>"<CR>
 
-"sort
+"sort visual selected lines
 vnoremap ,, :sort<CR>
-
-" Indent entire file
-map <F7> mzgg=G`z
 
 " Remap search to search and don't go to next result
 " nnoremap <Leader>d :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
@@ -33,11 +27,6 @@ nnoremap <silent> <Leader>= :exe "vertical resize +5"<CR>
 
 " Toggle numbrs
 nmap <leader>n :set invnumber<CR>
-
-" Fast saving
-nmap <leader>w :w!<cr>
-" Better ESC key
-"imap kj <ESC>
 
 nmap <leader>1 :bp<cr>
 nmap <leader>2 :bn<cr>
@@ -53,10 +42,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <F1> :NERDTreeToggle<CR>
+" Show open buffer in NERDTree
 nnoremap <Leader>\ :NERDTreeFind<CR>
-nnoremap <F2> :lopen<CR>
-nnoremap <F3> :lclose<CR>
 
 nnoremap <Tab> :CtrlPBuffer<cr>
 nnoremap <Leader>m :CtrlPMRU<cr>
@@ -71,17 +58,9 @@ nmap qq :bd<cr>
 set pastetoggle=<F10>
 imap <C-V> <F10><C-r>"<F10>
 
-" https://robots.thoughtbot.com/faster-grepping-in-vim
-" bind \ (backward slash) to grep shortcut
-"command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-
 " Remap ctrl-f to Ag
 nmap <C-F> :Ag<space>
 nnoremap \ :Ag<SPACE>
-
-" Navigate throu git hunks
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
 
 " search in buffer
 function! s:buflist()
@@ -97,14 +76,8 @@ endfunction
 
 inoremap <tab> <c-n>
 
-"https://github.com/sickill/vim-pasta
-nnoremap <leader>p p`[v`]=
-
 " Search and Replace
 nmap <Leader>f :%s//g<Left><Left>
-
-" replace selected text
-vnoremap <Leader>d "hy:%s/<C-r>h//gc<left><left><left>
 
 " Show syntax highlighting groups for word under cursor
 nmap <leader>z :call <SID>SynStack()<CR>

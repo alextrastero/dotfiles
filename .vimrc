@@ -113,8 +113,8 @@ colo solarized
 let g:airline#extensions#tabline#enabled = 1
 
 " Config deoplete tab
-" deoplete tab-complete
-"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" deoplete tab-complete TODO this is not working
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " tern
 nnoremap <silent> <buffer> gb :TernDef<CR>
@@ -163,3 +163,7 @@ let g:ale_set_signs = 0
 " Change ALE underline color
 hi SpellBad ctermbg=001 ctermfg=007
 hi link ALEError SpellBad
+
+" Eliminating delays on ESC in vim
+set timeoutlen=1000 ttimeoutlen=0
+

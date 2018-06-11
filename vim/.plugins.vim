@@ -48,4 +48,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Linter
 Plug 'w0rp/ale'
 
+" FZF using homebrew installation
+Plug '/usr/local/opt/fzf'
+
 call plug#end()

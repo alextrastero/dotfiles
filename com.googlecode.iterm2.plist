@@ -34043,11 +34043,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>131 260 928 394 0 0 1280 778 </string>
+	<string>131 208 918 512 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1280 800 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-322 800 955 1058 -322 800 1920 1058 </string>
+	<string>-162 897 1599 873 -322 800 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>-318 800 1920 1080 -318 800 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -34288,7 +34288,7 @@
 				<real>0.0</real>
 			</dict>
 			<key>Badge Text</key>
-			<string>this commit will 🤖</string>
+			<string></string>
 			<key>Blend</key>
 			<real>0.050000000000000003</real>
 			<key>Blink Allowed</key>

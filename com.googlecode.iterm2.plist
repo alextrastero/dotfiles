@@ -34043,11 +34043,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>137 335 918 394 0 0 1280 778 </string>
+	<string>131 260 928 394 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 370 710 408 0 0 1280 778 </string>
+	<string>0 0 1280 800 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-162 891 1594 879 -322 800 1920 1058 </string>
+	<string>-322 800 955 1058 -322 800 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>-318 800 1920 1080 -318 800 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -34277,15 +34277,15 @@
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
-				<real>0.5</real>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.3511810302734375</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.1491314172744751</real>
+				<real>0.27964415373625562</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.0</real>
 			</dict>
 			<key>Badge Text</key>
 			<string>this commit will 🤖</string>
@@ -36733,7 +36733,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-06-08T08:24:02Z</date>
+	<date>2018-06-11T07:26:31Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

@@ -3,6 +3,7 @@ call plug#begin()
 "Plug 'airblade/vim-gitgutter'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 "Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
@@ -21,34 +22,15 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'mileszs/ack.vim'
 "Ctrl p
 Plug 'ctrlpvim/ctrlp.vim'
-
-" Fix my js <Leader>f
-"Plug 'ruanyl/vim-fixmyjs'
-
-" Handlebars
-"Plug 'nono/vim-handlebars'
-
 " Nerdtree
 Plug 'scrooloose/nerdtree'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
-
-Plug 'terryma/vim-multiple-cursors'
-
-"autocompletion plugins
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-
-Plug 'othree/yajs.vim'
-
 " Color
-Plug 'altercation/vim-colors-solarized'
-
+Plug 'lifepillar/vim-solarized8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 " Linter
 Plug 'w0rp/ale'
-
 " FZF using homebrew installation
 Plug '/usr/local/opt/fzf'
-
 call plug#end()

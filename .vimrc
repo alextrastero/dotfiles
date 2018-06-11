@@ -92,9 +92,11 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
 set t_Co=256
-"set termguicolors
+set termguicolors
 set background=dark
-colo solarized
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colo solarized8
 
 " Show tabline
 let g:airline#extensions#tabline#enabled = 1

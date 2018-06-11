@@ -18,7 +18,6 @@ vnoremap // y/<C-R>"<CR>
 vnoremap ,, :sort<CR>
 
 " Remap search to search and don't go to next result
-" nnoremap <Leader>d :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " Resize splits

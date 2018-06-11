@@ -19,9 +19,6 @@ syntax on
 " For plugins to load correctly
 filetype plugin indent on
 
-" TODO: Pick a leader key
-" let mapleader = ","
-
 " Security
 set modelines=0
 
@@ -77,8 +74,8 @@ set showmode
 set showcmd
 
 " Searching
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 set hlsearch
 set incsearch
 set ignorecase

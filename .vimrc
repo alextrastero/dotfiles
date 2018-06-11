@@ -127,6 +127,9 @@ if has("clipboard")
   endif
 endif
 
+" auto close tags for js files
+let g:closetag_filenames = '*.html,*.js'
+
 " hide status line
 set laststatus=0
 
@@ -154,8 +157,8 @@ let g:ale_lint_on_enter = 0
 let g:ale_set_signs = 0
 
 " Change ALE underline color
-hi SpellBad ctermbg=001 ctermfg=007
-hi link ALEError SpellBad
+" hi SpellBad guibg=white
+" hi link ALEError SpellBad
 
 " Eliminating delays on ESC in vim
 set timeoutlen=1000 ttimeoutlen=0

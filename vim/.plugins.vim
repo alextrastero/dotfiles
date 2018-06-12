@@ -1,7 +1,5 @@
 call plug#begin()
 " let Vundle manage Vundle, required
-"Plug 'airblade/vim-gitgutter'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'othree/html5.vim'

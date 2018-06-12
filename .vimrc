@@ -37,9 +37,6 @@ set encoding=utf-8
 " dont wrap lines
 set nowrap
 
-" Whitespace
-"set wrap
-
 "set textwidth=79
 set textwidth=0
 set formatoptions=tcqrn1
@@ -74,13 +71,9 @@ set showmode
 set showcmd
 
 " Searching
-" nnoremap / /\v
-" vnoremap / /\v
 set hlsearch
 set incsearch
 set ignorecase
-"set smartcase
-"set showmatch
 
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
@@ -155,10 +148,6 @@ let g:ale_lint_on_enter = 0
 
 " Remove ALE signs
 let g:ale_set_signs = 0
-
-" Change ALE underline color
-" hi SpellBad guibg=white
-" hi link ALEError SpellBad
 
 " Eliminating delays on ESC in vim
 set timeoutlen=1000 ttimeoutlen=0

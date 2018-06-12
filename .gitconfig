@@ -13,7 +13,6 @@
 	required = true
 [merge]
 	conlictStyle = diff3
-	ff = no
 [url "https://github.com"]
 	insteadOf = git://github.com
 [credential]

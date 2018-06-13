@@ -1,2 +1,0 @@
-tmux new-session -A -s XXX -d
-tmux attach -t XXX

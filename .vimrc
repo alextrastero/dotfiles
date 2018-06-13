@@ -144,9 +144,23 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '!'
 " If you don't wish to run linters while you type
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 " Remove ALE signs
 let g:ale_set_signs = 0
+let g:ale_lint_on_filetype_changed = 0
 
 " Eliminating delays on ESC in vim
 set timeoutlen=1000 ttimeoutlen=0
 
+" Show Gutentag on statusline
+set statusline+=%{gutentags#statusline()}
+let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "build", "vendor", ".git", "node_modules", "*.vim/bundle/*"]
+
+" Improve omni
+set completeopt=longest,menuone
+" OMNI mappings
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'

@@ -31,4 +31,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 " FZF using homebrew installation
 Plug '/usr/local/opt/fzf'
+" Autocompletion
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()

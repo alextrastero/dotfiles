@@ -21,8 +21,17 @@ vnoremap ,, :sort<CR>
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " Resize splits
-nnoremap <silent> <Leader>- :exe "vertical resize -5"<CR>
-nnoremap <silent> <Leader>= :exe "vertical resize +5"<CR>
+nnoremap <Up>    :resize +5<CR>
+nnoremap <Down>  :resize -5<CR>
+nnoremap <Left>  :vertical resize +5<CR>
+nnoremap <Right> :vertical resize -5<CR>
+
+" OMNI mappings
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Toggle numbrs
 nmap <leader>n :set invnumber<CR>

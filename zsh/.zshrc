@@ -145,6 +145,8 @@ export NVM_DIR="$HOME/.nvm"
 # Configure FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
 # Feed the output of ag into fzf
 export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore -g ""'
 

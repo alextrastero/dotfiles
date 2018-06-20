@@ -13,7 +13,7 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
-" Turn on syntax highlighting
+" Turn on syntax hi
 syntax on
 
 " For plugins to load correctly
@@ -67,7 +67,7 @@ set ttyfast
 set laststatus=2
 
 " Last line
-set showmode
+set noshowmode
 set showcmd
 
 " Searching
@@ -91,15 +91,21 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 colo solarized8
 
-" Show tabline
-let g:airline#extensions#tabline#enabled = 1
-
-" Config deoplete tab
-" deoplete tab-complete TODO this is not working
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-" tern
-nnoremap <silent> <buffer> gb :TernDef<CR>
+" AIRLINE CONFIG
+let g:lightline = { 'colorscheme': 'solarized' }
+let g:lightline.mode_map = {
+  \ 'n' : '✗✖︎',
+  \ 'i' : '✔✔︎',
+  \ 'R' : 'REPLACE',
+  \ 'v' : 'VISUAL',
+  \ 'V' : 'V-LINE',
+  \ "\<C-v>": 'V-BLOCK',
+  \ 'c' : 'COMMAND',
+  \ 's' : 'SELECT',
+  \ 'S' : 'S-LINE',
+  \ "\<C-s>": 'S-BLOCK',
+  \ 't': 'TERMINAL',
+  \ }
 
 " CTRLP to ignore .gitignore files
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -122,9 +128,6 @@ endif
 
 " auto close tags for js files
 let g:closetag_filenames = '*.html,*.js'
-
-" hide status line
-set laststatus=0
 
 " add space after comment for NERDcommenter
 let NERDSpaceDelims=1

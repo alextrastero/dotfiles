@@ -15,18 +15,14 @@ Plug 'tpope/vim-surround'
 "Git wrapper
 Plug 'tpope/vim-fugitive'
 "Jade plugin
-"Plug 'digitaltoad/vim-pug'
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'mileszs/ack.vim'
 "Ctrl p
 Plug 'ctrlpvim/ctrlp.vim'
 " Nerdtree
 Plug 'scrooloose/nerdtree'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
 " Color
 Plug 'lifepillar/vim-solarized8'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'mgee/lightline-bufferline'
 Plug 'itchyny/lightline.vim'
 " Linter
 Plug 'w0rp/ale'

@@ -59,6 +59,10 @@ nnoremap <Leader>m :CtrlPMRU<cr>
 " Hackatron
 nmap ; :
 
+" TAB in insert to insert spaces
+inoremap <S-Tab> <C-V><Tab>
+inoremap <Tab> <C-V><Tab>
+
 " qq to delete buffer
 nmap qq :bd<cr>
 
@@ -81,8 +85,6 @@ endfunction
 function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
-
-inoremap <tab> <c-n>
 
 " Search and Replace
 nmap <Leader>f :%s//g<Left><Left>

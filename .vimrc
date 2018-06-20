@@ -91,20 +91,25 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 colo solarized8
 
+set showtabline=2
+
 " AIRLINE CONFIG
-let g:lightline = { 'colorscheme': 'solarized' }
-let g:lightline.mode_map = {
-  \ 'n' : '✗✖︎',
-  \ 'i' : '✔✔︎',
-  \ 'R' : 'REPLACE',
-  \ 'v' : 'VISUAL',
-  \ 'V' : 'V-LINE',
-  \ "\<C-v>": 'V-BLOCK',
-  \ 'c' : 'COMMAND',
-  \ 's' : 'SELECT',
-  \ 'S' : 'S-LINE',
-  \ "\<C-s>": 'S-BLOCK',
-  \ 't': 'TERMINAL',
+let g:lightline = {
+  \ 'colorscheme': 'solarized',
+  \ 'active': {
+  \   'right': [ [ 'gitbranch', 'fileformat', 'filetype' ] ],
+  \ },
+  \ 'inactive': {
+  \   'right': []
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'fugitive#head'
+  \ },
+	\	'mode_map': {
+  \		'n': 'N',
+  \		'i': 'I',
+  \		'v': 'V',
+  \ }
   \ }
 
 " CTRLP to ignore .gitignore files
@@ -156,7 +161,7 @@ let g:ale_lint_on_filetype_changed = 0
 set timeoutlen=1000 ttimeoutlen=0
 
 " Show Gutentag on statusline
-set statusline+=%{gutentags#statusline()}
+" set statusline+=%{gutentags#statusline()}
 let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "build", "vendor", ".git", "node_modules", "*.vim/bundle/*"]
 
 " Improve omni

@@ -23,7 +23,7 @@ filetype plugin indent on
 set modelines=0
 
 " Show line numbers
-set number
+set nonumber
 
 " Show file stats
 set ruler
@@ -97,10 +97,7 @@ set showtabline=2
 let g:lightline = {
   \ 'colorscheme': 'solarized',
   \ 'active': {
-  \   'right': [ [ 'gitbranch', 'fileformat', 'filetype' ] ],
-  \ },
-  \ 'inactive': {
-  \   'right': []
+  \   'right': [ [ 'linter_errors', 'linter_ok' ] ],
   \ },
   \ 'component_function': {
   \   'gitbranch': 'fugitive#head'
@@ -110,7 +107,22 @@ let g:lightline = {
   \		'i': 'I',
   \		'v': 'V',
   \ }
-  \ }
+\ }
+let g:lightline.tabline = {
+  \'left': [['buffers']],
+  \'right': [['gitbranch']]
+\}
+
+let g:lightline.component_expand = {
+  \ 'buffers': 'lightline#bufferline#buffers',
+  \  'linter_errors': 'lightline#ale#errors',
+  \  'linter_ok': 'lightline#ale#ok',
+\}
+let g:lightline.component_type = {
+  \ 'buffers': 'tabsel',
+  \ 'linter_errors': 'error',
+  \ 'linter_ok': 'left',
+\ }
 
 " CTRLP to ignore .gitignore files
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -143,7 +155,7 @@ if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
 
 " Setup ALE linter
 " if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
@@ -152,13 +164,18 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '!'
 " If you don't wish to run linters while you type
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
 " Remove ALE signs
 let g:ale_set_signs = 0
 let g:ale_lint_on_filetype_changed = 0
+" hi ALEError guibg=red
+hi link ALEError ExtraWhitespace
 
 " Eliminating delays on ESC in vim
 set timeoutlen=1000 ttimeoutlen=0
+
+" Style vim split
+set fillchars+=vert:\.
+hi VertSplit guibg=NONE
 
 " Show Gutentag on statusline
 " set statusline+=%{gutentags#statusline()}

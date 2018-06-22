@@ -22,8 +22,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 " Color
 Plug 'lifepillar/vim-solarized8'
+" Lightlint + plugins
 Plug 'mgee/lightline-bufferline'
 Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 " Linter
 Plug 'w0rp/ale'
 " FZF using homebrew installation

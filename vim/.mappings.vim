@@ -97,3 +97,6 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+" Toggle ALE linting on/off
+nnoremap <Leader>l :ALEToggle<CR>

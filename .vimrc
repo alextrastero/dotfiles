@@ -78,11 +78,6 @@ set ignorecase
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
-
 " Color scheme (terminal)
 set t_Co=256
 set termguicolors
@@ -155,7 +150,8 @@ if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
 
 " Setup ALE linter
 " if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 1
+let g:ale_lint_on_enter = 0
+let g:ale_open_list = 1
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],

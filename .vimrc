@@ -151,7 +151,8 @@ if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
 " Setup ALE linter
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
-let g:ale_open_list = 1
+let g:ale_lint_on_save = 1
+let g:ale_open_list = 0
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
@@ -163,6 +164,7 @@ let g:ale_lint_on_text_changed = 'never'
 " Remove ALE signs
 let g:ale_set_signs = 0
 let g:ale_lint_on_filetype_changed = 0
+
 " hi ALEError guibg=red
 hi link ALEError ExtraWhitespace
 

@@ -32,4 +32,6 @@ Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf'
 " Autocompletion
 Plug 'ludovicchabant/vim-gutentags'
+" Toggle loclist/quickfix <Leader>l
+Plug 'Valloric/ListToggle'
 call plug#end()

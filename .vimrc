@@ -76,7 +76,8 @@ set incsearch
 set ignorecase
 
 " Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
+set list
+set listchars=tab:……
 
 " Color scheme (terminal)
 set t_Co=256
@@ -97,10 +98,10 @@ let g:lightline = {
   \ 'component_function': {
   \   'gitbranch': 'fugitive#head'
   \ },
-	\	'mode_map': {
-  \		'n': 'N',
-  \		'i': 'I',
-  \		'v': 'V',
+  \ 'mode_map': {
+  \  'n': 'N',
+  \  'i': 'I',
+  \  'v': 'V',
   \ }
 \ }
 let g:lightline.tabline = {

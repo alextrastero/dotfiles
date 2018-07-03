@@ -59,10 +59,6 @@ nnoremap <Leader>m :CtrlPMRU<cr>
 " Hackatron
 nmap ; :
 
-" TAB in insert to insert spaces
-inoremap <S-Tab> <C-V><Tab>
-inoremap <Tab> <C-V><Tab>
-
 " qq to delete buffer
 nmap qq :bd<cr>
 

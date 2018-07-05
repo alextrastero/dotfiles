@@ -96,7 +96,8 @@ let g:lightline = {
   \   'right': [ [ 'linter_errors', 'linter_ok' ] ],
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'fugitive#head'
+  \   'gitbranch': 'fugitive#head',
+  \   'filename': 'LightlineFilename'
   \ },
   \ 'mode_map': {
   \  'n': 'N',
@@ -119,6 +120,15 @@ let g:lightline.component_type = {
   \ 'linter_errors': 'error',
   \ 'linter_ok': 'left',
 \ }
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
 
 " CTRLP to ignore .gitignore files
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']

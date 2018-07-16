@@ -21,7 +21,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Nerdtree
 Plug 'scrooloose/nerdtree'
 " Color
-Plug 'lifepillar/vim-solarized8'
+Plug 'chriskempson/base16-vim'
 " Lightlint + plugins
 Plug 'mgee/lightline-bufferline'
 Plug 'itchyny/lightline.vim'

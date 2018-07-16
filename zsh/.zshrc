@@ -156,6 +156,8 @@ export DISABLE_UPDATE_PROMPT=true
 alias fzf="fzf --bind ctrl-j:accept"
 alias npm5="npm i -g npm@5.x"
 alias ag="ag --path-to-ignore ~/.ignore"
+# requires https://www.npmjs.com/package/interactive-scripts
+alias run="scripts"
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

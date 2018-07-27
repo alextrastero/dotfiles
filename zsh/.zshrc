@@ -123,7 +123,7 @@ alias z="fasd_cd -d"
 alias c='clear'
 alias gitprune='git branch | xargs git branch -d'
 alias git-sync-tags='git tag | xargs git tag -d && git fetch --tags'
-alias glg='tig'
+alias glg='tig log'
 alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 alias gb="git branch --sort=-committerdate"
 
@@ -139,6 +139,8 @@ function pulls() { # Open my pulls for this project
 function own() { # Own a file $1
   sudo chown -v aodell $1
 }
+
+export GIT_EDITOR="vim"
 
 export NVM_DIR="$HOME/.nvm"
 

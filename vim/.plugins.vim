@@ -14,6 +14,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 "Git wrapper
 Plug 'tpope/vim-fugitive'
+"Github wrapper
+Plug 'tpope/vim-rhubarb'
 "Jade plugin
 Plug 'christoomey/vim-tmux-navigator'
 "Ctrl p

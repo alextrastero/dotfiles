@@ -133,7 +133,7 @@ function hub() { # Open github on folder
 }
 
 function pulls() { # Open my pulls for this project
-  open $(git config remote.origin.url | ruby -ne 'puts "https://" + $_.split(%r{[/:@]})[1..-1].join("/").sub(/\.git$/, "/pulls/alextrastero")')
+  open $(git config remote.origin.url | ruby -ne 'puts "https://" + $_.split(%r{[/:@]})[1..-1].join("/").sub(/\.git$/, "/pulls")')
 }
 
 function own() { # Own a file $1
@@ -160,9 +160,16 @@ alias npm5="npm i -g npm@5.x"
 alias ag="ag --path-to-ignore ~/.ignore"
 # requires https://www.npmjs.com/package/interactive-scripts
 alias run="scripts"
+alias gc="git commit -v -S"
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+function acp() {
+  git add .
+  git commit -m "$1"
+  git push
+}
 
 # added by travis gem
 [ -f /Users/aodell/.travis/travis.sh ] && source /Users/aodell/.travis/travis.sh

@@ -84405,7 +84405,7 @@
 	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
 	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
 	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAdKAAAAAAANIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
+	DIAIgAlRMSNAc7AAAAAAANIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
 	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
 	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
 	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
@@ -84431,11 +84431,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>94 269 928 394 0 0 1280 778 </string>
+	<string>172 74 918 512 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1280 800 0 0 1280 778 </string>
+	<string>640 0 640 778 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-296 800 1920 1080 -296 800 1920 1058 </string>
+	<string>0 0 1280 778 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 370 710 408 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -84665,13 +84665,13 @@
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
-				<real>0.674224853515625</real>
+				<real>0.5</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.0</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>1</real>
+				<real>0.1491314172744751</real>
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
@@ -85108,7 +85108,7 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>Copy of Solarized Dark</string>
+			<string>base16-oceanicnext</string>
 			<key>Non Ascii Font</key>
 			<string>RobotoMonoForPowerline-Medium 14</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -87987,7 +87987,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-07-27T10:43:55Z</date>
+	<date>2018-08-09T14:31:22Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -88006,6 +88006,8 @@
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.10000000000000001</real>
+	<key>SuppressRestartAnnouncement</key>
+	<true/>
 	<key>SwitchPaneModifier</key>
 	<integer>6</integer>
 	<key>SwitchTabModifier</key>
@@ -89047,7 +89049,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.0beta8</string>
+	<string>3.2.0beta9</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

@@ -18,3 +18,5 @@
 	insteadOf = git://github.com
 [credential]
 	helper = osxkeychain
+[commit]
+	gpgsign = true

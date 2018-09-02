@@ -197,7 +197,7 @@ hi VertSplit guibg=NONE
 
 " Show Gutentag on statusline
 " set statusline+=%{gutentags#statusline()}
-let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "build", "vendor", ".git", "node_modules", "*.vim/bundle/*"]
+let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "build", "vendor", ".git", "node_modules", "*.vim/bundle/*", "coverage"]
 
 " Improve omni
 set completeopt=longest,menuone

@@ -164,6 +164,7 @@ alias run="scripts"
 alias gc="git commit -v -S"
 alias gamend="git commit --amend --no-edit"
 alias dl="youtube-dl -x --audio-format mp3"
+alias gl="say 'PULL!'; git pull"
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

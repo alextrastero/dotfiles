@@ -113,19 +113,20 @@ alias dev="cd ~/dev" # Go to dev folder
 alias pick="git cherry-pick"
 alias watch="webpack-dev-server --progress --colors"
 alias ports="lsof -i -P | grep -i 'listen'" # Show used ports
-alias gs='git show'
+alias gs="git show"
 alias gundo='git reset --soft HEAD~ && git reset HEAD .' # Uncommit last commit and unstage - to see all new stuff in vim-git
 alias edit='vim /Users/aodell/dev/dotfiles/.vimrc'
 alias gch='function _blah(){ git rev-list --count HEAD ^$1; };_blah' # Git count commits from param branch
-alias gll="gfa && gf -p && gl"
+alias gll="say 'PULL!'; gfa && gf -p && gl"
 alias colors='for code in {000..15}; do print -P -- "$code: %F{$code}Test%f"; done'
 alias z="fasd_cd -d"
-alias c='clear'
+alias c="clear"
 alias gitprune='git branch | xargs git branch -d'
 alias git-sync-tags='git tag | xargs git tag -d && git fetch --tags'
 alias glg='tig log'
 alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 alias gb="git branch --sort=-committerdate"
+alias gp="say 'PUSH!'; git push"
 
 # ///////////////// FUNCTIONS //////////////////////////////////////////////////
 function hub() { # Open github on folder
@@ -161,14 +162,15 @@ alias ag="ag --path-to-ignore ~/.ignore"
 # requires https://www.npmjs.com/package/interactive-scripts
 alias run="scripts"
 alias gc="git commit -v -S"
+alias gamend="git commit --amend --no-edit"
+alias dl="youtube-dl -x --audio-format mp3"
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-function acp() {
-  git add .
-  git commit -m "$1"
-  git push
+function say() {
+  # artii "$1" --font isometric1 | lolcat
+  artii "$@" --font slant | lolcat
 }
 
 # added by travis gem

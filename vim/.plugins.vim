@@ -32,8 +32,6 @@ Plug 'maximbaz/lightline-ale'
 Plug 'w0rp/ale'
 " FZF using homebrew installation
 Plug '/usr/local/opt/fzf'
-" Autocompletion
-Plug 'ludovicchabant/vim-gutentags'
 " Toggle loclist/quickfix <Leader>l
 Plug 'Valloric/ListToggle'
 call plug#end()

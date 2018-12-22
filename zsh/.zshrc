@@ -8,7 +8,9 @@ export ZSH=/Users/aodell/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="alextrastero"
+# ZSH_THEME="alextrastero"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell-hack"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -48,7 +50,6 @@ ZSH_THEME="alextrastero"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
@@ -111,30 +112,32 @@ rbenv() {
 # ///////////////// ALIASES ////////////////////////////////////////////////////
 alias dev="cd ~/dev" # Go to dev folder
 alias pick="git cherry-pick"
-alias watch="webpack-dev-server --progress --colors"
-alias ports="lsof -i -P | grep -i 'listen'" # Show used ports
+alias ports="lsof -i -P | grep -i 'listen'" # List used ports
 alias gs="git show"
 alias gundo='git reset --soft HEAD~ && git reset HEAD .' # Uncommit last commit and unstage - to see all new stuff in vim-git
 alias edit='vim /Users/aodell/dev/dotfiles/.vimrc'
 alias gch='function _blah(){ git rev-list --count HEAD ^$1; };_blah' # Git count commits from param branch
-alias gll="say 'PULL!'; gfa && gf -p && gl"
+alias gll="gfa && gf -p && gl"
 alias colors='for code in {000..15}; do print -P -- "$code: %F{$code}Test%f"; done'
 alias z="fasd_cd -d"
 alias c="clear"
 alias gitprune='git branch | xargs git branch -d'
 alias git-sync-tags='git tag | xargs git tag -d && git fetch --tags'
-alias glg='tig log'
+alias glg='tig log -n30'
 alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 alias gb="git branch --sort=-committerdate"
 alias gp="say 'PUSH!'; git push"
+alias gl="say 'PULL!'; git pull"
 
 # ///////////////// FUNCTIONS //////////////////////////////////////////////////
+
 function hub() { # Open github on folder
   open $(git config remote.origin.url | ruby -ne 'puts "https://" + $_.split(%r{[/:@]})[1..-1].join("/").sub(/\.git$/, "")')
 }
 
-function pulls() { # Open my pulls for this project
-  open $(git config remote.origin.url | ruby -ne 'puts "https://" + $_.split(%r{[/:@]})[1..-1].join("/").sub(/\.git$/, "/pulls")')
+function show() { # Open github on comparing current branch with master
+  branch=$(current_branch)
+  open "https://github.com/lessonnine/lesson-player.spa/compare/$branch?expand=1"
 }
 
 function own() { # Own a file $1
@@ -156,15 +159,19 @@ export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore -g ""'
 # Speed up oh-my-zsh
 export DISABLE_UPDATE_PROMPT=true
 
+# https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
+export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --no-init --window=-4'
+
 alias fzf="fzf --bind ctrl-j:accept"
 alias npm5="npm i -g npm@5.x"
-alias ag="ag --path-to-ignore ~/.ignore"
+alias ag="ag --path-to-ignore ~/.ignore --pager less"
 # requires https://www.npmjs.com/package/interactive-scripts
 alias run="scripts"
 alias gc="git commit -v -S"
 alias gamend="git commit --amend --no-edit"
 alias dl="youtube-dl -x --audio-format mp3"
-alias gl="say 'PULL!'; git pull"
+alias unit="npm run test:unit"
+alias watch="npm run test:unit:watch -- --verbose false"
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

@@ -82,9 +82,12 @@ set listchars=tab:……
 " Color scheme (terminal)
 set t_Co=256
 set termguicolors
-set background=dark
+set background=light
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" Colorscheme
+colo base16-solarized-light
 
 set showtabline=2
 
@@ -104,7 +107,7 @@ let g:lightline = {
   \  'v': 'V',
   \ }
 \ }
-" let g:lightline.colorscheme = 'solarized'
+let g:lightline.colorscheme = 'solarized'
 let g:lightline.tabline = {
   \'left': [['buffers']],
   \'right': [['gitbranch']]
@@ -170,7 +173,7 @@ let g:ale_linters = {
 \}
 let g:ale_pattern_options = {
 \ '.*b3\/.*js$': {'ale_linters': ['jshint'], 'ale_fixers': []},
-\ '.*[^b3\/].*js$': {'ale_linters': ['eslint'], 'ale_fixers': []}
+\ '.*[^b3\/].*js$': {'ale_linters': ['eslint'], 'ale_fixers': ['eslint']}
 \}
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '!'
@@ -191,7 +194,7 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " Style vim split
 set fillchars+=vert:\.
-hi VertSplit guibg=NONE
+hi VertSplit guifg=darkgray guibg=NONE
 
 " Show Gutentag on statusline
 " set statusline+=%{gutentags#statusline()}
@@ -206,5 +209,3 @@ set splitright
 " Fix PERFORMANCE
 set lazyredraw
 set nocursorline
-
-colo base16-flat

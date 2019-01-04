@@ -81,13 +81,13 @@ set listchars=tab:……
 
 " Color scheme (terminal)
 set t_Co=256
-set termguicolors
-set background=light
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Colorscheme
-colo base16-solarized-light
+colo base16-solarized-dark
+set termguicolors
+set background=dark
 
 set showtabline=2
 

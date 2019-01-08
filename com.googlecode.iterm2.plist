@@ -84408,11 +84408,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>373 265 620 392 0 0 1366 746 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>304 213 1018 447 0 0 1366 746 </string>
+	<string>304 198 918 512 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1366 768 0 0 1366 746 </string>
+	<string>0 338 710 408 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 1366 768 0 0 1366 746 </string>
+	<string>0 338 710 408 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>-320 1368 810 458 -320 768 1920 1058 </string>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2</key>
@@ -87889,7 +87889,7 @@
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>535498253.760418</real>
 	<key>OnlyWhenMoreTabs</key>
-	<true/>
+	<false/>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenBookmark</key>
@@ -87946,7 +87946,7 @@
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
-	<true/>
+	<false/>
 	<key>ProportionalScrollWheelReporting</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -87966,7 +87966,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-01-04T08:23:42Z</date>
+	<date>2019-01-07T08:04:20Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -89022,7 +89022,7 @@
 	<key>WindowStyle</key>
 	<integer>0</integer>
 	<key>WordCharacters</key>
-	<string></string>
+	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findMode_iTerm</key>

@@ -66,10 +66,6 @@ nmap qq :bd<cr>
 set pastetoggle=<F10>
 imap <C-V> <F10><C-r>"<F10>
 
-" Remap ctrl-f to Ag
-nmap <C-F> :Ag<space>
-nnoremap \ :Ag<SPACE>
-
 " search in buffer
 function! s:buflist()
   redir => ls

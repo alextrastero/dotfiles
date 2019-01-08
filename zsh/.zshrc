@@ -148,22 +148,12 @@ export GIT_EDITOR="vim"
 
 export NVM_DIR="$HOME/.nvm"
 
-# Configure FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-
-# Feed the output of ag into fzf
-export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore -g ""'
-
 # Speed up oh-my-zsh
 export DISABLE_UPDATE_PROMPT=true
 
 # https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
 export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --no-init --window=-4'
 
-alias fzf="fzf --bind ctrl-j:accept"
-alias npm5="npm i -g npm@5.x"
 alias ag="ag --path-to-ignore ~/.ignore --pager less"
 # requires https://www.npmjs.com/package/interactive-scripts
 alias run="scripts"
@@ -171,10 +161,8 @@ alias gc="git commit -v -S"
 alias gamend="git commit --amend --no-edit"
 alias dl="youtube-dl -x --audio-format mp3"
 alias unit="npm run test:unit"
-alias watch="npm run test:unit:watch -- --verbose false"
-
-# To apply the command to CTRL-T as well
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+alias watch="npm run test:unit:watch -- --silent --noStackTrace --notify --verbose false"
+alias fixup="git rebase -i origin/HEAD"
 
 function say() {
   # artii "$1" --font isometric1 | lolcat

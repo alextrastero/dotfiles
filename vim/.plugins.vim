@@ -30,8 +30,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 " Linter
 Plug 'w0rp/ale'
-" FZF using homebrew installation
-Plug '/usr/local/opt/fzf'
 " Toggle loclist/quickfix <Leader>l
 Plug 'Valloric/ListToggle'
 call plug#end()

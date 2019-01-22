@@ -19,7 +19,7 @@ Plug 'tpope/vim-rhubarb'
 "Jade plugin
 Plug 'christoomey/vim-tmux-navigator'
 "Ctrl p
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 " Nerdtree
 Plug 'scrooloose/nerdtree'
 " Color
@@ -32,4 +32,7 @@ Plug 'maximbaz/lightline-ale'
 Plug 'w0rp/ale'
 " Toggle loclist/quickfix <Leader>l
 Plug 'Valloric/ListToggle'
+" FZF
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()

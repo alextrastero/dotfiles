@@ -53,8 +53,10 @@ nnoremap <C-H> <C-W><C-H>
 " Show open buffer in NERDTree
 nnoremap <Leader>\ :NERDTreeFind<CR>
 
-nnoremap <Tab> :CtrlPBuffer<cr>
-nnoremap <Leader>m :CtrlPMRU<cr>
+nnoremap <Tab> :Buffers<cr>
+" nnoremap <Leader>m :CtrlPMRU<cr>
+nnoremap <Leader>m :History<cr>
+nnoremap <C-p> :Files<Cr>
 
 " Hackatron
 nmap ; :
@@ -89,3 +91,5 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+nnoremap <C-Enter> gf<cr>

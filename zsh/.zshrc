@@ -161,7 +161,7 @@ alias gc="git commit -v -S"
 alias gamend="git commit --amend --no-edit"
 alias dl="youtube-dl -x --audio-format mp3"
 alias unit="npm run test:unit"
-alias watch="npm run test:unit:watch -- --silent --noStackTrace --notify --verbose false"
+alias watch="npm run test:unit:watch -- --noStackTrace --notify --verbose false"
 alias fixup="git rebase -i origin/HEAD"
 
 function say() {
@@ -172,3 +172,10 @@ function say() {
 # added by travis gem
 [ -f /Users/aodell/.travis/travis.sh ] && source /Users/aodell/.travis/travis.sh
 # zprof #debuggin
+
+# FZF
+export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore --pager less -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Fixing TAGS
+alias ctags="`brew --prefix`/bin/ctags"

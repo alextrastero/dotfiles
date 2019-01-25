@@ -19,6 +19,9 @@ syntax on
 " For plugins to load correctly
 filetype plugin indent on
 
+" set no paste
+set pastetoggle=<F3>
+
 " Security
 set modelines=0
 
@@ -85,14 +88,12 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Colorscheme
-colo base16-solarized-dark
+colo gruvbox
 set termguicolors
 set background=dark
 
 set showtabline=2
 
-" AIRLINE CONFIG
-  " \   'right': [  ],
 let g:lightline = {
   \ 'active': {
   \   'right': [ ['linter_errors', 'linter_ok'], ['percent'], ['filetype'] ]
@@ -107,7 +108,7 @@ let g:lightline = {
   \  'v': 'V',
   \ }
 \ }
-let g:lightline.colorscheme = 'solarized'
+let g:lightline.colorscheme = 'gruvbox'
 let g:lightline.tabline = {
   \'left': [['buffers']],
   \'right': [['gitbranch']]
@@ -228,3 +229,6 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" vim startify bookmarks
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, { 'z': '~/.zshrc'} ]

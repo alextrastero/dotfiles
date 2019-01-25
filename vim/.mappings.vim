@@ -91,5 +91,3 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-
-nnoremap <C-Enter> gf<cr>

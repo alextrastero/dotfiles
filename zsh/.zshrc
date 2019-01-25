@@ -161,7 +161,7 @@ alias gc="git commit -v -S"
 alias gamend="git commit --amend --no-edit"
 alias dl="youtube-dl -x --audio-format mp3"
 alias unit="npm run test:unit"
-alias watch="npm run test:unit:watch -- --noStackTrace --notify --verbose false"
+alias watch="npm run test:unit:watch -- --noStackTrace --verbose false"
 alias fixup="git rebase -i origin/HEAD"
 
 function say() {

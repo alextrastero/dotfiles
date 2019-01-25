@@ -29,9 +29,9 @@
 	<key>BadgeMaxHeightFraction</key>
 	<real>0.05000000074505806</real>
 	<key>BadgeRightMargin</key>
-	<integer>5</integer>
+	<integer>15</integer>
 	<key>BadgeTopMargin</key>
-	<integer>5</integer>
+	<integer>15</integer>
 	<key>CheckTestRelease</key>
 	<true/>
 	<key>ClosingHotkeySwitchesSpaces</key>
@@ -84755,9 +84755,9 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1366 746 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>304 282 1018 447 0 0 1366 746 </string>
+	<string>304 335 928 394 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>114 66 1137 618 0 0 1366 746 </string>
+	<string>0 0 1366 768 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 338 710 408 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -84989,11 +84989,11 @@
 				<key>Alpha Component</key>
 				<real>0.5</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>1</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.1491314172744751</real>
+				<real>1</real>
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
@@ -85602,7 +85602,7 @@
 			<key>Thin Strokes</key>
 			<integer>0</integer>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.041616434010152283</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unicode Normalization</key>
@@ -88307,9 +88307,9 @@
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>TerminalMargin</key>
-	<integer>15</integer>
+	<integer>5</integer>
 	<key>TerminalVMargin</key>
-	<integer>15</integer>
+	<integer>5</integer>
 	<key>ThreeFingerEmulates</key>
 	<false/>
 	<key>TmuxDashboardLimit</key>

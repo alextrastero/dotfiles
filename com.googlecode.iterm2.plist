@@ -84709,9 +84709,9 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 4</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dev/dotfiles/NEON_THEME</string>
+	<string>~/Pictures</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
+	<string>{722, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -84755,7 +84755,7 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1366 746 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>304 335 928 394 0 0 1366 746 </string>
+	<string>303 185 918 452 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1366 768 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -84983,7 +84983,7 @@
 				<real>0.14901961</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
-			<false/>
+			<true/>
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -85000,7 +85000,7 @@
 			<key>Badge Text</key>
 			<string>♞</string>
 			<key>Blend</key>
-			<real>0.050000000000000003</real>
+			<real>0.62253104967948714</real>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -85008,7 +85008,7 @@
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>2</real>
+			<real>11.789766418147208</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -85441,6 +85441,8 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>FiraCode-Regular 12</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -85602,7 +85604,7 @@
 			<key>Thin Strokes</key>
 			<integer>0</integer>
 			<key>Transparency</key>
-			<real>0.041616434010152283</real>
+			<real>0.0</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unicode Normalization</key>
@@ -88273,7 +88275,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-01-24T14:29:20Z</date>
+	<date>2019-01-25T16:24:18Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

@@ -26,7 +26,7 @@ set pastetoggle=<F3>
 set modelines=0
 
 " Show line numbers
-set nonumber
+set number
 
 " Show file stats
 set ruler
@@ -233,8 +233,8 @@ let g:fzf_colors =
 " vim startify bookmarks
 let g:startify_bookmarks = [ {'v': '~/.vimrc'}, { 'z': '~/.zshrc'} ]
 let g:startify_lists = [
-      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
       \ { 'type': 'files',     'header': ['   MRU']            },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
       \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
       \ ]
 let g:startify_files_number = 5

@@ -47,7 +47,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set noshiftround
+" set noshiftround
 
 " Cursor motion
 set scrolloff=3
@@ -195,7 +195,10 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " Style vim split
 set fillchars+=vert:\.
-hi VertSplit guifg=darkgray guibg=NONE
+hi VertSplit guifg=red guibg=NONE
+
+" Color highlighted search result differently
+hi IncSearch guifg=red guibg=white
 
 " Show Gutentag on statusline
 " set statusline+=%{gutentags#statusline()}
@@ -211,10 +214,18 @@ set splitright
 set lazyredraw
 set nocursorline
 
+" Enable cursor line position tracking:
+set cursorline
+" Remove the underline from enabling cursorline:
+hi clear CursorLine
+" Set line numbering to red background:
+hi CursorLineNR guibg=NONE
+" DESTROYS PERFORMANCE
+
 " FZF Config
 let g:fzf_tags_command='ctags -R'
 let g:fzf_buffers_jump=1
-let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_layout = { 'down': '~30%' }
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -233,9 +244,8 @@ let g:fzf_colors =
 " vim startify bookmarks
 let g:startify_bookmarks = [ {'v': '~/.vimrc'}, { 'z': '~/.zshrc'} ]
 let g:startify_lists = [
-      \ { 'type': 'files',     'header': ['   MRU']            },
-      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'files',     'header': ['↪  ブックマーク:']  },
+      \ { 'type': 'bookmarks', 'header': ['↪  ディレクトリ:']  }
       \ ]
 let g:startify_files_number = 5
 let g:startify_skiplist = [
@@ -244,11 +254,39 @@ let g:startify_skiplist = [
     \ '.zshrc',
     \ ]
 let g:startify_change_to_dir = 1
+hi StartifyHeader ctermfg=3
 let g:startify_custom_header = [
-      \ '    █████╗ ██╗     ███████╗██╗  ██╗████████╗██████╗  █████╗ ███████╗████████╗███████╗██████╗  ██████╗  ',
-      \ '   ██╔══██╗██║     ██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗██╔═══██╗ ',
-      \ '   ███████║██║     █████╗   ╚███╔╝    ██║   ██████╔╝███████║███████╗   ██║   █████╗  ██████╔╝██║   ██║ ',
-      \ '   ██╔══██║██║     ██╔══╝   ██╔██╗    ██║   ██╔══██╗██╔══██║╚════██║   ██║   ██╔══╝  ██╔══██╗██║   ██║ ',
-      \ '   ██║  ██║███████╗███████╗██╔╝ ██╗   ██║   ██║  ██║██║  ██║███████║   ██║   ███████╗██║  ██║╚██████╔╝ ',
-      \ '   ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝ ╚═════╝  ',
-      \ ]
+      \'                   .                    ',
+      \'   ##############..... ##############   ',
+      \'   ##############......##############   ',
+      \'     ##########..........##########     ',
+      \'     ##########........##########       ',
+      \'     ##########.......##########        ',
+      \'     ##########.....##########..        ',
+      \'     ##########....##########.....      ',
+      \'   ..##########..##########.........    ',
+      \' ....##########.#########.............  ',
+      \'   ..##################.............    ',
+      \'     ################.............      ',
+      \'     ##############.............        ',
+      \'     ############.............          ',
+      \'     ##########.............            ',
+      \'     ########.............              ',
+      \'     ######    .........                ',
+      \'                 .....                  ',
+      \'                   .                    ',
+      \]
+" let g:startify_custom_header = [
+  " \ '                                ______      ',
+  " \ '            __                /\  ____`\    ',
+  " \ '   __   __ /\_\    ___ ___    \ \ \___\ \   ',
+  " \ '  /\ \ /\ \\/\ \ /` __` __`\   \ \  ____ \  ',
+  " \ '  \ \ \_/ / \ \ \/\ \/\ \/\ \   \ \ \___\ \ ',
+  " \ '   \ \___/   \ \_\ \_\ \_\ \_\   \ \_______\',
+  " \ '    \/__/     \/_/\/_/\/_/\/_/    \/_______/',
+  " \ '                                            ',
+  " \ ]
+
+let g:startify_custom_footer = [
+      \' ( ͡° ͜ʖ ͡°)',
+      \]

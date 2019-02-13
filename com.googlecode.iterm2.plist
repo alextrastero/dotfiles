@@ -84755,7 +84755,7 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1366 746 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>303 185 918 452 0 0 1366 746 </string>
+	<string>-222 1352 928 394 -261 768 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1366 768 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -84983,32 +84983,34 @@
 				<real>0.14901961</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
-			<true/>
+			<false/>
+			<key>Background Image Location</key>
+			<string>/Users/aodell/Pictures/wallhaven-625519.jpg</string>
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>0.5</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.0</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>1</real>
+				<real>0.1491314172744751</real>
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
 			<key>Badge Text</key>
-			<string>♞</string>
+			<string>☭</string>
 			<key>Blend</key>
-			<real>0.62253104967948714</real>
+			<real>0.080639022435897476</real>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<false/>
+			<true/>
 			<key>Blur Radius</key>
-			<real>11.789766418147208</real>
+			<real>30</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -88275,7 +88277,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-01-25T16:24:18Z</date>
+	<date>2019-02-05T10:27:21Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

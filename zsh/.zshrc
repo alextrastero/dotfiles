@@ -163,10 +163,12 @@ alias dl="youtube-dl -x --audio-format mp3"
 alias unit="npm run test:unit"
 alias watch="npm run test:unit:watch -- --noStackTrace --verbose false"
 alias fixup="git rebase -i origin/HEAD"
+alias p="python3"
 
 function say() {
   # artii "$1" --font isometric1 | lolcat
-  artii "$@" --font slant | lolcat
+  # artii "$@" --font slant | lolcat
+  artii "$@" --font alligator2 | lolcat
 }
 
 # added by travis gem

@@ -195,7 +195,7 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " Style vim split
 set fillchars+=vert:\.
-hi VertSplit guifg=red guibg=NONE
+hi VertSplit guifg=darkgray guibg=NONE
 
 " Color highlighted search result differently
 hi IncSearch guifg=red guibg=white
@@ -242,7 +242,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " vim startify bookmarks
-let g:startify_bookmarks = [ {'v': '~/.vimrc'}, { 'z': '~/.zshrc'} ]
+let g:startify_bookmarks = [ { 'v': '~/.vimrc' }, { 'm': '~/.vim/.mappings.vim' }, { 'p': '~/.vim/.plugins.vim' }, { 'z': '~/.zshrc' } ]
 let g:startify_lists = [
       \ { 'type': 'files',     'header': ['↪  ブックマーク:']  },
       \ { 'type': 'bookmarks', 'header': ['↪  ディレクトリ:']  }
@@ -251,6 +251,9 @@ let g:startify_files_number = 5
 let g:startify_skiplist = [
     \ 'COMMIT_EDITMSG',
     \ '.vimrc',
+    \ '.plugins.vim',
+    \ '.mappings.vim',
+    \ '.tmux.conf',
     \ '.zshrc',
     \ ]
 let g:startify_change_to_dir = 1
@@ -287,6 +290,15 @@ let g:startify_custom_header = [
   " \ '                                            ',
   " \ ]
 
+let g:startify_change_to_dir = 0
 let g:startify_custom_footer = [
       \' ( ͡° ͜ʖ ͡°)',
       \]
+
+let g:gitgutter_max_signs = 50
+
+" HEAVE update MRU when buff is opened
+augroup custom_filemru
+  autocmd!
+  autocmd BufWinEnter * UpdateMru
+augroup END

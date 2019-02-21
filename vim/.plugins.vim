@@ -14,9 +14,11 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 "Git wrapper
 Plug 'tpope/vim-fugitive'
-"Github wrapper
-Plug 'tpope/vim-rhubarb'
+"Show git changes in gutter
+Plug 'airblade/vim-gitgutter'
 "Jade plugin
+Plug 'tpope/vim-rhubarb'
+"tmux
 Plug 'christoomey/vim-tmux-navigator'
 "Ctrl p
 " Plug 'ctrlpvim/ctrlp.vim'
@@ -35,6 +37,8 @@ Plug 'Valloric/ListToggle'
 " FZF
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+" FZF MRU
+Plug 'tweekmonster/fzf-filemru'
 " Gruvbox theme
 Plug 'morhetz/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'

@@ -14,6 +14,9 @@ nmap <Leader>r :so $MYVIMRC<cr>:echo "Updated"<cr>
 "search for vis1al selected
 vnoremap // y/<C-R>"<CR>
 
+" mapping jj to ESC
+imap jj <Esc>
+
 "sort visual selected lines
 vnoremap ,, :sort<CR>
 
@@ -55,7 +58,8 @@ nnoremap <Leader>\ :NERDTreeFind<CR>
 
 nnoremap <Tab> :Buffers<cr>
 " nnoremap <Leader>m :CtrlPMRU<cr>
-nnoremap <Leader>m :History<cr>
+" nnoremap <Leader>m :History<cr>
+nnoremap <Leader>m :FilesMru --tiebreak=end<cr>
 nnoremap <C-p> :Files<Cr>
 
 " Hackatron

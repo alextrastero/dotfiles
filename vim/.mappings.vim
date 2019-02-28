@@ -37,7 +37,9 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Toggle numbrs
-nmap <leader>n :set invnumber<CR>
+" nmap <leader>n :set invnumber<CR>
+" Repalce Toggle numbers with relative number
+nmap <leader>n :set relativenumber!<CR>
 
 nmap <leader>1 :bp<cr>
 nmap <leader>2 :bn<cr>
@@ -95,3 +97,6 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+" Map Tab to autocomplete in insert mode
+imap <Tab> <C-n>

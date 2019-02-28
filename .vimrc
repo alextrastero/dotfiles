@@ -200,10 +200,6 @@ hi VertSplit guifg=darkgray guibg=NONE
 " Color highlighted search result differently
 hi IncSearch guifg=red guibg=white
 
-" Show Gutentag on statusline
-" set statusline+=%{gutentags#statusline()}
-let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "build", "vendor", ".git", "node_modules", "*.vim/bundle/*", "coverage"]
-
 " Improve omni
 set completeopt=longest,menuone
 
@@ -223,7 +219,6 @@ hi CursorLineNR guibg=NONE
 " DESTROYS PERFORMANCE
 
 " FZF Config
-let g:fzf_tags_command='ctags -R'
 let g:fzf_buffers_jump=1
 let g:fzf_layout = { 'down': '~30%' }
 let g:fzf_colors =
@@ -256,7 +251,7 @@ let g:startify_skiplist = [
     \ '.tmux.conf',
     \ '.zshrc',
     \ ]
-let g:startify_change_to_dir = 1
+let g:startify_change_to_dir = 0
 hi StartifyHeader ctermfg=3
 let g:startify_custom_header = [
       \'                   .                    ',
@@ -290,15 +285,12 @@ let g:startify_custom_header = [
   " \ '                                            ',
   " \ ]
 
-let g:startify_change_to_dir = 0
 let g:startify_custom_footer = [
       \' ( ͡° ͜ʖ ͡°)',
       \]
 
 let g:gitgutter_max_signs = 50
 
-" HEAVE update MRU when buff is opened
-augroup custom_filemru
-  autocmd!
-  autocmd BufWinEnter * UpdateMru
-augroup END
+" update mru on buffer write
+let g:fzf_filemru_bufwrite = 1
+let g:startify_custom_indices = map(range(1,100), 'string(v:val)')

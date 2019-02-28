@@ -42,6 +42,8 @@ Plug 'tweekmonster/fzf-filemru'
 " Gruvbox theme
 Plug 'morhetz/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
+" Solarized Theme
+Plug 'lifepillar/vim-solarized8'
 " vim startscreen
 Plug 'mhinz/vim-startify'
 call plug#end()

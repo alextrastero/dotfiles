@@ -100,3 +100,5 @@ endfunc
 
 " Map Tab to autocomplete in insert mode
 imap <Tab> <C-n>
+
+nmap <C-f> :Ag 

@@ -220,7 +220,7 @@ hi CursorLineNR guibg=NONE
 
 " FZF Config
 let g:fzf_buffers_jump=1
-let g:fzf_layout = { 'down': '~30%' }
+" let g:fzf_layout = { 'down': '100%' }
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -285,12 +285,16 @@ let g:startify_custom_header = [
   " \ '                                            ',
   " \ ]
 
+let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 let g:startify_custom_footer = [
       \' ( ͡° ͜ʖ ͡°)',
       \]
 
 let g:gitgutter_max_signs = 50
 
-" update mru on buffer write
-let g:fzf_filemru_bufwrite = 1
-let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+

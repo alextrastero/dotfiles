@@ -60,8 +60,7 @@ nnoremap <Leader>\ :NERDTreeFind<CR>
 
 nnoremap <Tab> :Buffers<cr>
 " nnoremap <Leader>m :CtrlPMRU<cr>
-" nnoremap <Leader>m :History<cr>
-nnoremap <Leader>m :FilesMru --tiebreak=end<cr>
+nnoremap <Leader>m :History<cr>
 nnoremap <C-p> :Files<Cr>
 
 " Hackatron

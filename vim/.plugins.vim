@@ -37,8 +37,6 @@ Plug 'Valloric/ListToggle'
 " FZF
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-" FZF MRU
-Plug 'tweekmonster/fzf-filemru'
 " Gruvbox theme
 Plug 'morhetz/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'

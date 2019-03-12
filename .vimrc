@@ -211,11 +211,11 @@ set lazyredraw
 set nocursorline
 
 " Enable cursor line position tracking:
-set cursorline
+" set cursorline
 " Remove the underline from enabling cursorline:
-hi clear CursorLine
+" hi clear CursorLine
 " Set line numbering to red background:
-hi CursorLineNR guibg=NONE
+" hi CursorLineNR guibg=NONE
 " DESTROYS PERFORMANCE
 
 " FZF Config

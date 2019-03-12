@@ -84749,17 +84749,17 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>809 1032 640 94 -274 768 1920 1058 </string>
+	<string>809 915 640 574 -274 768 1920 1080 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>373 265 620 392 0 0 1366 746 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1366 746 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>320 149 937 514 0 0 1366 746 </string>
+	<string>320 272 770 429 0 0 1366 768 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1366 768 0 0 1366 746 </string>
+	<string>-114 861 1594 897 -274 768 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 248 810 483 0 0 1366 746 </string>
+	<string>692 768 954 1058 -274 768 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>-320 1368 810 458 -320 768 1920 1058 </string>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2</key>
@@ -84998,7 +84998,7 @@
 				<real>1</real>
 			</dict>
 			<key>Badge Text</key>
-			<string>☭</string>
+			<string>✞</string>
 			<key>Blend</key>
 			<real>0.080639022435897476</real>
 			<key>Blink Allowed</key>
@@ -87411,7 +87411,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-03-05T08:21:55Z</date>
+	<date>2019-03-12T08:04:40Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -88477,7 +88477,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.7beta4</string>
+	<string>3.2.8beta1</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

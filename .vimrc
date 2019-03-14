@@ -87,10 +87,10 @@ set t_Co=256
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" Colorscheme
-colo gruvbox
+" THEME
+set background=light
+colo base16-solarized-light
 set termguicolors
-set background=dark
 
 set showtabline=2
 
@@ -108,7 +108,8 @@ let g:lightline = {
   \  'v': 'V',
   \ }
 \ }
-let g:lightline.colorscheme = 'gruvbox'
+" let g:lightline.colorscheme = 'gruvbox' " THEME
+let g:lightline.colorscheme = 'solarized' " THEME
 let g:lightline.tabline = {
   \'left': [['buffers']],
   \'right': [['gitbranch']]

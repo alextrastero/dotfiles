@@ -88,8 +88,8 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " THEME
-set background=light
-colo base16-solarized-light
+set background=dark
+colo base16-nord
 set termguicolors
 
 set showtabline=2

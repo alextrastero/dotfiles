@@ -24,8 +24,6 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'ctrlpvim/ctrlp.vim'
 " Nerdtree
 Plug 'scrooloose/nerdtree'
-" Color
-Plug 'chriskempson/base16-vim'
 " Lightlint + plugins
 Plug 'mgee/lightline-bufferline'
 Plug 'itchyny/lightline.vim'
@@ -37,9 +35,10 @@ Plug 'Valloric/ListToggle'
 " FZF
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-" Gruvbox theme
-Plug 'morhetz/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
 " vim startscreen
 Plug 'mhinz/vim-startify'
+" Themes
+Plug 'chriskempson/base16-vim'
+
 call plug#end()

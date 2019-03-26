@@ -40,5 +40,6 @@ Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'mhinz/vim-startify'
 " Themes
 Plug 'chriskempson/base16-vim'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()

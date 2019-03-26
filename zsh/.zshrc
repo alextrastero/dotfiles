@@ -125,7 +125,7 @@ alias gitprune='git branch | xargs git branch -d'
 alias git-sync-tags='git tag | xargs git tag -d && git fetch --tags'
 alias glg='tig log -n30'
 alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
-alias gb="git branch --sort=-committerdate"
+# alias gb="git branch --sort=-committerdate"
 alias gp="say 'PUSH!'; git push"
 alias gl="say 'PULL!'; git pull"
 
@@ -151,12 +151,14 @@ export NVM_DIR="$HOME/.nvm"
 # Speed up oh-my-zsh
 export DISABLE_UPDATE_PROMPT=true
 
+# FZF
+export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore --pager less -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
 export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --no-init --window=-4'
 
 alias ag="ag --path-to-ignore ~/.ignore --pager less"
-# requires https://www.npmjs.com/package/interactive-scripts
-alias run="scripts"
 alias gc="git commit -v -S"
 alias gamend="git commit --amend --no-edit"
 alias dl="youtube-dl -x --audio-format mp3"
@@ -164,6 +166,26 @@ alias unit="npm run test:unit"
 alias watch="npm run test:unit:watch -- --noStackTrace --verbose false"
 alias fixup="git rebase -i origin/HEAD"
 alias p="python3"
+alias top="vtop --theme brew"
+
+# rebasing aliases
+alias rec="git rebase --continue"
+alias res="git rebase --skip"
+alias rei="git rebase -i"
+
+# list branches
+function gb() {
+  if [ $# -eq 0 ]
+    then
+      local branches branch
+      branches=$(git branch --sort=-committerdate) &&
+      branch=$(echo "$branches" | fzf +m) &&
+      git checkout $(echo "$branch")
+  else
+    git branch "$@"
+  fi
+}
+alias gb="gb"
 
 function say() {
   # artii "$1" --font isometric1 | lolcat
@@ -174,12 +196,3 @@ function say() {
 # added by travis gem
 [ -f /Users/aodell/.travis/travis.sh ] && source /Users/aodell/.travis/travis.sh
 # zprof #debuggin
-
-# FZF
-export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore --pager less -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# Fixing TAGS
-alias ctags="`brew --prefix`/bin/ctags"
-
-alias top="vtop --theme brew"

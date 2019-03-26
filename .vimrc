@@ -89,7 +89,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " THEME
 set background=dark
-colo base16-nord
+colo nord
 set termguicolors
 
 set showtabline=2
@@ -109,7 +109,8 @@ let g:lightline = {
   \ }
 \ }
 " let g:lightline.colorscheme = 'gruvbox' " THEME
-let g:lightline.colorscheme = 'solarized' " THEME
+" let g:lightline.colorscheme = 'solarized' " THEME
+let g:lightline.colorscheme = 'nord' " THEME
 let g:lightline.tabline = {
   \'left': [['buffers']],
   \'right': [['gitbranch']]
@@ -136,7 +137,7 @@ function! LightlineFilename()
 endfunction
 
 " CTRLP to ignore .gitignore files
-let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Disable parens hi
 set noshowmatch
@@ -299,3 +300,13 @@ let g:gitgutter_max_signs = 50
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
+"nord theme specifics
+let g:nord_uniform_status_lines = 1
+
+" when editing a file, always jump to the last cursor position
+autocmd BufReadPost *
+  \ if ! exists("g:leave_my_cursor_position_alone") |
+  \     if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \         exe "normal g'\"" |
+  \     endif |
+  \ endif

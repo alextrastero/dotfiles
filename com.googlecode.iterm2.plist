@@ -85018,6 +85018,8 @@
 	<false/>
 	<key>FsTabDelay</key>
 	<real>1</real>
+	<key>HapticFeedbackForEsc</key>
+	<false/>
 	<key>HiddenAFRStrokeThickness</key>
 	<real>0.0</real>
 	<key>HiddenAdvancedFontRendering</key>
@@ -85117,9 +85119,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>106 146 592 584 0 0 1366 768 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-114 859 1594 879 -274 768 1920 1058 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 0 1366 768 0 0 1366 746 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>-274 1343 810 483 -274 768 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>-320 1368 810 458 -320 768 1920 1058 </string>
 	<key>NeverWarnAboutShortLivedSessions_4A778919-A0D3-4E96-9605-392D209A66D2</key>
@@ -85517,7 +85519,7 @@
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
-			<real>0.8801004800451806</real>
+			<real>0.88</real>
 			<key>Icon</key>
 			<integer>2</integer>
 			<key>Idle Code</key>
@@ -85850,7 +85852,7 @@
 			<key>Name</key>
 			<string>Nord</string>
 			<key>Non Ascii Font</key>
-			<string>RobotoMonoForPowerline-Medium 14</string>
+			<string>Menlo-Regular 11</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
@@ -86058,7 +86060,7 @@
 			<key>Use Tab Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1.004418062876506</real>
+			<real>1</real>
 			<key>Visual Bell</key>
 			<false/>
 			<key>Window Type</key>
@@ -87836,7 +87838,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>575383192.340536</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>41</integer>
+	<integer>66</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -87849,6 +87851,17 @@
 	<false/>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
+		<key>0</key>
+		<array>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>id</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+		</array>
 		<key>1</key>
 		<array>
 			<dict>
@@ -88333,7 +88346,7 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentSession.pid</string>
+				<string>currentSession.path</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -88381,7 +88394,7 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentSession.path</string>
+				<string>currentSession.pid</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -88414,6 +88427,11 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSearchHistory</key>
+	<array>
+		<string>tra-service</string>
+		<string>public</string>
+	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>535498253.760418</real>
 	<key>NoSyncTipsToNotShow</key>
@@ -88498,7 +88516,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-04-10T10:05:52Z</date>
+	<date>2019-05-07T08:05:04Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -88510,12 +88528,14 @@
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
+	<false/>
+	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.3694619902482269</real>
@@ -88561,6 +88581,8 @@
 	<key>UseCompactLabel</key>
 	<true/>
 	<key>UseLionStyleFullscreen</key>
+	<false/>
+	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>Window Arrangements</key>
 	<dict>
@@ -89570,7 +89592,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.0beta2</string>
+	<string>3.3.0beta6</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

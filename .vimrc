@@ -294,6 +294,8 @@ let g:startify_custom_footer = [
 
 let g:gitgutter_max_signs = 50
 
+set colorcolumn=120
+
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
 " previous-history instead of down and up. If you don't like the change,

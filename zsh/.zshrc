@@ -164,11 +164,19 @@ alias unit="npm run test:unit"
 alias watch="npm run test:unit:watch -- --noStackTrace --verbose false"
 alias fixup="git rebase -i origin/HEAD"
 alias p="python3"
+alias update="gco develop;gll;gco -;git rebase -"
 
 # rebasing aliases
 alias rec="git rebase --continue"
 alias res="git rebase --skip"
 alias rei="git rebase -i"
+
+# commit tempo
+alias tempo="git add .; git commit -m tempo"
+alias preview="git add . -N && git diff HEAD"
+
+# aux
+alias keepon="vim $(git status --porcelain | awk '{print $2}')"
 
 function say() {
   # artii "$1" --font isometric1 | lolcat
@@ -181,8 +189,26 @@ function say() {
 # zprof #debuggin
 
 # This loads nvm
-export NVM_DIR="$HOME/.nvm"
+# export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh --no-use"
-if [ -s "$NVM_DIR/nvm.sh" ]; then . /Users/aodell/.nvm/nvm.sh --no-use; fi
+# if [ -s "$NVM_DIR/nvm.sh" ]; then . /Users/aodell/.nvm/nvm.sh --no-use; fi
+
+# Better autocomplete?
+zle -C complete-menu menu-select _generic
+  _complete_menu() {
+    setopt localoptions alwayslastprompt
+    zle complete-menu
+  }
+# zle -N _complete_menu
+# bindkey '^F' _complete_menu
+# bindkey -M menuselect '^F' accept-and-infer-next-history
+# bindkey -M menuselect '/'  accept-and-infer-next-history
+# bindkey -M menuselect '^?' undo
+# bindkey -M menuselect ' ' accept-and-hold
+# bindkey -M menuselect '*' history-incremental-search-forward
+bindkey -M menuselect '^M' .accept-line
 
 export PATH="/usr/local/sbin:$PATH"
+
+alias t="yarn test"
+alias s="yarn start"

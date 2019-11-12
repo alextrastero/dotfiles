@@ -1,77 +1,52 @@
-language en_US
-
-" *************************************
-
 source ~/.vim/.mappings.vim
 source ~/.vim/.plugins.vim
 
+language en_US
+
+" Encoding
+set encoding=utf-8
+
+" Theme
+" *************************************
+
+silent! colo gruvbox
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags='li\|p'
+
+" Unsorted
 " *************************************
 
 " Don't try to be vi compatible
 set nocompatible
 
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
+" More natural split opening
+set splitbelow
+set splitright
 
-" Turn on syntax hi
-syntax on
+" Indentation
+set smarttab
+set cindent
+set expandtab
 
-" For plugins to load correctly
-filetype plugin indent on
-
-" set no paste
-set pastetoggle=<F3>
-
-" Security
-set modelines=0
-
-" Show line numbers
-set number
-
-" Show file stats
-set ruler
-
-" Blink cursor on error instead of beeping (grr)
-set visualbell
-
-" Encoding
-set encoding=utf-8
+" Indent using two spaces.
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2
 
 " dont wrap lines
 set nowrap
 
-"set textwidth=79
-set textwidth=0
-set formatoptions=tcqrn1
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-" set noshiftround
+" remove ESC delay
+set timeoutlen=1000 ttimeoutlen=0
 
-" Cursor motion
-set scrolloff=3
-set backspace=indent,eol,start
-set matchpairs+=<:> " use % to jump between pairs
-" enable this?
-"runtime! macros/matchit.vim
+" line numbers
+set number
 
-" Move up/down editor lines
-nnoremap j gj
-nnoremap k gk
-
-" Allow hidden buffers
-set hidden
-
-" Rendering
+" faster VIM
+set lazyredraw
 set ttyfast
-
-" Status bar
-set laststatus=2
-
-" Last line
-set noshowmode
-set showcmd
+set synmaxcol=500
 
 " Searching
 set hlsearch
@@ -80,71 +55,14 @@ set ignorecase
 
 " Visualize tabs and newlines
 set list
-set listchars=tab:……
-
-" Color scheme (terminal)
-set t_Co=256
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-" THEME
-set background=dark
-colo nord
-set termguicolors
-
-set showtabline=2
-
-let g:lightline = {
-  \ 'active': {
-  \   'right': [ ['linter_errors', 'linter_ok'], ['percent'], ['filetype'] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'fugitive#head',
-  \   'filename': 'LightlineFilename'
-  \ },
-  \ 'mode_map': {
-  \  'n': 'N',
-  \  'i': 'I',
-  \  'v': 'V',
-  \ }
-\ }
-" let g:lightline.colorscheme = 'gruvbox' " THEME
-" let g:lightline.colorscheme = 'solarized' " THEME
-let g:lightline.colorscheme = 'nord' " THEME
-let g:lightline.tabline = {
-  \'left': [['buffers']],
-  \'right': [['gitbranch']]
-\}
-
-let g:lightline.component_expand = {
-  \ 'buffers': 'lightline#bufferline#buffers',
-  \  'linter_errors': 'lightline#ale#errors',
-  \  'linter_ok': 'lightline#ale#ok',
-\}
-let g:lightline.component_type = {
-  \ 'buffers': 'tabsel',
-  \ 'linter_errors': 'error',
-  \ 'linter_ok': 'left',
-\ }
-
-function! LightlineFilename()
-  let root = fnamemodify(get(b:, 'git_dir'), ':h')
-  let path = expand('%:p')
-  if path[:len(root)-1] ==# root
-    return path[len(root)+1:]
-  endif
-  return expand('%')
-endfunction
-
-" CTRLP to ignore .gitignore files
-" let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-" Disable parens hi
-set noshowmatch
-let g:loaded_matchparen=1
+"set listchars=tab:……
+set listchars=tab:XXX
 
 " Show command completitions
 set wildmenu
+
+" don't add extra space after ., !, etc. when joining
+set nojoinspaces
 
 " yank to clipboard
 if has("clipboard")
@@ -155,160 +73,157 @@ if has("clipboard")
   endif
 endif
 
-" auto close tags for js files
-let g:closetag_filenames = '*.html,*.js'
+" use backspace to delete
+set backspace=indent,eol,start
 
-" add space after comment for NERDcommenter
-let NERDSpaceDelims=1
+" UpdateMru
+augroup custom_filemru
+  autocmd!
+    autocmd BufWinEnter * UpdateMru
+augroup END
+
+let g:fzf_filemru_git_ls = 1
+let g:fzf_filemru_ignore_submodule = 1
+
+" Allow hidden buffers
+set hidden
+
+" Status bar
+set laststatus=0
+
+" Always show tabline
+set showtabline=2
+
+" fixing typescript indentation
+"setlocal indentkeys+=0
+let g:typescript_indent_disable = 1
 
 " Webpack to ignore swap files
 set dir=$HOME/.vim_tmp/swap
 if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
 
-" Setup ALE linter
-" if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 1
-let g:ale_open_list = 0
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-\   'javascript': ['jshint'],
-\}
-let g:ale_pattern_options = {
-\ '.*b3\/.*js$': {'ale_linters': ['jshint'], 'ale_fixers': []},
-\ '.*[^b3\/].*js$': {'ale_linters': ['eslint'], 'ale_fixers': ['eslint']}
-\}
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '!'
-" If you don't wish to run linters while you type
-let g:ale_lint_on_text_changed = 'never'
-" Remove ALE signs
-let g:ale_set_signs = 0
-let g:ale_lint_on_filetype_changed = 0
+" Fixes CRA updating bug
+set backupcopy=yes
 
-" hi ALEError guibg=red
-hi link ALEError ExtraWhitespace
+" COC VIM Config
+" Some servers have issues with backup files, see #649
+" set nobackup
+" set nowritebackup
 
-" link between closing tag and opening tag in XML
-hi link xmlEndTag xmlTagName
+" Better display for messages
+set cmdheight=2
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=no " set to no
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Eliminating delays on ESC in vim
-set timeoutlen=1000 ttimeoutlen=0
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" Style vim split
-set fillchars+=vert:\.
-hi VertSplit guifg=darkgray guibg=NONE
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
-" Color highlighted search result differently
-hi IncSearch guifg=red guibg=white
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Improve omni
-set completeopt=longest,menuone
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
-" Open splits on right side
-set splitright
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" Fix PERFORMANCE
-set lazyredraw
-set nocursorline
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" Enable cursor line position tracking:
-" set cursorline
-" Remove the underline from enabling cursorline:
-" hi clear CursorLine
-" Set line numbering to red background:
-" hi CursorLineNR guibg=NONE
-" DESTROYS PERFORMANCE
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
-" FZF Config
-let g:fzf_buffers_jump=1
-" let g:fzf_layout = { 'down': '100%' }
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
 
-" vim startify bookmarks
-let g:startify_bookmarks = [ { 'v': '~/.vimrc' }, { 'm': '~/.vim/.mappings.vim' }, { 'p': '~/.vim/.plugins.vim' }, { 'z': '~/.zshrc' } ]
-let g:startify_lists = [
-      \ { 'type': 'files',     'header': ['↪  ブックマーク:']  },
-      \ { 'type': 'bookmarks', 'header': ['↪  ディレクトリ:']  }
-      \ ]
-let g:startify_files_number = 5
-let g:startify_skiplist = [
-    \ 'COMMIT_EDITMSG',
-    \ '.vimrc',
-    \ '.plugins.vim',
-    \ '.mappings.vim',
-    \ '.tmux.conf',
-    \ '.zshrc',
-    \ ]
-let g:startify_change_to_dir = 0
-hi StartifyHeader ctermfg=3
-let g:startify_custom_header = [
-      \'                   .                    ',
-      \'   ##############..... ##############   ',
-      \'   ##############......##############   ',
-      \'     ##########..........##########     ',
-      \'     ##########........##########       ',
-      \'     ##########.......##########        ',
-      \'     ##########.....##########..        ',
-      \'     ##########....##########.....      ',
-      \'   ..##########..##########.........    ',
-      \' ....##########.#########.............  ',
-      \'   ..##################.............    ',
-      \'     ################.............      ',
-      \'     ##############.............        ',
-      \'     ############.............          ',
-      \'     ##########.............            ',
-      \'     ########.............              ',
-      \'     ######    .........                ',
-      \'                 .....                  ',
-      \'                   .                    ',
-      \]
-" let g:startify_custom_header = [
-  " \ '                                ______      ',
-  " \ '            __                /\  ____`\    ',
-  " \ '   __   __ /\_\    ___ ___    \ \ \___\ \   ',
-  " \ '  /\ \ /\ \\/\ \ /` __` __`\   \ \  ____ \  ',
-  " \ '  \ \ \_/ / \ \ \/\ \/\ \/\ \   \ \ \___\ \ ',
-  " \ '   \ \___/   \ \_\ \_\ \_\ \_\   \ \_______\',
-  " \ '    \/__/     \/_/\/_/\/_/\/_/    \/_______/',
-  " \ '                                            ',
-  " \ ]
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 
-let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
-let g:startify_custom_footer = [
-      \' ( ͡° ͜ʖ ͡°)',
-      \]
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
 
-let g:gitgutter_max_signs = 50
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
 
-set colorcolumn=120
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-"nord theme specifics
-let g:nord_uniform_status_lines = 1
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" when editing a file, always jump to the last cursor position
-autocmd BufReadPost *
-  \ if ! exists("g:leave_my_cursor_position_alone") |
-  \     if line("'\"") > 0 && line ("'\"") <= line("$") |
-  \         exe "normal g'\"" |
-  \     endif |
-  \ endif
+"Note: for React to work as expected, you need your JSX filetype to be
+"javascript.jsx and your TSX filetype to be typescript.jsx or typescript.tsx.
+"In coc.nvim, these filetypes are mapped to javascriptreact and typescriptreact
+"because that's what tsserver uses.
+
+" autocmd BufNewFile,BufRead *.ts,*.tsx,*.jsx set filetype=typescript.tsx
+augroup SyntaxSettings
+  autocmd!
+  autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+augroup END
+
+hi link CocErrorHighlight WarningMsg
+hi link CocWarningHighlight Question
+hi link CocInfoHighlight DiffText
+hi link typescriptCommentTodo DiffDelete
+hi link CocErrorSign GruvboxRed
+
+nmap <leader>1 :bp<cr>
+nmap <leader>2 :bn<cr>
+nmap <leader>9 :bn<cr>
+
+" Add space after comment
+let NERDSpaceDelims=1
+
+" Turn off swapfiles
+set noswapfile
+set nobackup
+set nowb
+
+" Indentation
+let g:indentLine_char = '|'
+let g:indentLine_setColors = 1
+
+" buftabline
+let g:buftabline_indicators = 1
+let g:buftabline_separators = 1
+let g:buftabline_plug_max = 0
+
+" improve COC update rate TRYING
+set updatetime=300

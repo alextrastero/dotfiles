@@ -10,12 +10,8 @@ let g:mapleader = ","
 " leader + r - reload config and airline
 nmap <Leader>r :so $MYVIMRC<cr>:echo "Updated"<cr>
 
-"move around tabs
 "search for vis1al selected
 vnoremap // y/<C-R>"<CR>
-
-" mapping jj to ESC
-imap jj <Esc>
 
 "sort visual selected lines
 vnoremap ,, :sort<CR>
@@ -29,37 +25,20 @@ nnoremap <Down>  :resize -5<CR>
 nnoremap <Left>  :vertical resize +5<CR>
 nnoremap <Right> :vertical resize -5<CR>
 
-" OMNI mappings
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 " Toggle numbrs
 " nmap <leader>n :set invnumber<CR>
 " Repalce Toggle numbers with relative number
 nmap <leader>n :set relativenumber!<CR>
 
-nmap <leader>1 :bp<cr>
-nmap <leader>2 :bn<cr>
-nmap <leader>9 :bn<cr>
-
 " Fast saving
-nmap <leader>w :w!<cr>
 noremap <Leader>e :noh<CR>
-noremap <C-e> :noh<cr>
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Show open buffer in NERDTree
+" Show open buffer in Nerdtree
 nnoremap <Leader>\ :NERDTreeFind<CR>
 
 nnoremap <Tab> :Buffers<cr>
-nnoremap <Leader>m :History<cr>
+" nnoremap <Leader>m :History<cr>
+nnoremap <Leader>m :FilesMru --tiebreak=end<cr>
 nnoremap <C-p> :Files<Cr>
 
 " Hackatron
@@ -96,7 +75,7 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" Map Tab to autocomplete in insert mode
-imap <Tab> <C-n>
-
 nmap <C-f> :Ag 
+
+nmap <Leader>l :CocList diagnostics<cr>
+

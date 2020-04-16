@@ -9,6 +9,12 @@ set encoding=utf-8
 " Theme
 " *************************************
 
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+set t_Co=256
+set background=dark
 silent! colo gruvbox
 
 " Treat <li> and <p> tags like the block tags they are
@@ -87,6 +93,8 @@ let g:fzf_filemru_ignore_submodule = 1
 
 " Allow hidden buffers
 set hidden
+set cmdheight=2
+set shortmess=aFc
 
 " Status bar
 set laststatus=0
@@ -131,8 +139,8 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" Use <C-n> to trigger completion.
+inoremap <silent><expr> <C-n> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
@@ -185,28 +193,23 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 "Note: for React to work as expected, you need your JSX filetype to be
 "javascript.jsx and your TSX filetype to be typescript.jsx or typescript.tsx.
 "In coc.nvim, these filetypes are mapped to javascriptreact and typescriptreact
 "because that's what tsserver uses.
 
-" autocmd BufNewFile,BufRead *.ts,*.tsx,*.jsx set filetype=typescript.tsx
 augroup SyntaxSettings
   autocmd!
   autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 augroup END
 
-hi link CocErrorHighlight WarningMsg
-hi link CocWarningHighlight Question
-hi link CocInfoHighlight DiffText
-hi link typescriptCommentTodo DiffDelete
-hi link CocErrorSign GruvboxRed
-
-nmap <leader>1 :bp<cr>
-nmap <leader>2 :bn<cr>
-nmap <leader>9 :bn<cr>
+hi link CocErrorHighlight SpellBad
+" hi link CocWarningHighlight DiffText
+" hi link CocInfoHighlight DiffText
+" hi link typescriptCommentTodo DiffDelete
+" hi link CocErrorSign DiffDelete
 
 " Add space after comment
 let NERDSpaceDelims=1
@@ -220,10 +223,28 @@ set nowb
 let g:indentLine_char = '|'
 let g:indentLine_setColors = 1
 
-" buftabline
+" buftabline config
 let g:buftabline_indicators = 1
 let g:buftabline_separators = 1
 let g:buftabline_plug_max = 0
 
 " improve COC update rate TRYING
 set updatetime=300
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
+
+set colorcolumn=100
+
+" git gutter
+let g:gitgutter_max_signs = 50
+set signcolumn=yes
+
+function! GitGutterNextHunkCycle()
+  let line = line('.')
+  silent! GitGutterNextHunk
+  if line('.') == line
+    1
+    GitGutterNextHunk
+  endif
+endfunction
+
+nmap <Space> :call GitGutterNextHunkCycle()<CR>

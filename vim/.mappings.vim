@@ -22,8 +22,8 @@ nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 " Resize splits
 nnoremap <Up>    :resize +5<CR>
 nnoremap <Down>  :resize -5<CR>
-nnoremap <Left>  :vertical resize +5<CR>
-nnoremap <Right> :vertical resize -5<CR>
+nnoremap <Right>  :vertical resize +5<CR>
+nnoremap <Left> :vertical resize -5<CR>
 
 " Toggle numbrs
 " nmap <leader>n :set invnumber<CR>
@@ -79,3 +79,9 @@ nmap <C-f> :Ag
 
 nmap <Leader>l :CocList diagnostics<cr>
 
+nmap <leader>1 :bprev<cr>
+nmap <leader>2 :bnext<cr>
+
+let g:buftabline_indicators=1
+let g:buftabline_separators=1
+let g:buftabline_plug_max=0

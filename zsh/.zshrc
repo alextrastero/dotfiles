@@ -123,7 +123,7 @@ alias z="fasd_cd -d"
 alias c="clear"
 alias gitprune='git branch | xargs git branch -d'
 alias git-sync-tags='git tag | xargs git tag -d && git fetch --tags'
-alias glg='tig log -n30'
+alias glg='tig log -n10'
 alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 alias gb="git branch --sort=-committerdate --column"
 alias gp="say 'PUSH!'; git push"
@@ -173,6 +173,7 @@ alias rei="git rebase -i"
 
 # commit tempo
 alias tempo="git add .; git commit -m tempo"
+alias merge="git add .; git commit -m 'merge this'"
 alias preview="git add . -N && git diff HEAD"
 
 # aux
@@ -185,7 +186,7 @@ function say() {
 }
 
 # added by travis gem
-[ -f /Users/aodell/.travis/travis.sh ] && source /Users/aodell/.travis/travis.sh
+# [ -f /Users/aodell/.travis/travis.sh ] && source /Users/aodell/.travis/travis.sh
 # zprof #debuggin
 
 # This loads nvm
@@ -212,3 +213,12 @@ export PATH="/usr/local/sbin:$PATH"
 
 alias t="yarn test"
 alias s="yarn start"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export CYPRESS_CRASH_REPORTS=0
+
+alias gst="clear; git status"
+
+# clean up local branches
+alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"

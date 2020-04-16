@@ -5,7 +5,13 @@
 - `brew install tree`
 - `brew install tmux`
 - `https://github.com/robbyrussell/oh-my-zsh`
-- `https://github.com/junegunn/fzf`
+- `https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew`
+- `https://github.com/ggreer/the_silver_searcher`
+- `https://github.com/neoclide/coc.nvim`
+  - https://github.com/neoclide/coc-tsserver
 
-For `gutentags`
-- `brew install --HEAD universal-ctags/universal-ctags/universal-ctags`
+
+#### Keyboard repeat speed
+" first one is repeat rate and the second one is the delay before start repeating
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 20

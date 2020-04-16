@@ -114,7 +114,7 @@ alias pick="git cherry-pick"
 alias ports="lsof -i -P | grep -i 'listen'" # List used ports
 alias gs="git show"
 alias gundo='git reset --soft HEAD~ && git reset HEAD .' # Uncommit last commit and unstage - to see all new stuff in vim-git
-alias edit='vim /Users/aodell/dev/dotfiles/.vimrc'
+alias edit='vim $HOME/dev/dotfiles/.vimrc'
 alias gch='function _blah(){ git rev-list --count HEAD ^$1; };_blah' # Git count commits from param branch
 alias gll="gfa && gf -p && gl"
 alias colors='for code in {000..15}; do print -P -- "$code: %F{$code}Test%f"; done'
@@ -138,7 +138,7 @@ function show() { # Open github on comparing current branch with master
 }
 
 function own() { # Own a file $1
-  sudo chown -v aodell $1
+  sudo chown -v $(whoami) $1
 }
 
 export GIT_EDITOR="vim"
@@ -182,28 +182,12 @@ function say() {
   artii "$@" --font alligator2 | lolcat
 }
 
-# added by travis gem
-# [ -f /Users/aodell/.travis/travis.sh ] && source /Users/aodell/.travis/travis.sh
-# zprof #debuggin
-
-# This loads nvm
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh --no-use"
-# if [ -s "$NVM_DIR/nvm.sh" ]; then . /Users/aodell/.nvm/nvm.sh --no-use; fi
-
 # Better autocomplete?
 zle -C complete-menu menu-select _generic
   _complete_menu() {
     setopt localoptions alwayslastprompt
     zle complete-menu
   }
-# zle -N _complete_menu
-# bindkey '^F' _complete_menu
-# bindkey -M menuselect '^F' accept-and-infer-next-history
-# bindkey -M menuselect '/'  accept-and-infer-next-history
-# bindkey -M menuselect '^?' undo
-# bindkey -M menuselect ' ' accept-and-hold
-# bindkey -M menuselect '*' history-incremental-search-forward
 bindkey -M menuselect '^M' .accept-line
 
 export PATH="/usr/local/sbin:$PATH"

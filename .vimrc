@@ -13,8 +13,8 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-set t_Co=256
 set background=dark
+set t_Co=256
 silent! colo gruvbox
 
 " Treat <li> and <p> tags like the block tags they are

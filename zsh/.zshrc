@@ -125,8 +125,6 @@ alias git-sync-tags='git tag | xargs git tag -d && git fetch --tags'
 alias glg='tig log -n10'
 alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 alias gb="git branch --sort=-committerdate --column"
-alias gp="say 'PUSH!'; git push"
-alias gl="say 'PULL!'; git pull"
 
 # ///////////////// FUNCTIONS //////////////////////////////////////////////////
 

@@ -90,6 +90,8 @@ augroup END
 
 let g:fzf_filemru_git_ls = 1
 let g:fzf_filemru_ignore_submodule = 1
+" Disable preview window
+let g:fzf_preview_window = ''
 
 " Allow hidden buffers
 set hidden

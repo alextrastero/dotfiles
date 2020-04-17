@@ -102,12 +102,6 @@ eval "$(command fasd --init auto)"
 [ -z "$TMUX" ] && export TERM="xterm-256color"
 if [ "$TMUX" = "" ]; then tmux; fi
 
-# Init rbven
-rbenv() {
-  eval "$(command rbenv init -)"
-  rbenv "$@"
-}
-
 # ///////////////// ALIASES ////////////////////////////////////////////////////
 alias dev="cd ~/dev" # Go to dev folder
 alias pick="git cherry-pick"
@@ -172,15 +166,6 @@ alias rei="git rebase -i"
 alias tempo="git add .; git commit -m tempo"
 alias merge="git add .; git commit -m 'merge this'"
 alias preview="git add . -N && git diff HEAD"
-
-# aux
-alias keepon="vim $(git status --porcelain | awk '{print $2}')"
-
-function say() {
-  # artii "$1" --font isometric1 | lolcat
-  # artii "$@" --font slant | lolcat
-  artii "$@" --font alligator2 | lolcat
-}
 
 # Better autocomplete?
 zle -C complete-menu menu-select _generic

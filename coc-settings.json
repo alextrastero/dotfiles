@@ -1,0 +1,7 @@
+{
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.preferences.quoteStyle": "single"
+}

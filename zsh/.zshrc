@@ -116,7 +116,8 @@ alias z="fasd_cd -d"
 alias c="clear"
 alias gitprune='git branch | xargs git branch -d'
 alias git-sync-tags='git tag | xargs git tag -d && git fetch --tags'
-alias glg='tig log -n10'
+alias tig='tig log -n10'
+alias glg="git log develop... --graph --pretty=format:'%Cblue%h%Creset %an - %s'" # NOTE develop
 alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 alias gb="git branch --sort=-committerdate --column"
 
@@ -155,7 +156,7 @@ alias unit="npm run test:unit"
 alias watch="npm run test:unit:watch -- --noStackTrace --verbose false"
 alias fixup="git rebase -i origin/HEAD"
 alias p="python3"
-alias update="gco develop;gll;gco -;git rebase -"
+alias update="gco develop;gll;gco -;git rebase -" # NOTE develop
 
 # rebasing aliases
 alias rec="git rebase --continue"

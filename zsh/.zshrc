@@ -25,7 +25,7 @@ ZSH_THEME="minimal"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -117,7 +117,8 @@ alias c="clear"
 alias gitprune='git branch | xargs git branch -d'
 alias git-sync-tags='git tag | xargs git tag -d && git fetch --tags'
 alias tig='tig log -n10'
-alias glg="git log develop... --graph --pretty=format:'%Cblue%h%Creset %an - %s'" # NOTE develop
+alias glg="git log --graph --pretty=format:'%Cblue%h%Creset %an - %s'" # NOTE develop
+alias glgg="git log master... --graph --pretty=format:'%Cblue%h%Creset %an - %s'" # NOTE master
 alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 alias gb="git branch --sort=-committerdate --column"
 

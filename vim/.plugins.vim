@@ -19,5 +19,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()

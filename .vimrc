@@ -205,6 +205,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 augroup SyntaxSettings
   autocmd!
   autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+  autocmd BufNewFile,BufRead *.hbs set filetype=html
 augroup END
 
 hi link CocErrorHighlight SpellBad

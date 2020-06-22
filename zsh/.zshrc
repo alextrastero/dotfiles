@@ -116,9 +116,7 @@ alias z="fasd_cd -d"
 alias c="clear"
 alias gitprune='git branch | xargs git branch -d'
 alias git-sync-tags='git tag | xargs git tag -d && git fetch --tags'
-alias tig='tig log -n10'
-alias glg="git log --graph --pretty=format:'%Cblue%h%Creset %an - %s'" # NOTE develop
-alias glgg="git log master... --graph --pretty=format:'%Cblue%h%Creset %an - %s'" # NOTE master
+alias glg="tig log -n10"
 alias ip="ipconfig getifaddr en0 | pbcopy && echo 'IP copied'"
 alias gb="git branch --sort=-committerdate --column"
 

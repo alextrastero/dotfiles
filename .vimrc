@@ -204,7 +204,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 augroup SyntaxSettings
   autocmd!
-  autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
   autocmd BufNewFile,BufRead *.hbs set filetype=html
 augroup END
 
@@ -233,7 +233,6 @@ let g:buftabline_plug_max = 0
 
 " improve COC update rate TRYING
 set updatetime=300
-let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
 set colorcolumn=100
 
@@ -251,3 +250,8 @@ function! GitGutterNextHunkCycle()
 endfunction
 
 nmap <Space> :call GitGutterNextHunkCycle()<CR>
+
+" vim-jsx-pretty config
+let g:vim_jsx_pretty_colorful_config = 1 " colorful config flag
+let g:vim_jsx_pretty_template_tags = ['html', 'jsx', 'typescript.tsx', 'tsx']
+

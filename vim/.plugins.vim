@@ -7,7 +7,6 @@ endif
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf.vim'
 Plug 'tweekmonster/fzf-filemru'
-Plug 'morhetz/gruvbox'
 Plug '/usr/local/opt/fzf'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/nerdcommenter'
@@ -19,6 +18,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'mustache/vim-mustache-handlebars'
+Plug 'arcticicestudio/nord-vim'
+" Plug 'morhetz/gruvbox'
+" Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()

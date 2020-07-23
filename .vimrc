@@ -15,7 +15,7 @@ endif
 
 set background=dark
 set t_Co=256
-silent! colo gruvbox
+silent! colo nord
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags='li\|p'

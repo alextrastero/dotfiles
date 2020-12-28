@@ -4,7 +4,7 @@ if executable('tmux')
   Plug 'christoomey/vim-tmux-navigator'
 endif
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf.vim'
 Plug 'tweekmonster/fzf-filemru'
 Plug '/usr/local/opt/fzf'
@@ -18,8 +18,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'arcticicestudio/nord-vim'
-" Plug 'morhetz/gruvbox'
-" Plug 'mustache/vim-mustache-handlebars'
+Plug 'morhetz/gruvbox'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()

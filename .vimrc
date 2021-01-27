@@ -9,13 +9,16 @@ set encoding=utf-8
 " Theme
 " *************************************
 
-if (has("termguicolors"))
+" if (has("termguicolors"))
+" endif
+
+if ($TERM == "screen")
+  set t_Co=256
   set termguicolors
 endif
 
-set background=dark
-set t_Co=256
-silent! colo nord
+set background=light
+silent! colo solarized
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags='li\|p'
@@ -34,6 +37,9 @@ set splitright
 set smarttab
 set cindent
 set expandtab
+
+" stop moving cursor to beginning
+set nostartofline
 
 " Indent using two spaces.
 set softtabstop=2
@@ -88,10 +94,12 @@ augroup custom_filemru
     autocmd BufWinEnter * UpdateMru
 augroup END
 
+" FZF Config
 let g:fzf_filemru_git_ls = 1
 let g:fzf_filemru_ignore_submodule = 1
 " Disable preview window
 let g:fzf_preview_window = ''
+let g:fzf_buffers_jump = 1
 
 " Allow hidden buffers
 set hidden
@@ -126,8 +134,6 @@ set cmdheight=2
 set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
-" always show signcolumns
-set signcolumn=no " set to no
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -156,7 +162,7 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-references-used)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -172,30 +178,18 @@ endfunction
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+" augroup mygroup
+  " autocmd!
+  " " Setup formatexpr specified filetype(s).
+  " autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " " Update signature help on jump placeholder
+  " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+" augroup end
 
 " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 "Note: for React to work as expected, you need your JSX filetype to be
 "javascript.jsx and your TSX filetype to be typescript.jsx or typescript.tsx.

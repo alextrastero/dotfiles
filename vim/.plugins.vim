@@ -5,6 +5,7 @@ if executable('tmux')
 endif
 
 Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tweekmonster/fzf-filemru'
 Plug '/usr/local/opt/fzf'
@@ -19,7 +20,9 @@ Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
+Plug 'altercation/vim-colors-solarized'
 " Plug 'morhetz/gruvbox'
 " Plug 'mustache/vim-mustache-handlebars'
+" Plug 'antoinemadec/coc-fzf'
 
 call plug#end()

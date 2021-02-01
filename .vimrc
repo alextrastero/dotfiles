@@ -203,10 +203,11 @@ augroup SyntaxSettings
 augroup END
 
 hi link CocErrorHighlight SpellBad
-" hi link CocWarningHighlight DiffText
+hi link CocWarningHighlight DiffText
 " hi link CocInfoHighlight DiffText
 " hi link typescriptCommentTodo DiffDelete
-" hi link CocErrorSign DiffDelete
+hi link CocErrorSign ErrorMsg
+hi link CocInfoSign QuickFixLine
 
 " Add space after comment
 let NERDSpaceDelims=1
@@ -231,8 +232,11 @@ set updatetime=300
 set colorcolumn=100
 
 " git gutter
+set signcolumn=number
+let g:gitgutter_line_highlights_disable = 0
 let g:gitgutter_max_signs = 50
-set signcolumn=yes
+hi! link SignColumn LineNr
+let g:gitgutter_set_sign_backgrounds = 1
 
 function! GitGutterNextHunkCycle()
   let line = line('.')

@@ -36,10 +36,11 @@ noremap <Leader>e :noh<CR>
 " Show open buffer in Nerdtree
 nnoremap <Leader>\ :NERDTreeFind<CR>
 
+" USING CTRLP
 nnoremap <Tab> :Buffers<cr>
-" nnoremap <Leader>m :History<cr>
-nnoremap <Leader>m :FilesMru --tiebreak=end<cr>
-nnoremap <C-p> :Files<Cr>
+nnoremap <Leader>m :History<cr>
+nnoremap <C-p> :Files<cr>
+" or :GFiles
 
 " Hackatron
 nmap ; :
@@ -85,3 +86,7 @@ nmap <leader>2 :bnext<cr>
 let g:buftabline_indicators=1
 let g:buftabline_separators=1
 let g:buftabline_plug_max=0
+
+" search for entire word
+" nmap <Leader>/ :\<\><Left><Left>
+nmap <Leader>/ :/\<\><Left><Left>

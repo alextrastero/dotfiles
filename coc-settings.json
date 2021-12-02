@@ -9,5 +9,5 @@
   "eslint.codeAction.disableRuleComment": { "enable": false },
   "eslint.codeAction.showDocumentation": { "enable": false },
   "eslint.quiet": true,
-  "eslint.autoFixSkipRules": []
+  "snippets.ultisnips.directories": ["~/dev/dotfiles/vim/snips"]
 }

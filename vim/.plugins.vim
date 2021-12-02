@@ -7,8 +7,8 @@ endif
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'tweekmonster/fzf-filemru'
-Plug '/usr/local/opt/fzf'
+" Plug 'tweekmonster/fzf-filemru'
+" Plug '/usr/local/opt/fzf'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'yuezk/vim-js'
@@ -21,8 +21,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'altercation/vim-colors-solarized'
-" Plug 'morhetz/gruvbox'
-" Plug 'mustache/vim-mustache-handlebars'
-" Plug 'antoinemadec/coc-fzf'
+Plug 'gruvbox-community/gruvbox/'
 
 call plug#end()

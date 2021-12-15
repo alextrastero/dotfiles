@@ -1,10 +1,9 @@
 set guicursor=
 set relativenumber
-set nohlsearch
 set hidden
 set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 set nu
@@ -16,10 +15,15 @@ set undofile
 set incsearch
 set termguicolors
 set scrolloff=8
-" set noshowmode
+set showmode
+set showcmd
 set signcolumn=yes
 set isfname+=@-@
 " set ls=0
+set autoindent
+
+set splitbelow
+set splitright
 
 " Give more space for displaying messages.
 set cmdheight=1
@@ -32,3 +36,11 @@ set updatetime=50
 set shortmess+=c
 
 set colorcolumn=80
+set clipboard+=unnamedplus
+" show the nasties
+set list
+set listchars=trail:·     " trailing spaces
+set listchars+=tab:\ \    " tabs (don't show them)
+
+" set filetypes as typescriptreact
+" autocmd BufNewFile,BufRead *.tsx,*.jsx,*.js,*.ts set filetype=typescriptreact

@@ -19,7 +19,7 @@ nnoremap <leader>m :History<cr>
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " Resize splits
-nnoremap <Up> :resize +5<CR>
-nnoremap <Down> :resize -5<CR>
-nnoremap <Right> :vertical resize +5<CR>
-nnoremap <Left> :vertical resize -5<CR>
+nnoremap <Up> :resize +5<cr>
+nnoremap <Down> :resize -5<cr>
+nnoremap <Right> :vertical resize +5<cr>
+nnoremap <Left> :vertical resize -5<cr>

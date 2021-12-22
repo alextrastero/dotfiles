@@ -14,3 +14,8 @@ set cursorline
 " hi link DiagnosticSignError DiagnosticError
 " hi link DiagnosticSignInfo DiagnosticInfo
 " hi link DiagnosticSignHint DiagnosticHint
+
+" color lsp highlights
+hi link LspReferenceText Visual
+hi link LspReferenceRead Visual
+hi link LspReferenceWrite Visual

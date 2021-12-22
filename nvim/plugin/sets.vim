@@ -44,3 +44,6 @@ set listchars+=tab:\ \    " tabs (don't show them)
 
 " set filetypes as typescriptreact
 " autocmd BufNewFile,BufRead *.tsx,*.jsx,*.js,*.ts set filetype=typescriptreact
+
+" show diff in a vertical split
+set diffopt+=vertical

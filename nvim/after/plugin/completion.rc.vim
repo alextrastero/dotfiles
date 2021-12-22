@@ -39,10 +39,7 @@ lua << EOF
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-        -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
       end,
     },
     formatting = {
@@ -55,7 +52,6 @@ lua << EOF
           nvim_lsp = "[LSP]",
           nvim_lua = "[api]",
           path = "[path]",
-          luasnip = "[snip]",
           ultisnips = "[working mf!]",
         })[entry.source.name]
         return vim_item
@@ -88,12 +84,9 @@ lua << EOF
     },
     -- order matters
     sources = cmp.config.sources({
+      { name = 'ultisnips' },
       { name = 'nvim_lsp' },
       { name = 'nvim_lua' },
-      -- { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
-      { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
     }, {
     {
       name = 'buffer',
@@ -110,27 +103,4 @@ lua << EOF
     },
     })
   })
-
-  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {
-    sources = {
-      { name = 'buffer' }
-    }
-  })
-
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
-
-
-  cmp["SirVer/ultisnips"] = {
-    event = "InsertEnter",
-    requires = {"honza/vim-snippets", event = "InsertEnter"},
-    after = "vim-snippets",
-  }
 EOF

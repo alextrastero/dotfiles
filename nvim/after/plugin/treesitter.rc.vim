@@ -7,7 +7,11 @@ require 'nvim-treesitter.configs'.setup {
     "tsx",
     "html",
     "json",
-    "scss"
+    "scss",
+    "vim",
+    "css",
+    "bash",
+    "lua",
   },
   hightlight = {
     enable = true,

@@ -1,4 +1,5 @@
-set completeopt=menuone,noselect
+" set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect
 
 lua << EOF
   local cmp = require "cmp"
@@ -84,8 +85,12 @@ lua << EOF
     },
     -- order matters
     sources = cmp.config.sources({
+      {
+        name = 'nvim_lsp',
+        max_item_count = 8,
+      },
       { name = 'ultisnips' },
-      { name = 'nvim_lsp' },
+    }, {
       { name = 'nvim_lua' },
     }, {
     {
@@ -99,7 +104,10 @@ lua << EOF
           return vim.tbl_keys(bufs)
         end
       },
-      keyword_length = 4
+      keyword_length = 3
+    },
+    {
+      { name = 'path' }
     },
     })
   })

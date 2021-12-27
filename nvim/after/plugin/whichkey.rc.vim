@@ -6,6 +6,7 @@ local mappings = {
     name = "LSP",
     i = {":LspInfo<cr>", "Info"},
     r = {":Lspsaga lsp_finder<cr>", "References"},
+    --r = {"<cmd>lua vim.lsp.buf.references()<cr>", "References"},
     d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
     a = {":Lspsaga code_action<cr>", "Code Action"},
     n = {":Lspsaga rename<cr>", "Rename"},
@@ -19,7 +20,12 @@ local mappings = {
     g = {
       name = "Git",
       s = {":vertical G<cr>", "Status"},
-      d = {":vertical Git diff %<cr>", "Status"},
+      d = {":vertical Git diff %<cr>", "Diff"},
+      l = {":vertical Gclog<cr>", "Log"},
+    },
+    t = {
+      name = "Gutter",
+      t = {":GitGutterLineHighlightsToggle<cr>", "Git Gutter Toggle"}
     },
     c = {
       ["<space>"] = {"<Plug>CommentaryLine", "Comment out"}

@@ -11,9 +11,10 @@ local on_attach = function(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- tsserver specifics
-  if client.config.flags then
-    client.config.flags.allow_incremental_sync = true
-  end
+  -- NOTE these 3 lines dont allow to save file in VIM
+  --if client.config.flags then
+    --client.config.flags.allow_incremental_sync = true
+  --end
   client.resolved_capabilities.document_formatting = false
 
   -- disable diagnostic on virtual text

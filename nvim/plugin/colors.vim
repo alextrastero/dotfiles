@@ -19,3 +19,9 @@ set cursorline
 hi link LspReferenceText Visual
 hi link LspReferenceRead Visual
 hi link LspReferenceWrite Visual
+
+" Tweak visual
+hi clear Visual
+hi Visual guibg=#504945
+" Tweak comment
+hi Comment gui=italic

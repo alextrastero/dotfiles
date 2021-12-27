@@ -15,10 +15,11 @@ require 'nvim-treesitter.configs'.setup {
   },
   hightlight = {
     enable = true,
-    disable = {}
+    disable = {},
+    additional_vim_regex_highlighting = true
   },
   indent = {
-    enable = true,
+    enable = false,
     disable = {}
   }
 }

@@ -26,6 +26,7 @@ Plug 'folke/which-key.nvim'
 Plug 'SirVer/ultisnips'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
+" git tree
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 
@@ -40,5 +41,8 @@ Plug 'tpope/vim-commentary'
 
 "Close tags
 Plug 'alvan/vim-closetag'
+
+"lualine
+Plug 'nvim-lualine/lualine.nvim'
 
 call plug#end()

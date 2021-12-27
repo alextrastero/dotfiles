@@ -47,12 +47,12 @@ saga.init_lsp_saga {
 }
 EOF
 
-nnoremap <silent> gh :Lspsaga lsp_finder<cr>
+" nnoremap <silent> gh :Lspsaga lsp_finder<cr>
 " nnoremap <silent> gd :Lspsaga lsp_finder<cr>
-nnoremap <silent> gr :Lspsaga lsp_finder<cr>
+" nnoremap <silent> gr :Lspsaga lsp_finder<cr>
 " nnoremap <silent><leader>ac :Lspsaga code_action<cr>
 " nnoremap <silent>K :Lspsaga hover_doc<cr>
 " nnoremap <silent><C-k> <cmd>Lspsaga signature_help<cr>
-nnoremap <silent><leader>cc <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
-nnoremap <silent><leader>rn :Lspsaga rename<CR>
+" nnoremap <silent><leader>cc <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
+" nnoremap <silent><leader>rn :Lspsaga rename<CR>
 

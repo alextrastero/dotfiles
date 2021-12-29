@@ -1,6 +1,8 @@
-if !exists('g:loaded_lspsaga') | finish | endif
+local status_ok, _ = pcall(require, 'lspsaga')
+if not status_ok then
+  return
+end
 
-lua << EOF
 local saga = require 'lspsaga'
 
 saga.init_lsp_saga {
@@ -45,14 +47,13 @@ saga.init_lsp_saga {
   -- like server_filetype_map = {metals = {'sbt', 'scala'}}
   -- server_filetype_map = {}
 }
-EOF
 
-" nnoremap <silent> gh :Lspsaga lsp_finder<cr>
-" nnoremap <silent> gd :Lspsaga lsp_finder<cr>
-" nnoremap <silent> gr :Lspsaga lsp_finder<cr>
-" nnoremap <silent><leader>ac :Lspsaga code_action<cr>
-" nnoremap <silent>K :Lspsaga hover_doc<cr>
-" nnoremap <silent><C-k> <cmd>Lspsaga signature_help<cr>
-" nnoremap <silent><leader>cc <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
-" nnoremap <silent><leader>rn :Lspsaga rename<CR>
+-- nnoremap <silent> gh :Lspsaga lsp_finder<cr>
+-- nnoremap <silent> gd :Lspsaga lsp_finder<cr>
+-- nnoremap <silent> gr :Lspsaga lsp_finder<cr>
+-- nnoremap <silent><leader>ac :Lspsaga code_action<cr>
+-- nnoremap <silent>K :Lspsaga hover_doc<cr>
+-- nnoremap <silent><C-k> <cmd>Lspsaga signature_help<cr>
+-- nnoremap <silent><leader>cc <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
+-- nnoremap <silent><leader>rn :Lspsaga rename<CR>
 

@@ -1,7 +1,9 @@
-if !exists('g:loaded_nvim_treesitter') | finish | endif
+local status_ok, configs = pcall(require, 'nvim-treesitter.configs')
+if not status_ok then
+  return
+end
 
-lua << EOF
-require 'nvim-treesitter.configs'.setup {
+configs.setup {
   ensure_installed = {
     "typescript",
     "tsx",
@@ -21,6 +23,8 @@ require 'nvim-treesitter.configs'.setup {
   indent = {
     enable = false,
     disable = {}
+  },
+  autopairs = {
+    enable = true,
   }
 }
-EOF

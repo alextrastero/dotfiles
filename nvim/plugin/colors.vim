@@ -22,3 +22,9 @@ hi link LspReferenceWrite Visual
 
 " Tweak comment
 hi Comment gui=italic
+
+hi link NvimTreeFolderName Conceal
+hi link NvimTreeFolderIcon Conceal
+hi link NvimTreeEmptyFolderName Conceal
+hi link NvimTreeOpenedFolderName Conceal
+hi link NvimTreeOpenedFile Conceal

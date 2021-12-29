@@ -1,11 +1,16 @@
-let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
-let g:nvim_tree_respect_buf_cwd = 1 "0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
-let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
-
-lua << EOF
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-require'nvim-tree'.setup {
+vim.g.nvim_tree_highlight_opened_files = 1
+vim.g.nvim_tree_respect_buf_cwd = 1
+vim.g.nvim_tree_quit_on_open = 1
+
+local status_ok, nvim_tree = pcall(require, 'nvim-tree')
+if not status_ok then
+  return
+end
+
+nvim_tree.setup {
+  highlight_opened_files = 1,
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
@@ -63,18 +68,3 @@ require'nvim-tree'.setup {
     require_confirm = true
   }
 }
-EOF
-
-" NvimTreeSymlink
-hi link NvimTreeFolderName Conceal
-" NvimTreeRootFolder
-hi link NvimTreeFolderIcon Conceal
-hi link NvimTreeEmptyFolderName Conceal
-hi link NvimTreeOpenedFolderName Conceal
-" NvimTreeExecFile
-hi link NvimTreeOpenedFile Conceal
-" NvimTreeSpecialFile
-" NvimTreeImageFile
-" NvimTreeMarkdownFile
-" NvimTreeIndentMarker
-

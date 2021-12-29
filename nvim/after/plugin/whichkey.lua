@@ -1,5 +1,7 @@
-lua << EOF
-local wk = require("which-key")
+local status_ok, which_key = pcall(require, "which-key")
+if not status_ok then
+  return
+end
 
 local mappings = {
   g = {
@@ -33,6 +35,5 @@ local mappings = {
   },
 }
 
-wk.setup {}
-wk.register(mappings)
-EOF
+which_key.setup {}
+which_key.register(mappings)

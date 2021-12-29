@@ -83,6 +83,9 @@ lua << EOF
         end
       end,
     },
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
     -- order matters
     sources = cmp.config.sources({
       {

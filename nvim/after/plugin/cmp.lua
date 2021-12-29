@@ -1,6 +1,9 @@
 -- set completeopt=menu,menuone,noselect
 
-local cmp = require "cmp"
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+  return
+end
 
 local kind_icons = {
   Text = "",

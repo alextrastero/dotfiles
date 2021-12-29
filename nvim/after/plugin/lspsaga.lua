@@ -1,9 +1,7 @@
-local status_ok, _ = pcall(require, 'lspsaga')
+local status_ok, saga = pcall(require, 'lspsaga')
 if not status_ok then
   return
 end
-
-local saga = require 'lspsaga'
 
 saga.init_lsp_saga {
   use_saga_diagnostic_sign = true,

@@ -1,6 +1,8 @@
-if !exists('g:lspconfig') | finish | endif
+local status_ok, _ = pcall(require, 'lspconfig')
+if not status_ok then
+  return
+end
 
-lua << EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require('vim.lsp.protocol')
 
@@ -91,4 +93,3 @@ nvim_lsp['efm'].setup {
     "typescript.tsx"
   }
 }
-EOF

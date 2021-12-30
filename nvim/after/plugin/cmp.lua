@@ -1,4 +1,4 @@
--- set completeopt=menu,menuone,noselect
+vim.opt.completeopt = "menu,menuone,noselect"
 
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then

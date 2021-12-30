@@ -46,15 +46,20 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+-- https://github.com/typescript-language-server/typescript-language-server#initializationoptions
 nvim_lsp['tsserver'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
   init_options = {
     hostInfo = "neovim",
     preferences = {
+      quotePreference = "single",
       importModuleSpecifierPreference = "relative",
-      quoteStyle = "single",
+      includeCompletionsForImportStatements = true,
       useAliasForRenames = false,
+      completions = {
+        completeFunctionCalls = true
+      }
     }
   }
 }

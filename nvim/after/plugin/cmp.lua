@@ -1,4 +1,4 @@
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = "menuone,noselect"
 
 local status_ok, cmp = pcall(require, "cmp")
 if not status_ok then
@@ -32,6 +32,7 @@ local kind_icons = {
   Operator = "",
   TypeParameter = ""
 }
+-- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup({
   experimental = {
@@ -87,27 +88,46 @@ cmp.setup({
   documentation = {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   },
-  -- order matters
-  sources = cmp.config.sources({
-    {
-      name = 'buffer',
-      option = {
-        get_bufnrs = function()
-          local bufs = {}
-          for _, win in ipairs(vim.api.nvim_list_wins()) do
-            bufs[vim.api.nvim_win_get_buf(win)] = true
-          end
-          return vim.tbl_keys(bufs)
-        end
-      },
-      keyword_length = 3
-    },
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "ultisnips" },
+    { name = "buffer" },
+    { name = "nvim_lua" },
   },
-  {
-    { name = 'nvim_lsp', max_item_count = 8 },
-    { name = 'ultisnips' },
-  },
-  {
-    { name = 'nvim_lua' },
-  })
+  -- sorting = {
+  --   priority_weight = 2,
+  --   comparators = {
+  --     cmp.config.compare.offset,
+  --     cmp.config.compare.exact,
+  --     cmp.config.compare.score,
+  --     require "cmp-under-comparator".under,
+  --     -- cmp.config.compare.recently_used,
+  --     cmp.config.compare.kind,
+  --     cmp.config.compare.sort_text,
+  --     cmp.config.compare.length,
+  --     cmp.config.compare.order,
+  --   },
+  -- }
+  -- sources = cmp.config.sources({
+  --   {
+  --     name = 'buffer',
+  --     option = {
+  --       get_bufnrs = function()
+  --         local bufs = {}
+  --         for _, win in ipairs(vim.api.nvim_list_wins()) do
+  --           bufs[vim.api.nvim_win_get_buf(win)] = true
+  --         end
+  --         return vim.tbl_keys(bufs)
+  --       end
+  --     },
+  --     keyword_length = 3
+  --   },
+  -- },
+  -- {
+  --   { name = 'nvim_lsp', max_item_count = 8 },
+  --   { name = 'ultisnips' },
+  -- },
+  -- {
+  --   { name = 'nvim_lua' },
+  -- })
 })

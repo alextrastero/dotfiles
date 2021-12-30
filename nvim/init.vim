@@ -38,6 +38,7 @@ Plug 'junegunn/fzf.vim'
 
 " Comments
 Plug 'tpope/vim-commentary'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 "Close tags
 Plug 'alvan/vim-closetag'

@@ -4,6 +4,9 @@ if not status_ok then
 end
 
 configs.setup {
+  context_commentstring = {
+    enable = true,
+  },
   ensure_installed = {
     "typescript",
     "tsx",

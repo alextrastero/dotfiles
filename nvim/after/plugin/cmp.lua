@@ -1,7 +1,7 @@
 vim.opt.completeopt = "menu,menuone,noselect"
 
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
+local status_ok, cmp = pcall(require, "cmp")
+if not status_ok then
   return
 end
 
@@ -51,10 +51,10 @@ cmp.setup({
       -- Source
       vim_item.menu = ({
         buffer = "[buf]",
-        nvim_lsp = "[LSP]",
+        nvim_lsp = "[lsp]",
         nvim_lua = "[api]",
         path = "[path]",
-        ultisnips = "[working mf!]",
+        ultisnips = "[snip]",
       })[entry.source.name]
       return vim_item
     end
@@ -101,9 +101,6 @@ cmp.setup({
         end
       },
       keyword_length = 3
-    },
-    {
-      { name = 'path' }
     },
   },
   {

@@ -18,7 +18,7 @@ configs.setup {
     "bash",
     "lua",
   },
-  hightlight = {
+  highlight = {
     enable = true,
     disable = {},
     additional_vim_regex_highlighting = true

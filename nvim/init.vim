@@ -35,6 +35,7 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
 
 " Comments
 Plug 'tpope/vim-commentary'
@@ -46,4 +47,25 @@ Plug 'alvan/vim-closetag'
 "lualine
 Plug 'nvim-lualine/lualine.nvim'
 
+" change case
+Plug 'tpope/vim-abolish'
+
+" indent blankline
+Plug 'lukas-reineke/indent-blankline.nvim'
+
+" startify
+Plug 'mhinz/vim-startify'
+
+" testing trouble
+Plug 'folke/trouble.nvim'
+
 call plug#end()
+
+" TODO move this
+let s:ag_options = ' --path-to-ignore ~/.ignore'
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 s:ag_options,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)

@@ -16,14 +16,18 @@ local mappings = {
     o = {"<cmd>lua vim.diagnostic.open_float()<cr>", "Diagnostic"},
     h = {"<cmd>lua vim.lsp.buf.document_highlight()<cr>", "Highlight"},
     e = {"<cmd>lua vim.lsp.buf.clear_references()<cr>", "Clear Highlight"},
+    t = {"<cmd>Trouble<cr>", "Trouble!"},
   },
   K = {":Lspsaga hover_doc<cr>", "LSP / Hover doc"},
   ["<leader>"] = {
+    m = {":FZFMru<cr>", "Fzf mru"},
+    f = {":Ag<cr>", "Search"},
     g = {
       name = "Git",
       s = {":vertical G<cr>", "Status"},
       d = {":vertical Git diff %<cr>", "Diff"},
       l = {":vertical Gclog<cr>", "Log"},
+      b = {":vertical Git blame<cr>", "BLAME!"},
     },
     t = {
       name = "Gutter",

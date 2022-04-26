@@ -14,3 +14,6 @@ let g:UltiSnipsSnippetDirectories = ["~/dev/dotfiles/vim/snips"]
 "GitGutter
 let g:gitgutter_map_keys = 0
 let g:gitgutter_signs = 0
+
+"Startify dont change dir
+let g:startify_change_to_dir = 0

@@ -1,4 +1,11 @@
 local status_ok, which_key = pcall(require, "which-key")
+local mappings = vim.api.nvim_set_keymap
+vim.g.mapleader = ","
+
+mappings('n', ';', ':', {})
+mappings('n', 'qq', ':bd<cr>', {})
+mappings('i', '<C-p>', '<C-r>*', {})
+
 if not status_ok then
   return
 end
@@ -21,7 +28,20 @@ local mappings = {
     t = {"<cmd>Trouble<cr>", "Trouble!"},
   },
   K = {":Lspsaga hover_doc<cr>", "LSP / Hover doc"},
+  ["<tab>"] = {":Buffers<cr>", "Buffers"},
+  ["<C-p>"] = {":Files<cr>", "Files"},
+
+  ["<Up>"] = {":resize +5<cr>", "Resize Up"},
+  ["<Down>"] = {":resize -5<cr>", "Resize Down"},
+  ["<Right>"] = {":vertical resize +5<cr>", "Resize Right"},
+  ["<Left>"] = {":vertical resize -5<cr>", "Resize Left"},
+
   ["<leader>"] = {
+    ["1"] = {":bprev<cr>", "Prev buffer"},
+    ["2"] = {":bnext<cr>", "Next buffer"},
+    ["\\"] = {":NvimTreeFindFile<cr>", "Open file in nvim-tree"},
+    e = {":noh<cr>", "Clear Selection"},
+    r = {":so $MYVIMRC<cr>", "Reload Config"},
     m = {":FZFMru<cr>", "Fzf mru"},
     f = {":Ag<cr>", "Search"},
     g = {

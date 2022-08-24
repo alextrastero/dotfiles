@@ -19,13 +19,14 @@ local on_attach = function(client, bufnr)
   client.resolved_capabilities.document_formatting = false
 
   -- disable diagnostic on virtual text
-  vim.diagnostic.config({ virtual_text = false })
+  -- vim.diagnostic.config({ virtual_text = false })
 
   -- show diagnostic on hover
   -- You will likely want to reduce updatetime which affects CursorHold
   -- note: this setting is global and should be set only once
   vim.o.updatetime = 550
-  vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'lspsaga.diagnostic'.show_cursor_diagnostics()]]
+
+  -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'lspsaga.diagnostic'.show_cursor_diagnostics({focusable=false, border='rounded'})]]
   -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float()]]
 
   -- show references on hover INSTEAD!
@@ -86,6 +87,7 @@ nvim_lsp['tsserver'].setup {
     preferences = {
       quotePreference = "single",
       importModuleSpecifierPreference = "relative",
+      indentSize = 2,
       includeCompletionsForImportStatements = true,
       useAliasForRenames = false,
       completions = {

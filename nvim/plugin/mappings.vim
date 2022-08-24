@@ -23,7 +23,28 @@ nnoremap <Down> :resize -5<cr>
 nnoremap <Right> :vertical resize +5<cr>
 nnoremap <Left> :vertical resize -5<cr>
 
-" camelize
-nnoremap _ f_x~
+" convert selection to snake case
+xnoremap <C-s> :CamelToSnakeSel!<cr>
 
-vmap <C-c> :s#_\(\l\)#\u\1#g<cr>
+" paste in insert mode
+inoremap <c-p> <c-r>*
+
+" TODO move this
+function! s:Camelize(range) abort
+  if a:range == 0
+    s#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g
+  else
+    s#\%V\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)\%V#\u\1\2#g
+  endif
+endfunction
+
+function! s:Snakeize(range) abort
+  if a:range == 0
+    s#\C\(\<\u[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
+  else
+    s#\%V\C\(\<\u[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)\%V#\l\1_\l\2#g
+  endif
+endfunction
+
+command! -range CamelCase silent! call <SID>Camelize(<range>)
+command! -range SnakeCase silent! call <SID>Snakeize(<range>)

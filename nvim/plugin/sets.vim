@@ -40,7 +40,7 @@ set colorcolumn=80
 set clipboard+=unnamedplus
 " show the nasties
 set list
-set listchars=trail:·     " trailing spaces
+set listchars=trail:?     " trailing spaces
 set listchars+=tab:\ \    " tabs (don't show them)
 
 " set filetypes as typescriptreact

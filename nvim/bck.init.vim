@@ -9,7 +9,7 @@ endif
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'neovim/nvim-lspconfig'
-Plug 'tami5/lspsaga.nvim'
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 " Completion
@@ -18,6 +18,10 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-nvim-lsp'
+
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
 " WhichKey
 Plug 'folke/which-key.nvim'
@@ -42,7 +46,8 @@ Plug 'tpope/vim-commentary'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 "Close tags
-Plug 'alvan/vim-closetag'
+" Plug 'alvan/vim-closetag'
+Plug 'windwp/nvim-ts-autotag'
 
 "lualine
 Plug 'nvim-lualine/lualine.nvim'
@@ -58,6 +63,12 @@ Plug 'mhinz/vim-startify'
 
 " testing trouble
 Plug 'folke/trouble.nvim'
+
+" prettier
+Plug 'sbdchd/neoformat'
+
+" solarized theme
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 

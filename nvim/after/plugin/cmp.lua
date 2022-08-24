@@ -35,8 +35,11 @@ local kind_icons = {
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup({
+  view = {
+    entries = "native",
+  },
   experimental = {
-    native_menu = true, -- use new menu
+    -- native_menu = true, -- use new menu
     ghost_text = true,
   },
   snippet = {
@@ -85,9 +88,9 @@ cmp.setup({
       end
     end,
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
+  -- documentation = {
+  --   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  -- },
   sources = {
     { name = "nvim_lsp" },
     { name = "ultisnips" },

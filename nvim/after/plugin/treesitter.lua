@@ -24,10 +24,13 @@ configs.setup {
     additional_vim_regex_highlighting = true
   },
   indent = {
-    enable = false,
+    enable = true,
     disable = {}
   },
   autopairs = {
     enable = true,
-  }
+  },
+  autotag = {
+    enable = true,
+  },
 }

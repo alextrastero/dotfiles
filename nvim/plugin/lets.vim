@@ -12,8 +12,8 @@ let g:UltiSnipsSnippetDirectories = ["~/dev/dotfiles/vim/snips"]
 "autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
 
 "GitGutter
-let g:gitgutter_map_keys = 0
-let g:gitgutter_signs = 0
+let g:gitgutter_map_keys = 1
+let g:gitgutter_signs = 1
 
 "Startify dont change dir
 let g:startify_change_to_dir = 0

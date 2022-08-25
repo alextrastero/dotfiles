@@ -5,6 +5,7 @@ vim.g.mapleader = ","
 mappings('n', ';', ':', {})
 mappings('n', 'qq', ':bd<cr>', {})
 mappings('i', '<C-p>', '<C-r>*', {})
+mappings('n', '*', '*N', {})
 
 if not status_ok then
   return

@@ -68,4 +68,10 @@ return require('packer').startup(function(use)
 
   -- solarized theme
   use 'altercation/vim-colors-solarized'
+
+  -- catppuccin
+  use { "catppuccin/nvim", as = "catppuccin" }
+
+  -- impatient
+  use "lewis6991/impatient.nvim"
 end)

@@ -15,7 +15,6 @@ opt.nu = true
 opt.wrap = false
 opt.swapfile = false
 opt.backup = false
-opt.undodir = '~/.vim/undodir'
 opt.undofile = true
 opt.incsearch = true
 opt.termguicolors = true

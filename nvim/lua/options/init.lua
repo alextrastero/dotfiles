@@ -36,22 +36,6 @@ opt.listchars = 'trail:?'     -- trailing spaces
 opt.listchars = opt.listchars + 'tab:\\ \\'    --tabs
 opt.diffopt = opt.diffopt + 'vertical'
 
-vim.cmd('hi clear CursorLineNR')
-vim.cmd('hi CursorLine guibg=NONE guifg=NONE')
-vim.cmd('hi link CursorLineNR Question')
-
-vim.cmd('hi link LspReferenceText Visual')
-vim.cmd('hi link LspReferenceRead Visual')
-vim.cmd('hi link LspReferenceWrite Visual')
-
-vim.cmd('hi Comment gui=italic')
-
-vim.cmd('hi link NvimTreeFolderName Conceal')
-vim.cmd('hi link NvimTreeFolderIcon Conceal')
-vim.cmd('hi link NvimTreeEmptyFolderName Conceal')
-vim.cmd('hi link NvimTreeOpenedFolderName Conceal')
-vim.cmd('hi link NvimTreeOpenedFile Conceal')
-
 -- Startify dont change dir
 vim.g.startify_change_to_dir = 0
 

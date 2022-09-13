@@ -1,24 +1,22 @@
 source ~/.vim/.mappings.vim
 source ~/.vim/.plugins.vim
 
-language en_US
-
 " Encoding
 set encoding=utf-8
 
 " Theme
 " *************************************
 
-" if (has("termguicolors"))
-" endif
-
 if ($TERM == "screen")
   set t_Co=256
+endif
+
+if (has("termguicolors"))
   set termguicolors
 endif
 
-set background=light
-silent! colo solarized
+set background=dark
+silent! colo gruvbox
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags='li\|p'
@@ -26,25 +24,20 @@ let g:html_indent_tags='li\|p'
 " Unsorted
 " *************************************
 
-" Don't try to be vi compatible
-set nocompatible
-
 " More natural split opening
 set splitbelow
 set splitright
 
 " Indentation
-set smarttab
-set cindent
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
+set smartindent
 
 " stop moving cursor to beginning
 set nostartofline
-
-" Indent using two spaces.
-set softtabstop=2
-set tabstop=2
-set shiftwidth=2
+" set cursorline
+" hi clear CursorLine " remove line hightlight color but keep number color
 
 " dont wrap lines
 set nowrap
@@ -54,6 +47,7 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " line numbers
 set number
+set relativenumber
 
 " faster VIM
 set lazyredraw
@@ -63,7 +57,8 @@ set synmaxcol=500
 " Searching
 set hlsearch
 set incsearch
-set ignorecase
+" set ignorecase
+set smartcase
 
 " Visualize tabs and newlines
 set list
@@ -88,18 +83,13 @@ endif
 " use backspace to delete
 set backspace=indent,eol,start
 
-" UpdateMru
-augroup custom_filemru
-  autocmd!
-    autocmd BufWinEnter * UpdateMru
-augroup END
-
 " FZF Config
-let g:fzf_filemru_git_ls = 1
-let g:fzf_filemru_ignore_submodule = 1
-" Disable preview window
-let g:fzf_preview_window = ''
+set rtp+=~/.fzf
+" let g:fzf_preview_window = '' " disable preview window
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 let g:fzf_buffers_jump = 1
+" let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6, 'down': '~40%' } }
+let g:fzf_layout = { 'down': '~40%' }
 
 " Allow hidden buffers
 set hidden
@@ -204,8 +194,6 @@ augroup END
 
 hi link CocErrorHighlight SpellBad
 hi link CocWarningHighlight DiffText
-" hi link CocInfoHighlight DiffText
-" hi link typescriptCommentTodo DiffDelete
 hi link CocErrorSign ErrorMsg
 hi link CocInfoSign QuickFixLine
 
@@ -223,16 +211,25 @@ let g:indentLine_setColors = 1
 
 " buftabline config
 let g:buftabline_indicators = 1
-let g:buftabline_separators = 1
+let g:buftabline_separators = 0
 let g:buftabline_plug_max = 0
+hi! link BufTabLineCurrent StatusLine
+hi! link BufTabLineActive none
+hi! link BufTabLineHidden none
+hi! link BufTabLineFill none
+
+" set dropdown to match solarized light
+" hi! link Pmenu SpecialKey
 
 " improve COC update rate TRYING
 set updatetime=300
 
 set colorcolumn=100
 
+set guicursor=""
+
 " git gutter
-set signcolumn=number
+" set signcolumn=number
 let g:gitgutter_line_highlights_disable = 0
 let g:gitgutter_max_signs = 50
 hi! link SignColumn LineNr
@@ -247,9 +244,6 @@ function! GitGutterNextHunkCycle()
   endif
 endfunction
 
-nmap <Space> :call GitGutterNextHunkCycle()<CR>
-
 " vim-jsx-pretty config
 let g:vim_jsx_pretty_colorful_config = 1 " colorful config flag
 let g:vim_jsx_pretty_template_tags = ['html', 'jsx', 'typescript.tsx', 'tsx']
-

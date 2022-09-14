@@ -29,8 +29,8 @@ local mappings = {
     t = {"<cmd>Trouble<cr>", "Trouble!"},
   },
   K = {":Lspsaga hover_doc<cr>", "LSP / Hover doc"},
-  ["<tab>"] = {":Buffers<cr>", "Buffers"},
-  ["<C-p>"] = {":Files<cr>", "Files"},
+  ["<tab>"] = {":Telescope buffers<cr>", "T Buffers"},
+  ["<C-p>"] = {":Telescope find_files<cr>", "T Files"},
 
   ["<Up>"] = {":resize +5<cr>", "Resize Up"},
   ["<Down>"] = {":resize -5<cr>", "Resize Down"},
@@ -43,8 +43,8 @@ local mappings = {
     ["\\"] = {":NvimTreeFindFile<cr>", "Open file in nvim-tree"},
     e = {":noh<cr>", "Clear Selection"},
     r = {":so $MYVIMRC<cr>", "Reload Config"},
-    m = {":FZFMru<cr>", "Fzf mru"},
-    f = {":Ag<cr>", "Search"},
+    m = {":Telescope oldfiles<cr>", "T Oldfiles"},
+    f = {":Telescope live_grep<cr>", "T Grep"},
     g = {
       name = "Git",
       s = {":vertical G<cr>", "Status"},

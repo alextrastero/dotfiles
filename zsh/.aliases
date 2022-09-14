@@ -31,3 +31,6 @@ alias vim="nvim"
 
 # jekyll serve
 alias static="bundle exec jekyll serve --livereload"
+
+# install with yes
+alias apt="apt -y"

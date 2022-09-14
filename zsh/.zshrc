@@ -9,13 +9,10 @@ source $HOME/.aliases
 
 #z
 #https://raw.githubusercontent.com/rupa/z/master/z.sh
-source $HOME/z.sh
+source $HOME/.z.sh
 
 #start tmux
 [ -z "$TMUX" ] && tmux
-
-#FZF
-# TODO
 
 #nvm
 export NVM_DIR="$HOME/.nvm"

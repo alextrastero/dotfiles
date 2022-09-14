@@ -8,3 +8,4 @@
 
 ## misc
 [z jump around](https://github.com/rupa/z)
+[fzf](https://github.com/junegunn/fzf)

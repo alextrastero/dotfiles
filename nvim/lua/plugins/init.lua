@@ -15,6 +15,12 @@ return require('packer').startup(function(use)
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   -- Completion
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
@@ -37,9 +43,9 @@ return require('packer').startup(function(use)
   use 'ap/vim-buftabline'
   use 'airblade/vim-gitgutter'
 
-  use { 'junegunn/fzf', run = ":call fzf#install()" }
-  use { 'junegunn/fzf.vim' }
-  use 'pbogut/fzf-mru.vim'
+  -- use { 'junegunn/fzf', run = ":call fzf#install()" }
+  -- use { 'junegunn/fzf.vim' }
+  -- use 'pbogut/fzf-mru.vim'
 
   -- Comments
   use 'tpope/vim-commentary'

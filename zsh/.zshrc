@@ -9,7 +9,7 @@ source $HOME/.aliases
 
 #z
 #https://raw.githubusercontent.com/rupa/z/master/z.sh
-source $HOME/z/z.sh
+source $HOME/z.sh
 
 #nvm
 # TODO

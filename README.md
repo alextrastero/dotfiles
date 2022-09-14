@@ -9,6 +9,12 @@
 
 ## shell
 [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+git:
+  ```
+    git config --global --add push.default current
+    git config --global --add push.autoSetupRemote true
+  ```
+
 
 ##work
 [nodejs](https://nodejs.org/en/)

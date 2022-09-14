@@ -1,0 +1,33 @@
+alias c="clear"
+alias edit="vim ~/.config/nvim"
+alias ag="ag --path-to-ignore ~/.ignore --pager less"
+
+# GIT
+alias pick="git cherry-pick"
+alias glg="tig log -n20"
+alias gs="git show"
+alias gundo='git reset --soft HEAD~ && git reset HEAD .' # Uncommit last commit and unstage - to see all new stuff in vim-git
+alias gll="gfa && gf -p && gl"
+# alias gb="git branch --sort=-committerdate --column"
+alias gamend="git commit --amend --no-edit"
+alias gc="git commit -v -S"
+alias update="gco develop;gll;gco -;git rebase -" # NOTE develop
+alias tempo="git add .; git commit -m tempo"
+alias merge="git add .; git commit -m 'merge this'"
+alias fix="yarn lint --fix"
+alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
+
+# rebasing aliases
+alias rec="git rebase --continue"
+alias res="git rebase --skip"
+alias rei="git rebase -i"
+
+# work
+alias t="yarn test --noStackTrace"
+alias s="yarn start"
+
+# vim
+alias vim="nvim"
+
+# jekyll serve
+alias static="bundle exec jekyll serve --livereload"

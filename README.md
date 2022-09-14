@@ -9,6 +9,7 @@
 
 ## shell
 [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+
 git:
   ```
     git config --global --add push.default current

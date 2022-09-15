@@ -24,6 +24,22 @@ nvim_tree.setup {
   renderer = {
     highlight_opened_files = "name",
     group_empty = true,
+    indent_markers = {
+      enable = true,
+      inline_arrows = true,
+      icons = {
+        corner = "└",
+        edge = "│",
+        item = "│",
+        bottom = "─",
+        none = " ",
+      },
+    },
+    icons = {
+      show = {
+        folder = false,
+      },
+    },
   },
   actions = {
     open_file = {

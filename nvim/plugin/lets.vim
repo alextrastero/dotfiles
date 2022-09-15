@@ -6,7 +6,7 @@ let g:closetag_regions =  {
 \ }
 
 "SirVer/ultisnips
-let g:UltiSnipsSnippetDirectories = ["~/dev/dotfiles/vim/snips"]
+let g:UltiSnipsSnippetDirectories = ["~/dev/dotfiles/nvim/snips"]
 
 "autoformat
 "autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)

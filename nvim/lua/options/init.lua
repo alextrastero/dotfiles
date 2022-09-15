@@ -41,3 +41,17 @@ vim.g.startify_change_to_dir = 0
 
 -- TODO
 -- autocmd BufNewFile,BufRead *.njk set ft=html
+
+
+-- COLORS
+vim.cmd [[colorscheme catppuccin]]
+vim.cmd [[hi clear LspReferenceRead]] -- this is not working...
+vim.cmd [[hi link LspReferenceRead Todo]]
+
+vim.cmd [[hi clear CursorLineNR]]
+vim.cmd [[hi CursorLine guibg=NONE guifg=NONE]]
+vim.cmd [[hi link CursorLineNR Question]]
+
+vim.cmd [[hi Comment gui=italic]]
+vim.cmd [[hi clear NvimTreeNormal]]
+vim.cmd [[hi link NvimTreeNormal Normal]]

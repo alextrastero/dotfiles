@@ -6,6 +6,7 @@ mappings('n', ';', ':', {})
 mappings('n', 'qq', ':bd<cr>', {})
 mappings('i', '<C-p>', '<C-r>*', {})
 mappings('n', '*', '*N', {})
+mappings('x', '<C-f>', ':Neoformat<cr>', {})
 
 if not status_ok then
   return

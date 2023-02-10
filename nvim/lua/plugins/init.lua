@@ -7,6 +7,7 @@ end
 
 vim.cmd [[ packadd packer.nvim ]]
 
+-- TODO migrate to lazy nvim https://github.com/folke/lazy.nvim
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'gruvbox-community/gruvbox'
@@ -75,4 +76,10 @@ return require('packer').startup(function(use)
 
   -- astro highlight
   use "wuelnerdotexe/vim-astro"
+
+  -- highlight hex color values
+  use 'NvChad/nvim-colorizer.lua'
+
+  -- alpha
+  use 'goolord/alpha-nvim'
 end)

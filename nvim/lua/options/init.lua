@@ -18,7 +18,7 @@ opt.backup = false
 opt.undofile = true
 opt.incsearch = true
 opt.termguicolors = true
-opt.scrolloff=8
+opt.scrolloff = 8
 opt.showmode = true
 opt.showcmd = true
 opt.signcolumn = 'yes'
@@ -39,12 +39,12 @@ opt.diffopt = opt.diffopt + 'vertical'
 -- Startify dont change dir
 vim.g.startify_change_to_dir = 0
 
--- TODO
--- autocmd BufNewFile,BufRead *.njk set ft=html
-
+-- Set filetype for astro files to html
+-- EDIT NOT NEEDED ANYMORE SINCE VIM PLUGGING FOR ASTRO
+-- vim.cmd [[au BufRead,BufNewFile *.astro set filetype=html]]
 
 -- COLORS
-vim.cmd [[colorscheme catppuccin]]
+vim.cmd [[colorscheme gruvbox]]
 vim.cmd [[hi clear LspReferenceRead]] -- this is not working...
 vim.cmd [[hi link LspReferenceRead Todo]]
 

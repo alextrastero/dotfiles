@@ -6,7 +6,8 @@ mappings('n', ';', ':', {})
 mappings('n', 'qq', ':bd<cr>', {})
 mappings('i', '<C-p>', '<C-r>*', {})
 mappings('n', '*', '*N', {})
-mappings('x', '<C-f>', ':Neoformat<cr>', {})
+mappings('x', '<C-f>', ':Neoformat prettier<cr>', {})
+-- mappings('n', '<C-f>', ':Neoformat prettier<cr>', {})
 
 if not status_ok then
   return
@@ -16,15 +17,25 @@ local mappings = {
   g = {
     name = "LSP",
     i = {":LspInfo<cr>", "Info"},
-    r = {":Lspsaga lsp_finder<cr>", "References"},
-    --r = {"<cmd>lua vim.lsp.buf.references()<cr>", "References"},
-    d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
+    r = {":Lspsaga lsp_finder<cr>", "LSP Finder"},
+    d = {":Lspsaga goto_definition<cr>", "Go To Definition"},
     a = {":Lspsaga code_action<cr>", "Code Action"},
-    j = {"<cmd>Lspsaga diagnostic_jump_next<CR>", "Jump to ERROR"},
-    p = {"<cmd>Lspsaga preview_definition<CR>", "Preview Definition"},
+    -- j = {"<cmd>Lspsaga diagnostic_jump_next<CR>", "Diagnostic Jump Next"},
+    j = { function()
+      require("lspsaga.diagnostic"):goto_next({
+        severity = vim.diagnostic.severity.ERROR
+      }) end, "Diagnostic Jump Next"
+    },
+    k = { function()
+      require("lspsaga.diagnostic"):goto_prev({
+        severity = vim.diagnostic.severity.ERROR
+      }) end, "Diagnostic Prev Next"
+    },
+    p = {"<cmd>Lspsaga peek_definition<CR>", "Peek Definition"},
     n = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
     s = {":Lspsaga signature_help<cr>", "Signature"},
-    o = {"<cmd>lua vim.diagnostic.open_float({focus = false})<cr>", "Diagnostic"},
+    o = {":Lspsaga outline<cr>", "Outline"},
+    -- o = {"<cmd>lua vim.diagnostic.open_float({focus = false})<cr>", "Diagnostic"},
     h = {"<cmd>lua vim.lsp.buf.document_highlight()<cr>", "Highlight"},
     e = {"<cmd>lua vim.lsp.buf.clear_references()<cr>", "Clear Highlight"},
     t = {"<cmd>Trouble<cr>", "Trouble!"},
@@ -32,6 +43,7 @@ local mappings = {
   K = {":Lspsaga hover_doc<cr>", "LSP / Hover doc"},
   ["<tab>"] = {":Telescope buffers<cr>", "T Buffers"},
   ["<C-p>"] = {":Telescope find_files<cr>", "T Files"},
+  ["<C-d>"] = {":bd<cr>", "Delete buffer"},
 
   ["<Up>"] = {":resize +5<cr>", "Resize Up"},
   ["<Down>"] = {":resize -5<cr>", "Resize Down"},
@@ -42,6 +54,7 @@ local mappings = {
     ["1"] = {":bprev<cr>", "Prev buffer"},
     ["2"] = {":bnext<cr>", "Next buffer"},
     ["\\"] = {":NvimTreeFindFile<cr>", "Open file in nvim-tree"},
+    k = {":NvimTreeToggle<cr>", "Toggle Nvim Tree"},
     e = {":noh<cr>", "Clear Selection"},
     r = {":so $MYVIMRC<cr>", "Reload Config"},
     m = {":Telescope oldfiles<cr>", "T Oldfiles"},

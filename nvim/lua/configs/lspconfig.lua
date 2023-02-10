@@ -16,32 +16,10 @@ local on_attach = function(client, bufnr)
   --if client.config.flags then
     --client.config.flags.allow_incremental_sync = true
   --end
-  client.resolved_capabilities.document_formatting = false
-
-  -- disable diagnostic on virtual text
-  -- vim.diagnostic.config({ virtual_text = false })
-
-  -- show diagnostic on hover
-  -- You will likely want to reduce updatetime which affects CursorHold
-  -- note: this setting is global and should be set only once
+  --
+  -- client.client_capabilities.document_formatting = false -- neovim V0.7
+  client.server_capabilities.documentFormattingProvider = false -- neovim V0.8
   vim.o.updatetime = 550
-
-  -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'lspsaga.diagnostic'.show_cursor_diagnostics({focusable=false, border='rounded'})]]
-  -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float()]]
-
-  -- show references on hover INSTEAD!
-  -- if client.resolved_capabilities.document_highlight then
-  --   vim.api.nvim_exec(
-  --     [[
-  --       augroup lsp_document_highlight
-  --         autocmd! * <buffer>
-  --         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-  --         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-  --       augroup END
-  --     ]],
-  --     false
-  --   )
-  -- end
 end
 
 -- workaround
@@ -66,7 +44,7 @@ end
 -- end workaround
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- https://github.com/typescript-language-server/typescript-language-server#initializationoptions
 nvim_lsp['tsserver'].setup {
@@ -85,7 +63,6 @@ nvim_lsp['tsserver'].setup {
   init_options = {
     hostInfo = "neovim",
     preferences = {
-      quotePreference = "single",
       importModuleSpecifierPreference = "relative",
       indentSize = 2,
       includeCompletionsForImportStatements = true,
@@ -108,8 +85,8 @@ local eslint = {
 
 nvim_lsp['efm'].setup {
   on_attach = function(client)
-    client.resolved_capabilities.document_formatting = true
-    client.resolved_capabilities.goto_definition = false
+    client.server_capabilities.document_formatting = true
+    client.server_capabilities.goto_definition = false
   end,
   settings = {
     languages = {

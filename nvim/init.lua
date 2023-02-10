@@ -1,7 +1,6 @@
 require('plugins')
 require('mappings')
 require('options')
-require('configs.catppuccin')
 require('configs.cmp')
 require('configs.indent-blankline')
 require('configs.lspconfig')

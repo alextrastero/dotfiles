@@ -37,15 +37,16 @@ return require('packer').startup(function(use)
   use 'quangnguyen30192/cmp-nvim-ultisnips'
 
   -- git tree
-  use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
 
   use 'ap/vim-buftabline'
   use 'airblade/vim-gitgutter'
-
-  -- use { 'junegunn/fzf', run = ":call fzf#install()" }
-  -- use { 'junegunn/fzf.vim' }
-  -- use 'pbogut/fzf-mru.vim'
 
   -- Comments
   use 'tpope/vim-commentary'
@@ -63,21 +64,15 @@ return require('packer').startup(function(use)
   -- indent blankline
   use 'lukas-reineke/indent-blankline.nvim'
 
-  -- startify
-  use 'mhinz/vim-startify'
-
   -- testing trouble
   use 'folke/trouble.nvim'
 
   -- prettier
   use 'sbdchd/neoformat'
 
-  -- solarized theme
-  use 'altercation/vim-colors-solarized'
-
-  -- catppuccin
-  use { "catppuccin/nvim", as = "catppuccin" }
-
   -- impatient
   use "lewis6991/impatient.nvim"
+
+  -- astro highlight
+  use "wuelnerdotexe/vim-astro"
 end)

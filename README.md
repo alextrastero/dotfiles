@@ -19,3 +19,30 @@
 - [z](https://github.com/rupa/z)
 - [fzf](https://github.com/junegunn/fzf)
 - [ag](https://github.com/ggreer/the_silver_searcher)
+
+
+# .files
+
+This is my attempt to automate setup required for my daily frontend developer work.
+
+## requirements
+
+- [git](https://git-scm.com/)
+- [nodejs](https://nodejs.org)
+
+## vim
+- [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- [clone dotfiles](https://github.com/alextrastero/dotfiles)
+- `$ cd dotfiles && ./boo.sh` ?? chmod -x
+- Install [go](https://go.dev/doc/install), [typescript language server](https://github.com/typescript-language-server/typescript-language-server) and [efm language server](https://github.com/mattn/efm-langserver)
+- Open `nvim` and run `:PackerInstall`
+- Restart `nvim`, `treesitter` should install dependencies
+
+### issues
+
+- When starting vim if python3 provider warning run:
+		- `$ python3 -m ensurepip --upgrade`
+		- `$ python3 -m pip install --user --upgrade pynvim`
+
+## gnome
+- [gnome tweaks](https://wiki.gnome.org/action/show/Apps/Tweaks) and setup Caps Lock as Ctrl

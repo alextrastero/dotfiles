@@ -19,6 +19,8 @@
 - [z](https://github.com/rupa/z)
 - [fzf](https://github.com/junegunn/fzf)
 - [ag](https://github.com/ggreer/the_silver_searcher)
+- [tig](https://jonas.github.io/tig/)
+- [FiraMono Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraMono.zip)
 
 
 # .files

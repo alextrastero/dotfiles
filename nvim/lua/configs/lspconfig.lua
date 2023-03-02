@@ -38,9 +38,14 @@ local function filter(arr, fn)
   return filtered
 end
 
+-- https://github.com/typescript-language-server/typescript-language-server/issues/216
 local function filterReactDTS(value)
-  return string.match(value.uri, 'react/index.d.ts') == nil
+  return string.match(value.uri, '%.d.ts') == nil
 end
+
+-- local function filterReactDTS(value)
+--   return string.match(value.uri, 'react/index.d.ts') == nil
+-- end
 -- end workaround
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

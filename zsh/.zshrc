@@ -9,7 +9,8 @@ source $HOME/.aliases
 
 #z
 #https://raw.githubusercontent.com/rupa/z/master/z.sh
-source $HOME/.z.sh
+# source $HOME/.z.sh
+. /opt/z/z.sh
 
 #start tmux
 [ -z "$TMUX" ] && tmux
@@ -40,6 +41,10 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+export GOPATH="$HOME/go"
+
+export PATH="$GEM_HOME/bin:$GOPATH/bin:$PATH"
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"

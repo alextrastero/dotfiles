@@ -41,8 +41,12 @@ This is my attempt to automate setup required for my daily frontend developer wo
 ### issues
 
 - When starting vim if python3 provider warning run:
-		- `$ python3 -m ensurepip --upgrade`
-		- `$ python3 -m pip install --user --upgrade pynvim`
+  - `$ python3 -m ensurepip --upgrade`
+  - `$ python3 -m pip install --user --upgrade pynvim`
+- efm-langserver not available
+  - make sure go path is added to PATH
 
 ## gnome
 - [gnome tweaks](https://wiki.gnome.org/action/show/Apps/Tweaks) and setup Caps Lock as Ctrl
+- [disable tap-and-drag](https://yildiz.dev/posts/gnome-disable-tap-and-drag) `gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag false`
+- [flameshot](https://flameshot.org/) screenshot tool - set custom shortcut to `flameshot gui`

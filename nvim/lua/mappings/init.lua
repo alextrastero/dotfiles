@@ -12,7 +12,7 @@ if not status_ok then
   return
 end
 
-local mappings = {
+local which_key_mappings = {
   g = {
     name = "LSP",
     i = {":LspInfo<cr>", "Info"},
@@ -77,4 +77,4 @@ local mappings = {
 }
 
 which_key.setup {}
-which_key.register(mappings)
+which_key.register(which_key_mappings)

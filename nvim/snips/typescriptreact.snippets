@@ -1,6 +1,6 @@
 snippet desc "describe" w
 describe('$1', () => {
-  test.todo('$2');
+  it.todo('$2');
 });
 endsnippet
 
@@ -14,7 +14,7 @@ jest.mock('${1:module}', () => {
 endsnippet
 
 snippet test "test assertion" w
-test('${1:renders}', () => {
+it('${1:renders}', () => {
 	$2
 });
 endsnippet

@@ -1,6 +1,7 @@
 alias c="clear"
 alias edit="vim ~/.config/nvim"
-alias ag="ag --path-to-ignore ~/.ignore --pager less"
+# alias ag="ag --path-to-ignore ~/.ignore --pager less"
+alias ag="ag"
 
 # GIT
 alias pick="git cherry-pick"
@@ -11,7 +12,7 @@ alias gll="gfa && gf -p && gl"
 # alias gb="git branch --sort=-committerdate --column"
 alias gamend="git commit --amend --no-edit"
 alias gc="git commit -v -S"
-alias update="gco develop;gll;gco -;git rebase -" # NOTE develop
+alias update="gco master;gll;gco -;git rebase -" # NOTE develop
 alias tempo="git add .; git commit -m tempo"
 alias merge="git add .; git commit -m 'merge this'"
 alias fix="yarn lint --fix"
@@ -23,7 +24,7 @@ alias res="git rebase --skip"
 alias rei="git rebase -i"
 
 # work
-alias t="yarn test --noStackTrace"
+alias t="yarn test"
 alias s="yarn start"
 
 # vim

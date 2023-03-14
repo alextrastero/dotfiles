@@ -4,8 +4,9 @@ if not status_ok then
 end
 
 saga.setup({
+  ui = {},
   preview = {
-    lines_above = 0,
+    lines_above = 2,
     lines_below = 10,
   },
   scroll_preview = {

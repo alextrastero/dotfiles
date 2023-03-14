@@ -1,7 +1,8 @@
 require('telescope').setup({
   defaults = {
+    layout_stragegy = "cursor",
     layout_config = {
-      vertical = { width = 0.5 }
+      -- width = 100,
       -- other layout configuration here
     },
   },

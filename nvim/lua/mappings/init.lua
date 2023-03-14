@@ -5,9 +5,8 @@ vim.g.mapleader = ","
 mappings('n', ';', ':', {})
 mappings('n', 'qq', ':bd<cr>', {})
 mappings('i', '<C-p>', '<C-r>*', {})
-mappings('n', '*', '*N', {})
+ -- mappings('n', '*', ":<c-u>let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>", {})
 mappings('x', '<C-f>', ':Neoformat prettier<cr>', {})
--- mappings('n', '<C-f>', ':Neoformat prettier<cr>', {})
 
 if not status_ok then
   return
@@ -18,6 +17,7 @@ local mappings = {
     name = "LSP",
     i = {":LspInfo<cr>", "Info"},
     r = {":Lspsaga lsp_finder<cr>", "LSP Finder"},
+    -- r = {":lua vim.lsp.buf.references()<cr>", "LSP Finder"},
     d = {":Lspsaga goto_definition<cr>", "Go To Definition"},
     a = {":Lspsaga code_action<cr>", "Code Action"},
     -- j = {"<cmd>Lspsaga diagnostic_jump_next<CR>", "Diagnostic Jump Next"},
@@ -56,7 +56,7 @@ local mappings = {
     ["\\"] = {":NvimTreeFindFile<cr>", "Open file in nvim-tree"},
     k = {":NvimTreeToggle<cr>", "Toggle Nvim Tree"},
     e = {":noh<cr>", "Clear Selection"},
-    r = {":so $MYVIMRC<cr>", "Reload Config"},
+    r = {":luafile $MYVIMRC<cr>", "Reload Config"}, -- updated for lua config
     m = {":Telescope oldfiles<cr>", "T Oldfiles"},
     f = {":Telescope live_grep<cr>", "T Grep"},
     g = {

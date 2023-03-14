@@ -7,6 +7,8 @@ source $ZSH/oh-my-zsh.sh
 #aliases
 source $HOME/.aliases
 
+export RIPGREP_CONFIG_PATH="$HOME/.rgconfig"
+
 #z
 #https://raw.githubusercontent.com/rupa/z/master/z.sh
 # source $HOME/.z.sh
@@ -48,3 +50,5 @@ export PATH="$GEM_HOME/bin:$GOPATH/bin:$PATH"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+
+alias luamake=/home/odella/lua-language-server/3rd/luamake/luamake

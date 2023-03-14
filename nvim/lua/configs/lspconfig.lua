@@ -3,45 +3,39 @@ if not status_ok then
   return
 end
 
-local protocol = require('vim.lsp.protocol')
+-- local protocol = require('vim.lsp.protocol')
+local util = nvim_lsp.util;
 
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  -- tsserver specifics
-  -- NOTE these 3 lines dont allow to save file in VIM
-  --if client.config.flags then
-    --client.config.flags.allow_incremental_sync = true
-  --end
-  --
-  -- client.client_capabilities.document_formatting = false -- neovim V0.7
   client.server_capabilities.documentFormattingProvider = false -- neovim V0.8
   vim.o.updatetime = 550
 end
 
 -- workaround
-local function filter(arr, fn)
-  if type(arr) ~= "table" then
-    return arr
-  end
+-- local function filter(arr, fn)
+--   if type(arr) ~= "table" then
+--     return arr
+--   end
 
-  local filtered = {}
-  for k, v in pairs(arr) do
-    if fn(v, k, arr) then
-      table.insert(filtered, v)
-    end
-  end
+--   local filtered = {}
+--   for k, v in pairs(arr) do
+--     if fn(v, k, arr) then
+--       table.insert(filtered, v)
+--     end
+--   end
 
-  return filtered
-end
+--   return filtered
+-- end
 
 -- https://github.com/typescript-language-server/typescript-language-server/issues/216
-local function filterReactDTS(value)
-  return string.match(value.uri, '%.d.ts') == nil
-end
+-- local function filterReactDTS(value)
+--   return string.match(value.uri, '%.d.ts') == nil
+-- end
 
 -- local function filterReactDTS(value)
 --   return string.match(value.uri, 'react/index.d.ts') == nil
@@ -51,32 +45,23 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- https://github.com/typescript-language-server/typescript-language-server#initializationoptions
-nvim_lsp['tsserver'].setup {
-  on_attach = on_attach,
-  -- capabilities = capabilities,
-  handlers = {
-    ['textDocument/definition'] = function(err, result, method, ...)
-      if vim.tbl_islist(result) and #result > 1 then
-        local filtered_result = filter(result, filterReactDTS)
-        return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
-      end
-
-      vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
-    end
-  },
-  init_options = {
-    hostInfo = "neovim",
-    preferences = {
-      importModuleSpecifierPreference = "relative",
-      indentSize = 2,
-      includeCompletionsForImportStatements = true,
-      useAliasForRenames = false,
-      completions = {
-        completeFunctionCalls = true
-      }
+local init_options = {
+  preferences = {
+    importModuleSpecifierPreference = "relative",
+    indentSize = 2,
+    includeCompletionsForImportStatements = true,
+    useAliasForRenames = false,
+    completions = {
+      completeFunctionCalls = true
     }
   }
+}
+
+nvim_lsp['tsserver'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = init_options,
+  root_dir = util.find_git_ancestor,
 }
 
 local eslint = {
@@ -112,3 +97,14 @@ nvim_lsp['efm'].setup {
     "typescript.tsx"
   }
 }
+
+-- lua lsp
+nvim_lsp['lua_ls'].setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
+    }
+  }
+})

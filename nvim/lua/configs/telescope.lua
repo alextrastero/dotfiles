@@ -1,9 +1,9 @@
 require('telescope').setup({
   defaults = {
-    layout_stragegy = "cursor",
+    layout_stragegy = "center",
     layout_config = {
-      -- width = 100,
-      -- other layout configuration here
+      height = 0.99,
+      width = 0.99,
     },
   },
   pickers = {

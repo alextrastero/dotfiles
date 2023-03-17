@@ -9,7 +9,6 @@ alias glg="tig log -n20"
 alias gs="git show"
 alias gundo='git reset --soft HEAD~ && git reset HEAD .' # Uncommit last commit and unstage - to see all new stuff in vim-git
 alias gll="gfa && gf -p && gl"
-# alias gb="git branch --sort=-committerdate --column"
 alias gamend="git commit --amend --no-edit"
 alias gc="git commit -v -S"
 alias update="gco master;gll;gco -;git rebase -" # NOTE develop
@@ -32,6 +31,3 @@ alias vim="nvim"
 
 # jekyll serve
 alias static="bundle exec jekyll serve --livereload"
-
-# install with yes
-alias apt="apt -y"

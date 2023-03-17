@@ -14,7 +14,7 @@ saga.setup({
     scroll_up = "<C-b>",
   },
   request_timeout = 2000,
-  code_action_lightbulb = {
+  lightbulb = {
     enable = false,
   },
 })

@@ -4,16 +4,18 @@ describe('$1', () => {
 });
 endsnippet
 
-snippet actual "requireActual" w
-jest.mock('${1:module}', () => {
+snippet actual "importActual" w
+vi.mock('${1:module}', async () => {
+	const original = await vi.importActual<typeof import('$1')>('$1');
+
   return {
-    ...jest.requireActual('$1'),
+		...original,
     $2,
   }
 });
 endsnippet
 
-snippet test "test assertion" w
+snippet it "test assertion" w
 it('${1:renders}', () => {
 	$2
 });

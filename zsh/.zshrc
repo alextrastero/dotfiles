@@ -29,8 +29,9 @@ function hub() { # Open github on folder
 function w() { # Open vim with git unchanged files
   $(git rev-parse --is-inside-work-tree 2>/dev/null) && vim $(git status --porcelain | awk '{print $2}')
 }
+unalias gbg
 function gbg() {
-  $(git checkout "$(git branch --sort=-committerdate | fzf | tr -d '[:space:]')")
+  git checkout "$(git branch --sort=-committerdate | fzf| tr -d '[:space:]')"
 }
 
 #fzf config

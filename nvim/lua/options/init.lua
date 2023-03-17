@@ -29,7 +29,7 @@ opt.splitright = true
 opt.cmdheight = 1
 opt.updatetime = 50
 opt.shortmess = opt.shortmess + 'c'
-opt.colorcolumn = "80"
+opt.colorcolumn = "120"
 opt.clipboard = opt.clipboard + 'unnamedplus'
 opt.list = true
 opt.listchars = 'trail:?'     -- trailing spaces
@@ -44,6 +44,7 @@ vim.g.startify_change_to_dir = 0
 -- vim.cmd [[au BufRead,BufNewFile *.astro set filetype=html]]
 
 -- COLORS
+vim.cmd [[set background=light]]
 vim.cmd [[colorscheme gruvbox]]
 vim.cmd [[hi clear LspReferenceRead]] -- this is not working...
 vim.cmd [[hi link LspReferenceRead Error]]

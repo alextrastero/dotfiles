@@ -47,7 +47,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local init_options = {
   preferences = {
-    importModuleSpecifierPreference = "relative",
+    importModuleSpecifierPreference = "auto",
     indentSize = 2,
     includeCompletionsForImportStatements = true,
     useAliasForRenames = false,

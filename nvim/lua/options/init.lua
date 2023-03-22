@@ -39,10 +39,6 @@ opt.diffopt = opt.diffopt + 'vertical'
 -- Startify dont change dir
 vim.g.startify_change_to_dir = 0
 
--- Set filetype for astro files to html
--- EDIT NOT NEEDED ANYMORE SINCE VIM PLUGGING FOR ASTRO
--- vim.cmd [[au BufRead,BufNewFile *.astro set filetype=html]]
-
 -- COLORS
 vim.cmd [[set background=light]]
 vim.cmd [[colorscheme gruvbox]]
@@ -61,3 +57,9 @@ vim.cmd [[hi! link SignColumn LineNr]]
 
 -- Highlight opened folder in nvim-tree
 -- vim.cmd [[hi NvimTreeFolderName guifg=blue]]
+
+vim.cmd [[hi clear Search]]
+vim.cmd [[hi! link Search Visual]]
+
+vim.cmd [[hi link NvimTreeIndentMarker VertSplit]]
+

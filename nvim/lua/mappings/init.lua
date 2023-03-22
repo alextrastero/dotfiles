@@ -6,7 +6,7 @@ mappings('n', ';', ':', {})
 mappings('n', 'qq', ':bd<cr>', {})
 mappings('i', '<C-p>', '<C-r>*', {})
  -- mappings('n', '*', ":<c-u>let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>", {})
-mappings('x', '<C-f>', ':Neoformat prettier<cr>', {})
+mappings('n', '<C-f>', ':Neoformat<cr>', {})
 
 if not status_ok then
   return
@@ -53,7 +53,7 @@ local which_key_mappings = {
   ["<leader>"] = {
     ["1"] = {":bprev<cr>", "Prev buffer"},
     ["2"] = {":bnext<cr>", "Next buffer"},
-    ["\\"] = {":NvimTreeFindFile<cr>", "Open file in nvim-tree"},
+    ["\\"] = {":NvimTreeToggle<cr>", "Open file in nvim-tree"},
     k = {":NvimTreeToggle<cr>", "Toggle Nvim Tree"},
     e = {":noh<cr>", "Clear Selection"},
     r = {":luafile $MYVIMRC<cr>", "Reload Config"}, -- updated for lua config

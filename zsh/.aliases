@@ -23,8 +23,9 @@ alias res="git rebase --skip"
 alias rei="git rebase -i"
 
 # work
-alias t="yarn test"
+alias t="yarn studio:test"
 alias s="yarn start"
+alias cov="yarn nx coverage"
 
 # vim
 alias vim="nvim"

@@ -15,11 +15,10 @@ nvim_tree.setup {
     group_empty = true,
     indent_markers = {
       enable = true,
-      inline_arrows = true,
       icons = {
         corner = "└",
-        edge = "",
-        item = "",
+        edge = "│",
+        item = "│",
         bottom = "─",
         none = " ",
       },
@@ -41,7 +40,7 @@ nvim_tree.setup {
   },
   update_focused_file = {
     enable      = true,
-    update_cwd  = true,
+    update_root  = true,
     ignore_list = {}
   },
   system_open = {

@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 saga.setup({
-  ui = {},
   preview = {
     lines_above = 2,
     lines_below = 10,

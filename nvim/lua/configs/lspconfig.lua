@@ -51,6 +51,7 @@ local init_options = {
     indentSize = 2,
     includeCompletionsForImportStatements = true,
     useAliasForRenames = false,
+    quotePreference = "single",
     completions = {
       completeFunctionCalls = true
     }
@@ -73,10 +74,17 @@ local eslint = {
   formatStdin = true
 }
 
+vim.diagnostic.config({
+  virtual_text = false, -- disable inline errors
+})
+
 nvim_lsp['efm'].setup {
   on_attach = function(client)
     client.server_capabilities.document_formatting = true
     client.server_capabilities.goto_definition = false
+    -- show errors on hover
+    -- vim.api.nvim_command('autocmd CursorHold <buffer> lua vim.diagnostic.open_float(nil, {focus=false})')
+    -- vim.api.nvim_command('autocmd CursorHold <buffer> Lspsaga show_cursor_diagnostics')
   end,
   settings = {
     languages = {

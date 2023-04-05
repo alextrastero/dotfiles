@@ -16,6 +16,7 @@ alias tempo="git add .; git commit -m tempo"
 alias merge="git add .; git commit -m 'merge this'"
 alias fix="yarn lint --fix"
 alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
+alias gdc="git diff --staged"
 
 # rebasing aliases
 alias rec="git rebase --continue"

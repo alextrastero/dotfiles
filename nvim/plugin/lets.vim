@@ -14,5 +14,4 @@ let g:sneak#label = 1
 let g:sneak#s_next = 1
 
 "neoformat
-let g:neoformat_enabled_typescript = ['prettier']
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>

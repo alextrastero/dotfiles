@@ -13,6 +13,7 @@ if not status_ok then
 end
 
 local which_key_mappings = {
+  ["<space>"] = {":bn<cr>", "Next buffer"},
   g = {
     name = "LSP",
     i = {":LspInfo<cr>", "Info"},

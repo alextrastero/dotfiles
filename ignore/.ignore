@@ -11,3 +11,4 @@ node_modules/
 .svn
 bundle.js
 yarn.lock
+charting_library

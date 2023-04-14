@@ -17,6 +17,8 @@ lualine.setup{
     lualine_b = {
       { 'branch', icons_enabled = false }
     },
+    lualine_x = {
+    },
   },
   tabline = {
     lualine_a = {

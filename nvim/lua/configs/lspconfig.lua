@@ -65,6 +65,7 @@ nvim_lsp['tsserver'].setup {
   root_dir = util.find_git_ancestor,
 }
 
+-- requires npm package eslint_d
 local eslint = {
   lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
@@ -73,18 +74,29 @@ local eslint = {
   formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
   formatStdin = true
 }
+local signs = {
+  DiagnosticSignError = '',
+  DiagnosticSignHint = '',
+  DiagnosticSignInfo = '',
+  DiagnosticSignWarn = '',
+  LightBulbSign = ''
+}
+
+for type, icon in pairs(signs) do
+  vim.fn.sign_define(type, { text = icon, texthl = type, linehl = type, numhl = type })
+end
 
 vim.diagnostic.config({
   virtual_text = false, -- disable inline errors
+  -- virtual_text = {
+  --   severity = vim.diagnostic.severity.ERROR,
+  -- }
 })
 
 nvim_lsp['efm'].setup {
   on_attach = function(client)
     client.server_capabilities.document_formatting = true
     client.server_capabilities.goto_definition = false
-    -- show errors on hover
-    -- vim.api.nvim_command('autocmd CursorHold <buffer> lua vim.diagnostic.open_float(nil, {focus=false})')
-    -- vim.api.nvim_command('autocmd CursorHold <buffer> Lspsaga show_cursor_diagnostics')
   end,
   settings = {
     languages = {

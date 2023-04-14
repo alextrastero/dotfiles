@@ -1,7 +1,7 @@
 alias c="clear"
 alias edit="vim ~/.config/nvim"
-# alias ag="ag --path-to-ignore ~/.ignore --pager less"
-alias ag="ag"
+alias ag="ag --path-to-ignore ~/.ignore"
+alias agg="ag --path-to-ignore ~/.ignore --pager less"
 
 # GIT
 alias pick="git cherry-pick"
@@ -27,6 +27,7 @@ alias rei="git rebase -i"
 alias t="yarn studio:test"
 alias s="yarn start"
 alias cov="yarn nx coverage"
+alias ports="lsof -i -P -n | grep LISTEN"
 
 # vim
 alias vim="nvim"

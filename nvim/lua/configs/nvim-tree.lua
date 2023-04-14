@@ -57,8 +57,7 @@ nvim_tree.setup {
     timeout = 500,
   },
   view = {
-    adaptive_size = false,
-    width = 30,
+    adaptive_size = true,
     -- height = 30,
     hide_root_folder = false,
     side = 'left',

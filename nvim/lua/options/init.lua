@@ -41,13 +41,14 @@ vim.g.startify_change_to_dir = 0
 
 -- COLORS
 vim.cmd [[set background=light]]
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme catppuccin-latte]]
 vim.cmd [[hi clear LspReferenceRead]] -- this is not working...
 vim.cmd [[hi link LspReferenceRead Error]]
+vim.cmd [[set cursorline]]
 
-vim.cmd [[hi clear CursorLineNR]]
+-- vim.cmd [[hi clear CursorLineNR]]
 vim.cmd [[hi CursorLine guibg=NONE guifg=NONE]]
-vim.cmd [[hi link CursorLineNR Question]]
+-- vim.cmd [[hi link CursorLineNR Question]]
 
 vim.cmd [[hi Comment gui=italic]]
 vim.cmd [[hi clear NvimTreeNormal]]

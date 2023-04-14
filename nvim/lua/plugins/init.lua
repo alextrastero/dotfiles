@@ -11,6 +11,7 @@ vim.cmd [[ packadd packer.nvim ]]
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'gruvbox-community/gruvbox'
+  use { "catppuccin/nvim", as = "catppuccin" }
   use 'tpope/vim-fugitive'
   use 'neovim/nvim-lspconfig'
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
@@ -18,8 +19,14 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-telescope/telescope.nvim',
+    requires = {
+      { 'nvim-telescope/telescope-live-grep-args.nvim' },
+      { 'nvim-lua/plenary.nvim' },
+    },
+    config = function()
+      require("telescope").load_extension("live_grep_args")
+    end,
     tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
   -- Completion

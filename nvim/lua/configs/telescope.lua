@@ -1,5 +1,7 @@
 require('telescope').setup({
   defaults = {
+    dynamic_preview_title = true,
+    -- results_title = "%P",
     path_display = { "smart" },
     layout_stragegy = "center",
     layout_config = {

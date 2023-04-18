@@ -22,7 +22,8 @@ I use linux (currently ubuntu & gnome), these are my required tools for front en
 - [neovim](https://github.com/neovim/neovim/releases/)
 - configure neovim python adapter `sudo apt-get install python3-neovim` `sudo apt-get install build-essential`
 - [fura mono font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf)
-- ag `sudo apt-get install silversearcher-ag`
+- [ag](https://github.com/ggreer/the_silver_searcher) (the_silver_searcher)
+- [lf](https://github.com/gokcehan/lf) (list files)
 
 #### configure
 

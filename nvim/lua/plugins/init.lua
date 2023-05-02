@@ -21,10 +21,13 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = {
       { 'nvim-telescope/telescope-live-grep-args.nvim' },
+      { 'smartpde/telescope-recent-files' },
       { 'nvim-lua/plenary.nvim' },
     },
     config = function()
-      require("telescope").load_extension("live_grep_args")
+      require("telescope")
+      .load_extension("live_grep_args")
+      .load_extension("recent_files")
     end,
     tag = '0.1.0',
   }

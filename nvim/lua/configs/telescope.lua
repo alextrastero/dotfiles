@@ -2,7 +2,8 @@ require('telescope').setup({
   defaults = {
     dynamic_preview_title = true,
     -- results_title = "%P",
-    path_display = { "smart" },
+    -- path_display = { "smart" },
+    path_display = { "truncate" },
     layout_stragegy = "center",
     layout_config = {
       height = 0.99,
@@ -19,5 +20,9 @@ require('telescope').setup({
       ignore_current_buffer = true,
     },
   },
-  -- other configuration values here
+  extensions = {
+    recent_files = {
+      only_cwd = true,
+    },
+  },
 })

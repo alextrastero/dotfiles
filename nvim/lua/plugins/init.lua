@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
   use 'gruvbox-community/gruvbox'
   use { "catppuccin/nvim", as = "catppuccin" }
   use 'tpope/vim-fugitive'
+  use 'tpope/vim-surround'
   use 'neovim/nvim-lspconfig'
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -92,4 +93,7 @@ return require('packer').startup(function(use)
 
   -- alpha
   use 'goolord/alpha-nvim'
+
+  -- git-blame
+  use 'f-person/git-blame.nvim'
 end)

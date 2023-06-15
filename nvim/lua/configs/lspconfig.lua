@@ -44,13 +44,14 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local init_options = {
   preferences = {
     importModuleSpecifierPreference = "auto",
     indentSize = 2,
     includeCompletionsForImportStatements = true,
-    useAliasForRenames = false,
+    -- useAliasForRenames = false,
     quotePreference = "single",
     completions = {
       completeFunctionCalls = true
@@ -119,12 +120,46 @@ nvim_lsp['efm'].setup {
 }
 
 -- lua lsp
-nvim_lsp['lua_ls'].setup({
+require'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
       diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
+
+-- emmet
+-- nvim_lsp['emmet_ls'].setup({
+--   capabilities = capabilities,
+--   filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+--   init_options = {
+--     html = {
+--       options = {
+--         -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+--         ["bem.enabled"] = true,
+--       },
+--     },
+--   },
+--   mapping = cmp_nvim_lsp
+-- })
+
+
+-- stylelint
+nvim_lsp['stylelint_lsp'].setup({
+  filetypes = { "css" },
 })

@@ -19,6 +19,15 @@ require('telescope').setup({
       sort_mru = true,
       ignore_current_buffer = true,
     },
+    lsp_references = {
+      path_display = { "smart" },
+      theme = "dropdown",
+      layout_config = {
+        height = 0.29,
+        width = 0.99,
+        prompt_position = 'top',
+      },
+    },
   },
   extensions = {
     recent_files = {

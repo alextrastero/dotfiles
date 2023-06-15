@@ -8,6 +8,7 @@ mappings('i', '<C-p>', '<C-r>*', {})
  -- mappings('n', '*', ":<c-u>let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>", {})
 mappings('n', '<C-f>', ':Neoformat<cr>', {})
 
+
 if not status_ok then
   return
 end
@@ -19,6 +20,7 @@ local which_key_mappings = {
     i = {":LspInfo<cr>", "Info"},
     r = {":Lspsaga lsp_finder<cr>", "LSP Finder"},
     -- r = {":lua vim.lsp.buf.references()<cr>", "LSP Finder"},
+    -- r = {":Telescope lsp_references<cr>", "LSP Finder"},
     d = {":Lspsaga goto_definition<cr>", "Go To Definition"},
     a = {":Lspsaga code_action<cr>", "Code Action"},
     -- j = {"<cmd>Lspsaga diagnostic_jump_next<CR>", "Diagnostic Jump Next"},
@@ -42,7 +44,10 @@ local which_key_mappings = {
     t = {"<cmd>Trouble<cr>", "Trouble!"},
   },
   K = {":Lspsaga hover_doc<cr>", "LSP / Hover doc"},
+  ["<C-L>"] = {":TmuxNavigateRight<cr>", "Navigate Right"},
+  ["<C-H>"] = {":TmuxNavigateLeft<cr>", "Navigate Left"},
   ["<tab>"] = {":Telescope buffers<cr>", "T Buffers"},
+  ["<C-b>"] = {":Telescope buffers<cr>", "T Buffers"},
   ["<C-p>"] = {":Telescope find_files<cr>", "T Files"},
   ["<C-space>"] = {"<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "T Files RG"},
   ["<C-d>"] = {":bd<cr>", "Delete buffer"},
@@ -60,6 +65,7 @@ local which_key_mappings = {
     e = {":noh<cr>", "Clear Selection"},
     r = {":luafile $MYVIMRC<cr>", "Reload Config"}, -- updated for lua config
     m = {":lua require('telescope').extensions.recent_files.pick()<cr>", "T Oldfiles"},
+    s = {":Telescope git_status<cr>", "T status"},
     f = {":Telescope live_grep<cr>", "T Grep"},
     g = {
       name = "Git",

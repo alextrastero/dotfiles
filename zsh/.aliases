@@ -14,7 +14,7 @@ alias gc="git commit -v -S"
 alias update="gco master;gll;gco -;git rebase -" # NOTE develop
 alias tempo="git add .; git commit -m tempo"
 alias merge="git add .; git commit -m 'merge this'"
-alias fix="yarn lint --fix"
+alias fix="npm lint --fix"
 alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
 alias gdc="git diff --staged"
 
@@ -24,10 +24,14 @@ alias res="git rebase --skip"
 alias rei="git rebase -i"
 
 # work
-alias t="yarn studio:test"
-alias s="yarn start"
-alias cov="yarn nx coverage"
+alias t="npm run studio:test"
+alias s="npm start"
+alias cov="npm nx coverage"
 alias ports="lsof -i -P -n | grep LISTEN"
+
+count() {
+  ag -o --nofilename --nobreak $1 | wc -l
+}
 
 # vim
 alias vim="nvim"

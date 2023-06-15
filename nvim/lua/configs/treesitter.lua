@@ -17,14 +17,16 @@ configs.setup {
     "css",
     "bash",
     "lua",
+    "markdown",
+    "markdown_inline",
   },
   highlight = {
     enable = true,
-    disable = {},
-    additional_vim_regex_highlighting = true
+    -- disable = {},
+    -- additional_vim_regex_highlighting = false
   },
   indent = {
-    enable = true,
+    enable = false,
     disable = {}
   },
   autopairs = {

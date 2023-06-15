@@ -5,32 +5,52 @@ vim.g.mapleader = ","
 mappings('n', ';', ':', {})
 mappings('n', 'qq', ':bd<cr>', {})
 mappings('i', '<C-p>', '<C-r>*', {})
-mappings('n', '*', '*N', {})
+ -- mappings('n', '*', ":<c-u>let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>", {})
+mappings('n', '<C-f>', ':Neoformat<cr>', {})
+
 
 if not status_ok then
   return
 end
 
-local mappings = {
+local which_key_mappings = {
+  ["<space>"] = {":bn<cr>", "Next buffer"},
   g = {
     name = "LSP",
     i = {":LspInfo<cr>", "Info"},
-    r = {":Lspsaga lsp_finder<cr>", "References"},
-    --r = {"<cmd>lua vim.lsp.buf.references()<cr>", "References"},
-    d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
+    r = {":Lspsaga lsp_finder<cr>", "LSP Finder"},
+    -- r = {":lua vim.lsp.buf.references()<cr>", "LSP Finder"},
+    -- r = {":Telescope lsp_references<cr>", "LSP Finder"},
+    d = {":Lspsaga goto_definition<cr>", "Go To Definition"},
     a = {":Lspsaga code_action<cr>", "Code Action"},
-    j = {"<cmd>Lspsaga diagnostic_jump_next<CR>", "Jump to ERROR"},
-    p = {"<cmd>Lspsaga preview_definition<CR>", "Preview Definition"},
+    -- j = {"<cmd>Lspsaga diagnostic_jump_next<CR>", "Diagnostic Jump Next"},
+    j = { function()
+      require("lspsaga.diagnostic"):goto_next({
+        severity = vim.diagnostic.severity.ERROR
+      }) end, "Diagnostic Jump Next"
+    },
+    k = { function()
+      require("lspsaga.diagnostic"):goto_prev({
+        severity = vim.diagnostic.severity.ERROR
+      }) end, "Diagnostic Prev Next"
+    },
+    p = {"<cmd>Lspsaga peek_definition<CR>", "Peek Definition"},
     n = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
     s = {":Lspsaga signature_help<cr>", "Signature"},
-    o = {"<cmd>lua vim.diagnostic.open_float({focus = false})<cr>", "Diagnostic"},
+    o = {":Lspsaga outline<cr>", "Outline"},
+    -- o = {"<cmd>lua vim.diagnostic.open_float({focus = false})<cr>", "Diagnostic"},
     h = {"<cmd>lua vim.lsp.buf.document_highlight()<cr>", "Highlight"},
     e = {"<cmd>lua vim.lsp.buf.clear_references()<cr>", "Clear Highlight"},
     t = {"<cmd>Trouble<cr>", "Trouble!"},
   },
   K = {":Lspsaga hover_doc<cr>", "LSP / Hover doc"},
+  ["<C-L>"] = {":TmuxNavigateRight<cr>", "Navigate Right"},
+  ["<C-H>"] = {":TmuxNavigateLeft<cr>", "Navigate Left"},
   ["<tab>"] = {":Telescope buffers<cr>", "T Buffers"},
+  ["<C-b>"] = {":Telescope buffers<cr>", "T Buffers"},
   ["<C-p>"] = {":Telescope find_files<cr>", "T Files"},
+  ["<C-space>"] = {"<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "T Files RG"},
+  ["<C-d>"] = {":bd<cr>", "Delete buffer"},
 
   ["<Up>"] = {":resize +5<cr>", "Resize Up"},
   ["<Down>"] = {":resize -5<cr>", "Resize Down"},
@@ -40,10 +60,12 @@ local mappings = {
   ["<leader>"] = {
     ["1"] = {":bprev<cr>", "Prev buffer"},
     ["2"] = {":bnext<cr>", "Next buffer"},
-    ["\\"] = {":NvimTreeFindFile<cr>", "Open file in nvim-tree"},
+    ["\\"] = {":NvimTreeToggle<cr>", "Open file in nvim-tree"},
+    k = {":NvimTreeToggle<cr>", "Toggle Nvim Tree"},
     e = {":noh<cr>", "Clear Selection"},
-    r = {":so $MYVIMRC<cr>", "Reload Config"},
-    m = {":Telescope oldfiles<cr>", "T Oldfiles"},
+    r = {":luafile $MYVIMRC<cr>", "Reload Config"}, -- updated for lua config
+    m = {":lua require('telescope').extensions.recent_files.pick()<cr>", "T Oldfiles"},
+    s = {":Telescope git_status<cr>", "T status"},
     f = {":Telescope live_grep<cr>", "T Grep"},
     g = {
       name = "Git",
@@ -63,4 +85,4 @@ local mappings = {
 }
 
 which_key.setup {}
-which_key.register(mappings)
+which_key.register(which_key_mappings)

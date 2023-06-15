@@ -7,18 +7,30 @@ end
 
 vim.cmd [[ packadd packer.nvim ]]
 
+-- TODO migrate to lazy nvim https://github.com/folke/lazy.nvim
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'gruvbox-community/gruvbox'
+  use { "catppuccin/nvim", as = "catppuccin" }
   use 'tpope/vim-fugitive'
+  use 'tpope/vim-surround'
   use 'neovim/nvim-lspconfig'
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   use {
     'nvim-telescope/telescope.nvim',
+    requires = {
+      { 'nvim-telescope/telescope-live-grep-args.nvim' },
+      { 'smartpde/telescope-recent-files' },
+      { 'nvim-lua/plenary.nvim' },
+    },
+    config = function()
+      require("telescope")
+      .load_extension("live_grep_args")
+      .load_extension("recent_files")
+    end,
     tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
   -- Completion
@@ -37,15 +49,16 @@ return require('packer').startup(function(use)
   use 'quangnguyen30192/cmp-nvim-ultisnips'
 
   -- git tree
-  use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
 
   use 'ap/vim-buftabline'
   use 'airblade/vim-gitgutter'
-
-  -- use { 'junegunn/fzf', run = ":call fzf#install()" }
-  -- use { 'junegunn/fzf.vim' }
-  -- use 'pbogut/fzf-mru.vim'
 
   -- Comments
   use 'tpope/vim-commentary'
@@ -63,21 +76,24 @@ return require('packer').startup(function(use)
   -- indent blankline
   use 'lukas-reineke/indent-blankline.nvim'
 
-  -- startify
-  use 'mhinz/vim-startify'
-
   -- testing trouble
   use 'folke/trouble.nvim'
 
   -- prettier
   use 'sbdchd/neoformat'
 
-  -- solarized theme
-  use 'altercation/vim-colors-solarized'
-
-  -- catppuccin
-  use { "catppuccin/nvim", as = "catppuccin" }
-
   -- impatient
   use "lewis6991/impatient.nvim"
+
+  -- astro highlight
+  use "wuelnerdotexe/vim-astro"
+
+  -- highlight hex color values
+  use 'NvChad/nvim-colorizer.lua'
+
+  -- alpha
+  use 'goolord/alpha-nvim'
+
+  -- git-blame
+  use 'f-person/git-blame.nvim'
 end)

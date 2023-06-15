@@ -18,7 +18,7 @@ opt.backup = false
 opt.undofile = true
 opt.incsearch = true
 opt.termguicolors = true
-opt.scrolloff=8
+opt.scrolloff = 8
 opt.showmode = true
 opt.showcmd = true
 opt.signcolumn = 'yes'
@@ -29,7 +29,7 @@ opt.splitright = true
 opt.cmdheight = 1
 opt.updatetime = 50
 opt.shortmess = opt.shortmess + 'c'
-opt.colorcolumn = "80"
+opt.colorcolumn = "120"
 opt.clipboard = opt.clipboard + 'unnamedplus'
 opt.list = true
 opt.listchars = 'trail:?'     -- trailing spaces
@@ -39,5 +39,28 @@ opt.diffopt = opt.diffopt + 'vertical'
 -- Startify dont change dir
 vim.g.startify_change_to_dir = 0
 
--- TODO
--- autocmd BufNewFile,BufRead *.njk set ft=html
+-- COLORS
+vim.cmd [[set background=light]]
+vim.cmd [[colorscheme catppuccin-latte]]
+vim.cmd [[hi clear LspReferenceRead]] -- this is not working...
+vim.cmd [[hi link LspReferenceRead Error]]
+vim.cmd [[set cursorline]]
+
+-- vim.cmd [[hi clear CursorLineNR]]
+vim.cmd [[hi CursorLine guibg=NONE guifg=NONE]]
+-- vim.cmd [[hi link CursorLineNR Question]]
+
+vim.cmd [[hi Comment gui=italic]]
+vim.cmd [[hi clear NvimTreeNormal]]
+vim.cmd [[hi link NvimTreeNormal Normal]]
+-- vim.cmd [[hi clear SignColumn]]
+vim.cmd [[hi! link SignColumn LineNr]]
+
+-- Highlight opened folder in nvim-tree
+-- vim.cmd [[hi NvimTreeFolderName guifg=blue]]
+
+vim.cmd [[hi clear Search]]
+vim.cmd [[hi! link Search Visual]]
+
+vim.cmd [[hi link NvimTreeIndentMarker VertSplit]]
+

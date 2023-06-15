@@ -25,7 +25,20 @@ I use linux (currently ubuntu & gnome), these are my required tools for front en
 - [ag](https://github.com/ggreer/the_silver_searcher) (the_silver_searcher)
 - [lf](https://github.com/gokcehan/lf) (list files)
 
+git:
+  ```
+    git config --global --add push.default current
+    git config --global --add push.autoSetupRemote true
+  ```
+
+
+##work
+
+[nodejs](https://nodejs.org/en/)
+[nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+=======
 #### configure
+
 
 - [setup SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [add SSH key](https://github.com/settings/keys) to github/gitlab 

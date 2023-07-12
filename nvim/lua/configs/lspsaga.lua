@@ -16,7 +16,10 @@ saga.setup({
   lightbulb = {
     enable = false,
   },
+  implements = {
+    enabled = false,
+  },
   finder = {
-    force_max_height = true,
+    layout = "normal",
   },
 })

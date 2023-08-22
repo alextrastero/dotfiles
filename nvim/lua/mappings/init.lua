@@ -6,7 +6,7 @@ mappings('n', ';', ':', {})
 mappings('n', 'qq', ':bd<cr>', {})
 mappings('i', '<C-p>', '<C-r>*', {})
  -- mappings('n', '*', ":<c-u>let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>", {})
-mappings('n', '<C-f>', ':Neoformat<cr>', {})
+mappings('n', '<C-f>', ':Neoformat eslint_d<cr>', {})
 
 
 if not status_ok then
@@ -49,7 +49,7 @@ local which_key_mappings = {
   ["<tab>"] = {":Telescope buffers<cr>", "T Buffers"},
   ["<C-b>"] = {":Telescope buffers<cr>", "T Buffers"},
   ["<C-p>"] = {":Telescope find_files<cr>", "T Files"},
-  ["<C-space>"] = {"<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "T Files RG"},
+  -- ["<C-space>"] = {"<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "T Files RG"},
   ["<C-d>"] = {":bd<cr>", "Delete buffer"},
 
   ["<Up>"] = {":resize +5<cr>", "Resize Up"},

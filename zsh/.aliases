@@ -1,6 +1,7 @@
 alias c="clear"
 alias edit="vim ~/.config/nvim"
 alias ag="ag --path-to-ignore ~/.ignore --pager less"
+alias dl="yt-dlp -f 'ba' -x --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-metadata"
 
 # GIT
 alias pick="git cherry-pick"
@@ -8,14 +9,15 @@ alias glg="tig log -n20"
 alias gs="git show"
 alias gundo='git reset --soft HEAD~ && git reset HEAD .' # Uncommit last commit and unstage - to see all new stuff in vim-git
 alias gll="gfa && gf -p && gl"
-alias gamend="git commit --amend --no-edit"
+alias gamend="git commit --amend --no-edit --no-verify"
 alias gc="git commit -v -S"
 alias update="gco master;gll;gco -;git rebase -" # NOTE develop
-alias tempo="git add .; git commit -m tempo"
+alias tempo="git add .; git commit -m tempo --no-verify"
 alias merge="git add .; git commit -m 'merge this'"
 alias fix="npm lint --fix"
 alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
 alias gdc="git diff --staged"
+alias gd="git diff ':!package-lock.json'"
 
 # rebasing aliases
 alias rec="git rebase --continue"

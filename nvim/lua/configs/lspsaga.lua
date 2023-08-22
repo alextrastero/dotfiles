@@ -16,8 +16,8 @@ saga.setup({
   lightbulb = {
     enable = false,
   },
-  implements = {
-    enabled = false,
+  implement = {
+    virtual_text = false,
   },
   finder = {
     layout = "normal",

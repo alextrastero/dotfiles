@@ -12,5 +12,6 @@ require('configs.nvim-tree')
 require('configs.telescope')
 require('configs.treesitter')
 require('configs.trouble')
+require('configs.null-ls')
 
 require('impatient')

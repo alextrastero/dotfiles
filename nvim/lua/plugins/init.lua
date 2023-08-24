@@ -96,4 +96,7 @@ return require('packer').startup(function(use)
 
   -- git-blame
   use 'f-person/git-blame.nvim'
+
+  -- trying null-ls
+  use 'jose-elias-alvarez/null-ls.nvim'
 end)

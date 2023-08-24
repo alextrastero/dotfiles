@@ -6,7 +6,7 @@ mappings('n', ';', ':', {})
 mappings('n', 'qq', ':bd<cr>', {})
 mappings('i', '<C-p>', '<C-r>*', {})
  -- mappings('n', '*', ":<c-u>let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>", {})
-mappings('n', '<C-f>', ':Neoformat eslint_d<cr>', {})
+mappings('n', '<C-f>', ':lua vim.lsp.buf.format()<cr>', {})
 
 
 if not status_ok then

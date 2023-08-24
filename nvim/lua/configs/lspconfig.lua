@@ -94,30 +94,30 @@ vim.diagnostic.config({
   -- }
 })
 
-nvim_lsp['efm'].setup {
-  on_attach = function(client)
-    client.server_capabilities.document_formatting = true
-    client.server_capabilities.goto_definition = false
-  end,
-  settings = {
-    languages = {
-      javascript = {eslint},
-      javascriptreact = {eslint},
-      ["javascript.jsx"] = {eslint},
-      typescript = {eslint},
-      ["typescript.tsx"] = {eslint},
-      typescriptreact = {eslint}
-    }
-  },
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx"
-  }
-}
+-- nvim_lsp['efm'].setup {
+--   on_attach = function(client)
+--     client.server_capabilities.document_formatting = true
+--     client.server_capabilities.goto_definition = false
+--   end,
+--   settings = {
+--     languages = {
+--       javascript = {eslint},
+--       javascriptreact = {eslint},
+--       ["javascript.jsx"] = {eslint},
+--       typescript = {eslint},
+--       ["typescript.tsx"] = {eslint},
+--       typescriptreact = {eslint}
+--     }
+--   },
+--   filetypes = {
+--     "javascript",
+--     "javascriptreact",
+--     "javascript.jsx",
+--     "typescript",
+--     "typescriptreact",
+--     "typescript.tsx"
+--   }
+-- }
 
 -- lua lsp
 require'lspconfig'.lua_ls.setup {

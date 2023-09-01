@@ -23,17 +23,18 @@ local which_key_mappings = {
     -- r = {":Telescope lsp_references<cr>", "LSP Finder"},
     d = {":Lspsaga goto_definition<cr>", "Go To Definition"},
     a = {":Lspsaga code_action<cr>", "Code Action"},
-    -- j = {"<cmd>Lspsaga diagnostic_jump_next<CR>", "Diagnostic Jump Next"},
-    j = { function()
-      require("lspsaga.diagnostic"):goto_next({
-        severity = vim.diagnostic.severity.ERROR
-      }) end, "Diagnostic Jump Next"
-    },
-    k = { function()
-      require("lspsaga.diagnostic"):goto_prev({
-        severity = vim.diagnostic.severity.ERROR
-      }) end, "Diagnostic Prev Next"
-    },
+    j = {"<cmd>Lspsaga diagnostic_jump_next<CR>", "Diagnostic Jump Next"},
+    -- j = { function()
+    --   require("lspsaga.diagnostic"):goto_next({
+    --     severity = vim.diagnostic.severity.ERROR
+    --   }) end, "Diagnostic Jump Next"
+    -- },
+    k = {"<cmd>Lspsaga diagnostic_jump_prev<CR>", "Diagnostic Jump Prev"},
+    -- k = { function()
+    --   require("lspsaga.diagnostic"):goto_prev({
+    --     severity = vim.diagnostic.severity.ERROR
+    --   }) end, "Diagnostic Prev Next"
+    -- },
     p = {"<cmd>Lspsaga peek_definition<CR>", "Peek Definition"},
     n = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
     s = {":Lspsaga signature_help<cr>", "Signature"},

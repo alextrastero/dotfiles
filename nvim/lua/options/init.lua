@@ -57,7 +57,8 @@ vim.cmd [[hi link NvimTreeNormal Normal]]
 vim.cmd [[hi! link SignColumn LineNr]]
 
 -- Highlight opened folder in nvim-tree
--- vim.cmd [[hi NvimTreeFolderName guifg=blue]]
+vim.cmd [[hi NvimTreeOpenedFolderName gui=underline]]
+-- hi NvimTreeFolderName
 
 vim.cmd [[hi clear Search]]
 vim.cmd [[hi! link Search Visual]]

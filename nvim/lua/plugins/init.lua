@@ -17,21 +17,8 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {
-      { 'nvim-telescope/telescope-live-grep-args.nvim' },
-      { 'smartpde/telescope-recent-files' },
-      { 'nvim-lua/plenary.nvim' },
-    },
-    config = function()
-      require("telescope")
-      .load_extension("live_grep_args")
-      .load_extension("recent_files")
-    end,
-    tag = '0.1.0',
-  }
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope.nvim'
 
   -- Completion
   use 'hrsh7th/nvim-cmp'
@@ -99,4 +86,31 @@ return require('packer').startup(function(use)
 
   -- trying null-ls
   use 'jose-elias-alvarez/null-ls.nvim'
+
+  -- use 'github/copilot.vim'
+  use 'zbirenbaum/copilot.lua'
+  use 'zbirenbaum/copilot-cmp'
+
+  -- use({
+  --   "dpayne/CodeGPT.nvim",
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   config = function()
+  --     require("codegpt.config")
+  --   end
+  -- })
+
+  -- search inside vim WTF
+  use 'mileszs/ack.vim'
+
+  -- lsp info
+  use {
+    'mrded/nvim-lsp-notify',
+    config = function()
+      require('lsp-notify').setup({})
+    end
+  }
+
 end)

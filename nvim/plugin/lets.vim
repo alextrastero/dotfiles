@@ -27,3 +27,8 @@ let g:gitblame_message_template = '<summary> • <date> • <author>'
 let g:gitblame_display_virtual_text = 0
 let g:gitblame_delay = 1000 " 1 second
 let g:gitblame_highlight_group = "Question"
+
+"ack use ag instead
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif

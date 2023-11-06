@@ -13,16 +13,19 @@ alias gamend="git commit --amend --no-edit --no-verify"
 alias gc="git commit -v -S"
 alias update="gco master;gll;gco -;git rebase -" # NOTE develop
 alias tempo="git add .; git commit -m tempo --no-verify"
-alias merge="git add .; git commit -m 'merge this'"
-alias fix="npm lint --fix"
+alias merge="git add .; git commit -m merge_this --no-verify"
 alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
 alias gdc="git diff --staged"
 alias gd="git diff ':!package-lock.json'"
+alias glc="git pull origin $(current_branch)"
+alias fixup="git rebase -i $(git merge-base HEAD master)"
+
 
 # rebasing aliases
 alias rec="git rebase --continue"
 alias res="git rebase --skip"
 alias rei="git rebase -i"
+alias rea="git rebase --abort"
 
 # work
 alias t="npm run studio:test"

@@ -9,6 +9,8 @@ source $HOME/.aliases
 
 export RIPGREP_CONFIG_PATH="$HOME/.rgconfig"
 
+export OPENAI_API_KEY="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"
+
 #z
 #https://raw.githubusercontent.com/rupa/z/master/z.sh
 # source $HOME/.z.sh

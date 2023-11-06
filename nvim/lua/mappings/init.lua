@@ -43,6 +43,11 @@ local which_key_mappings = {
     e = {"<cmd>lua vim.lsp.buf.clear_references()<cr>", "Clear Highlight"},
     t = {"<cmd>Trouble<cr>", "Trouble!"},
   },
+  y = {
+    f = {
+      n = {":let @+ = expand(\"%\")<cr>", "Yank file name"},
+    },
+  },
   K = {":Lspsaga hover_doc<cr>", "LSP / Hover doc"},
   ["<C-L>"] = {":TmuxNavigateRight<cr>", "Navigate Right"},
   ["<C-H>"] = {":TmuxNavigateLeft<cr>", "Navigate Left"},

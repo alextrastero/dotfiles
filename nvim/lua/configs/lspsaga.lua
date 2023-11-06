@@ -16,6 +16,10 @@ saga.setup({
   lightbulb = {
     enable = false,
   },
+  definition = {
+    width = 1,
+    height = 1,
+  },
   implement = {
     virtual_text = false,
   },

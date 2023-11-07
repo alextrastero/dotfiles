@@ -66,6 +66,7 @@ local which_key_mappings = {
     m = {":Telescope oldfiles<cr>", "T Oldfiles"},
     s = {":Telescope git_status<cr>", "T status"},
     f = {":Telescope live_grep<cr>", "T Grep"},
+    w = {":Telescope grep_string<cr>", "T Grep cursor word"},
     g = {
       name = "Git",
       s = {":vertical G<cr>", "Status"},

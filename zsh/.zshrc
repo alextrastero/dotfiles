@@ -34,6 +34,10 @@ function gbg() {
   git checkout "$(git branch --sort=-committerdate | fzf| tr -d '[:space:]')"
 }
 
+function fixup() {
+  git rebase -i $(git merge-base HEAD master)
+}
+
 #fzf config
 export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore --pager less -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --info inline --border --preview "cat {}"'

@@ -18,8 +18,6 @@ alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git br
 alias gdc="git diff --staged"
 alias gd="git diff ':!package-lock.json'"
 alias glc="git pull origin $(current_branch)"
-alias fixup="git rebase -i $(git merge-base HEAD master)"
-
 
 # rebasing aliases
 alias rec="git rebase --continue"

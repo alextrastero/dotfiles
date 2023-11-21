@@ -20,7 +20,9 @@ I use linux (currently ubuntu & gnome), these are my required tools for front en
 - [rg](https://github.com/BurntSushi/ripgrep)
 - [flameshot](https://flameshot.org/docs/installation/installation-linux/)
 - [neovim](https://github.com/neovim/neovim/releases/)
-- configure neovim python adapter `sudo apt-get install python3-neovim` `sudo apt-get install build-essential`
+- configure neovim python adapter:
+    `sudo apt-get install python3-neovim`
+    `sudo apt-get install build-essential`
 - [fura mono font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf)
 - [ag](https://github.com/ggreer/the_silver_searcher) (the_silver_searcher)
 - [lf](https://github.com/gokcehan/lf) (list files)
@@ -36,9 +38,9 @@ git:
 
 [nodejs](https://nodejs.org/en/)
 [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-=======
-#### configure
 
+
+#### configure
 
 - [setup SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [add SSH key](https://github.com/settings/keys) to github/gitlab 

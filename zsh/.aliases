@@ -16,7 +16,8 @@ alias tempo="git add .; git commit -m tempo --no-verify"
 alias merge="git add .; git commit -m merge_this --no-verify"
 alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
 alias gdc="git diff --staged"
-alias gd="git diff ':!package-lock.json'"
+# alias gd="git diff ':!package-lock.json'"
+alias gd="git diff"
 alias glc="git pull origin $(current_branch)"
 
 # rebasing aliases

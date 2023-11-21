@@ -12,7 +12,7 @@ export RIPGREP_CONFIG_PATH="$HOME/.rgconfig"
 #z
 #https://raw.githubusercontent.com/rupa/z/master/z.sh
 # source $HOME/.z.sh
-. /opt/z/z.sh
+. /opt/z.sh
 
 #start tmux
 [ -z "$TMUX" ] && tmux
@@ -56,10 +56,6 @@ export PATH="$GEM_HOME/bin:$GOPATH/bin:$PATH"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-
-# alias luamake=/home/odella/lua-language-server/3rd/luamake/luamake
-
-# exec "/opt/lua-language-server-3.6.19-linux-arm64/bin/lua-language-server" "$@"
 
 # gfix function - performs a 'fixup' operation on a selected commit in the repository history
 # Steps:

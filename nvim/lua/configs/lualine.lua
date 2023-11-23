@@ -20,9 +20,6 @@ lualine.setup{
     lualine_c = {
       { 'lsp_progress' }
     },
-    lualine_x = {
-      { 'copilot', icons_enabled = false }
-    },
   },
   tabline = {
     lualine_a = {

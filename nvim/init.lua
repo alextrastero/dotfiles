@@ -13,7 +13,5 @@ require('configs.telescope')
 require('configs.treesitter')
 require('configs.trouble')
 require('configs.null-ls')
-require('configs.copilot')
-require('configs.copilot-cmp')
 
 require('impatient')

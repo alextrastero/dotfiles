@@ -105,7 +105,6 @@ cmp.setup({
   --   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   -- },
   sources = {
-    { name = "copilot" },
     { name = "nvim_lsp" },
     { name = "ultisnips" },
     { name = "buffer" },

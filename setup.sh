@@ -99,4 +99,3 @@ npm install -g eslint_d
 npm install -g typescript
 npm install -g yarn
 npm install -g typescript-language-server
-npm install -g typescript-language-server

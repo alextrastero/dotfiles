@@ -87,21 +87,6 @@ return require('packer').startup(function(use)
   -- trying null-ls
   use 'jose-elias-alvarez/null-ls.nvim'
 
-  -- use 'github/copilot.vim'
-  use 'zbirenbaum/copilot.lua'
-  use 'zbirenbaum/copilot-cmp'
-
-  -- use({
-  --   "dpayne/CodeGPT.nvim",
-  --   requires = {
-  --     "MunifTanjim/nui.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --   },
-  --   config = function()
-  --     require("codegpt.config")
-  --   end
-  -- })
-
   -- search inside vim WTF
   use 'mileszs/ack.vim'
 

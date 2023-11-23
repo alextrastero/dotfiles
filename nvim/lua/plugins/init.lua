@@ -105,12 +105,7 @@ return require('packer').startup(function(use)
   -- search inside vim WTF
   use 'mileszs/ack.vim'
 
-  -- lsp info
-  use {
-    'mrded/nvim-lsp-notify',
-    config = function()
-      require('lsp-notify').setup({})
-    end
-  }
+  -- lsp progress
+  use 'WhoIsSethDaniel/lualine-lsp-progress.nvim'
 
 end)

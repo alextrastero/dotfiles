@@ -1,19 +1,6 @@
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
-	return
-end
-
-local function copilot_normal()
-  local status = require('copilot.api').status.data.status;
-  if
-      string.find(status, 'Online')
-      or string.find(status, 'Enabled')
-      or string.find(status, 'Normal')
-      or string.find(status, 'InProgress')
-  then
-      return '  '
-  end
-  return ''
+  return
 end
 
 lualine.setup{
@@ -29,6 +16,9 @@ lualine.setup{
     },
     lualine_b = {
       { 'branch', icons_enabled = false }
+    },
+    lualine_c = {
+      { 'lsp_progress' }
     },
     lualine_x = {
       { 'copilot', icons_enabled = false }

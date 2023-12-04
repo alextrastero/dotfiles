@@ -2,6 +2,11 @@
 
 I use linux (currently ubuntu & gnome), these are my required tools for front end development and general usage:
 
+
+### Pre-requisits
+`sudo apt install git curl`
+`git clone <THIS REPO>`
+
 #### install
 
 - gnome-tweaks
@@ -67,3 +72,28 @@ git:
   - `$ python3 -m pip install --user --upgrade pynvim`
 - efm-langserver not available
   - make sure go path is added to PATH
+
+
+
+# SCRIPTS
+
+talk about
+- setting up custom shortcuts chrome/kitty/snapshots
+- installing nodejs/nvm
+- installing slack
+- add to script zsh/oh-my-zsh install
+	- zsh: sudo apt install zsh
+- install neovim ? 
+- alt is swapped with win in gnome-tweaks
+- ctrl is mapped to caps lock in gnome-tweaks
+
+## gnome-tweaks bckp
+
+```ssh
+  # bckup
+    cd ~
+    dconf dump / > saved_settings.dconf
+  # restore
+    cd ~
+    dconf load -f / < saved_settings.dconf
+```

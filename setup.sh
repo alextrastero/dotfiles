@@ -41,7 +41,6 @@ if ! command -v $APP &> /dev/null
 then
     echo "$APP - Downloading..."
     sudo apt install $APP
-    exit 1
 else
     echo "$APP - Skipping"
 fi
@@ -51,7 +50,6 @@ if ! command -v $APP &> /dev/null
 then
     echo "$APP - Downloading..."
     sudo apt install $APP
-    exit 1
 else
     echo "$APP - Skipping"
 fi
@@ -61,7 +59,24 @@ if ! command -v $APP &> /dev/null
 then
     echo "$APP - Downloading..."
     sudo apt install ripgrep # <-- SPECIFIC TO RIPGREP
-    exit 1
+else
+    echo "$APP - Skipping"
+fi
+
+APP="fzf"
+if ! command -v $APP &> /dev/null
+then
+    echo "$APP - Downloading..."
+    sudo apt install $APP -y
+else
+    echo "$APP - Skipping"
+fi
+
+APP="kitty"
+if ! command -v $APP &> /dev/null
+then
+    echo "$APP - Downloading..."
+    sudo apt install $APP -y
 else
     echo "$APP - Skipping"
 fi
@@ -81,9 +96,16 @@ then
     echo "$APP - Downloading..."
     # make sure you own $GOPATH
     go install github.com/mattn/efm-langserver@latest
-    exit 1
 else
     echo "$APP - Skipping"
+fi
+
+if ! command -v zsh &> /dev/null
+then
+  echo "oh-my-zsh - Downloading..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+  echo "oh-my-zsh - Skipping"
 fi
 
 # git specific
@@ -92,10 +114,11 @@ git config --global --add push.autoSetupRemote true
 
 # symlinks
 ln -s ~/dev/dotfiles/ignore/.ignore ~/.ignore
+ln -s ~/dev/dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/dev/dotfiles/zsh/.aliases ~/.aliases
 ln -s ~/dev/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+ln -s ~/dev/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+ln -s ~/dev/dotfiles/nvim ~/.config/
 
 # npm packages
-npm install -g eslint_d
-npm install -g typescript
-npm install -g yarn
-npm install -g typescript-language-server
+npm install -g eslint_d typescript yarn typescript-language-server stylelint stylelint-lsp

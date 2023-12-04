@@ -36,12 +36,9 @@ opt.listchars = 'trail:?'     -- trailing spaces
 opt.listchars = opt.listchars + 'tab:\\ \\'    --tabs
 opt.diffopt = opt.diffopt + 'vertical'
 
--- Startify dont change dir
-vim.g.startify_change_to_dir = 0
-
 -- COLORS
-vim.cmd [[set background=light]]
-vim.cmd [[colorscheme catppuccin-latte]]
+vim.cmd [[set background=dark]]
+vim.cmd [[colorscheme catppuccin-macchiato]]
 vim.cmd [[hi clear LspReferenceRead]] -- this is not working...
 vim.cmd [[hi link LspReferenceRead IncSearch]]
 vim.cmd [[set cursorline]]

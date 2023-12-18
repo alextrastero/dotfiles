@@ -4,4 +4,5 @@ if not status_ok then
 end
 
 trouble.setup {
+  icons = false,
 }

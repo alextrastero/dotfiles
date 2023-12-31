@@ -79,7 +79,7 @@ return require('packer').startup(function(use)
   use 'f-person/git-blame.nvim'
 
   -- trying null-ls
-  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'nvimtools/none-ls.nvim'
 
   -- search inside vim WTF
   use 'mileszs/ack.vim'

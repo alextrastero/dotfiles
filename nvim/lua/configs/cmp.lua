@@ -5,13 +5,7 @@ if not status_ok then
   return
 end
 
-
 require('luasnip.loaders.from_vscode').lazy_load()
--- local has_words_before = function()
---   if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
---   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
---   return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
--- end
 
 local kind_icons = {
   Text = "",
@@ -37,8 +31,8 @@ local kind_icons = {
   Constant = "",
   Struct = "",
   Event = "",
-  -- Operator = "",
-  -- TypeParameter = ""
+  Operator = "",
+  TypeParameter = ""
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
@@ -61,9 +55,7 @@ cmp.setup({
   },
   formatting = {
     format = function(entry, vim_item)
-      --kind icons
-      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-      -- Source
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
       vim_item.menu = ({
         buffer = "[buf]",
         nvim_lsp = "[lsp]",
@@ -91,11 +83,11 @@ cmp.setup({
         fallback()
       end
     end,
-    ['<S-Tab>'] = function(fallback)
+    ['<S-Tab>'] = function(fb)
       if cmp.visible() then
         cmp.select_prev_item()
       else
-        fallback()
+        fb()
       end
     end,
   },

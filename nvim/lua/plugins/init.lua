@@ -32,8 +32,11 @@ return require('packer').startup(function(use)
   use 'folke/which-key.nvim'
 
   -- Snippets
-  use 'SirVer/ultisnips'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  -- use 'SirVer/ultisnips'
+  -- use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use 'rafamadriz/friendly-snippets'
+  use 'saadparwaiz1/cmp_luasnip'
+  use { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' }
 
   -- git tree
   use 'nvim-tree/nvim-tree.lua'

@@ -1,18 +1,3 @@
-local status_ok, which_key = pcall(require, "which-key")
-local mappings = vim.api.nvim_set_keymap
-vim.g.mapleader = ","
-
-mappings('n', ';', ':', {})
-mappings('n', 'qq', ':bd<cr>', {})
-mappings('i', '<C-p>', '<C-r>*', {})
- -- mappings('n', '*', ":<c-u>let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>", {})
-mappings('n', '<C-f>', ':lua vim.lsp.buf.format()<cr>', {})
-
-
-if not status_ok then
-  return
-end
-
 local which_key_mappings = {
   ["<space>"] = {":bn<cr>", "Next buffer"},
   g = {
@@ -87,5 +72,23 @@ local which_key_mappings = {
   },
 }
 
-which_key.setup {}
-which_key.register(which_key_mappings)
+vim.g.mapleader = ","
+
+return {
+  'folke/which-key.nvim',
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end,
+  config = function()
+    local mappings = vim.api.nvim_set_keymap
+    mappings('n', ';', ':', {})
+    mappings('n', 'qq', ':bd<cr>', {})
+    mappings('i', '<C-p>', '<C-r>*', {})
+    mappings('n', '<C-f>', ':lua vim.lsp.buf.format()<cr>', {})
+
+    local wk = require('which-key')
+    wk.register(which_key_mappings)
+  end
+}

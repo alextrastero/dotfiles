@@ -1,8 +1,4 @@
 return {
-  {
-    "catppuccin/nvim",
-    name = "catppuccin"
-  },
   'tpope/vim-fugitive',
   'tpope/vim-surround',
   'neovim/nvim-lspconfig',
@@ -11,20 +7,7 @@ return {
   'nvim-lua/plenary.nvim',
   'nvim-telescope/telescope.nvim',
 
-  -- Completion
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-nvim-lua',
-  'hrsh7th/cmp-nvim-lsp',
-
   'christoomey/vim-tmux-navigator',
-
-  'folke/which-key.nvim',
-
-  'rafamadriz/friendly-snippets',
-  'saadparwaiz1/cmp_luasnip',
-  { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' },
 
   -- git tree
   'nvim-tree/nvim-tree.lua',
@@ -48,9 +31,6 @@ return {
   -- indent blankline
   'lukas-reineke/indent-blankline.nvim',
 
-  -- testing trouble
-  'folke/trouble.nvim',
-
   -- prettier
   'sbdchd/neoformat',
 
@@ -62,9 +42,6 @@ return {
 
   -- highlight hex color values
   'NvChad/nvim-colorizer.lua',
-
-  -- alpha
-  'goolord/alpha-nvim',
 
   -- git-blame
   'f-person/git-blame.nvim',

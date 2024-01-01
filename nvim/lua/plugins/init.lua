@@ -1,93 +1,80 @@
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  print('Installing Packer')
-  vim.cmd(':!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-end
-
-vim.cmd [[ packadd packer.nvim ]]
-
--- TODO migrate to lazy nvim https://github.com/folke/lazy.nvim
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'gruvbox-community/gruvbox'
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-surround'
-  use 'neovim/nvim-lspconfig'
-  use { 'glepnir/lspsaga.nvim', branch = 'main' }
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
+return {
+  {
+    "catppuccin/nvim",
+    name = "catppuccin"
+  },
+  'tpope/vim-fugitive',
+  'tpope/vim-surround',
+  'neovim/nvim-lspconfig',
+  { 'glepnir/lspsaga.nvim', branch = 'main' },
+  { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+  'nvim-lua/plenary.nvim',
+  'nvim-telescope/telescope.nvim',
 
   -- Completion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-nvim-lsp'
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-nvim-lua',
+  'hrsh7th/cmp-nvim-lsp',
 
-  use 'christoomey/vim-tmux-navigator'
+  'christoomey/vim-tmux-navigator',
 
-  use 'folke/which-key.nvim'
+  'folke/which-key.nvim',
 
-  -- Snippets
-  -- use 'SirVer/ultisnips'
-  -- use 'quangnguyen30192/cmp-nvim-ultisnips'
-  use 'rafamadriz/friendly-snippets'
-  use 'saadparwaiz1/cmp_luasnip'
-  use { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' }
+  'rafamadriz/friendly-snippets',
+  'saadparwaiz1/cmp_luasnip',
+  { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' },
 
   -- git tree
-  use 'nvim-tree/nvim-tree.lua'
+  'nvim-tree/nvim-tree.lua',
 
-  use 'ap/vim-buftabline'
-  use 'airblade/vim-gitgutter'
+  'ap/vim-buftabline',
+  'airblade/vim-gitgutter',
 
   -- Comments
-  use 'tpope/vim-commentary'
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  'tpope/vim-commentary',
+  'JoosepAlviste/nvim-ts-context-commentstring',
 
   -- Close tags
-  use 'windwp/nvim-ts-autotag'
+  'windwp/nvim-ts-autotag',
 
   -- lualine
-  use 'nvim-lualine/lualine.nvim'
+  'nvim-lualine/lualine.nvim',
 
   -- change case
-  use 'tpope/vim-abolish'
+  'tpope/vim-abolish',
 
   -- indent blankline
-  use 'lukas-reineke/indent-blankline.nvim'
+  'lukas-reineke/indent-blankline.nvim',
 
   -- testing trouble
-  use 'folke/trouble.nvim'
+  'folke/trouble.nvim',
 
   -- prettier
-  use 'sbdchd/neoformat'
+  'sbdchd/neoformat',
 
   -- impatient
-  use "lewis6991/impatient.nvim"
+  "lewis6991/impatient.nvim",
 
   -- astro highlight
-  use "wuelnerdotexe/vim-astro"
+  "wuelnerdotexe/vim-astro",
 
   -- highlight hex color values
-  use 'NvChad/nvim-colorizer.lua'
+  'NvChad/nvim-colorizer.lua',
 
   -- alpha
-  use 'goolord/alpha-nvim'
+  'goolord/alpha-nvim',
 
   -- git-blame
-  use 'f-person/git-blame.nvim'
+  'f-person/git-blame.nvim',
 
   -- trying null-ls
-  use 'nvimtools/none-ls.nvim'
+  'nvimtools/none-ls.nvim',
 
   -- search inside vim WTF
-  use 'mileszs/ack.vim'
+  'mileszs/ack.vim',
 
   -- lsp progress
-  use 'WhoIsSethDaniel/lualine-lsp-progress.nvim'
-
-end)
+  'WhoIsSethDaniel/lualine-lsp-progress.nvim',
+}

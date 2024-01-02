@@ -1,7 +1,5 @@
 vim.opt.completeopt = "menuone,noselect"
 
-require('luasnip.loaders.from_vscode').lazy_load()
-
 local kind_icons = {
   Text = "",
   Method = "",
@@ -49,6 +47,7 @@ return {
   },
   opts = function()
     local cmp = require('cmp')
+    require("luasnip.loaders.from_vscode").lazy_load()
 
     return {
       snippet = {

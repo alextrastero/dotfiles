@@ -22,7 +22,7 @@ return {
   'sbdchd/neoformat',
 
   -- impatient
-  "lewis6991/impatient.nvim",
+  --"lewis6991/impatient.nvim",
 
   -- astro highlight
   "wuelnerdotexe/vim-astro",

@@ -38,7 +38,7 @@ opt.diffopt = opt.diffopt + 'vertical'
 
 -- COLORS
 vim.cmd [[set background=dark]]
-vim.cmd [[colorscheme catppuccin-macchiato]]
+--vim.cmd [[colorscheme catppuccin-macchiato]]
 vim.cmd [[hi clear LspReferenceRead]] -- this is not working...
 vim.cmd [[hi link LspReferenceRead IncSearch]]
 vim.cmd [[set cursorline]]

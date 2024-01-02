@@ -1,6 +1,8 @@
 return {
-  'WhoIsSethDaniel/lualine-lsp-progress.nvim',
   'nvim-lualine/lualine.nvim',
+  dependencies = {
+    'WhoIsSethDaniel/lualine-lsp-progress.nvim',
+  },
   opts = {
     options = {
       component_separators = { left = '|', right = '|' },

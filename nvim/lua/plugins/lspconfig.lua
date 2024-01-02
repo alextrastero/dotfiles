@@ -2,36 +2,36 @@ return {
   {
     'glepnir/lspsaga.nvim',
     branch = 'main',
-    config = function()
-      local lspsaga = require 'lspsaga'
-      lspsaga.setup({
-        preview = {
-          lines_above = 2,
-          lines_below = 10,
-        },
-        scroll_preview = {
-          scroll_down = "<C-f>",
-          scroll_up = "<C-b>",
-        },
-        request_timeout = 2000,
-        lightbulb = {
-          enable = false,
-        },
-        definition = {
-          width = 1,
-          height = 1,
-        },
-        implement = {
-          virtual_text = false,
-        },
-        finder = {
-          layout = "normal",
-        },
-      })
-    end
+    opts = {
+      preview = {
+        lines_above = 2,
+        lines_below = 10,
+      },
+      scroll_preview = {
+        scroll_down = "<C-f>",
+        scroll_up = "<C-b>",
+      },
+      request_timeout = 2000,
+      lightbulb = {
+        enable = false,
+      },
+      definition = {
+        width = 1,
+        height = 1,
+      },
+      implement = {
+        virtual_text = false,
+      },
+      finder = {
+        layout = "normal",
+      }
+    }
   },
   {
     'neovim/nvim-lspconfig',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp'
+    },
     config = function()
       local nvim_lsp = require 'lspconfig'
       local util = nvim_lsp.util;

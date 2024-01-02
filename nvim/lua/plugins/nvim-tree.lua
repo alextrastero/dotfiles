@@ -1,10 +1,5 @@
 return {
   'nvim-tree/nvim-tree.lua',
-  config = function()
-    -- disable netrw at the very start of your init.lua (strongly advised)
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-  end,
   opts = {
     respect_buf_cwd = true,
     sync_root_with_cwd = true,
@@ -71,4 +66,10 @@ return {
       require_confirm = true
     }
   },
+  config = function(_, opts)
+    -- disable netrw at the very start of your init.lua (strongly advised)
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+    require'nvim-tree'.setup(opts)
+  end
 }

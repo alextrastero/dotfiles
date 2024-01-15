@@ -1,0 +1,16 @@
+{
+  "importActual": {
+    "prefix": "actual",
+    "body": [
+        "vi.mock('${1:module}', async () => {",
+        "\tconst original = await vi.importActual<typeof import('$1')>('$1');",
+        "",
+        "\treturn {",
+        "\t\t...original,",
+        "\t\t$2,",
+        "\t};",
+        "});"
+    ],
+    "description": "importActual"
+  }
+}

@@ -33,7 +33,7 @@ return {
   {
     'L3MON4D3/LuaSnip',
     lazy = false,
-    run = 'make install_jsregexp',
+    -- run = 'make install_jsregexp',
     dependencies = {
       'rafamadriz/friendly-snippets',
       'saadparwaiz1/cmp_luasnip'
@@ -81,7 +81,10 @@ return {
       'hrsh7th/cmp-nvim-lua',
     },
     config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
+      -- require("luasnip.loaders.from_snipmate").load({path = "~./config/nvim/snippets/typescriptreact.snippets"})
+      -- require("luasnip.loaders.from_snipmate").lazy_load()
+      -- require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/.config/nvim/snippets" })
       local cmp = require('cmp')
 
       cmp.setup({
@@ -135,13 +138,13 @@ return {
         sources = cmp.config.sources({
           { name = "luasnip" },
           { name = "nvim_lsp" },
-            -- { name = "nvim_lsp" },
-            -- { name = "luasnip" },
+          -- { name = "nvim_lsp" },
+          -- { name = "luasnip" },
           -- },
           -- {
-            -- { name = "buffer" },
-            -- { name = "nvim_lua" },
-          }
+          -- { name = "buffer" },
+          -- { name = "nvim_lua" },
+        }
         ),
       })
     end

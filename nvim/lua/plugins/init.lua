@@ -32,4 +32,7 @@ return {
 
   -- search inside vim WTF
   'mileszs/ack.vim',
+
+  -- mini pairs
+  'echasnovski/mini.nvim',
 }

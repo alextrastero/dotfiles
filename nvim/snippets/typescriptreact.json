@@ -12,5 +12,14 @@
         "});"
     ],
     "description": "importActual"
+  },
+  "Describe block with a todo test": {
+    "prefix": "desc",
+    "body": [
+      "describe('${1:description}', () => {",
+      "  it.todo('${2:testName}');",
+      "});"
+    ],
+    "description": "Create a describe block with a todo test"
   }
 }

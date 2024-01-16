@@ -38,6 +38,34 @@ return {
       'rafamadriz/friendly-snippets',
       'saadparwaiz1/cmp_luasnip'
     },
+    opts = {
+      history = true,
+      delete_check_events = "TextChanged,TextChangedI",
+    },
+    config = function()
+      local ls = require('luasnip')
+      -- <c-k> is my expansion key
+      -- this will expand the current item or jump to the next item within the snippet.
+      vim.keymap.set({ "i", "s" }, "<c-k>", function()
+        if ls.expand_or_jumpable() then
+          ls.expand_or_jump()
+        end
+      end, { silent = true })
+      -- <c-j> is my jump backwards key.
+      -- this always moves to the previous item within the snippet
+      vim.keymap.set({ "i", "s" }, "<c-j>", function()
+        if ls.jumpable(-1) then
+          ls.jump(-1)
+        end
+      end, { silent = true })
+
+      vim.keymap.set({ "i", "s" }, "<C-l>", function()
+        if ls.choice_active() then
+          ls.change_choice(1)
+        end
+      end)
+
+    end
   },
   {
     'nvimdev/lspsaga.nvim',
@@ -81,10 +109,8 @@ return {
       'hrsh7th/cmp-nvim-lua',
     },
     config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
       require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
-      -- require("luasnip.loaders.from_snipmate").load({path = "~./config/nvim/snippets/typescriptreact.snippets"})
-      -- require("luasnip.loaders.from_snipmate").lazy_load()
-      -- require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/.config/nvim/snippets" })
       local cmp = require('cmp')
 
       cmp.setup({
@@ -138,12 +164,6 @@ return {
         sources = cmp.config.sources({
           { name = "luasnip" },
           { name = "nvim_lsp" },
-          -- { name = "nvim_lsp" },
-          -- { name = "luasnip" },
-          -- },
-          -- {
-          -- { name = "buffer" },
-          -- { name = "nvim_lua" },
         }
         ),
       })

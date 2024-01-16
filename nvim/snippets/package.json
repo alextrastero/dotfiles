@@ -7,6 +7,10 @@
         "path": "./custom.json"
       },
       {
+        "language": "typescript",
+        "path": "./typescriptreact.json"
+      },
+      {
         "language": "typescriptreact",
         "path": "./typescriptreact.json"
       }

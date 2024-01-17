@@ -21,7 +21,6 @@ local which_key_mappings = {
     -- },
     p = {"<cmd>Lspsaga peek_definition<CR>", "Peek Definition"},
     n = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
-    s = {":Lspsaga signature_help<cr>", "Signature"},
     o = {":Lspsaga outline<cr>", "Outline"},
     -- o = {"<cmd>lua vim.diagnostic.open_float({focus = false})<cr>", "Diagnostic"},
     h = {"<cmd>lua vim.lsp.buf.document_highlight()<cr>", "Highlight"},

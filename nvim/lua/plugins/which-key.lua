@@ -62,10 +62,11 @@ local which_key_mappings = {
       b = {":vertical Git blame<cr>", "BLAME!"},
     },
     t = {
-      name = "Gutter",
-      t = {":GitGutterLineHighlightsToggle<cr>", "Git Gutter Toggle"},
-      b = {":GitBlameToggle<cr>", "Git Blame Toggle"},
-      o = {":GitBlameOpenCommitURL<cr>", "Git Blame Open URL"}
+      name = "Git Gutter/Blame",
+      t = {":GitGutterLineHighlightsToggle<cr>", "Gutter Toggle"},
+      x = {":GitGutterUndoHunk<cr>", "Gutter Undo Hunk"},
+      b = {":GitBlameToggle<cr>", "Blame Toggle"},
+      o = {":GitBlameOpenCommitURL<cr>", "Blame Open URL"},
     },
     c = {
       ["<space>"] = {"<Plug>CommentaryLine", "Comment out"}

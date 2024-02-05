@@ -15,9 +15,6 @@ return {
       lualine_b = {
         { 'branch', icons_enabled = false }
       },
-      lualine_c = {
-        { 'lsp_progress' }
-      },
     },
     tabline = {
       lualine_a = {

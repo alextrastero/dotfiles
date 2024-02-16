@@ -1,5 +1,6 @@
 local which_key_mappings = {
   ["<space>"] = {":bn<cr>", "Next buffer"},
+  ["-"] = {":Oil<cr>", "Open parent directory"},
   g = {
     name = "LSP",
     i = {":LspInfo<cr>", "Info"},
@@ -48,7 +49,7 @@ local which_key_mappings = {
   ["<leader>"] = {
     ["1"] = {":bprev<cr>", "Prev buffer"},
     ["2"] = {":bnext<cr>", "Next buffer"},
-    k = {":NvimTreeToggle<cr>", "Toggle Nvim Tree"},
+    k = {":Oil --float<cr>", "Oil float"},
     e = {":noh<cr>", "Clear Selection"},
     m = {":Telescope oldfiles<cr>", "T Oldfiles"},
     s = {":Telescope git_status<cr>", "T status"},

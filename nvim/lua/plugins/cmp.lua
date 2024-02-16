@@ -96,18 +96,15 @@ return {
     }
   },
   {
-    'hrsh7th/cmp-nvim-lsp',
-    lazy = false,
-    config = true,
-  },
-  {
     'hrsh7th/nvim-cmp',
     lazy = false,
     dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lua',
     },
+    event = { 'BufReadPost', 'BufNewFile' },
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
       require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
@@ -118,12 +115,16 @@ return {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
         },
+        experimental = {
+          ghost_text = true,
+        },
         snippet = {
           expand = function(args)
             require('luasnip').lsp_expand(args.body)
           end,
         },
         formatting = {
+          expandable_indicator = true,
           format = function(entry, vim_item)
             vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
             vim_item.menu = ({
@@ -162,8 +163,10 @@ return {
           end,
         },
         sources = cmp.config.sources({
-          { name = "luasnip" },
           { name = "nvim_lsp" },
+          { name = "buffer", max_item_count = 5 },
+          { name = "path", max_item_count = 3 },
+          { name = "luasnip", max_item_count = 3 },
         }
         ),
       })

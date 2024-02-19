@@ -38,6 +38,7 @@ count() {
 
 # vim
 alias vim="nvim"
+alias vimg="nvim +Git +only"
 
 # jekyll serve
 alias static="bundle exec jekyll serve --livereload"

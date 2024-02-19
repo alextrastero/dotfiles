@@ -12,6 +12,7 @@ return {
         "json",
         "scss",
         "vim",
+        "vimdoc",
         "css",
         "bash",
         "lua",

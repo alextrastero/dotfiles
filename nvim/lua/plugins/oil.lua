@@ -82,7 +82,7 @@ return {
         use_default_keymaps = false,
         view_options = {
           -- Show files and directories that start with "."
-          show_hidden = true,
+          show_hidden = false,
           -- This function defines what is considered a "hidden" file
           is_hidden_file = function(name, bufnr)
             return vim.startswith(name, ".")

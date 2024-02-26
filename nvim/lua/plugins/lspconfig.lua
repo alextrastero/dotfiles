@@ -3,12 +3,6 @@ return {
   lazy = false,
   config = function()
     local lspconfig = require 'lspconfig'
-    -- local on_attach = function(client, bufnr)
-    -- local on_attach = function(client)
-    --   -- function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-    --   -- function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-    --   client.server_capabilities.documentFormattingProvider = false -- neovim V0.8
-    -- end
 
     local init_options = {
       preferences = {
@@ -26,11 +20,11 @@ return {
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    lspconfig.tsserver.setup {
+    lspconfig.tsserver.setup({
       capabilities = capabilities,
       init_options = init_options,
       root_dir = lspconfig.util.find_git_ancestor,
-    }
+    })
 
     lspconfig.stylelint_lsp.setup({
       filetypes = { "css" },

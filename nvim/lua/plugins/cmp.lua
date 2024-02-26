@@ -104,7 +104,7 @@ return {
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lua',
     },
-    event = { 'BufReadPost', 'BufNewFile' },
+    event = 'InsertEnter',
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
       require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })

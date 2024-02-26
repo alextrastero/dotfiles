@@ -5,28 +5,17 @@ local which_key_mappings = {
     name = "LSP",
     i = {":LspInfo<cr>", "Info"},
     r = {":Lspsaga finder<cr>", "LSP Finder"},
-    -- r = {":lua vim.lsp.buf.references()<cr>", "LSP Finder"},
     d = {":Lspsaga goto_definition<cr>", "Go To Definition"},
     a = {":Lspsaga code_action<cr>", "Code Action"},
-    j = {"<cmd>Lspsaga diagnostic_jump_next<CR>", "Diagnostic Jump Next"},
-    -- j = { function()
-    --   require("lspsaga.diagnostic"):goto_next({
-    --     severity = vim.diagnostic.severity.ERROR
-    --   }) end, "Diagnostic Jump Next"
-    -- },
-    k = {"<cmd>Lspsaga diagnostic_jump_prev<CR>", "Diagnostic Jump Prev"},
-    -- k = { function()
-    --   require("lspsaga.diagnostic"):goto_prev({
-    --     severity = vim.diagnostic.severity.ERROR
-    --   }) end, "Diagnostic Prev Next"
-    -- },
-    p = {"<cmd>Lspsaga peek_definition<CR>", "Peek Definition"},
-    n = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
+    j = {":Lspsaga diagnostic_jump_next<cr>", "Diagnostic Jump Next"},
+    k = {":Lspsaga diagnostic_jump_prev<CR>", "Diagnostic Jump Prev"},
+    p = {":Lspsaga peek_definition<CR>", "Peek Definition"},
     o = {":Lspsaga outline<cr>", "Outline"},
-    -- o = {"<cmd>lua vim.diagnostic.open_float({focus = false})<cr>", "Diagnostic"},
-    h = {"<cmd>lua vim.lsp.buf.document_highlight()<cr>", "Highlight"},
-    e = {"<cmd>lua vim.lsp.buf.clear_references()<cr>", "Clear Highlight"},
-    t = {"<cmd>Trouble<cr>", "Trouble!"},
+
+    n = {":lua vim.lsp.buf.rename()<cr>", "Rename"},
+    h = {":lua vim.lsp.buf.document_highlight()<cr>", "Highlight"},
+    e = {":lua vim.lsp.buf.clear_references()<cr>", "Clear Highlight"},
+    t = {":Trouble<cr>", "Trouble!"},
   },
   y = {
     f = {

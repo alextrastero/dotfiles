@@ -25,6 +25,15 @@ return {
       capabilities = capabilities,
       init_options = init_options,
       root_dir = lspconfig.util.find_git_ancestor,
+      settings = {
+        diagnostics = {
+          -- https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
+          ignoredCodes = {
+            95062,
+            95065,
+          }
+        }
+      }
     })
 
     lspconfig.stylelint_lsp.setup({

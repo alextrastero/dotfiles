@@ -8,8 +8,8 @@ local which_key_mappings = {
     d = {":Lspsaga goto_definition<cr>", "Go To Definition"},
     a = {":Lspsaga code_action<cr>", "Code Action"},
     j = {":Lspsaga diagnostic_jump_next<cr>", "Diagnostic Jump Next"},
-    k = {":Lspsaga diagnostic_jump_prev<CR>", "Diagnostic Jump Prev"},
-    p = {":Lspsaga peek_definition<CR>", "Peek Definition"},
+    k = {":Lspsaga diagnostic_jump_prev<cr>", "Diagnostic Jump Prev"},
+    p = {":Lspsaga peek_definition<cr>", "Peek Definition"},
     o = {":Lspsaga outline<cr>", "Outline"},
 
     n = {":lua vim.lsp.buf.rename()<cr>", "Rename"},
@@ -17,17 +17,18 @@ local which_key_mappings = {
     e = {":lua vim.lsp.buf.clear_references()<cr>", "Clear Highlight"},
     t = {":Trouble<cr>", "Trouble!"},
   },
+  K = {":Lspsaga hover_doc<cr>", "Hover doc"},
   y = {
     f = {
       n = {":let @+ = expand(\"%\")<cr>", "Yank file name"},
     },
   },
-  K = {":Lspsaga hover_doc<cr>", "LSP / Hover doc"},
   ["<C-L>"] = {":TmuxNavigateRight<cr>", "Navigate Right"},
   ["<C-H>"] = {":TmuxNavigateLeft<cr>", "Navigate Left"},
   ["<tab>"] = {":Telescope buffers<cr>", "T Buffers"},
   ["<C-b>"] = {":Telescope buffers<cr>", "T Buffers"},
   ["<C-p>"] = {":Telescope find_files<cr>", "T Files"},
+  ["<C-s>"] = {":Telescope git_status<cr>", "T Git Status"},
   ["<C-d>"] = {":bd<cr>", "Delete buffer"},
 
   ["<Up>"] = {":resize +5<cr>", "Resize Up"},

@@ -16,7 +16,7 @@ return {
         { 'branch', icons_enabled = false }
       },
       lualine_c = {
-        { 'lsp_progress' }
+        'lsp_progress', require('auto-session.lib').current_session_name
       },
     },
     tabline = {

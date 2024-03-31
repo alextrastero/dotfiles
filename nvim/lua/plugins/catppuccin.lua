@@ -11,10 +11,10 @@ return {
     --vim.cmd [[colorscheme catppuccin-macchiato]]
     vim.cmd [[hi clear LspReferenceRead]] -- this is not working...
     vim.cmd [[hi link LspReferenceRead IncSearch]]
-    vim.cmd [[set cursorline]]
 
+    -- vim.cmd [[set cursorline]]
     -- vim.cmd [[hi clear CursorLineNR]]
-    vim.cmd [[hi CursorLine guibg=NONE guifg=NONE]]
+    -- vim.cmd [[hi CursorLine guibg=NONE guifg=NONE]]
     -- vim.cmd [[hi link CursorLineNR Question]]
 
     vim.cmd [[hi Comment gui=italic]]

@@ -32,7 +32,4 @@ return {
 
   -- mini pairs
   'echasnovski/mini.nvim',
-
-  -- rose-pine theme
-  'rose-pine/neovim',
 }

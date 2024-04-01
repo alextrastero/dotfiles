@@ -21,9 +21,6 @@ return {
   -- prettier
   'sbdchd/neoformat',
 
-  -- impatient
-  --"lewis6991/impatient.nvim",
-
   -- astro highlight
   "wuelnerdotexe/vim-astro",
 
@@ -35,4 +32,7 @@ return {
 
   -- mini pairs
   'echasnovski/mini.nvim',
+
+  -- rose-pine theme
+  'rose-pine/neovim',
 }

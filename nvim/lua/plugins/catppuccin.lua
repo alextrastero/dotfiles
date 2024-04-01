@@ -4,11 +4,14 @@ return {
   priority = 1000,
   name = "catppuccin",
   config = function()
-    vim.cmd [[colorscheme catppuccin-macchiato]]
+    require('rose-pine').setup({
+      dark_variant = 'moon',
+    })
 
     -- COLORS
     vim.cmd [[set background=dark]]
     --vim.cmd [[colorscheme catppuccin-macchiato]]
+    vim.cmd [[colorscheme rose-pine]]
     vim.cmd [[hi clear LspReferenceRead]] -- this is not working...
     vim.cmd [[hi link LspReferenceRead IncSearch]]
 

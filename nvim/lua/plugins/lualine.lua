@@ -10,6 +10,8 @@ end
 --   spin_update_time = 200,
 -- })
 
+local git_blame = require('gitblame')
+
 return {
   'nvim-lualine/lualine.nvim',
   event = { "VimEnter" },
@@ -30,8 +32,11 @@ return {
       },
       lualine_c = {
         sessionName,
-        -- require('lsp-progress').progress
-        -- require('lsp-progress').progress, { sessionName }
+        {
+          git_blame.get_current_blame_text,
+          cond = git_blame.is_blame_text_available,
+        },
+        -- require('lsp-progress').progress,
       },
     },
     tabline = {

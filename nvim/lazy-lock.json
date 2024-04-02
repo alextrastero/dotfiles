@@ -14,7 +14,6 @@
   "git-blame.nvim": { "branch": "master", "commit": "a0282d05adbee80aaf4e2ff35b81b52940b67bed" },
   "lazy.nvim": { "branch": "main", "commit": "31ddbea7c10b6920c9077b66c97951ca8682d5c8" },
   "lspsaga.nvim": { "branch": "main", "commit": "a4d442896a9ff1f83ee3db965d81b659ebc977d5" },
-  "lualine-lsp-progress.nvim": { "branch": "master", "commit": "cb62aa7164bf87a6cc47060fcdfcc88b905d09a6" },
   "lualine.nvim": { "branch": "master", "commit": "b5e8bb642138f787a2c1c5aedc2a78cb2cebbd67" },
   "mini.nvim": { "branch": "main", "commit": "efa0eb3dc97398e0510372f61bcf625127ab7a24" },
   "neoformat": { "branch": "master", "commit": "29e8d9c1e1da985e363d8f87c417adfdd50a5a75" },

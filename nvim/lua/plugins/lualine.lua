@@ -2,8 +2,6 @@ local function sessionName()
   return 'mk:' .. require('auto-session.lib').current_session_name()
 end
 
-local git_blame = require('gitblame')
-
 return {
   'nvim-lualine/lualine.nvim',
   event = { "VimEnter" },
@@ -21,10 +19,6 @@ return {
       },
       lualine_c = {
         sessionName,
-        {
-          git_blame.get_current_blame_text,
-          cond = git_blame.is_blame_text_available,
-        },
       },
     },
     tabline = {

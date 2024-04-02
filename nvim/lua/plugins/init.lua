@@ -31,7 +31,6 @@ return {
       message_template = '<author> • <date>',
       date_format = '%r',
       message_when_not_committed = 'nope',
-      display_virtual_text = 0,
     },
   },
 

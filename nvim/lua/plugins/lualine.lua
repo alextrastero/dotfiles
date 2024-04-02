@@ -1,7 +1,20 @@
+local function sessionName()
+  return 'mk:' .. require('auto-session.lib').current_session_name()
+end
+
+-- local lsp_progress = require('lsp-progress')
+-- lsp_progress.setup({
+--   -- Spinning icons.
+--   spinner = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },
+--   -- Spinning update time in milliseconds.
+--   spin_update_time = 200,
+-- })
+
 return {
   'nvim-lualine/lualine.nvim',
+  event = { "VimEnter" },
   dependencies = {
-    'WhoIsSethDaniel/lualine-lsp-progress.nvim',
+    -- 'linrongbin16/lsp-progress.nvim',
   },
   opts = {
     options = {
@@ -16,7 +29,9 @@ return {
         { 'branch', icons_enabled = false }
       },
       lualine_c = {
-        'lsp_progress', require('auto-session.lib').current_session_name
+        sessionName,
+        -- require('lsp-progress').progress
+        -- require('lsp-progress').progress, { sessionName }
       },
     },
     tabline = {

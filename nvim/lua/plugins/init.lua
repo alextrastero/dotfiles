@@ -25,7 +25,15 @@ return {
   "wuelnerdotexe/vim-astro",
 
   -- git-blame
-  'f-person/git-blame.nvim',
+  {
+    'f-person/git-blame.nvim',
+    opts = {
+      message_template = '<author> • <date>',
+      date_format = '%r',
+      message_when_not_committed = 'nope',
+      display_virtual_text = 0,
+    },
+  },
 
   -- search inside vim WTF
   'mileszs/ack.vim',

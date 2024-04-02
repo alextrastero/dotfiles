@@ -118,6 +118,7 @@ ln -s ~/dev/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/dev/dotfiles/zsh/.aliases ~/.aliases
 ln -s ~/dev/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -s ~/dev/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+ln -s ~/dev/dotfiles/tmux ~/.tmux
 ln -s ~/dev/dotfiles/nvim ~/.config/
 
 # npm packages

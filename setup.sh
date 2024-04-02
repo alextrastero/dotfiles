@@ -21,6 +21,8 @@ if ! command -v $APP &> /dev/null
 then
     echo "$APP - Downloading..."
     sudo apt install $APP
+    echo "$APP - cloning tmux-plugins..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     exit 1
 else
     echo "$APP - Skipping"

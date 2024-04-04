@@ -30,6 +30,7 @@ local which_key_mappings = {
   ["<C-p>"] = {":Telescope find_files<cr>", "T Files"},
   ["<C-s>"] = {":Telescope git_status<cr>", "T Git Status"},
   ["<C-d>"] = {":bd<cr>", "Delete buffer"},
+  ["<C-f>"] = {":lua vim.lsp.buf.format()<cr>", "Format buffer"},
 
   ["<Up>"] = {":resize +5<cr>", "Resize Up"},
   ["<Down>"] = {":resize -5<cr>", "Resize Down"},
@@ -80,7 +81,6 @@ return {
     mappings('n', ';', ':', {})
     mappings('n', 'qq', ':bd<cr>', {})
     mappings('i', '<C-p>', '<C-r>*', {})
-    mappings('n', '<C-f>', ':lua vim.lsp.buf.format()<cr>', {})
 
     local wk = require('which-key')
     wk.register(which_key_mappings)

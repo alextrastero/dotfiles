@@ -51,7 +51,7 @@ local which_key_mappings = {
       -- s = {":vertical G<cr>", "Status"},
       s = {":Gedit :<cr>", "Status"},
       d = {":vertical Git diff %<cr>", "Diff"},
-      l = {":vertical Gclog<cr>", "Log"},
+      l = {":0GcLog<cr>", "Log"},
       b = {":vertical Git blame<cr>", "BLAME!"},
     },
     t = {

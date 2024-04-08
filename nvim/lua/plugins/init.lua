@@ -39,4 +39,6 @@ return {
 
   -- mini pairs
   'echasnovski/mini.nvim',
+
+  'tpope/vim-unimpaired',
 }

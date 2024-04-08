@@ -5,7 +5,7 @@ alias dl="yt-dlp -f 'ba' -x --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-
 
 # GIT
 alias pick="git cherry-pick"
-alias glg="tig log -n20"
+alias glg="tig log -n20 --no-merges"
 alias gs="git show"
 alias gundo='git reset --soft HEAD~ && git reset HEAD .' # Uncommit last commit and unstage - to see all new stuff in vim-git
 alias gll="gfa && gf -p && gl"

@@ -1,5 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
+zstyle ':omz:alpha:lib:git' async-prompt no
+
 ZSH_THEME="minimal"
 plugins=(git yarn)
 source $ZSH/oh-my-zsh.sh

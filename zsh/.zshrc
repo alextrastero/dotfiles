@@ -46,12 +46,6 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 # config
 export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore --pager less -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --info inline --border --preview "cat {}"'
-# theme
-# https://github.com/catppuccin/fzf
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS" \
---color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
---color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
---color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export GEM_HOME="$HOME/gems"

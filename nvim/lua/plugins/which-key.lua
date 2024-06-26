@@ -10,6 +10,7 @@ local which_key_mappings = {
     j = {":Lspsaga diagnostic_jump_next<cr>", "Diagnostic Jump Next"},
     k = {":Lspsaga diagnostic_jump_prev<cr>", "Diagnostic Jump Prev"},
     p = {":Lspsaga peek_definition<cr>", "Peek Definition"},
+    P = {":Lspsaga peek_type_definition<cr>", "Peek Type Def"},
     o = {":Lspsaga outline<cr>", "Outline"},
 
     n = {":lua vim.lsp.buf.rename()<cr>", "Rename"},

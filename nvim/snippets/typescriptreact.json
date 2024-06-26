@@ -1,4 +1,11 @@
 {
+  "jestMock": {
+    "prefix": "mock",
+    "body": [
+      "vi.mock('$1', () => vi.fn(() => $2));"
+    ],
+    "description": "jest mock"
+  },
   "importActual": {
     "prefix": "actual",
     "body": [

@@ -23,8 +23,7 @@ return {
         enable = true,
       },
       indent = {
-        enable = false,
-        disable = {}
+        enable = true,
       },
       autopairs = {
         enable = true,

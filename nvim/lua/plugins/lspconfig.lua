@@ -45,18 +45,6 @@ return {
       capabilities = capabilities,
     })
 
-    local signs = {
-      DiagnosticSignError = '',
-      DiagnosticSignHint = '',
-      DiagnosticSignInfo = '',
-      DiagnosticSignWarn = '',
-      LightBulbSign = ''
-    }
-
-    for type, icon in pairs(signs) do
-      vim.fn.sign_define(type, { text = icon, texthl = type, linehl = type, numhl = type })
-    end
-
     vim.diagnostic.config({
       virtual_text = false, -- disable inline errors
     })

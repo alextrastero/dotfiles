@@ -5,8 +5,8 @@ return {
   name = "catppuccin",
   config = function()
     -- COLORS
-    vim.cmd [[set background=dark]]
     vim.cmd [[colorscheme catppuccin-frappe]]
+    vim.cmd [[set background=light]]
     vim.cmd [[hi clear LspReferenceRead]] -- this is not working...
     vim.cmd [[hi link LspReferenceRead IncSearch]]
 

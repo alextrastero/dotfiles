@@ -16,7 +16,7 @@ local which_key_mappings = {
     n = {":lua vim.lsp.buf.rename()<cr>", "Rename"},
     h = {":lua vim.lsp.buf.document_highlight()<cr>", "Highlight"},
     e = {":lua vim.lsp.buf.clear_references()<cr>", "Clear Highlight"},
-    t = {":Trouble<cr>", "Trouble!"},
+    t = {":Trouble diagnostics toggle<cr>", "Trouble!"},
   },
   K = {":Lspsaga hover_doc<cr>", "Hover doc"},
   y = {

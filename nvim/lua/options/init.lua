@@ -32,8 +32,8 @@ opt.shortmess = opt.shortmess + 'c'
 opt.colorcolumn = "120"
 opt.clipboard = opt.clipboard + 'unnamedplus'
 opt.list = true
-opt.listchars = 'trail:?'                   -- trailing spaces
-opt.listchars = opt.listchars + 'tab:\\ \\' --tabs
+opt.listchars = 'trail:~'
+opt.listchars = opt.listchars + 'tab:\\ \\'
 opt.diffopt = opt.diffopt + 'vertical'
 
 vim.g.UltiSnipsSnippetDirectories = { "../snips" }

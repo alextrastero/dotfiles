@@ -1,71 +1,61 @@
 local which_key_mappings = {
-  ["<space>"] = {":bn<cr>", "Next buffer"},
-  ["-"] = {":Oil<cr>", "Open parent directory"},
-  g = {
-    name = "LSP",
-    i = {":LspInfo<cr>", "Info"},
-    r = {":Lspsaga finder<cr>", "LSP Finder"},
-    d = {":Lspsaga goto_definition<cr>", "Go To Definition"},
-    a = {":Lspsaga code_action<cr>", "Code Action"},
-    j = {":Lspsaga diagnostic_jump_next<cr>", "Diagnostic Jump Next"},
-    k = {":Lspsaga diagnostic_jump_prev<cr>", "Diagnostic Jump Prev"},
-    p = {":Lspsaga peek_definition<cr>", "Peek Definition"},
-    P = {":Lspsaga peek_type_definition<cr>", "Peek Type Def"},
-    o = {":Lspsaga outline<cr>", "Outline"},
+  { "<space>",          ":bn<cr>",                                   desc = "Next buffer" },
+  { "-",                ":Oil<cr>",                                  desc = "Open parent directory" },
 
-    n = {":lua vim.lsp.buf.rename()<cr>", "Rename"},
-    h = {":lua vim.lsp.buf.document_highlight()<cr>", "Highlight"},
-    e = {":lua vim.lsp.buf.clear_references()<cr>", "Clear Highlight"},
-    t = {":Trouble diagnostics toggle<cr>", "Trouble!"},
-  },
-  K = {":Lspsaga hover_doc<cr>", "Hover doc"},
-  y = {
-    f = {
-      n = {":let @+ = expand(\"%\")<cr>", "Yank file name"},
-    },
-  },
-  ["<C-L>"] = {":TmuxNavigateRight<cr>", "Navigate Right"},
-  ["<C-H>"] = {":TmuxNavigateLeft<cr>", "Navigate Left"},
-  ["<tab>"] = {":Telescope buffers<cr>", "T Buffers"},
-  ["<C-b>"] = {":Telescope buffers<cr>", "T Buffers"},
-  ["<C-p>"] = {":Telescope find_files<cr>", "T Files"},
-  ["<C-s>"] = {":Telescope git_status<cr>", "T Git Status"},
-  ["<C-d>"] = {":bd<cr>", "Delete buffer"},
-  ["<C-f>"] = {":lua vim.lsp.buf.format()<cr>", "Format buffer"},
+  { "g",                group = "LSP" },
+  { "gi",               ":LspInfo<cr>",                              desc = "Info" },
+  { "gr",               ":Lspsaga finder<cr>",                       desc = "LSP Finder" },
+  { "gd",               ":Lspsaga goto_definition<cr>",              desc = "Go To Definition" },
+  { "ga",               ":Lspsaga code_action<cr>",                  desc = "Code Action" },
+  { "gj",               ":Lspsaga diagnostic_jump_next<cr>",         desc = "Diagnostic Jump Next" },
+  { "gk",               ":Lspsaga diagnostic_jump_prev<cr>",         desc = "Diagnostic Jump Prev" },
+  { "gp",               ":Lspsaga peek_definition<cr>",              desc = "Peek Definition" },
+  { "gP",               ":Lspsaga peek_type_definition<cr>",         desc = "Peek Type Def" },
+  { "go",               ":Lspsaga outline<cr>",                      desc = "Outline" },
+  { "gn",               ":lua vim.lsp.buf.rename()<cr>",             desc = "Rename" },
+  { "gh",               ":lua vim.lsp.buf.document_highlight()<cr>", desc = "Highlight" },
+  { "ge",               ":lua vim.lsp.buf.clear_references()<cr>",   desc = "Clear Highlight" },
+  { "gt",               ":Trouble diagnostics toggle<cr>",           desc = "Trouble!" },
 
-  ["<Up>"] = {":resize +5<cr>", "Resize Up"},
-  ["<Down>"] = {":resize -5<cr>", "Resize Down"},
-  ["<Right>"] = {":vertical resize +5<cr>", "Resize Right"},
-  ["<Left>"] = {":vertical resize -5<cr>", "Resize Left"},
-  ["<leader>"] = {
-    ["<leader>"] = {"<C-^>", "Alternate file"},
-    ["1"] = {":bprev<cr>", "Prev buffer"},
-    ["2"] = {":bnext<cr>", "Next buffer"},
-    k = {":NERDTreeFind<cr>", "Focus file with nerdtree"},
-    e = {":noh<cr>", "Clear Selection"},
-    m = {":Telescope oldfiles<cr>", "T Oldfiles"},
-    s = {":Telescope git_status<cr>", "T status"},
-    f = {":Telescope live_grep<cr>", "T Grep"},
-    w = {":Telescope grep_string<cr>", "Telescope Grep cursor"},
-    g = {
-      name = "Git",
-      -- s = {":vertical G<cr>", "Status"},
-      s = {":Gedit :<cr>", "Status"},
-      d = {":vertical Git diff %<cr>", "Diff"},
-      l = {":0GcLog<cr>", "Log"},
-      b = {":vertical Git blame<cr>", "BLAME!"},
-    },
-    t = {
-      name = "Git Gutter/Blame",
-      t = {":GitGutterLineHighlightsToggle<cr>", "Gutter Toggle"},
-      x = {":GitGutterUndoHunk<cr>", "Gutter Undo Hunk"},
-      b = {":GitBlameToggle<cr>", "Blame Toggle"},
-      o = {":GitBlameOpenCommitURL<cr>", "Blame Open URL"},
-    },
-    c = {
-      ["<space>"] = {"<Plug>CommentaryLine", "Comment out"}
-    },
-  },
+  { "K",                ":Lspsaga hover_doc<cr>",                    desc = "Hover doc" },
+
+  { "yfn",              ":let @+ = expand(\"%\")<cr>",               desc = "Yank file name" },
+
+  { "<C-L>",            ":TmuxNavigateRight<cr>",                    desc = "Navigate Right" },
+  { "<C-H>",            ":TmuxNavigateLeft<cr>",                     desc = "Navigate Left" },
+  { "<tab>",            ":Telescope buffers<cr>",                    desc = "T Buffers" },
+  { "<C-b>",            ":Telescope buffers<cr>",                    desc = "T Buffers" },
+  { "<C-p>",            ":Telescope find_files<cr>",                 desc = "T Files" },
+  { "<C-s>",            ":Telescope git_status<cr>",                 desc = "T Git Status" },
+  { "<C-d>",            ":bd<cr>",                                   desc = "Delete buffer" },
+  { "<C-f>",            ":lua vim.lsp.buf.format()<cr>",             desc = "Format buffer" },
+
+  { "<Up>",             ":resize +5<cr>",                            desc = "Resize Up" },
+  { "<Down>",           ":resize -5<cr>",                            desc = "Resize Down" },
+  { "<Right>",          ":vertical resize +5<cr>",                   desc = "Resize Right" },
+  { "<Left>",           ":vertical resize -5<cr>",                   desc = "Resize Left" },
+
+  { "<leader><leader>", "<C-^>",                                     desc = "Alternate file" },
+  { "<leader>1",        ":bprev<cr>",                                desc = "Prev buffer" },
+  { "<leader>2",        ":bnext<cr>",                                desc = "Next buffer" },
+  { "<leader>k",        ":NERDTreeFind<cr>",                         desc = "Focus file with nerdtree" },
+  { "<leader>e",        ":noh<cr>",                                  desc = "Clear Selection" },
+  { "<leader>m",        ":Telescope oldfiles<cr>",                   desc = "T Oldfiles" },
+  { "<leader>s",        ":Telescope git_status<cr>",                 desc = "T status" },
+  { "<leader>f",        ":Telescope live_grep<cr>",                  desc = "T Grep" },
+  { "<leader>w",        ":Telescope grep_string<cr>",                desc = "Telescope Grep cursor" },
+
+  { "<leader>gs",       ":Gedit :<cr>",                              desc = "Status" },
+  { "<leader>gd",       ":vertical Git diff %<cr>",                  desc = "Diff" },
+  { "<leader>gl",       ":0GcLog<cr>",                               desc = "Log" },
+  { "<leader>gb",       ":vertical Git blame<cr>",                   desc = "BLAME!" },
+
+  { "<leader>tt",       ":GitGutterLineHighlightsToggle<cr>",        desc = "Gutter Toggle" },
+  { "<leader>tx",       ":GitGutterUndoHunk<cr>",                    desc = "Gutter Undo Hunk" },
+  { "<leader>tb",       ":GitBlameToggle<cr>",                       desc = "Blame Toggle" },
+  { "<leader>to",       ":GitBlameOpenCommitURL<cr>",                desc = "Blame Open URL" },
+
+  { "<leader>c<space>", "<Plug>CommentaryLine",                      desc = "Comment out" },
 }
 
 vim.g.mapleader = ","
@@ -84,6 +74,6 @@ return {
     mappings('i', '<C-p>', '<C-r>*', {})
 
     local wk = require('which-key')
-    wk.register(which_key_mappings)
+    wk.add(which_key_mappings)
   end
 }

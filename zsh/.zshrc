@@ -25,8 +25,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #functions
-function hub() { # Open github on folder
-  nohup xdg-open $(git config remote.origin.url | ruby -ne 'puts "https://" + $_.split(%r{[/:@]})[1..-1].join("/").sub(/\.git$/, "")') >/dev/null 2>&1
+function hub() {
+  # Retrieve the remote origin URL of the Git repository
+  remote_url=$(git config remote.origin.url)
+
+  # Process the URL to convert it to HTTPS format suitable for opening in a browser
+  browser_url=$(echo "$remote_url" | sed -E 's#(git@|https://)([^:/]+)[:/]#https://\2/#; s/\.git$//')
+
+  # Open the processed URL in the default web browser using xdg-open
+  nohup xdg-open "$browser_url" > /dev/null 2>&1
 }
 function w() { # Open vim with git unchanged files
   $(git rev-parse --is-inside-work-tree 2>/dev/null) && vim $(git status --porcelain | awk '{print $2}')

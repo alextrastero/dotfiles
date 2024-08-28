@@ -103,3 +103,5 @@ function gfix() {
     GIT_SEQUENCE_EDITOR=":" git rebase -i --root --autosquash
   fi
 }
+
+export OPENAI_API_KEY=

@@ -21,7 +21,7 @@ return {
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    lspconfig.tsserver.setup({
+    lspconfig.ts_ls.setup({
       capabilities = capabilities,
       init_options = init_options,
       root_dir = lspconfig.util.find_git_ancestor,

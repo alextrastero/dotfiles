@@ -7,6 +7,7 @@ return {
     config.setup({
       ensure_installed = {
         "typescript",
+        "javascript",
         "tsx",
         "html",
         "json",

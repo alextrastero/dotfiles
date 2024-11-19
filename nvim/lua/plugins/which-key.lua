@@ -1,6 +1,6 @@
 local which_key_mappings = {
   { "<space>",          ":bn<cr>",                                   desc = "Next buffer" },
-  { "-",                ":Oil<cr>",                                  desc = "Open parent directory" },
+  { "-",                ":Oil --float<cr>",                          desc = "Open parent directory" },
 
   { "g",                group = "LSP" },
   { "gi",               ":LspInfo<cr>",                              desc = "Info" },

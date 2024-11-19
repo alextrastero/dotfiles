@@ -65,45 +65,4 @@ export PATH="$GEM_HOME/bin:$GOPATH/bin:$PATH"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# gfix function - performs a 'fixup' operation on a selected commit in the repository history
-# Steps:
-# 1. Presents the user with a list of commits (in reverse order) from which to choose.
-# 2. Upon selection, a 'fixup' commit is created for the chosen commit.
-# 3. Depending on the chosen commit, it then performs an interactive rebase:
-#    a) If the chosen commit is the first commit (root), a rebase is performed for all commits down to the root.
-#    b) If the chosen commit is not the root, a regular rebase is performed from the chosen commit upwards.
-function gfix() {
-  # Get the list of commits
-  IFS=$'\n'
-  commits=($(git rev-list --abbrev-commit --pretty=oneline HEAD))
-
-  # Check if an argument is provided
-  if [ -z "$1" ]; then
-    # Print the commits and ask the user to select one
-    echo "Please select a commit:"
-    select commit in "${commits[@]}"; do
-      if [ -n "$commit" ]; then
-        # Extract the hash from the selected commit
-        commit_hash=$(echo $commit | awk '{print $1}')
-        break
-      else
-        echo "Invalid selection"
-      fi
-    done
-  else
-    commit_hash=$1
-  fi
-
-  git commit --fixup "$commit_hash"
-
-  # Check if the selected commit is the first commit
-  if git rev-parse "$commit_hash"^ >/dev/null 2>&1; then
-    # It's not the first commit, so we can use the normal rebase
-    GIT_SEQUENCE_EDITOR=":" git rebase -i --autosquash "$commit_hash"^
-  else
-    # It's the first commit, so we use --root
-    GIT_SEQUENCE_EDITOR=":" git rebase -i --root --autosquash
-  fi
-}
-
 export OPENAI_API_KEY=

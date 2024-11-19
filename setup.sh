@@ -83,6 +83,15 @@ else
     echo "$APP - Skipping"
 fi
 
+APP="batcat"
+if ! command -v $APP &> /dev/null
+then
+    echo "$APP - Downloading..."
+    sudo apt install $APP -y
+else
+    echo "$APP - Skipping"
+fi
+
 # key repeat gnome specific
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
 gsettings set org.gnome.desktop.peripherals.keyboard delay 280
@@ -122,6 +131,7 @@ ln -s ~/dev/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -s ~/dev/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/dev/dotfiles/tmux ~/.tmux
 ln -s ~/dev/dotfiles/nvim ~/.config/
+ln -s ~/dev/dotfiles/bat ~/.config/
 
 # npm packages
 npm install -g eslint_d typescript yarn typescript-language-server stylelint stylelint-lsp

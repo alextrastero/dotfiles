@@ -47,3 +47,5 @@ alias vimg="nvim +Git +only"
 
 # jekyll serve
 alias static="bundle exec jekyll serve --livereload"
+
+alias tree="tree -a"

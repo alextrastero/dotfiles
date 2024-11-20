@@ -62,7 +62,12 @@ export GOPATH="$HOME/go"
 
 export PATH="$GEM_HOME/bin:$GOPATH/bin:$PATH"
 
-export VISUAL=nvim
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
 export OPENAI_API_KEY=
+
+# Check if 'batcat' exists
+if command -v batcat &>/dev/null; then
+  export PAGER='batcat --paging=always'
+fi

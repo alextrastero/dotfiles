@@ -13,6 +13,10 @@ return {
         null_ls.builtins.diagnostics.stylelint,
         null_ls.builtins.formatting.stylelint,
       },
+      condition = function(utils)
+        return utils.root_has_file({ ".eslintrc", ".eslintrc.json", ".eslintrc.js" }) or
+        vim.fn.executable("eslint_d") == 1
+      end,
     })
   end,
 }

@@ -36,6 +36,11 @@ count() {
   ag -o --nofilename --nobreak $1 | wc -l
 }
 
+# grep for a word and open all instances of word it in (n)vim and scroll to *it
+rr() {
+  nvim $(ag $1 -l) +/$1
+}
+
 # vim
 alias vim="nvim"
 alias vimg="nvim +Git +only"

@@ -18,12 +18,19 @@ return {
         { 'branch', icons_enabled = false }
       },
       lualine_c = {
-        sessionName,
+        {
+          'filename',
+          path = 4,
+        }
       },
     },
     tabline = {
       lualine_a = {
-        'buffers',
+        {
+          'buffers',
+          show_filename_only = true,
+          hide_filename_extension = true,
+        },
       },
     },
   }

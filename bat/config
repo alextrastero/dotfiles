@@ -5,6 +5,7 @@
 --wrap=never
 # --style="numbers,changes,header"
 --style="plain"
+--theme="catppuccin-frappe"
 
 # Specify desired highlighting theme (e.g. "TwoDark"). Run `bat --list-themes`
 # for a list of all available themes

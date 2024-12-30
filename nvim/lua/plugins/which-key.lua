@@ -38,7 +38,7 @@ local which_key_mappings = {
   { "<leader><leader>", "<C-^>",                                     desc = "Alternate file" },
   { "<leader>1",        ":bprev<cr>",                                desc = "Prev buffer" },
   { "<leader>2",        ":bnext<cr>",                                desc = "Next buffer" },
-  { "<leader>k",        ":NERDTreeFind<cr>",                         desc = "Focus file with nerdtree" },
+  { "<leader>k",        ":Neotree filesystem<cr>",                   desc = "Focus file within tree" },
   { "<leader>e",        ":noh<cr>",                                  desc = "Clear Selection" },
   { "<leader>m",        ":Telescope oldfiles<cr>",                   desc = "T Oldfiles" },
   { "<leader>s",        ":Telescope git_status<cr>",                 desc = "T status" },
@@ -73,7 +73,7 @@ return {
     mappings('n', 'qq', ':bd<cr>', {})
     mappings('i', '<C-p>', '<C-r>*', {})
 
-    local wk = require('which-key')
+    local wk = require 'which-key'
     wk.add(which_key_mappings)
   end
 }

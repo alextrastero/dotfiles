@@ -1,7 +1,3 @@
-local function sessionName()
-  return 'mk:' .. require('auto-session.lib').current_session_name()
-end
-
 return {
   'nvim-lualine/lualine.nvim',
   event = { "VimEnter" },

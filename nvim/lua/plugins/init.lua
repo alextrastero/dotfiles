@@ -5,7 +5,6 @@ return {
 
   'christoomey/vim-tmux-navigator',
 
-  'ap/vim-buftabline',
   'airblade/vim-gitgutter',
 
   -- Comments
@@ -31,6 +30,14 @@ return {
       message_template = '<author> • <date>',
       date_format = '%r',
       message_when_not_committed = 'nope',
+    },
+  },
+
+  {
+    -- https://github.com/nvim-treesitter/nvim-treesitter-context
+    'nvim-treesitter/nvim-treesitter-context',
+    opts = {
+      max_lines = 1,
     },
   },
 

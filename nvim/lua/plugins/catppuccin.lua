@@ -19,5 +19,8 @@ return {
     vim.cmd [[hi! link Search Visual]]
 
     vim.cmd [[hi link NvimTreeIndentMarker VertSplit]]
+
+    vim.cmd [[hi! link TreesitterContextBottom Visual]]
+    vim.cmd [[hi! TreesitterContextLineNumber guifg=white]]
   end
 }

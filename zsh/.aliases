@@ -1,6 +1,6 @@
 alias c="clear"
 alias edit="vim ~/.config/nvim"
-alias ag="ag --path-to-ignore ~/.ignore --pager batcat"
+alias ag="ag --path-to-ignore ~/.ignore"
 alias dl="yt-dlp -f 'ba' -x --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-metadata"
 
 # GIT

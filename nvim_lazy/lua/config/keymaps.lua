@@ -26,13 +26,20 @@ vim.keymap.set("n", "<C-f>", format, {})
 
 vim.keymap.set("n", "<space>", "<cmd>bn<cr>", {})
 
-vim.keymap.set("n", "<C-p>", "<cmd>FzfLua files<cr>", {}) -- why cant this behave like <leader><space>
+vim.keymap.set("n", "<C-p>", "<cmd>FzfLua files<cr>", {}) -- TODO why cant this behave like <leader><space>
+vim.keymap.set("n", "<leader>m", "<cmd>FzfLua oldfiles<cr>", {})
+vim.keymap.set("n", "<leader>f", "<cmd>FzfLua live_grep<cr>")
 
 -- dont auto jump
 vim.cmd([[
   nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 ]])
+
+-- SETUP recent to leader m
+
+-- next hunk mapping
 -- remove indent line
+-- bring back surround
 -- remove that fancy commandline placement
 -- dont highlight other words when hovering
 -- show buffers always ?

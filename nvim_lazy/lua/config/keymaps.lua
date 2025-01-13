@@ -14,13 +14,15 @@ vim.keymap.set("n", "<leader>e", "<cmd>noh<CR>", { desc = "which_key_ignore" })
 
 vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", {})
 
--- BUFFER DELETE
+-- BUFFER DELETE keeping current split layout
 local bufdelete = function()
   Snacks.bufdelete()
 end
 
-vim.keymap.set("n", "qq", bufdelete, {})
+vim.keymap.set("n", "qq", "<cmd>bd<cr>", {})
 vim.keymap.set("n", "<C-d>", bufdelete, {})
+
+vim.keymap.set("n", "qq", "<cmd>bd<cr>", {})
 
 vim.keymap.set("n", ";", ":", {})
 
@@ -42,7 +44,11 @@ local diagnostic_goto = function(next, severity)
 end
 vim.keymap.set("n", "gj", diagnostic_goto(true), { desc = "Next Diagnostic" })
 vim.keymap.set("n", "gk", diagnostic_goto(false), { desc = "Prev Diagnostic" })
-vim.keymap.set("n", "ga", "<cmd>vim.lsp.buf.code_action<cr>", { desc = "CODE ACTIONS" })
+
+vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<cr>", { desc = "Code actions" })
+vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<cr>", { desc = "Peek definition" })
+vim.keymap.set("n", "gn", "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover doc" })
 
 vim.keymap.set("n", "<space>", "<cmd>bn<cr>", {})
 vim.keymap.set("n", "<leader>1", "<cmd>BufferLineCyclePrev<cr>", { desc = "which_key_ignore" })

@@ -2,6 +2,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      diagnostics = {
+        virtual_text = true,
+      },
       document_highlight = {
         enabled = false,
       },
@@ -17,6 +20,11 @@ return {
         enabled = false,
       },
     },
+  },
+  {
+    "folke/trouble.nvim",
+    -- opts will be merged with the parent spec
+    opts = { use_diagnostic_signs = true },
   },
   {
     "ibhagwan/fzf-lua",
@@ -38,6 +46,47 @@ return {
           -- (Yes, I know you shouldn't have 100KB minified files in source control.)
           syntax_limit_b = 1024 * 100, -- 100KB
         },
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    opts = function()
+      return {
+        formatters_by_ft = {
+          typescript = { "eslint_d" },
+          typescriptreact = { "eslint_d" },
+        },
+      }
+    end,
+  },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        -- https://cmp.saghen.dev/configuration/completion#list
+        list = {
+          selection = {
+            preselect = false,
+            auto_insert = true,
+          },
+        },
+      },
+      keymap = {
+        -- https://cmp.saghen.dev/configuration/keymap#super-tab
+        preset = "enter",
+        ["<Tab>"] = {
+          function(cmp)
+            if cmp.snippet_active() then
+              return cmp.accept()
+            else
+              return cmp.select_and_accept()
+            end
+          end,
+          "snippet_forward",
+          "fallback",
+        },
+        ["<S-Tab>"] = { "snippet_backward", "fallback" },
       },
     },
   },

@@ -13,10 +13,18 @@ vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", {})
 vim.keymap.set("n", "<leader>e", "<cmd>noh<CR>", {})
 
 vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", {})
-vim.keymap.set("n", "qq", "<cmd>bd<CR>", {})
-vim.keymap.set("n", "<C-d>", "<cmd>bd<CR>", {})
+
+-- BUFFER DELETE
+local bufdelete = function()
+  Snacks.bufdelete()
+end
+
+vim.keymap.set("n", "qq", bufdelete, {})
+vim.keymap.set("n", "<C-d>", bufdelete, {})
 
 vim.keymap.set("n", ";", ":", {})
+
+vim.keymap.set("n", "gt", "<cmd>Trouble diagnostics<CR>", {})
 
 -- FORMATTING
 local format = function()
@@ -24,11 +32,31 @@ local format = function()
 end
 vim.keymap.set("n", "<C-f>", format, {})
 
+-- DIAGNOSTIC
+local diagnostic_goto = function(next, severity)
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go({ severity = severity })
+  end
+end
+vim.keymap.set("n", "gj", diagnostic_goto(true), { desc = "Next Diagnostic" })
+vim.keymap.set("n", "gk", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+vim.keymap.set("n", "ga", "<cmd>vim.lsp.buf.code_action<cr>", { desc = "CODE ACTIONS" })
+
 vim.keymap.set("n", "<space>", "<cmd>bn<cr>", {})
 
 vim.keymap.set("n", "<C-p>", "<cmd>FzfLua files<cr>", {}) -- TODO why cant this behave like <leader><space>
 vim.keymap.set("n", "<leader>m", "<cmd>FzfLua oldfiles<cr>", {})
 vim.keymap.set("n", "<leader>f", "<cmd>FzfLua live_grep<cr>")
+
+-- vim-fugitive
+vim.keymap.set("n", "<leader>gs", ":Gedit :<cr>", { desc = "Status" })
+vim.keymap.set("n", "<leader>gd", ":vertical Git diff %<cr>", { desc = "Diff" })
+vim.keymap.set("n", "<leader>gl", ":0GcLog<cr>", { desc = "Log" })
+vim.keymap.set("n", "<leader>gb", ":vertical Git blame<cr>", { desc = "BLAME!" })
+--
+-- vim.keymap.set({ "n", "v" }, "S", "", {})
 
 -- dont auto jump
 vim.cmd([[
@@ -39,9 +67,6 @@ vim.cmd([[
 
 -- next hunk mapping
 -- remove indent line
--- bring back surround
--- remove that fancy commandline placement
--- dont highlight other words when hovering
 -- show buffers always ?
 -- disable mini.surround and copy over surround from old config
 -- dont highlight line

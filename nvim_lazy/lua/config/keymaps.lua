@@ -45,6 +45,8 @@ vim.keymap.set("n", "gk", diagnostic_goto(false), { desc = "Prev Diagnostic" })
 vim.keymap.set("n", "ga", "<cmd>vim.lsp.buf.code_action<cr>", { desc = "CODE ACTIONS" })
 
 vim.keymap.set("n", "<space>", "<cmd>bn<cr>", {})
+vim.keymap.set("n", "<leader>1", "<cmd>BufferLineCyclePrev<cr>", { desc = "which_key_ignore" })
+vim.keymap.set("n", "<leader>2", "<cmd>BufferLineCycleNext<cr>", { desc = "which_key_ignore" })
 
 -- FzfLua mappings
 vim.keymap.set("n", "<C-p>", "<cmd>FzfLua files<cr>", {}) -- TODO why cant this behave like <leader><space>

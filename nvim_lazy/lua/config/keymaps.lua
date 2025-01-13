@@ -67,9 +67,11 @@ vim.keymap.set("n", "<leader>gd", ":vertical Git diff %<cr>", { desc = "Diff" })
 vim.keymap.set("n", "<leader>gl", ":0GcLog<cr>", { desc = "Log" })
 vim.keymap.set("n", "<leader>gb", ":vertical Git blame<cr>", { desc = "BLAME!" })
 
+-- hunks
+vim.keymap.set("n", "<leader>tx", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset Hunk" })
+vim.keymap.set("n", "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Blame Toggle" })
+
 vim.keymap.set("n", "<leader>c<space>", "<cmd>normal gcc<cr>", { desc = "Comment current line" })
---
--- vim.keymap.set({ "n", "v" }, "S", "", {})
 
 -- dont auto jump
 vim.cmd([[

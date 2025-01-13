@@ -108,6 +108,7 @@ return {
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
       },
     },
+    opts_extend = { "sources.default" },
   },
   {
     "nvim-treesitter/nvim-treesitter",

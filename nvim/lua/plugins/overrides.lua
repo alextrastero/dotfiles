@@ -8,6 +8,23 @@ return {
       document_highlight = {
         enabled = false,
       },
+      servers = {
+        eslint = {
+          settings = {
+            workingDirectories = { mode = "auto" },
+          },
+        },
+      },
+      setup = {
+        eslint = function()
+          LazyVim.format.register(LazyVim.lsp.formatter({
+            name = "eslint: lsp",
+            primary = false,
+            priority = 200,
+            filter = "eslint",
+          }))
+        end,
+      },
     },
   },
   {
@@ -55,8 +72,9 @@ return {
       return {
         formatters_by_ft = {
           lua = { "stylua" },
-          typescript = { "eslint_d" },
-          typescriptreact = { "eslint_d" },
+          typescript = { "prettier" },
+          typescriptreact = { "prettier" },
+          jsonc = { "prettier" },
         },
       }
     end,

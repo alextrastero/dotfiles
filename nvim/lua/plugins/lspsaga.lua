@@ -6,16 +6,16 @@ return {
       lightbulb = {
         enable = false,
       },
-      definition = {
-        width = 1,
-        height = 1,
-      },
-      implement = {
-        virtual_text = false,
-      },
-      finder = {
-        layout = "normal",
-      },
+      -- definition = {
+      --   width = 1,
+      --   height = 1,
+      -- },
+      -- implement = {
+      --   virtual_text = false,
+      -- },
+      -- finder = {
+      --   layout = "normal",
+      -- },
     })
   end,
 }

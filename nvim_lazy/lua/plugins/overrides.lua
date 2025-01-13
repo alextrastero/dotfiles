@@ -54,6 +54,7 @@ return {
     opts = function()
       return {
         formatters_by_ft = {
+          lua = { "stylua" },
           typescript = { "eslint_d" },
           typescriptreact = { "eslint_d" },
         },

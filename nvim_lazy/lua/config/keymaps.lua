@@ -10,7 +10,7 @@ vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", {})
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", {})
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", {})
 
-vim.keymap.set("n", "<leader>e", "<cmd>noh<CR>", {})
+vim.keymap.set("n", "<leader>e", "<cmd>noh<CR>", { desc = "which_key_ignore" })
 
 vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", {})
 
@@ -46,15 +46,20 @@ vim.keymap.set("n", "ga", "<cmd>vim.lsp.buf.code_action<cr>", { desc = "CODE ACT
 
 vim.keymap.set("n", "<space>", "<cmd>bn<cr>", {})
 
+-- FzfLua mappings
 vim.keymap.set("n", "<C-p>", "<cmd>FzfLua files<cr>", {}) -- TODO why cant this behave like <leader><space>
 vim.keymap.set("n", "<leader>m", "<cmd>FzfLua oldfiles<cr>", {})
 vim.keymap.set("n", "<leader>f", "<cmd>FzfLua live_grep<cr>")
+vim.keymap.set("n", "<leader>w", "<cmd>FzfLua grep_cword<cr>", { desc = "Grep word under cursor " })
+vim.keymap.set("n", "<tab>", "<cmd>FzfLua buffers<cr>", { desc = "buffers" })
 
 -- vim-fugitive
 vim.keymap.set("n", "<leader>gs", ":Gedit :<cr>", { desc = "Status" })
 vim.keymap.set("n", "<leader>gd", ":vertical Git diff %<cr>", { desc = "Diff" })
 vim.keymap.set("n", "<leader>gl", ":0GcLog<cr>", { desc = "Log" })
 vim.keymap.set("n", "<leader>gb", ":vertical Git blame<cr>", { desc = "BLAME!" })
+
+vim.keymap.set("n", "<leader>c<space>", "<cmd>normal gcc<cr>", { desc = "Comment current line" })
 --
 -- vim.keymap.set({ "n", "v" }, "S", "", {})
 
@@ -62,15 +67,3 @@ vim.keymap.set("n", "<leader>gb", ":vertical Git blame<cr>", { desc = "BLAME!" }
 vim.cmd([[
   nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 ]])
-
--- SETUP recent to leader m
-
--- next hunk mapping
--- remove indent line
--- show buffers always ?
--- disable mini.surround and copy over surround from old config
--- dont highlight line
--- add mapping for: leader c space comment line
--- which key placement
--- TODO s not working?
--- grep for word under cursor

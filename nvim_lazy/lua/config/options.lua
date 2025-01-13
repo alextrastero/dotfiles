@@ -6,4 +6,3 @@ vim.g.snacks_animate = false
 vim.opt.cursorline = false
 vim.opt.guicursor = ""
 vim.opt.colorcolumn = "120"
-vim.opt.wildmode = "longest"

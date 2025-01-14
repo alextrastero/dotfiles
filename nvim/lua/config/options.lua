@@ -7,3 +7,5 @@ vim.opt.cursorline = false
 vim.opt.swapfile = false
 vim.opt.guicursor = ""
 vim.opt.colorcolumn = "120"
+vim.lsp.set_log_level("OFF")
+vim.opt.wildmode = "full"

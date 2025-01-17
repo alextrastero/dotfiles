@@ -1,6 +1,8 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    -- local keys = require("lazyvim.plugins.lsp.keymaps").get()
+    -- keys[#keys + 1] = { "K", false }
     opts = {
       diagnostics = {
         virtual_text = false,
@@ -74,6 +76,7 @@ return {
           lua = { "stylua" },
           typescript = { "prettier" },
           typescriptreact = { "prettier" },
+          javascript = { "prettier" },
           jsonc = { "prettier" },
         },
       }
@@ -82,13 +85,25 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      -- TODO remove from complition when in commandline
       completion = {
         -- https://cmp.saghen.dev/configuration/completion#list
         list = {
           selection = {
             preselect = true,
-            auto_insert = true,
+            auto_insert = false,
           },
+        },
+        documentation = {
+          window = {
+            border = "rounded",
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+          },
+        },
+        menu = {
+          border = "rounded",
+          draw = { gap = 2 },
+          winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine: BlinkCmpMenuSelection,Search:None",
         },
       },
       keymap = {

@@ -73,6 +73,9 @@ vim.keymap.set("n", "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>",
 
 vim.keymap.set("n", "<leader>c<space>", "<cmd>normal gcc<cr>", { desc = "Comment current line" })
 
+-- yank current filename
+vim.keymap.set("n", "yfn", "<cmd>let @+ = expand('%')<cr>", { desc = "Yank file name" })
+
 -- dont auto jump
 vim.cmd([[
   nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>

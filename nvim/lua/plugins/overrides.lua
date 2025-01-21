@@ -74,9 +74,9 @@ return {
       return {
         formatters_by_ft = {
           lua = { "stylua" },
-          typescript = { "prettier" },
-          typescriptreact = { "prettier" },
-          javascript = { "prettier" },
+          typescript = { "eslint_d", "prettier" },
+          typescriptreact = { "eslint_d", "prettier" },
+          javascript = { "eslint_d", "prettier" },
           jsonc = { "prettier" },
         },
       }
@@ -87,24 +87,24 @@ return {
     opts = {
       -- TODO remove from complition when in commandline
       completion = {
-        -- https://cmp.saghen.dev/configuration/completion#list
+        --   -- https://cmp.saghen.dev/configuration/completion#list
         list = {
           selection = {
             preselect = true,
             auto_insert = false,
           },
         },
-        documentation = {
-          window = {
-            border = "rounded",
-            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
-          },
-        },
-        menu = {
-          border = "rounded",
-          draw = { gap = 2 },
-          winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine: BlinkCmpMenuSelection,Search:None",
-        },
+        --   documentation = {
+        --     window = {
+        --       border = "rounded",
+        --       winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+        --     },
+        --   },
+        --   menu = {
+        --     border = "rounded",
+        --     draw = { gap = 2 },
+        --     winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine: BlinkCmpMenuSelection,Search:None",
+        --   },
       },
       keymap = {
         -- https://cmp.saghen.dev/configuration/keymap#super-tab

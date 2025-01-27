@@ -10,23 +10,23 @@ return {
       document_highlight = {
         enabled = false,
       },
-      servers = {
-        eslint = {
-          settings = {
-            workingDirectories = { mode = "auto" },
-          },
-        },
-      },
-      setup = {
-        eslint = function()
-          LazyVim.format.register(LazyVim.lsp.formatter({
-            name = "eslint: lsp",
-            primary = false,
-            priority = 200,
-            filter = "eslint",
-          }))
-        end,
-      },
+      -- servers = {
+      --   eslint = {
+      --     settings = {
+      --       workingDirectories = { mode = "auto" },
+      --     },
+      --   },
+      -- },
+      -- setup = {
+      --   eslint = function()
+      --     LazyVim.format.register(LazyVim.lsp.formatter({
+      --       name = "eslint: lsp",
+      --       primary = false,
+      --       priority = 200,
+      --       filter = "eslint",
+      --     }))
+      --   end,
+      -- },
     },
   },
   {
@@ -74,18 +74,18 @@ return {
       return {
         formatters_by_ft = {
           lua = { "stylua" },
-          typescript = { "eslint_d", "prettier" },
-          typescriptreact = { "eslint_d", "prettier" },
-          javascript = { "eslint_d", "prettier" },
-          jsonc = { "prettier" },
+          typescript = { "eslint_d" },
+          typescriptreact = { "eslint_d" },
+          javascript = { "eslint_d" },
+          jsonc = { "eslint_d" },
         },
+        async = true,
       }
     end,
   },
   {
     "saghen/blink.cmp",
     opts = {
-      -- TODO remove from complition when in commandline
       completion = {
         --   -- https://cmp.saghen.dev/configuration/completion#list
         list = {
@@ -94,17 +94,9 @@ return {
             auto_insert = false,
           },
         },
-        --   documentation = {
-        --     window = {
-        --       border = "rounded",
-        --       winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
-        --     },
-        --   },
-        --   menu = {
-        --     border = "rounded",
-        --     draw = { gap = 2 },
-        --     winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine: BlinkCmpMenuSelection,Search:None",
-        --   },
+      },
+      sources = {
+        cmdline = {},
       },
       keymap = {
         -- https://cmp.saghen.dev/configuration/keymap#super-tab

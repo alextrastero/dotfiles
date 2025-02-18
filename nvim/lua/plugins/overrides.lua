@@ -66,6 +66,10 @@ return {
           syntax_limit_b = 1024 * 100, -- 100KB
         },
       },
+      lsp = {
+        jump1 = true,
+        includeDeclaration = true,
+      },
     },
   },
   {
@@ -95,8 +99,8 @@ return {
           },
         },
       },
-      sources = {
-        cmdline = {},
+      cmdline = {
+        sources = {},
       },
       keymap = {
         -- https://cmp.saghen.dev/configuration/keymap#super-tab

@@ -90,8 +90,17 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      enabled = function()
+        return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
+          and vim.bo.buftype ~= "prompt"
+          and vim.b.completion ~= false
+      end,
       completion = {
-        --   -- https://cmp.saghen.dev/configuration/completion#list
+        menu = {
+          auto_show = function(ctx)
+            return ctx.mode ~= "cmdline"
+          end,
+        },
         list = {
           selection = {
             preselect = true,
@@ -104,7 +113,7 @@ return {
       },
       keymap = {
         -- https://cmp.saghen.dev/configuration/keymap#super-tab
-        preset = "enter",
+        preset = "default",
         ["<Tab>"] = {
           function(cmp)
             if cmp.snippet_active() then

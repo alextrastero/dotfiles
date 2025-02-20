@@ -91,7 +91,7 @@ return {
     "saghen/blink.cmp",
     opts = {
       enabled = function()
-        return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
+        return not vim.tbl_contains({ "markdown", "gitcommit" }, vim.bo.filetype)
           and vim.bo.buftype ~= "prompt"
           and vim.b.completion ~= false
       end,
@@ -113,7 +113,7 @@ return {
       },
       keymap = {
         -- https://cmp.saghen.dev/configuration/keymap#super-tab
-        preset = "default",
+        preset = "enter",
         ["<Tab>"] = {
           function(cmp)
             if cmp.snippet_active() then

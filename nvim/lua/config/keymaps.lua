@@ -50,7 +50,6 @@ vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<cr>", { desc = "Peek def
 vim.keymap.set("n", "gn", "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover doc" })
 
-vim.keymap.set("n", "<space>", "<cmd>bn<cr>", {})
 vim.keymap.set("n", "<leader>1", "<cmd>BufferLineCyclePrev<cr>", { desc = "which_key_ignore" })
 vim.keymap.set("n", "<leader>2", "<cmd>BufferLineCycleNext<cr>", { desc = "which_key_ignore" })
 
@@ -80,3 +79,6 @@ vim.keymap.set("n", "yfn", "<cmd>let @+ = expand('%')<cr>", { desc = "Yank file 
 vim.cmd([[
   nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 ]])
+
+-- go to next hunk
+vim.keymap.set("n", "<space>", "<cmd>Gitsigns nav_hunk next<cr>", {})

@@ -23,6 +23,10 @@ return {
       [[                                                            ]],
       [[                                                            ]],
       [[      [chore, docs, feat, fix, refactor, style, test]       ]],
+      [[           - zM close all folds                             ]],
+      [[           - zR open all folds                              ]],
+      [[           - za toggle fold under cursor                    ]],
+      [[           - zA toggle fold in the whole block under cursor ]],
     }
     dashboard.section.buttons.val = {
       --#region

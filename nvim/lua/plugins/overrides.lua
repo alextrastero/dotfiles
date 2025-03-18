@@ -4,6 +4,7 @@ return {
     -- local keys = require("lazyvim.plugins.lsp.keymaps").get()
     -- keys[#keys + 1] = { "K", false }
     opts = {
+      ---@class PluginLspOpts
       diagnostics = {
         virtual_text = false,
       },
@@ -75,7 +76,9 @@ return {
   {
     "stevearc/conform.nvim",
     opts = function()
-      return {
+      ---@module "conform"
+      ---@type conform.setupOpts
+      local opts = {
         formatters_by_ft = {
           lua = { "stylua" },
           typescript = { "eslint_d" },
@@ -83,8 +86,8 @@ return {
           javascript = { "eslint_d" },
           jsonc = { "eslint_d" },
         },
-        async = true,
       }
+      return opts
     end,
   },
   {

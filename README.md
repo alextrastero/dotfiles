@@ -24,7 +24,7 @@ I use linux (currently ubuntu & gnome), these are my required tools for front en
 - [oh-my-zsh](https://ohmyz.sh/#install)
 - [rg](https://github.com/BurntSushi/ripgrep)
 - [flameshot](https://flameshot.org/docs/installation/installation-linux/)
-- [neovim](https://github.com/neovim/neovim/releases/)
+- [neovim](https://github.com/neovim/neovim/releases/) - in assets download "nvim-linux-x86_64.tar.gz"
 - configure neovim python adapter:
     `sudo apt-get install python3-neovim`
     `sudo apt-get install build-essential`

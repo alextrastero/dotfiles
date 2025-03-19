@@ -97,24 +97,53 @@ return {
     "saghen/blink.cmp",
     opts = {
       enabled = function()
+        -- Get cursor position
+        local row, column = unpack(vim.api.nvim_win_get_cursor(0))
+
+        -- Check if we're inside a comment or string
+        local success, node = pcall(vim.treesitter.get_node, {
+          pos = { row - 1, math.max(0, column - 1) },
+          ignore_injections = false,
+        })
+        -- DEBUG which node type is undercursor
+        -- print("Node Type:", success and node and node:type() or "No Node")
+
+        local reject = {
+          "comment",
+          "line_comment",
+          "binary_expression",
+          "description",
+          "comment_content",
+          "block_comment",
+          "string_start",
+          "string_fragment",
+          "string_content",
+          "string_end",
+        }
+        if success and node and vim.tbl_contains(reject, node:type()) then
+          return false -- Disable Blink completely inside comments & strings
+        end
+
+        -- **Disable Blink in LSP rename popup**
+        local buftype = vim.bo.buftype
+        if buftype == "prompt" or buftype == "nofile" then
+          return false -- No completion at all in renaming popups
+        end
+
+        -- Keep Blink disabled for `gitcommit` and prompts
         return not vim.tbl_contains({ "gitcommit" }, vim.bo.filetype)
           and vim.bo.buftype ~= "prompt"
           and vim.b.completion ~= false
       end,
       completion = {
+        ghost_text = {
+          enabled = false,
+        },
         menu = {
+          draw = {
+            treesitter = { "lsp" },
+          },
           auto_show = function(ctx)
-            local row, column = unpack(vim.api.nvim_win_get_cursor(0))
-            local success, node = pcall(vim.treesitter.get_node, {
-              pos = { row - 1, math.max(0, column - 1) },
-              ignore_injections = false,
-            })
-            local reject =
-              { "comment", "line_comment", "block_comment", "string_start", "string_content", "string_end" }
-            if success and node and vim.tbl_contains(reject, node:type()) then
-              return false
-            end
-
             return ctx.mode ~= "cmdline"
           end,
         },
@@ -145,6 +174,7 @@ return {
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
       },
       sources = {
+        min_keyword_length = 3,
         -- Default sources for all file types
         default = { "lsp", "buffer", "snippets", "path" },
 

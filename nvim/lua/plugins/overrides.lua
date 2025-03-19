@@ -104,6 +104,17 @@ return {
       completion = {
         menu = {
           auto_show = function(ctx)
+            local row, column = unpack(vim.api.nvim_win_get_cursor(0))
+            local success, node = pcall(vim.treesitter.get_node, {
+              pos = { row - 1, math.max(0, column - 1) },
+              ignore_injections = false,
+            })
+            local reject =
+              { "comment", "line_comment", "block_comment", "string_start", "string_content", "string_end" }
+            if success and node and vim.tbl_contains(reject, node:type()) then
+              return false
+            end
+
             return ctx.mode ~= "cmdline"
           end,
         },

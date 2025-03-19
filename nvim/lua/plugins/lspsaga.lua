@@ -6,6 +6,9 @@ return {
       lightbulb = {
         enable = false,
       },
+      rename = {
+        in_select = false,
+      },
       -- definition = {
       --   width = 1,
       --   height = 1,

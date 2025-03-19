@@ -97,7 +97,7 @@ return {
     "saghen/blink.cmp",
     opts = {
       enabled = function()
-        return not vim.tbl_contains({ "markdown", "gitcommit" }, vim.bo.filetype)
+        return not vim.tbl_contains({ "gitcommit" }, vim.bo.filetype)
           and vim.bo.buftype ~= "prompt"
           and vim.b.completion ~= false
       end,
@@ -132,6 +132,15 @@ return {
           "fallback",
         },
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      },
+      sources = {
+        -- Default sources for all file types
+        default = { "lsp", "buffer", "snippets", "path" },
+
+        -- Override sources for Markdown: only allow `path`
+        per_filetype = {
+          markdown = { "path" },
+        },
       },
     },
     opts_extend = { "sources.default" },

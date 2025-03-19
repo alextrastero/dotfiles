@@ -49,6 +49,7 @@ return {
   {
     "ibhagwan/fzf-lua",
     opts = {
+      -- Hit Ctrl-g in grep to grep through results
       oldfiles = {
         -- In Telescope, when I used <leader>fr, it would load old buffers.
         -- fzf lua does the same, but by default buffers visited in the current
@@ -85,6 +86,8 @@ return {
           typescriptreact = { "eslint_d" },
           javascript = { "eslint_d" },
           jsonc = { "eslint_d" },
+          html = { "prettier" },
+          ["*"] = { "codespell" },
         },
       }
       return opts

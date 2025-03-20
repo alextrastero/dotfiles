@@ -173,9 +173,8 @@ return {
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
       },
       sources = {
-        min_keyword_length = 3,
         -- Default sources for all file types
-        default = { "lsp", "snippets", "path" }, -- removed "buffer"
+        default = { "buffer", "lsp", "snippets", "path" }, -- removed "buffer"
 
         -- Override sources for Markdown: only allow `path`
         per_filetype = {

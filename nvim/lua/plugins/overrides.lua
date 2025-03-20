@@ -125,8 +125,7 @@ return {
         end
 
         -- **Disable Blink in LSP rename popup**
-        local buftype = vim.bo.buftype
-        if buftype == "prompt" or buftype == "nofile" then
+        if vim.bo.buftype == "nofile" then
           return false -- No completion at all in renaming popups
         end
 

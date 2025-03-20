@@ -1,8 +1,6 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    -- local keys = require("lazyvim.plugins.lsp.keymaps").get()
-    -- keys[#keys + 1] = { "K", false }
     opts = {
       ---@class PluginLspOpts
       diagnostics = {
@@ -11,23 +9,6 @@ return {
       document_highlight = {
         enabled = false,
       },
-      -- servers = {
-      --   eslint = {
-      --     settings = {
-      --       workingDirectories = { mode = "auto" },
-      --     },
-      --   },
-      -- },
-      -- setup = {
-      --   eslint = function()
-      --     LazyVim.format.register(LazyVim.lsp.formatter({
-      --       name = "eslint: lsp",
-      --       primary = false,
-      --       priority = 200,
-      --       filter = "eslint",
-      --     }))
-      --   end,
-      -- },
     },
   },
   {

@@ -13,9 +13,23 @@ local reject = {
   "string_end",
 }
 
+local getNode = function()
+  -- Get cursor position
+  local row, column = unpack(vim.api.nvim_win_get_cursor(0))
+
+  -- Check if we're inside a comment or string
+  local success, node = pcall(vim.treesitter.get_node, {
+    pos = { row - 1, math.max(0, column - 1) },
+    ignore_injections = false,
+  })
+
+  return success and node
+end
+
 --- Checks wether node under cursor is of type `reject`
+--- @param reject string[]
 --- @return boolean
-local isDisabled = function()
+local isDisabled = function(_reject)
   -- Get cursor position
   local row, column = unpack(vim.api.nvim_win_get_cursor(0))
 
@@ -26,8 +40,16 @@ local isDisabled = function()
   })
 
   -- DEBUG which node type is undercursor
-  -- print("Node Type:", success and node and node:type() or "No Node")
-  return not not (success and node and vim.tbl_contains(reject, node:type()))
+  print("Node Type:", success and node and node:type() or "No Node")
+  return not not (success and node and vim.tbl_contains(_reject, node:type()))
+end
+
+local isComment = function()
+  return isDisabled({
+    "comment",
+    "line_comment",
+    "comment_content",
+  })
 end
 
 return {
@@ -37,10 +59,10 @@ return {
     ---@type blink.cmp.Config
     opts = {
       enabled = function()
-        if isDisabled() then
-          return false
-        -- **Disable Blink in LSP rename popup**
-        elseif vim.bo.buftype == "nofile" then
+        -- if isDisabled() then
+        --   return false
+        -- -- **Disable Blink in LSP rename popup**
+        if vim.bo.buftype == "nofile" then
           return true
         else
           -- Keep Blink disabled for `gitcommit` and prompts
@@ -88,13 +110,16 @@ return {
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
       },
       sources = {
-        -- Default sources for all file types
-        default = { "buffer", "lsp", "snippets", "path" }, -- removed "buffer"
-
-        -- Override sources for Markdown: only allow `path`
-        per_filetype = {
-          markdown = { "path" },
-        },
+        default = function()
+          if vim.bo.filetype == "markdown" then
+            return { "lsp", "path" }
+          elseif isComment() then
+            return { "buffer" }
+          else
+            -- Default sources for all file types
+            return { "buffer", "lsp", "snippets", "path" }
+          end
+        end,
       },
     },
     opts_extend = { "sources.default" },

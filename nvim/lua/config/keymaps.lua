@@ -47,6 +47,7 @@ vim.keymap.set("n", "gk", diagnostic_goto(false), { desc = "Prev Diagnostic" })
 
 vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<cr>", { desc = "Code actions" })
 vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<cr>", { desc = "Peek definition" })
+vim.keymap.set("n", "gP", "<cmd>Lspsaga peek_type_definition<cr>", { desc = "Peek Type definition" })
 vim.keymap.set("n", "gn", "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover doc" })
 

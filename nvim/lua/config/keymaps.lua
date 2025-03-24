@@ -83,3 +83,6 @@ vim.cmd([[
 
 -- go to next hunk
 vim.keymap.set("n", "<space>", "<cmd>Gitsigns nav_hunk next<cr>", {})
+
+-- zen mode
+vim.keymap.set("n", "<leader>z", "<cmd>lua require'zen-mode'.toggle()<cr>", {})

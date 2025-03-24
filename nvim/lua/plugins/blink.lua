@@ -27,7 +27,7 @@ local getNode = function()
 end
 
 --- Checks wether node under cursor is of type `reject`
---- @param reject string[]
+--- @param _reject string[]
 --- @return boolean
 local isDisabled = function(_reject)
   -- Get cursor position
@@ -40,7 +40,7 @@ local isDisabled = function(_reject)
   })
 
   -- DEBUG which node type is undercursor
-  print("Node Type:", success and node and node:type() or "No Node")
+  -- print("Node Type:", success and node and node:type() or "No Node")
   return not not (success and node and vim.tbl_contains(_reject, node:type()))
 end
 

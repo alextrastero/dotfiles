@@ -45,11 +45,13 @@ end
 vim.keymap.set("n", "gj", diagnostic_goto(true), { desc = "Next Diagnostic" })
 vim.keymap.set("n", "gk", diagnostic_goto(false), { desc = "Prev Diagnostic" })
 
+-- LSP
 vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<cr>", { desc = "Code actions" })
 vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<cr>", { desc = "Peek definition" })
 vim.keymap.set("n", "gP", "<cmd>Lspsaga peek_type_definition<cr>", { desc = "Peek Type definition" })
 vim.keymap.set("n", "gn", "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover doc" })
+vim.keymap.set("n", "gV", "<cmd>vsplit | FzfLua lsp_definitions<cr>", { desc = "Go to definition in split" })
 
 vim.keymap.set("n", "<leader>1", "<cmd>BufferLineCyclePrev<cr>", { desc = "which_key_ignore" })
 vim.keymap.set("n", "<leader>2", "<cmd>BufferLineCycleNext<cr>", { desc = "which_key_ignore" })

@@ -30,7 +30,8 @@ vim.keymap.set("n", "gt", "<cmd>Trouble diagnostics<CR>", {})
 
 -- FORMATTING
 local format = function()
-  Util.format({ force = true })
+  -- Util.format({ force = true })
+  vim.lsp.buf.format({ async = false })
 end
 vim.keymap.set("n", "<C-f>", format, {})
 

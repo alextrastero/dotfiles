@@ -48,6 +48,21 @@ function fixup() {
   git rebase -i $(git merge-base HEAD master)
 }
 
+# update current branch with master
+function update() {
+  local main_branch # main or master
+  if git show-ref --verify --quiet refs/heads/main; then
+    main_branch="main"
+  else
+    main_branch="master"
+  fi
+
+  git checkout "$main_branch" && \
+  git pull && \
+  git checkout - && \
+  git rebase -
+}
+
 # enable keybindings
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 # config
@@ -57,7 +72,7 @@ export FZF_DEFAULT_OPTS='--height 40%'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export GEM_HOME="$HOME/gems"
-export GOPATH="$HOME/go"
+export GOPATH="/usr/local/go"
 
 export PATH="$GEM_HOME/bin:$GOPATH/bin:$PATH"
 

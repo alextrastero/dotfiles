@@ -1,5 +1,11 @@
 return {
   {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      numhl = true,
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       ---@class PluginLspOpts

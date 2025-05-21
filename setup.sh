@@ -134,4 +134,4 @@ ln -s ~/dev/dotfiles/nvim ~/.config/
 ln -s ~/dev/dotfiles/bat ~/.config/
 
 # npm packages
-npm install -g eslint_d typescript yarn typescript-language-server stylelint stylelint-lsp
+npm install -g typescript yarn eslint-lsp

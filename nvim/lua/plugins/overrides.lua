@@ -74,7 +74,7 @@ return {
           javascript = { "eslint_d" },
           jsonc = { "eslint_d" },
           html = { "prettier" },
-          ["*"] = { "codespell" },
+          -- ["*"] = { "codespell" },
         },
       }
       return opts

@@ -1,0 +1,58 @@
+{
+  "settingsVersion": "2.2.1",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n  background: rgba(0, 0, 0, 0.9) !important;\n  border: 2px solid #fff !important;\n  border-radius: 4px !important;\n  padding: 6px 8px !important;\n}\n\ndiv > .vimiumHintMarker span {\n  color: #fff !important;\n  font-size: 12px !important;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n  color: hotpink !important;\n}",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "/",
+      "pattern": "https?://studio.glassnode.*"
+    },
+    {
+      "passKeys": "/",
+      "pattern": "https?://github.com/*"
+    },
+    {
+      "passKeys": "p",
+      "pattern": "https?://cms.glassnode.tech/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://meet.google.com/*"
+    },
+    {
+      "passKeys": "*",
+      "pattern": "https?://ev.io/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://ev.io/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://ev.io/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://studio-git-rp-studio-global-search.glassnode.io/*"
+    },
+    {
+      "passKeys": "/",
+      "pattern": "https?://localhost:3000/*"
+    },
+    {
+      "passKeys": "tb",
+      "pattern": "https?://gitlab.com/*"
+    },
+    {
+      "passKeys": "/",
+      "pattern": "https?://*.glassnode.*"
+    },
+    {
+      "passKeys": "o/p",
+      "pattern": "*"
+    }
+  ]
+}

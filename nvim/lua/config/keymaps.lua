@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local Util = require("lazyvim.util")
+-- local Util = require("lazyvim.util")
 
 -- TmuxNavigate
 vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", {})

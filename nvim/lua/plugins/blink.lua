@@ -72,6 +72,22 @@ return {
         end
       end,
       completion = {
+        accept = {
+          auto_brackets = {
+            -- Synchronously use the kind of the item to determine if brackets should be added
+            kind_resolution = {
+              enabled = true,
+              -- blocked_filetypes = { 'typescriptreact', 'javascriptreact', 'vue' },
+            },
+            -- Asynchronously use semantic token to determine if brackets should be added
+            semantic_token_resolution = {
+              enabled = false,
+              blocked_filetypes = { "java" },
+              -- How long to wait for semantic tokens to return before assuming no brackets should be added
+              timeout_ms = 400,
+            },
+          },
+        },
         ghost_text = {
           enabled = false,
         },

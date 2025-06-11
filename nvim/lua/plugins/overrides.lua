@@ -73,7 +73,7 @@ return {
           typescriptreact = { "eslint_d" },
           javascript = { "eslint_d" },
           jsonc = { "eslint_d" },
-          html = { "prettier" },
+          -- html = { "prettier" },
           -- ["*"] = { "codespell" },
         },
       }

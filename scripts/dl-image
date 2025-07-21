@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# CONFIG: Customize this
+USER="dharmx"
+REPO="walls"
+BRANCH="main"
+TARGET_DIR="$HOME/Pictures/wallpapers"
+IMAGE_EXTENSIONS="\\.jpe?g$|\\.png$"
+
+# Ensure folder exists
+mkdir -p "$TARGET_DIR"
+
+# Get list of image files from GitHub
+file_list=$(curl -s "https://api.github.com/repos/$USER/$REPO/git/trees/$BRANCH?recursive=1" \
+  | jq -r --arg regex "$IMAGE_EXTENSIONS" '.tree[] | select(.path | test($regex; "i")) | .path')
+
+# Check if we got files
+if [[ -z "$file_list" ]]; then
+  echo "No image files found in the GitHub repo."
+  exit 1
+fi
+
+# Pick a random image
+random_file=$(echo "$file_list" | shuf -n 1)
+filename=$(basename "$random_file")
+output_path="$TARGET_DIR/$filename"
+
+# Download the image
+raw_url="https://raw.githubusercontent.com/$USER/$REPO/$BRANCH/$random_file"
+curl -L -o "$output_path" "$raw_url"
+
+# Check if download was successful
+if [[ $? -eq 0 && -f "$output_path" ]]; then
+  # Remove any other existing images in folder (but not the one we just downloaded)
+  find "$TARGET_DIR" -type f -iregex '.*\.\(jpg\|jpeg\|png\)' -not -path "$output_path" -delete
+else
+  exit 1
+fi
+
+# Set as wallpaper
+gsettings set org.gnome.desktop.background picture-uri "file://$output_path"
+gsettings set org.gnome.desktop.background picture-uri-dark "file://$output_path"
+
+echo "Wallpaper set to: $output_path"

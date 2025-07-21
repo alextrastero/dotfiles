@@ -1,6 +1,6 @@
 alias c="clear"
 alias edit="vim ~/.config/nvim"
-alias ag="ag --path-to-ignore ~/.ignore --pager batcat"
+alias ag="ag --path-to-ignore ~/.ignore"
 alias dl="yt-dlp -f 'ba' -x --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-metadata"
 
 # GIT
@@ -11,7 +11,6 @@ alias gundo='git reset --soft HEAD~ && git reset HEAD .' # Uncommit last commit 
 alias gll="gfa && gf -p && gl"
 alias gamend="git commit --amend --no-edit --no-verify"
 alias gc="git commit -v -S"
-alias update="gco master;gll;gco -;git rebase -" # NOTE develop
 alias tempo="git add .; git commit -m tempo --no-verify"
 alias merge="git add .; git commit -m merge_this --no-verify"
 alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"

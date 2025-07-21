@@ -63,6 +63,20 @@ function update() {
   git rebase -
 }
 
+function agv() {
+  local word="$1"
+  if [[ -z "$word" ]]; then
+    echo "Find word and open files in vim\nUsage: agv <word>"
+    return 1
+  fi
+  local files=$(ag -l "$word")
+  if [[ -n "$files" ]]; then
+    vim $(echo "$files" | tr '\n' ' ')
+  else
+    echo "No files found containing '$word'"
+  fi
+}
+
 # enable keybindings
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 # config

@@ -3,7 +3,9 @@ export ZSH=$HOME/.oh-my-zsh
 zstyle ':omz:alpha:lib:git' async-prompt no
 
 ZSH_THEME="minimal"
-plugins=(git yarn)
+# clone https://github.com/zsh-users/zsh-syntax-highlighting
+# into .oh-my-zsh/custom/plugins
+plugins=(git zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 #aliases

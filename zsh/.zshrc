@@ -79,6 +79,14 @@ function agv() {
   fi
 }
 
+function blame() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: blame <word>"
+    return 1
+  fi
+  git log -S"$1" -p
+}
+
 # enable keybindings
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 # config

@@ -90,7 +90,6 @@ function blame() {
 # enable keybindings
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 # config
-# export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore --pager less -g ""'
 export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore -g ""'
 export FZF_DEFAULT_OPTS='--height 40%'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

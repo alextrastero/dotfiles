@@ -50,14 +50,17 @@ function fixup() {
   git rebase -i $(git merge-base HEAD master)
 }
 
+git_main_branch() {
+  if git show-ref --verify --quiet refs/heads/main; then
+    echo "main"
+  else
+    echo "master"
+  fi
+}
+
 # update current branch with master
 function update() {
-  local main_branch # main or master
-  if git show-ref --verify --quiet refs/heads/main; then
-    main_branch="main"
-  else
-    main_branch="master"
-  fi
+  local main_branch=$(git_main_branch)
 
   git checkout "$main_branch" && \
   git pull && \
@@ -65,15 +68,27 @@ function update() {
   git rebase -
 }
 
-function agv() {
+# gets files changed since since main_branch and pipes them through fzf
+function changes() {
+  local main_branch=$(git_main_branch)
+
+  vim $(git diff --name-only "$main_branch" | fzf)
+}
+
+agv() {
   local word="$1"
+  shift
+
   if [[ -z "$word" ]]; then
-    echo "Find word and open files in vim\nUsage: agv <word>"
+    echo -e "Find word and open files in vim\nUsage: agv <word> [path...]"
     return 1
   fi
-  local files=$(ag -l "$word")
+
+  local files
+  files=$(ag -l -- "$word" "$@")
+
   if [[ -n "$files" ]]; then
-    vim $(echo "$files" | tr '\n' ' ')
+    echo "$files" | xargs -r nvim
   else
     echo "No files found containing '$word'"
   fi

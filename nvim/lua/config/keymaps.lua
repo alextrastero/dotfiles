@@ -4,6 +4,12 @@
 
 -- local Util = require("lazyvim.util")
 
+-- lua/config/keymaps.lua
+-- local keys = require("lazyvim.plugins.lsp.keymaps").get()
+
+-- Remove LazyVim buffer switching mappings
+vim.keymap.del("n", "<leader>,")
+
 -- TmuxNavigate
 vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", {})
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", {})

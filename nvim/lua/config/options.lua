@@ -7,5 +7,9 @@ vim.opt.cursorline = false
 vim.opt.swapfile = false
 vim.opt.guicursor = ""
 -- vim.opt.colocolumn = "120"
+vim.go.background = "dark"
 vim.lsp.set_log_level("OFF")
 vim.opt.wildmode = "full"
+
+-- disable auto format globally
+-- vim.g.autoformat = false

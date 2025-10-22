@@ -7,10 +7,16 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
     opts = {
-      ---@class PluginLspOpts
       diagnostics = {
         virtual_text = false,
+      },
+      inlay_hints = {
+        enabled = false,
+      },
+      codelens = {
+        enabled = false,
       },
       document_highlight = {
         enabled = false,
@@ -28,11 +34,11 @@ return {
       },
     },
   },
-  {
-    "folke/trouble.nvim",
-    -- opts will be merged with the parent spec
-    opts = { use_diagnostic_signs = true },
-  },
+  -- {
+  --   "folke/trouble.nvim",
+  --   -- opts will be merged with the parent spec
+  --   opts = { use_diagnostic_signs = true },
+  -- },
   {
     "ibhagwan/fzf-lua",
     opts = {
@@ -60,25 +66,6 @@ return {
         includeDeclaration = true,
       },
     },
-  },
-  {
-    "stevearc/conform.nvim",
-    opts = function()
-      ---@module "conform"
-      ---@type conform.setupOpts
-      local opts = {
-        formatters_by_ft = {
-          lua = { "stylua" },
-          typescript = { "eslint_d" },
-          typescriptreact = { "eslint_d" },
-          javascript = { "eslint_d" },
-          jsonc = { "eslint_d" },
-          -- html = { "prettier" },
-          -- ["*"] = { "codespell" },
-        },
-      }
-      return opts
-    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",

@@ -1,31 +1,3 @@
---- List of node types to reject.
---- @type string[]
-local reject = {
-  "comment",
-  "line_comment",
-  "binary_expression",
-  "description",
-  "comment_content",
-  "block_comment",
-  "string_start",
-  -- "string_fragment",
-  "string_content",
-  "string_end",
-}
-
-local getNode = function()
-  -- Get cursor position
-  local row, column = unpack(vim.api.nvim_win_get_cursor(0))
-
-  -- Check if we're inside a comment or string
-  local success, node = pcall(vim.treesitter.get_node, {
-    pos = { row - 1, math.max(0, column - 1) },
-    ignore_injections = false,
-  })
-
-  return success and node
-end
-
 --- Checks wether node under cursor is of type `reject`
 --- @param _reject string[]
 --- @return boolean
@@ -89,7 +61,7 @@ return {
           },
         },
         ghost_text = {
-          enabled = false,
+          enabled = vim.g.ai_cmp,
         },
         menu = {
           draw = {
@@ -107,11 +79,31 @@ return {
         },
       },
       cmdline = {
-        sources = {},
+        enabled = true,
+        keymap = { preset = "cmdline" },
+        completion = {
+          list = { selection = { preselect = false } },
+          menu = {
+            auto_show = function()
+              return vim.fn.getcmdtype() == ":"
+            end,
+          },
+          ghost_text = { enabled = true },
+        },
       },
       keymap = {
         -- https://cmp.saghen.dev/configuration/keymap#super-tab
         preset = "enter",
+        -- ["<Tab>"] = {
+        --   "snippet_forward",
+        --   function() -- sidekick next edit suggestion
+        --     return require("sidekick").nes_jump_or_apply()
+        --   end,
+        --   -- function() -- if you are using Neovim's native inline completions
+        --   --   return vim.lsp.inline_completion.get()
+        --   -- end,
+        --   "fallback",
+        -- },
         ["<Tab>"] = {
           function(cmp)
             if cmp.snippet_active() then
@@ -136,6 +128,9 @@ return {
             return { "buffer", "lsp", "snippets", "path" }
           end
         end,
+      },
+      signature = {
+        enabled = true,
       },
     },
     opts_extend = { "sources.default" },

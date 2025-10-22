@@ -35,11 +35,9 @@ vim.keymap.set("n", ";", ":", {})
 vim.keymap.set("n", "gt", "<cmd>Trouble diagnostics<CR>", {})
 
 -- FORMATTING
-local format = function()
-  -- Util.format({ force = true })
-  vim.lsp.buf.format({ async = false })
-end
-vim.keymap.set("n", "<C-f>", format, {})
+vim.keymap.set("n", "<C-f>", function()
+  require("conform").format({ async = false, lsp_fallback = false })
+end, { desc = "Format with prettier" })
 
 -- DIAGNOSTIC
 local diagnostic_goto = function(next, severity)
@@ -70,7 +68,7 @@ vim.keymap.set("n", "<C-p>", "<cmd>FzfLua files<cr>", {}) -- TODO why cant this 
 vim.keymap.set("n", "<leader>m", "<cmd>FzfLua oldfiles<cr>", {})
 vim.keymap.set("n", "<leader>f", "<cmd>FzfLua live_grep<cr>")
 vim.keymap.set("n", "<leader>w", "<cmd>FzfLua grep_cword<cr>", { desc = "Grep word under cursor " })
-vim.keymap.set("n", "<tab>", "<cmd>FzfLua buffers<cr>", { desc = "buffers" })
+vim.keymap.set("n", "<Tab>", "<cmd>FzfLua buffers<cr>", { desc = "buffers" })
 
 -- vim-fugitive
 vim.keymap.set("n", "<leader>gs", ":Gedit :<cr>", { desc = "Status" })

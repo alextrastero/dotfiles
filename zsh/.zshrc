@@ -37,8 +37,11 @@ function hub() {
   # Open the processed URL in the default web browser using xdg-open
   nohup xdg-open "$browser_url" > /dev/null 2>&1
 }
-function w() { # Open vim with git unchanged files
-  $(git rev-parse --is-inside-work-tree 2>/dev/null) && vim $(git status --porcelain | awk '{print $2}')
+
+# Open vim with git changed files, or files from last commit if no changes
+function w() {
+  git rev-parse --is-inside-work-tree &>/dev/null && \
+    vim $(git status --porcelain | awk '{print $2}' | grep -v '^$' || git diff-tree --no-commit-id --name-only -r HEAD)
 }
 
 unalias gbg
@@ -123,3 +126,6 @@ export OPENAI_API_KEY=
 if command -v batcat &>/dev/null; then
   export PAGER='batcat --paging=always'
 fi
+
+# Created by `pipx` on 2025-10-29 09:53:30
+export PATH="$PATH:$HOME/.local/bin"

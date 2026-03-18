@@ -113,9 +113,10 @@ export FZF_DEFAULT_OPTS='--height 40%'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export GEM_HOME="$HOME/gems"
-export GOPATH="/usr/local/go"
+export GOROOT="/usr/local/go"
+export GOPATH="$HOME/go"
 
-export PATH="$GEM_HOME/bin:$GOPATH/bin:$PATH"
+export PATH="$GEM_HOME/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
@@ -129,3 +130,6 @@ fi
 
 # Created by `pipx` on 2025-10-29 09:53:30
 export PATH="$PATH:$HOME/.local/bin"
+
+# opencode
+export PATH=/home/odella/.opencode/bin:$PATH

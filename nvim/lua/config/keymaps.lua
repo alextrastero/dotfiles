@@ -18,7 +18,7 @@ vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", {})
 
 vim.keymap.set("n", "<leader>e", "<cmd>noh<CR>", { desc = "which_key_ignore" })
 
-vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", {})
+vim.keymap.set("n", "-", "<cmd>Oil --float --preview<CR>", {})
 
 -- BUFFER DELETE keeping current split layout
 local bufdelete = function()

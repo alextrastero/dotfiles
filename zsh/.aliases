@@ -17,7 +17,7 @@ alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git br
 alias gdc="git diff --staged"
 # alias gd="git diff ':!package-lock.json'"
 alias gd="git diff"
-alias glc="git pull origin $(current_branch)"
+alias glc="git pull origin $(git_current_branch)"
 
 # rebasing aliases
 alias rec="git rebase --continue"
@@ -48,3 +48,5 @@ alias vimg="nvim +Git +only"
 alias static="bundle exec jekyll serve --livereload"
 
 alias tree="tree -a"
+alias cla="claude"
+alias clip="wl-copy"

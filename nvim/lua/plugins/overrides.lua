@@ -66,6 +66,9 @@ return {
         includeDeclaration = true,
       },
     },
+    keys = {
+      { "<leader>gd", false },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",

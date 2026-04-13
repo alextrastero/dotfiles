@@ -97,6 +97,20 @@ agv() {
   fi
 }
 
+# Removes a specific file from the last commit while keeping everything else intact.
+uncommitfile() {
+  local file="$1"
+
+  if [[ -z "$file" ]]; then
+    echo "Usage: uncommitfile <path/to/file>"
+    return 1
+  fi
+
+  git reset --soft HEAD~1 \
+    && git restore --staged -- "$file" \
+    && git commit -C ORIG_HEAD
+}
+
 function blame() {
   if [[ -z "$1" ]]; then
     echo "Usage: blame <word>"

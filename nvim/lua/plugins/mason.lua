@@ -5,9 +5,7 @@ return {
       "vtsls",
       "lua-language-server",
       "prettier",
-      "eslint_d",
       "stylua",
-      "eslint-lsp",
     })
   end,
 }

@@ -21,6 +21,36 @@ return {
       document_highlight = {
         enabled = false,
       },
+      servers = {
+        eslint = {
+          -- Only start the eslint LSP when the project has an eslint config.
+          -- Without this it would spin up (and error) in projects using oxlint.
+          root_dir = function(fname)
+            local eslint_configs = {
+              ".eslintrc",
+              ".eslintrc.js",
+              ".eslintrc.cjs",
+              ".eslintrc.yaml",
+              ".eslintrc.yml",
+              ".eslintrc.json",
+              "eslint.config.js",
+              "eslint.config.mjs",
+              "eslint.config.cjs",
+              "eslint.config.ts",
+              "eslint.config.mts",
+            }
+            local util = require("lspconfig.util")
+            return util.root_pattern(unpack(eslint_configs))(fname)
+              or util.root_pattern("package.json")(fname) and (function()
+                local pkg = util.root_pattern("package.json")(fname) .. "/package.json"
+                local ok, data = pcall(vim.fn.readfile, pkg)
+                if ok and table.concat(data, "\n"):find('"eslintConfig"') then
+                  return util.root_pattern("package.json")(fname)
+                end
+              end)()
+          end,
+        },
+      },
     },
   },
   {

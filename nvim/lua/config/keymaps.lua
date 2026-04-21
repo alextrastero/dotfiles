@@ -34,10 +34,11 @@ vim.keymap.set("n", ";", ":", {})
 
 vim.keymap.set("n", "gt", "<cmd>Trouble diagnostics<CR>", {})
 
--- FORMATTING
+-- FORMATTING (eslint fix + prettier)
 vim.keymap.set("n", "<C-f>", function()
+  vim.lsp.buf.format({ name = "eslint", async = false })
   require("conform").format({ async = false, lsp_fallback = false })
-end, { desc = "Format with prettier" })
+end, { desc = "Format" })
 
 -- DIAGNOSTIC
 local diagnostic_goto = function(next, severity)
@@ -71,7 +72,9 @@ vim.keymap.set("n", "<leader>w", "<cmd>FzfLua grep_cword<cr>", { desc = "Grep wo
 vim.keymap.set("n", "<Tab>", "<cmd>FzfLua buffers<cr>", { desc = "buffers" })
 
 -- vim-fugitive
-vim.keymap.set("n", "<leader>gs", ":Gedit :<cr>", { desc = "Status" })
+vim.keymap.del("n", "<leader>gs")
+-- vim.keymap.set("n", "<leader>gs", ":vertical Gedit :<cr>", { desc = "Status" })
+vim.keymap.set("n", "<leader>gs", ":vertical G<cr>", { desc = "Status" })
 vim.keymap.set("n", "<leader>gd", ":vertical Git diff %<cr>", { desc = "Diff" })
 vim.keymap.set("n", "<leader>gl", ":0GcLog<cr>", { desc = "Log" })
 vim.keymap.set("n", "<leader>gb", ":vertical Git blame<cr>", { desc = "BLAME!" })

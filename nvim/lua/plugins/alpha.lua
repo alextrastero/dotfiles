@@ -5,21 +5,18 @@ return {
     local dashboard = require("alpha.themes.dashboard")
 
     dashboard.section.header.val = {
-      [[                    ________ ++     ________                ]],
-      [[                   /VVVVVVVV\++++  /VVVVVVVV\               ]],
-      [[                   \VVVVVVVV/++++++\VVVVVVVV/               ]],
-      [[                    |VVVVVV|++++++++/VVVVV/'                ]],
-      [[                    |VVVVVV|++++++/VVVVV/'                  ]],
-      [[                   +|VVVVVV|++++/VVVVV/'+                   ]],
-      [[                 +++|VVVVVV|++/VVVVV/'+++++                 ]],
-      [[               +++++|VVVVVV|/VVVVV/'+++++++++               ]],
-      [[                 +++|VVVVVVVVVVV/'+++++++++                 ]],
-      [[                   +|VVVVVVVVV/'+++++++++                   ]],
-      [[                    |VVVVVVV/'+++++++++                     ]],
-      [[                    |VVVVV/'+++++++++                       ]],
-      [[                    |VVV/'+++++++++                         ]],
-      [[                    'V/'   ++++++                           ]],
-      [[                             ++                             ]],
+      [[                                                            ]],
+      [[                                                            ]],
+      [[                                                            ]],
+      [[            /^v^\         |    |    |                       ]],
+      [[                         )_)  )_)  )_)     /^v^\            ]],
+      [[               /^v^\    )___))___))___)\                    ]],
+      [[                       )____)____)_____)\\                  ]],
+      [[                     _____|____|____|____\\\__              ]],
+      [[                     \                   /                  ]],
+      [[         ^^^^^ ^^^^^^^^  ^^^^^ ^^^^^  ^^^^^ ^^^^ <><        ]],
+      [[           ^^^^  ^^  ^^^    ^ ^^^    ^^^ <>< ^^^^           ]],
+      [[            ><> ^^^     ^^    ><> ^^     ^^    ^            ]],
       [[                                                            ]],
       [[                                                            ]],
       [[      [chore, docs, feat, fix, refactor, style, test]       ]],
@@ -28,6 +25,7 @@ return {
       [[           - za toggle fold under cursor                    ]],
       [[           - zA toggle fold in the whole block under cursor ]],
     }
+
     dashboard.section.buttons.val = {
       --#region
       -- keys = {

@@ -130,7 +130,7 @@ export GEM_HOME="$HOME/gems"
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/go"
 
-export PATH="$GEM_HOME/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
+export PATH="$GEM_HOME/bin:$HOME/.local/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
@@ -142,8 +142,8 @@ if command -v batcat &>/dev/null; then
   export PAGER='batcat --paging=always'
 fi
 
-# Created by `pipx` on 2025-10-29 09:53:30
-export PATH="$PATH:$HOME/.local/bin"
-
 # opencode
 export PATH=/home/odella/.opencode/bin:$PATH
+
+# local overrides (not tracked in git)
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

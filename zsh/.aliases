@@ -48,5 +48,4 @@ alias vimg="nvim +Git +only"
 alias static="bundle exec jekyll serve --livereload"
 
 alias tree="tree -a"
-alias cla="claude"
 alias clip="wl-copy"

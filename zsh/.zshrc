@@ -3,30 +3,27 @@ export ZSH=$HOME/.oh-my-zsh
 zstyle ':omz:alpha:lib:git' async-prompt no
 
 ZSH_THEME="minimal"
-# clone https://github.com/zsh-users/zsh-syntax-highlighting
-# into .oh-my-zsh/custom/plugins
+# zsh-syntax-highlighting must be cloned into .oh-my-zsh/custom/plugins
+# https://github.com/zsh-users/zsh-syntax-highlighting
 plugins=(git zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-#aliases
 source $HOME/.aliases
 
 export RIPGREP_CONFIG_PATH="$HOME/.rgconfig"
 
-#z
-#https://raw.githubusercontent.com/rupa/z/master/z.sh
-# source $HOME/.z.sh
+# z — https://github.com/rupa/z
 . /opt/z.sh
 
-#start tmux
+# start tmux
 [ -z "$TMUX" ] && tmux
 
-#nvm
+# nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-#functions
+# functions
 function hub() {
   # Retrieve the remote origin URL of the Git repository
   remote_url=$(git config remote.origin.url)
@@ -78,6 +75,13 @@ function changes() {
   vim $(git diff --name-only "$main_branch" | fzf)
 }
 
+# shows diff from master like a merge request would
+function mr() {
+  local main_branch=$(git_main_branch)
+
+  git diff "$main_branch"...HEAD
+}
+
 agv() {
   local word="$1"
   shift
@@ -119,9 +123,8 @@ function blame() {
   git log -S"$1" -p
 }
 
-# enable keybindings
+# fzf
 source /usr/share/doc/fzf/examples/key-bindings.zsh
-# config
 export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore -g ""'
 export FZF_DEFAULT_OPTS='--height 40%'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -135,15 +138,12 @@ export PATH="$GEM_HOME/bin:$HOME/.local/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
-export OPENAI_API_KEY=
-
-# Check if 'batcat' exists
 if command -v batcat &>/dev/null; then
   export PAGER='batcat --paging=always'
 fi
 
 # opencode
-export PATH=/home/odella/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 
 # local overrides (not tracked in git)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

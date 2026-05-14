@@ -147,3 +147,5 @@ export PATH="$HOME/.opencode/bin:$PATH"
 
 # local overrides (not tracked in git)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+
+export OMC_STATE_DIR="$HOME/.claude/omc"

@@ -22,6 +22,7 @@ return {
         enabled = false,
       },
       servers = {
+        ruff = { enabled = false },
         eslint = {
           -- Only start the eslint LSP when the project has an eslint config.
           -- Without this it would spin up (and error) in projects using oxlint.

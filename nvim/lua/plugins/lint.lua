@@ -28,6 +28,26 @@ local function has_eslint(root)
   return false
 end
 
+-- lunte output: "<file>:<line>:<col>  ERROR (rule)  message" (rule is missing on parse errors)
+local function parse_lunte(output)
+  local diagnostics = {}
+  for line in output:gmatch("[^\n]+") do
+    local lnum, col, label, rest = line:match(":(%d+):(%d+)%s+(%u+)%s+(.*)$")
+    if lnum then
+      local code, message = rest:match("^%((.-)%)%s+(.*)$")
+      table.insert(diagnostics, {
+        lnum = tonumber(lnum) - 1,
+        col = tonumber(col) - 1,
+        severity = label == "ERROR" and vim.diagnostic.severity.ERROR or vim.diagnostic.severity.WARN,
+        code = code,
+        message = message or rest,
+        source = "lunte",
+      })
+    end
+  end
+  return diagnostics
+end
+
 local js_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
 
 return {
@@ -42,6 +62,12 @@ return {
     -- Apply any other opts (e.g. from LazyVim defaults)
     lint.linters_by_ft = opts.linters_by_ft or {}
 
+    lint.linters.lunte = {
+      stdin = true,
+      ignore_exitcode = true,
+      parser = parse_lunte,
+    }
+
     -- Lint on open and save
     local group = vim.api.nvim_create_augroup("nvim-lint-dynamic", { clear = true })
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
@@ -51,6 +77,17 @@ return {
         local is_js = vim.tbl_contains(js_filetypes, ft)
         if not is_js then
           lint.try_lint()
+          return
+        end
+
+        -- lunte projects: run the project's own lunte from its root so it picks up .lunterc
+        local lunte_root = vim.fs.root(ev.buf, { ".lunterc", ".lunterc.json" })
+        if lunte_root then
+          local lunte = lint.linters.lunte
+          lunte.cmd = lunte_root .. "/node_modules/.bin/lunte"
+          -- filename lets lunte pick the TS parser for .ts/.tsx
+          lunte.args = { "--stdin", vim.api.nvim_buf_get_name(ev.buf) }
+          lint.try_lint("lunte", { cwd = lunte_root })
           return
         end
 

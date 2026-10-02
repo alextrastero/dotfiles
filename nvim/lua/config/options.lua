@@ -11,4 +11,4 @@ vim.go.background = "dark"
 vim.opt.wildmode = "full"
 
 -- disable auto format globally
--- vim.g.autoformat = false
+vim.g.autoformat = false

@@ -12,6 +12,23 @@ local eslint_configs = {
   "eslint.config.mts",
 }
 
+local prettier_configs = {
+  ".prettierrc",
+  ".prettierrc.json",
+  ".prettierrc.js",
+  ".prettierrc.cjs",
+  ".prettierrc.yaml",
+  ".prettierrc.yml",
+  "prettier.config.js",
+  "prettier.config.cjs",
+  "prettier.config.mjs",
+}
+
+local function has_prettier(bufnr)
+  local path = vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr))
+  return #vim.fs.find(prettier_configs, { upward = true, path = path }) > 0
+end
+
 local function has_eslint()
   local root = vim.fn.getcwd()
   for _, name in ipairs(eslint_configs) do
@@ -33,8 +50,8 @@ local function has_eslint()
   return false
 end
 
-local function js_formatters()
-  if has_eslint() then
+local function js_formatters(bufnr)
+  if has_prettier(bufnr) or has_eslint() then
     return { "prettier" }
   else
     return { "oxfmt" }
@@ -43,6 +60,16 @@ end
 
 return {
   "stevearc/conform.nvim",
+  init = function()
+    -- autoformat is off globally (options.lua); turn it on for files with a prettier config
+    vim.api.nvim_create_autocmd("BufReadPost", {
+      callback = function(ev)
+        if has_prettier(ev.buf) then
+          vim.b[ev.buf].autoformat = true
+        end
+      end,
+    })
+  end,
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },

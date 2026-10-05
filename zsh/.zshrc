@@ -18,10 +18,18 @@ export RIPGREP_CONFIG_PATH="$HOME/.rgconfig"
 # start tmux
 [ -z "$TMUX" ] && tmux
 
-# nvm
+# nvm (lazy-loaded: sourcing nvm.sh adds ~0.5s to every new shell/pane)
+# put the newest installed node on PATH, load nvm itself on first use
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+_nvm_node=("$NVM_DIR"/versions/node/*(N/nOn[1]))
+[ -n "$_nvm_node" ] && export PATH="$_nvm_node/bin:$PATH"
+unset _nvm_node
+function nvm() {
+  unset -f nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  nvm "$@"
+}
 
 # functions
 function hub() {

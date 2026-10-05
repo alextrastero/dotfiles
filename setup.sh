@@ -28,6 +28,16 @@ else
     echo "$APP - Skipping"
 fi
 
+APP="wl-clipboard"
+if ! command -v $APP &> /dev/null
+then
+    echo "$APP - Downloading..."
+    sudo apt install $APP
+    exit 1
+else
+    echo "$APP - Skipping"
+fi
+
 APP="gnome-tweaks"
 if ! command -v $APP &> /dev/null
 then
@@ -127,7 +137,7 @@ git config --global --add push.autoSetupRemote true
 ln -s ~/dev/dotfiles/ignore/.ignore ~/.ignore
 ln -s ~/dev/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/dev/dotfiles/zsh/.aliases ~/.aliases
-ln -s ~/dev/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+ln -s ~/dev/dotfiles/kitty ~/.config/
 ln -s ~/dev/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/dev/dotfiles/tmux ~/.tmux
 ln -s ~/dev/dotfiles/nvim ~/.config/

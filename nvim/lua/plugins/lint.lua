@@ -91,18 +91,19 @@ return {
           return
         end
 
+        -- eslint projects are handled by the eslint LSP (see overrides.lua)
         local root = vim.fn.getcwd()
         if has_eslint(root) then
-          lint.try_lint("eslint_d")
-        else
-          -- Build oxlint args at lint-time so we can check for .oxlintrc.json
-          local oxlint = lint.linters.oxlint
-          oxlint.args = { "--format", "github" }
-          if vim.uv.fs_stat(root .. "/.oxlintrc.json") then
-            vim.list_extend(oxlint.args, { "--config", root .. "/.oxlintrc.json" })
-          end
-          lint.try_lint("oxlint")
+          return
         end
+
+        -- Build oxlint args at lint-time so we can check for .oxlintrc.json
+        local oxlint = lint.linters.oxlint
+        oxlint.args = { "--format", "github" }
+        if vim.uv.fs_stat(root .. "/.oxlintrc.json") then
+          vim.list_extend(oxlint.args, { "--config", root .. "/.oxlintrc.json" })
+        end
+        lint.try_lint("oxlint")
       end,
     })
   end,

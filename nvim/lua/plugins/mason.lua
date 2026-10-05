@@ -6,6 +6,7 @@ return {
       "lua-language-server",
       "prettier",
       "stylua",
+      "oxlint",
     })
   end,
 }

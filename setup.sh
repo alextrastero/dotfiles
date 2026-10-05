@@ -1,148 +1,55 @@
 #!/bin/bash
+set -euo pipefail
 
-# Setup script
+DOTFILES="$HOME/dev/dotfiles"
 
-echo ""
-echo "~~ Are you ready? ~~"
-echo ""
+# ── apt packages ─────────────────────────────────────────────
+# apt skips anything already installed
+# gnome-sushi: space-bar file preview in nautilus
+sudo apt update
+sudo apt install -y \
+  zsh tmux kitty git curl \
+  fzf ripgrep silversearcher-ag tig tree \
+  wl-clipboard gnome-tweaks gnome-sushi
 
-APP="z.sh"
-if [ ! -e /opt/z.sh ]
-then
-    echo "$APP - Downloading..."
-    curl -LJO https://raw.githubusercontent.com/rupa/z/master/z.sh
-    sudo mv z.sh /opt/
-else
-    echo "$APP - Skipping"
+# ── shell ────────────────────────────────────────────────────
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo "oh-my-zsh - installing..."
+  RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-APP="tmux"
-if ! command -v $APP &> /dev/null
-then
-    echo "$APP - Downloading..."
-    sudo apt install $APP
-    echo "$APP - cloning tmux-plugins..."
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    exit 1
-else
-    echo "$APP - Skipping"
-fi
+ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
+[ -d "$ZSH_PLUGINS/zsh-syntax-highlighting" ] ||
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_PLUGINS/zsh-syntax-highlighting"
 
-APP="wl-clipboard"
-if ! command -v $APP &> /dev/null
-then
-    echo "$APP - Downloading..."
-    sudo apt install $APP
-    exit 1
-else
-    echo "$APP - Skipping"
-fi
+# z — https://github.com/rupa/z
+[ -e /opt/z.sh ] ||
+  sudo curl -fsSL -o /opt/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
 
-APP="gnome-tweaks"
-if ! command -v $APP &> /dev/null
-then
-    echo "$APP - Downloading..."
-    sudo apt install $APP
-    exit 1
-else
-    echo "$APP - Skipping"
-fi
+[ "$SHELL" = "$(command -v zsh)" ] || chsh -s "$(command -v zsh)"
 
-APP="tree"
-if ! command -v $APP &> /dev/null
-then
-    echo "$APP - Downloading..."
-    sudo apt install $APP
-else
-    echo "$APP - Skipping"
-fi
+# ── tmux ─────────────────────────────────────────────────────
+[ -d "$HOME/.tmux/plugins/tpm" ] ||
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 
-APP="tig"
-if ! command -v $APP &> /dev/null
-then
-    echo "$APP - Downloading..."
-    sudo apt install $APP
-else
-    echo "$APP - Skipping"
-fi
+# ── symlinks ─────────────────────────────────────────────────
+# -sfn: replace an existing link instead of nesting inside it
+link() { ln -sfn "$DOTFILES/$1" "$2"; }
+mkdir -p "$HOME/.config"
+link ignore/.ignore    "$HOME/.ignore"
+link zsh/.zshrc        "$HOME/.zshrc"
+link zsh/.aliases      "$HOME/.aliases"
+link tmux/.tmux.conf   "$HOME/.tmux.conf"
+link kitty             "$HOME/.config/kitty"
+link nvim              "$HOME/.config/nvim"
+link wireplumber       "$HOME/.config/wireplumber"
 
-APP="rg"
-if ! command -v $APP &> /dev/null
-then
-    echo "$APP - Downloading..."
-    sudo apt install ripgrep # <-- SPECIFIC TO RIPGREP
-else
-    echo "$APP - Skipping"
-fi
-
-APP="fzf"
-if ! command -v $APP &> /dev/null
-then
-    echo "$APP - Downloading..."
-    sudo apt install $APP -y
-else
-    echo "$APP - Skipping"
-fi
-
-APP="kitty"
-if ! command -v $APP &> /dev/null
-then
-    echo "$APP - Downloading..."
-    sudo apt install $APP -y
-else
-    echo "$APP - Skipping"
-fi
-
-APP="batcat"
-if ! command -v $APP &> /dev/null
-then
-    echo "$APP - Downloading..."
-    sudo apt install $APP -y
-else
-    echo "$APP - Skipping"
-fi
-
-# key repeat gnome specific
+# ── settings ─────────────────────────────────────────────────
+# key repeat (gnome)
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
 gsettings set org.gnome.desktop.peripherals.keyboard delay 280
 
-# go
-# check https://go.dev/dl/ for latest version
-# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.21.4.linux-amd64.tar.gz
-# make sure go path is properly set in zshrc
+git config --global push.default current
+git config --global push.autoSetupRemote true
 
-APP="efm-langserver"
-if ! command -v $APP &> /dev/null
-then
-    echo "$APP - Downloading..."
-    # make sure you own $GOPATH
-    go install github.com/mattn/efm-langserver@latest
-else
-    echo "$APP - Skipping"
-fi
-
-if ! command -v zsh &> /dev/null
-then
-  echo "oh-my-zsh - Downloading..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-  echo "oh-my-zsh - Skipping"
-fi
-
-# git specific
-git config --global --add push.default current
-git config --global --add push.autoSetupRemote true
-
-# symlinks
-ln -s ~/dev/dotfiles/ignore/.ignore ~/.ignore
-ln -s ~/dev/dotfiles/zsh/.zshrc ~/.zshrc
-ln -s ~/dev/dotfiles/zsh/.aliases ~/.aliases
-ln -s ~/dev/dotfiles/kitty ~/.config/
-ln -s ~/dev/dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -s ~/dev/dotfiles/tmux ~/.tmux
-ln -s ~/dev/dotfiles/nvim ~/.config/
-ln -s ~/dev/dotfiles/bat ~/.config/
-ln -s ~/dev/dotfiles/wireplumber ~/.config/
-
-# npm packages
-npm install -g typescript yarn eslint-lsp
+echo "Done. Open tmux and press prefix + I to install tmux plugins."

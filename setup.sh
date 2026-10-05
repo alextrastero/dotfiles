@@ -142,6 +142,7 @@ ln -s ~/dev/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/dev/dotfiles/tmux ~/.tmux
 ln -s ~/dev/dotfiles/nvim ~/.config/
 ln -s ~/dev/dotfiles/bat ~/.config/
+ln -s ~/dev/dotfiles/wireplumber ~/.config/
 
 # npm packages
 npm install -g typescript yarn eslint-lsp

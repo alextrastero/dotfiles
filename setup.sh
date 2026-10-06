@@ -8,7 +8,7 @@ DOTFILES="$HOME/dev/dotfiles"
 # gnome-sushi: space-bar file preview in nautilus
 sudo apt update
 sudo apt install -y \
-  zsh tmux kitty git curl \
+  zsh tmux kitty git curl xz-utils fontconfig \
   fzf ripgrep silversearcher-ag tig tree \
   wl-clipboard gnome-tweaks gnome-sushi
 
@@ -31,6 +31,17 @@ ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
 # ── tmux ─────────────────────────────────────────────────────
 [ -d "$HOME/.tmux/plugins/tpm" ] ||
   git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+
+# ── fonts ────────────────────────────────────────────────────
+# Fira Mono patched with Nerd Font symbols (icons in nvim, tmux, prompt)
+FONT_DIR="$HOME/.local/share/fonts/FiraMonoNerdFont"
+if [ ! -d "$FONT_DIR" ]; then
+  echo "FiraMono Nerd Font - installing..."
+  mkdir -p "$FONT_DIR"
+  curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.tar.xz |
+    tar -xJ -C "$FONT_DIR" --wildcards '*.otf'
+  fc-cache -f "$FONT_DIR"
+fi
 
 # ── symlinks ─────────────────────────────────────────────────
 # -sfn: replace an existing link instead of nesting inside it

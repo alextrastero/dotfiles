@@ -28,7 +28,7 @@ I use linux (currently ubuntu & gnome), these are my required tools for front en
 - configure neovim python adapter:
     `sudo apt-get install python3-neovim`
     `sudo apt-get install build-essential`
-- [fura mono font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf)
+- FiraMono Nerd Font (installed by `setup.sh` into `~/.local/share/fonts`)
 - [ag](https://github.com/ggreer/the_silver_searcher) (the_silver_searcher)
 - [lf](https://github.com/gokcehan/lf) (list files)
 

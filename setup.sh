@@ -60,6 +60,10 @@ mkdir -p "$HOME/.claude"
 link claude/settings.json "$HOME/.claude/settings.json"
 link claude/CLAUDE.md     "$HOME/.claude/CLAUDE.md"
 link claude/skills        "$HOME/.claude/skills"
+# i-have-adhd plugin: flag file makes it load in every session.
+# Off for one session: say "stop adhd mode". Off until next setup run: rm the flag.
+# Off for good: delete this line, or disable the plugin in claude/settings.json.
+touch "$HOME/.claude/.i-have-adhd-always"
 
 # ── settings ─────────────────────────────────────────────────
 # key repeat (gnome)

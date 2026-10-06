@@ -18,7 +18,8 @@
     "claude-reflect@claude-reflect-marketplace": true,
     "lua-lsp@claude-plugins-official": true,
     "cc-plugin-you-should-know@builtin": true,
-    "diagram-design@diagram-design": true
+    "diagram-design@diagram-design": true,
+    "i-have-adhd@i-have-adhd": true
   },
   "extraKnownMarketplaces": {
     "omc": {
@@ -43,6 +44,12 @@
       "source": {
         "source": "github",
         "repo": "cathrynlavery/diagram-design"
+      }
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
       }
     }
   },

@@ -44,6 +44,12 @@ link kitty             "$HOME/.config/kitty"
 link nvim              "$HOME/.config/nvim"
 link wireplumber       "$HOME/.config/wireplumber"
 
+# claude code: plugins/marketplaces auto-install from settings.json
+mkdir -p "$HOME/.claude"
+link claude/settings.json "$HOME/.claude/settings.json"
+link claude/CLAUDE.md     "$HOME/.claude/CLAUDE.md"
+link claude/skills        "$HOME/.claude/skills"
+
 # ── settings ─────────────────────────────────────────────────
 # key repeat (gnome)
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30

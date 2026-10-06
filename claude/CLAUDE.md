@@ -98,3 +98,4 @@ This overrides register and copy guidance from any skill, including artifact and
 - Code comments describe what the code does, not the history of why it was changed or created.
 - Don't debug environment/tooling problems (network, sandbox) for a side task. Stop early and give the user the command to run.
 - Anything installed for Claude Code (plugins, marketplaces, skills, mods, hooks, MCP servers) must live in ~/dev/dotfiles so every machine using these dotfiles gets it with no manual steps. Prefer declaring it in claude/settings.json (enabledPlugins, extraKnownMarketplaces) or adding files under claude/skills. If it needs files elsewhere, put them in claude/ and make setup.sh link or install them. Don't commit downloaded plugin caches.
+- Never create git worktrees or new branches, in any repo. Edit the current checkout and commit to the branch already checked out.

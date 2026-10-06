@@ -51,5 +51,8 @@
   "teammateMode": "tmux",
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "worktree": {
+    "bgIsolation": "none"
+  }
 }

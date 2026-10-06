@@ -18,7 +18,7 @@
     "claude-reflect@claude-reflect-marketplace": true,
     "lua-lsp@claude-plugins-official": true,
     "cc-plugin-you-should-know@builtin": true,
-    "replay-theater@dotfiles": true
+    "diagram-design@diagram-design": true
   },
   "extraKnownMarketplaces": {
     "omc": {
@@ -33,10 +33,16 @@
         "repo": "bayramannakov/claude-reflect"
       }
     },
-    "dotfiles": {
+    "claude-code-plugins": {
       "source": {
-        "source": "directory",
-        "path": "~/dev/dotfiles/claude/marketplace"
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
+    },
+    "diagram-design": {
+      "source": {
+        "source": "github",
+        "repo": "cathrynlavery/diagram-design"
       }
     }
   },

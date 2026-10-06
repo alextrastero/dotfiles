@@ -17,7 +17,8 @@
     "oh-my-claudecode@omc": true,
     "claude-reflect@claude-reflect-marketplace": true,
     "lua-lsp@claude-plugins-official": true,
-    "cc-plugin-you-should-know@builtin": true
+    "cc-plugin-you-should-know@builtin": true,
+    "replay-theater@dotfiles": true
   },
   "extraKnownMarketplaces": {
     "omc": {
@@ -30,6 +31,12 @@
       "source": {
         "source": "github",
         "repo": "bayramannakov/claude-reflect"
+      }
+    },
+    "dotfiles": {
+      "source": {
+        "source": "directory",
+        "path": "~/dev/dotfiles/claude/marketplace"
       }
     }
   },

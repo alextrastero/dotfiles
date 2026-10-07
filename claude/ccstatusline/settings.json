@@ -5,7 +5,7 @@
       {
         "id": "1",
         "type": "model",
-        "color": "cyan"
+        "color": "gradient:atlas"
       },
       {
         "id": "2",
@@ -17,13 +17,31 @@
         "color": "brightBlack"
       },
       {
+        "id": "9",
+        "type": "separator"
+      },
+      {
+        "id": "8",
+        "type": "session-usage",
+        "color": "brightBlack"
+      },
+      {
+        "id": "11",
+        "type": "separator"
+      },
+      {
+        "id": "10",
+        "type": "weekly-usage",
+        "color": "brightBlack"
+      },
+      {
         "id": "4",
         "type": "separator"
       },
       {
         "id": "5",
         "type": "git-branch",
-        "color": "magenta"
+        "color": "brightBlack"
       },
       {
         "id": "6",
@@ -32,7 +50,7 @@
       {
         "id": "7",
         "type": "git-changes",
-        "color": "yellow"
+        "color": ""
       }
     ],
     [],
@@ -51,7 +69,7 @@
   "powerline": {
     "enabled": false,
     "separators": [
-      ""
+      "\ue0b0"
     ],
     "separatorInvertBackground": [
       false

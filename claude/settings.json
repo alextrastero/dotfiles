@@ -4,7 +4,10 @@
   },
   "permissions": {
     "defaultMode": "auto",
-    "ask": ["Bash(git commit:*)", "Bash(git push:*)"]
+    "ask": [
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
   },
   "model": "opus",
   "worktree": {

@@ -60,7 +60,13 @@ mkdir -p "$HOME/.claude"
 link claude/settings.json "$HOME/.claude/settings.json"
 link claude/CLAUDE.md     "$HOME/.claude/CLAUDE.md"
 link claude/skills        "$HOME/.claude/skills"
-# ccstatusline: status line config (edit with `npx ccstatusline@latest`)
+# ccstatusline: installed globally so the status line doesn't spawn npx on every refresh
+if command -v npm >/dev/null; then
+  npm i -g ccstatusline
+else
+  echo "npm not found - run 'npm i -g ccstatusline' once node is installed"
+fi
+# ccstatusline: status line config (edit with `ccstatusline`)
 link claude/ccstatusline  "$HOME/.config/ccstatusline"
 # i-have-adhd plugin: flag file makes it load in every session.
 # Off for one session: say "stop adhd mode". Off until next setup run: rm the flag.

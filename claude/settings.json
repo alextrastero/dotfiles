@@ -57,7 +57,7 @@
   "voiceEnabled": true,
   "statusLine": {
     "type": "command",
-    "command": "npx -y ccstatusline@latest",
+    "command": "ccstatusline",
     "padding": 0
   }
 }

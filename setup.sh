@@ -60,6 +60,8 @@ mkdir -p "$HOME/.claude"
 link claude/settings.json "$HOME/.claude/settings.json"
 link claude/CLAUDE.md     "$HOME/.claude/CLAUDE.md"
 link claude/skills        "$HOME/.claude/skills"
+mkdir -p "$HOME/.claude/hooks"
+link claude/hooks/tmux-status.sh "$HOME/.claude/hooks/tmux-status.sh"
 # ccstatusline: installed globally so the status line doesn't spawn npx on every refresh
 if command -v npm >/dev/null; then
   npm i -g ccstatusline

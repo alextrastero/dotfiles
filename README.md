@@ -89,11 +89,12 @@ talk about
 
 ## gnome-tweaks bckp
 
-```ssh
-  # bckup
-    cd ~
-    dconf dump / > saved_settings.dconf
+`gnome_tweaks_settings.dconf` holds a hand-picked subset of settings, not a full dump.
+Paths use `$HOME`, which `envsubst` expands on restore.
+
+```sh
   # restore
-    cd ~
-    dconf load -f / < saved_settings.dconf
+    envsubst '$HOME' < gnome_tweaks_settings.dconf | dconf load -f /
+  # read current values for a section before copying them into the file
+    dconf dump /org/gnome/desktop/interface/
 ```

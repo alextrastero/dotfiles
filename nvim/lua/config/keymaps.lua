@@ -36,7 +36,9 @@ vim.keymap.set("n", "gt", "<cmd>Trouble diagnostics<CR>", {})
 
 -- FORMATTING (eslint fix + prettier)
 vim.keymap.set("n", "<C-f>", function()
-  vim.lsp.buf.format({ name = "eslint", async = false })
+  if #vim.lsp.get_clients({ bufnr = 0, name = "eslint" }) > 0 then
+    vim.lsp.buf.format({ name = "eslint", async = false })
+  end
   require("conform").format({ async = false, lsp_fallback = false })
 end, { desc = "Format" })
 

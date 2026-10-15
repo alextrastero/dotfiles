@@ -24,6 +24,13 @@ local prettier_configs = {
   "prettier.config.mjs",
 }
 
+local biome_configs = { "biome.json", "biome.jsonc" }
+
+local function has_biome(bufnr)
+  local path = vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr))
+  return #vim.fs.find(biome_configs, { upward = true, path = path }) > 0
+end
+
 local function has_prettier(bufnr)
   local path = vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr))
   return #vim.fs.find(prettier_configs, { upward = true, path = path }) > 0
@@ -51,7 +58,9 @@ local function has_eslint()
 end
 
 local function js_formatters(bufnr)
-  if has_prettier(bufnr) or has_eslint() then
+  if has_biome(bufnr) then
+    return { "biome-check" }
+  elseif has_prettier(bufnr) or has_eslint() then
     return { "prettier" }
   else
     return { "oxfmt" }
@@ -61,10 +70,10 @@ end
 return {
   "stevearc/conform.nvim",
   init = function()
-    -- autoformat is off globally (options.lua); turn it on for files with a prettier config
+    -- autoformat is off globally (options.lua); turn it on for files with a prettier or biome config
     vim.api.nvim_create_autocmd("BufReadPost", {
       callback = function(ev)
-        if has_prettier(ev.buf) then
+        if has_prettier(ev.buf) or has_biome(ev.buf) then
           vim.b[ev.buf].autoformat = true
         end
       end,
@@ -77,7 +86,12 @@ return {
       javascriptreact = js_formatters,
       typescript = js_formatters,
       typescriptreact = js_formatters,
-      jsonc = { "prettier" },
+      json = function(bufnr)
+        return has_biome(bufnr) and { "biome" } or {}
+      end,
+      jsonc = function(bufnr)
+        return has_biome(bufnr) and { "biome" } or { "prettier" }
+      end,
       ["*"] = { "trim_whitespace" },
     },
   },

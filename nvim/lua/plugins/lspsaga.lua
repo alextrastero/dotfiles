@@ -9,6 +9,9 @@ return {
       rename = {
         in_select = false,
       },
+      code_action = {
+        keys = { quit = { "q", "qq" } },
+      },
       -- definition = {
       --   width = 1,
       --   height = 1,

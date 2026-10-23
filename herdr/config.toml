@@ -1,0 +1,36 @@
+onboarding = false
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[theme.custom]
+active_row_bg = "reset"
+
+[keys]
+split_horizontal = "prefix+s"
+settings = "prefix+shift+s"
+next_agent = "prefix+a"
+previous_agent = "prefix+shift+a"
+focus_pane_left = "ctrl+h"
+focus_pane_down = "ctrl+j"
+focus_pane_up = "ctrl+k"
+focus_pane_right = "ctrl+l"
+
+[ui]
+prompt_new_tab_name = false
+sidebar_collapsed_mode = "hidden"
+sidebar_start_collapsed = true
+pane_gaps = false
+pane_outer_borders = false
+show_agent_labels_on_pane_borders = true
+
+[ui.sidebar.agents.rows_by_agent]
+claude = [
+  ["state_icon", "workspace", "tab"],
+  ["terminal_title_stripped"],
+]
+
+[ui.sound]
+done_path = "sounds/done.mp3"
+request_path = "sounds/request.mp3"

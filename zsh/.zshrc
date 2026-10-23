@@ -15,8 +15,8 @@ export RIPGREP_CONFIG_PATH="$HOME/.rgconfig"
 # z — https://github.com/rupa/z
 . /opt/z.sh
 
-# start tmux
-[ -z "$TMUX" ] && tmux
+# start herdr
+[ -z "$HERDR_ENV" ] && herdr
 
 # nvm (lazy-loaded: sourcing nvm.sh adds ~0.5s to every new shell/pane)
 # put the newest installed node on PATH, load nvm itself on first use

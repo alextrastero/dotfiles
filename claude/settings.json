@@ -3,13 +3,63 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
+    "defaultMode": "auto",
     "ask": [
       "Bash(git commit:*)",
       "Bash(git push:*)"
-    ],
-    "defaultMode": "auto"
+    ]
   },
   "model": "opus",
+  "worktree": {
+    "bgIsolation": "none"
+  },
+  "enabledPlugins": {
+    "pr-review-toolkit@claude-code-plugins": true,
+    "frontend-design@claude-code-plugins": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "claude-reflect@claude-reflect-marketplace": true,
+    "lua-lsp@claude-plugins-official": true,
+    "cc-plugin-you-should-know@builtin": true,
+    "diagram-design@diagram-design": true,
+    "i-have-adhd@i-have-adhd": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-reflect-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "bayramannakov/claude-reflect"
+      }
+    },
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
+    },
+    "diagram-design": {
+      "source": {
+        "source": "github",
+        "repo": "cathrynlavery/diagram-design"
+      }
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "theme": "auto",
+  "teammateMode": "tmux",
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true,
+  "statusLine": {
+    "type": "command",
+    "command": "ccstatusline",
+    "padding": 0
+  },
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -62,69 +112,6 @@
           }
         ]
       }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "^(startup|resume|clear|compact|fork)$",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"$HOME/.claude/hooks/herdr-agent-state.sh\" session",
-            "timeout": 10
-          }
-        ]
-      }
     ]
-  },
-  "worktree": {
-    "bgIsolation": "none"
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "ccstatusline",
-    "padding": 0
-  },
-  "enabledPlugins": {
-    "pr-review-toolkit@claude-code-plugins": true,
-    "frontend-design@claude-code-plugins": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "claude-reflect@claude-reflect-marketplace": true,
-    "lua-lsp@claude-plugins-official": true,
-    "cc-plugin-you-should-know@builtin": true,
-    "diagram-design@diagram-design": true,
-    "i-have-adhd@i-have-adhd": true
-  },
-  "extraKnownMarketplaces": {
-    "claude-reflect-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "bayramannakov/claude-reflect"
-      }
-    },
-    "claude-code-plugins": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/claude-code"
-      }
-    },
-    "diagram-design": {
-      "source": {
-        "source": "github",
-        "repo": "cathrynlavery/diagram-design"
-      }
-    },
-    "i-have-adhd": {
-      "source": {
-        "source": "github",
-        "repo": "ayghri/i-have-adhd"
-      }
-    }
-  },
-  "tui": "fullscreen",
-  "theme": "auto",
-  "teammateMode": "tmux",
-  "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "switchModelsOnFlag": false
+  }
 }

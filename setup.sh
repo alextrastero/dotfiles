@@ -54,8 +54,6 @@ link tmux/.tmux.conf   "$HOME/.tmux.conf"
 link kitty             "$HOME/.config/kitty"
 link nvim              "$HOME/.config/nvim"
 link wireplumber       "$HOME/.config/wireplumber"
-mkdir -p "$HOME/.config/herdr"
-link herdr/config.toml "$HOME/.config/herdr/config.toml"
 
 # claude code: plugins/marketplaces auto-install from settings.json
 mkdir -p "$HOME/.claude"
@@ -64,7 +62,6 @@ link claude/CLAUDE.md     "$HOME/.claude/CLAUDE.md"
 link claude/skills        "$HOME/.claude/skills"
 mkdir -p "$HOME/.claude/hooks"
 link claude/hooks/tmux-status.sh "$HOME/.claude/hooks/tmux-status.sh"
-link claude/hooks/herdr-agent-state.sh "$HOME/.claude/hooks/herdr-agent-state.sh"
 # ccstatusline: installed globally so the status line doesn't spawn npx on every refresh
 if command -v npm >/dev/null; then
   npm i -g ccstatusline

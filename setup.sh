@@ -56,6 +56,7 @@ link nvim              "$HOME/.config/nvim"
 link wireplumber       "$HOME/.config/wireplumber"
 mkdir -p "$HOME/.config/herdr"
 link herdr/config.toml "$HOME/.config/herdr/config.toml"
+link herdr/sounds "$HOME/.config/herdr/sounds"
 
 # claude code: plugins/marketplaces auto-install from settings.json
 mkdir -p "$HOME/.claude"

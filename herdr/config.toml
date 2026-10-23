@@ -12,6 +12,10 @@ split_horizontal = "prefix+s"
 settings = "prefix+shift+s"
 next_agent = "prefix+a"
 previous_agent = "prefix+shift+a"
+focus_pane_left = "ctrl+h"
+focus_pane_down = "ctrl+j"
+focus_pane_up = "ctrl+k"
+focus_pane_right = "ctrl+l"
 
 [ui]
 prompt_new_tab_name = false

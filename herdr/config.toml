@@ -1,0 +1,23 @@
+onboarding = false
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[theme.custom]
+active_row_bg = "reset"
+
+[keys]
+split_horizontal = "prefix+s"
+settings = "prefix+shift+s"
+next_agent = "prefix+a"
+previous_agent = "prefix+shift+a"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+[ui.sidebar.agents.rows_by_agent]
+claude = [
+  ["state_icon", "workspace", "tab"],
+  ["terminal_title_stripped"],
+]

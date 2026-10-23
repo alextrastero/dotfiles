@@ -24,6 +24,15 @@ sidebar_start_collapsed = true
 pane_gaps = false
 pane_outer_borders = false
 show_agent_labels_on_pane_borders = true
+hide_tab_bar_when_single_tab = true
+tab_bar_position = "bottom"
+tab_bar_right = [
+  { type = "zoom" },
+  { type = "command", interval_seconds = 5, command = "git branch --show-current 2>/dev/null" },
+  { type = "command", interval_seconds = 60, command = "cat /sys/class/power_supply/BAT*/capacity 2>/dev/null | sed 's/$/%/'" },
+  { type = "datetime", format = "%H:%M" },
+]
+tab_bar_right_separator = " · "
 
 [ui.sidebar.agents.rows_by_agent]
 claude = [

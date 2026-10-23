@@ -14,6 +14,7 @@ next_agent = "prefix+a"
 previous_agent = "prefix+shift+a"
 
 [ui]
+prompt_new_tab_name = false
 show_agent_labels_on_pane_borders = true
 
 [ui.sidebar.agents.rows_by_agent]

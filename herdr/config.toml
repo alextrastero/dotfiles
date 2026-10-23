@@ -15,6 +15,10 @@ previous_agent = "prefix+shift+a"
 
 [ui]
 prompt_new_tab_name = false
+sidebar_collapsed_mode = "hidden"
+sidebar_start_collapsed = true
+pane_gaps = false
+pane_outer_borders = false
 show_agent_labels_on_pane_borders = true
 
 [ui.sidebar.agents.rows_by_agent]

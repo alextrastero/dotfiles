@@ -24,7 +24,6 @@ sidebar_start_collapsed = true
 pane_gaps = false
 pane_outer_borders = false
 show_agent_labels_on_pane_borders = true
-hide_tab_bar_when_single_tab = true
 tab_bar_position = "bottom"
 tab_bar_right = [
   { type = "zoom" },
@@ -39,7 +38,3 @@ claude = [
   ["state_icon", "workspace", "tab"],
   ["terminal_title_stripped"],
 ]
-
-[ui.sound]
-done_path = "sounds/done.mp3"
-request_path = "sounds/request.mp3"

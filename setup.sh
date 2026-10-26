@@ -29,8 +29,15 @@ ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
 [ "$SHELL" = "$(command -v zsh)" ] || chsh -s "$(command -v zsh)"
 
 # ── tmux ─────────────────────────────────────────────────────
+# not in daily use: replaced by herdr (see herdr/). Kept so the config still works if needed.
 [ -d "$HOME/.tmux/plugins/tpm" ] ||
   git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+
+# ── hunk ─────────────────────────────────────────────────────
+# terminal diff viewer — https://hunk.dev
+# --no-modify-path: zsh/.zshrc already adds ~/.hunk/bin to PATH
+[ -x "$HOME/.hunk/bin/hunk" ] ||
+  curl -fsSL https://hunk.dev/install.sh | sh -s -- --no-modify-path
 
 # ── fonts ────────────────────────────────────────────────────
 # Fira Mono patched with Nerd Font symbols (icons in nvim, tmux, prompt)
@@ -58,9 +65,12 @@ link ignore/.ignore    "$HOME/.ignore"
 link zsh/.zshrc        "$HOME/.zshrc"
 link zsh/.aliases      "$HOME/.aliases"
 link tmux/.tmux.conf   "$HOME/.tmux.conf"
+link tig/tigrc         "$HOME/.tigrc"
 link kitty             "$HOME/.config/kitty"
 link nvim              "$HOME/.config/nvim"
 link wireplumber       "$HOME/.config/wireplumber"
+mkdir -p "$HOME/.config/herdr"
+link herdr/config.toml "$HOME/.config/herdr/config.toml"
 
 # claude code: plugins/marketplaces auto-install from settings.json
 mkdir -p "$HOME/.claude"
@@ -74,6 +84,7 @@ mkdir -p "$HOME/.omp/agent"
 link skills              "$HOME/.omp/agent/skills"
 mkdir -p "$HOME/.claude/hooks"
 link claude/hooks/tmux-status.sh "$HOME/.claude/hooks/tmux-status.sh"
+link claude/hooks/herdr-agent-state.sh "$HOME/.claude/hooks/herdr-agent-state.sh"
 # ccstatusline: installed globally so the status line doesn't spawn npx on every refresh
 if command -v npm >/dev/null; then
   npm i -g ccstatusline

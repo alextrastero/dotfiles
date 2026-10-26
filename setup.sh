@@ -44,8 +44,15 @@ if [ ! -d "$FONT_DIR" ]; then
 fi
 
 # ── symlinks ─────────────────────────────────────────────────
-# -sfn: replace an existing link instead of nesting inside it
-link() { ln -sfn "$DOTFILES/$1" "$2"; }
+# -sfn: replace an existing link instead of nesting inside it.
+# A real dir (e.g. ~/.claude/skills created by an agent) would still nest it, so move it aside.
+link() {
+  if [ -d "$2" ] && [ ! -L "$2" ]; then
+    mv "$2" "$2.bak.$(date +%Y%m%d%H%M%S)"
+    echo "$2 was a directory - moved to $2.bak.*, copy anything you need into $DOTFILES/$1"
+  fi
+  ln -sfn "$DOTFILES/$1" "$2"
+}
 mkdir -p "$HOME/.config"
 link ignore/.ignore    "$HOME/.ignore"
 link zsh/.zshrc        "$HOME/.zshrc"
@@ -61,7 +68,12 @@ link herdr/config.toml "$HOME/.config/herdr/config.toml"
 mkdir -p "$HOME/.claude"
 link claude/settings.json "$HOME/.claude/settings.json"
 link claude/CLAUDE.md     "$HOME/.claude/CLAUDE.md"
-link claude/skills        "$HOME/.claude/skills"
+# agent skills (agent-neutral), one source for every agent:
+# - Claude Code reads ~/.claude/skills; opencode also scans it by default
+# - omp only scans foreign (~/.claude) user dirs when opted in, so it gets its native dir
+link skills              "$HOME/.claude/skills"
+mkdir -p "$HOME/.omp/agent"
+link skills              "$HOME/.omp/agent/skills"
 mkdir -p "$HOME/.claude/hooks"
 link claude/hooks/tmux-status.sh "$HOME/.claude/hooks/tmux-status.sh"
 link claude/hooks/herdr-agent-state.sh "$HOME/.claude/hooks/herdr-agent-state.sh"

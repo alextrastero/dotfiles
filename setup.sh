@@ -11,7 +11,7 @@ sudo apt update
 sudo apt install -y \
   zsh tmux kitty git curl xz-utils fontconfig build-essential \
   fzf ripgrep silversearcher-ag tig tree \
-  wl-clipboard gnome-tweaks gnome-sushi
+  wl-clipboard gnome-tweaks gnome-sushi flameshot
 
 # ── shell ────────────────────────────────────────────────────
 if [ ! -d "$HOME/.oh-my-zsh" ]; then

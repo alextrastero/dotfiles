@@ -23,7 +23,7 @@ Not covered by `setup.sh`:
 - [slack](https://slack.com/intl/en-gb/downloads/linux), set to start on login
 - [brave-browser](https://brave.com/linux/)
 - [google-chrome](https://www.google.com/chrome/)
-- [flameshot](https://flameshot.org/docs/installation/installation-linux/)
+- [color picker](https://extensions.gnome.org/extension/3396/color-picker/) gnome extension
 - email client, set to start on login
 
 ## gnome-tweaks bckp

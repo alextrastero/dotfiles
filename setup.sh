@@ -32,6 +32,12 @@ ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
 [ -d "$HOME/.tmux/plugins/tpm" ] ||
   git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 
+# ── hunk ─────────────────────────────────────────────────────
+# terminal diff viewer — https://hunk.dev
+# --no-modify-path: zsh/.zshrc already adds ~/.hunk/bin to PATH
+[ -x "$HOME/.hunk/bin/hunk" ] ||
+  curl -fsSL https://hunk.dev/install.sh | sh -s -- --no-modify-path
+
 # ── fonts ────────────────────────────────────────────────────
 # Fira Mono patched with Nerd Font symbols (icons in nvim, tmux, prompt)
 FONT_DIR="$HOME/.local/share/fonts/FiraMonoNerdFont"

@@ -141,7 +141,7 @@ export GEM_HOME="$HOME/gems"
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/go"
 
-export PATH="$GEM_HOME/bin:$HOME/.local/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
+export PATH="$GEM_HOME/bin:$HOME/.local/bin:$GOROOT/bin:$GOPATH/bin:$PATH:$HOME/.hunk/bin"
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"

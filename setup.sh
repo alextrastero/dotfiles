@@ -6,9 +6,10 @@ DOTFILES="$HOME/dev/dotfiles"
 # ── apt packages ─────────────────────────────────────────────
 # apt skips anything already installed
 # gnome-sushi: space-bar file preview in nautilus
+# build-essential: C compiler for nvim treesitter parsers
 sudo apt update
 sudo apt install -y \
-  zsh tmux kitty git curl xz-utils fontconfig \
+  zsh tmux kitty git curl xz-utils fontconfig build-essential \
   fzf ripgrep silversearcher-ag tig tree \
   wl-clipboard gnome-tweaks gnome-sushi
 
@@ -38,6 +39,16 @@ ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
 # --no-modify-path: zsh/.zshrc already adds ~/.hunk/bin to PATH
 [ -x "$HOME/.hunk/bin/hunk" ] ||
   curl -fsSL https://hunk.dev/install.sh | sh -s -- --no-modify-path
+
+# ── herdr ────────────────────────────────────────────────────
+# terminal workspace manager, started by zsh/.zshrc — https://herdr.dev
+[ -x "$HOME/.local/bin/herdr" ] ||
+  curl -fsSL https://herdr.dev/install.sh | sh
+
+# ── claude code ──────────────────────────────────────────────
+# native install: ~/.local/bin/claude, auto-updates itself
+[ -x "$HOME/.local/bin/claude" ] ||
+  curl -fsSL https://claude.ai/install.sh | bash
 
 # ── fonts ────────────────────────────────────────────────────
 # Fira Mono patched with Nerd Font symbols (icons in nvim, tmux, prompt)
@@ -85,14 +96,6 @@ link skills              "$HOME/.omp/agent/skills"
 mkdir -p "$HOME/.claude/hooks"
 link claude/hooks/tmux-status.sh "$HOME/.claude/hooks/tmux-status.sh"
 link claude/hooks/herdr-agent-state.sh "$HOME/.claude/hooks/herdr-agent-state.sh"
-# ccstatusline: installed globally so the status line doesn't spawn npx on every refresh
-if command -v npm >/dev/null; then
-  npm i -g ccstatusline
-else
-  echo "npm not found - run 'npm i -g ccstatusline' once node is installed"
-fi
-# ccstatusline: status line config (edit with `ccstatusline`)
-link claude/ccstatusline  "$HOME/.config/ccstatusline"
 # i-have-adhd plugin: flag file makes it load in every session.
 # Off for one session: say "stop adhd mode". Off until next setup run: rm the flag.
 # Off for good: delete this line, or disable the plugin in claude/settings.json.

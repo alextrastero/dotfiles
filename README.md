@@ -98,3 +98,9 @@ Paths use `$HOME`, which `envsubst` expands on restore.
   # read current values for a section before copying them into the file
     dconf dump /org/gnome/desktop/interface/
 ```
+
+## agent skills
+
+`skills/<name>/SKILL.md`, shared by every coding agent. `setup.sh` links the dir to
+`~/.claude/skills` (Claude Code, opencode) and `~/.omp/agent/skills` (omp).
+`skills/synced/` is managed by Claude sync and gitignored.

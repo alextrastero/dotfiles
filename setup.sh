@@ -29,6 +29,7 @@ ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
 [ "$SHELL" = "$(command -v zsh)" ] || chsh -s "$(command -v zsh)"
 
 # ── tmux ─────────────────────────────────────────────────────
+# not in daily use: replaced by herdr (see herdr/). Kept so the config still works if needed.
 [ -d "$HOME/.tmux/plugins/tpm" ] ||
   git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 

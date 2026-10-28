@@ -50,6 +50,12 @@ ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
 [ -x "$HOME/.local/bin/claude" ] ||
   curl -fsSL https://claude.ai/install.sh | bash
 
+# ── omp ──────────────────────────────────────────────────────
+# oh-my-pi coding agent — https://github.com/can1357/oh-my-pi
+# --binary: prebuilt ~/.local/bin/omp instead of a global bun install
+[ -x "$HOME/.local/bin/omp" ] ||
+  curl -fsSL https://omp.sh/install | sh -s -- --binary
+
 # ── fonts ────────────────────────────────────────────────────
 # Fira Mono patched with Nerd Font symbols (icons in nvim, tmux, prompt)
 FONT_DIR="$HOME/.local/share/fonts/FiraMonoNerdFont"

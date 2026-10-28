@@ -16,7 +16,7 @@ export RIPGREP_CONFIG_PATH="$HOME/.rgconfig"
 . /opt/z.sh
 
 # start herdr
-[ -z "$HERDR_ENV" ] && herdr
+[ -z "$HERDR_ENV" ] && "$HOME/.local/bin/herdr"
 
 # nvm (lazy-loaded: sourcing nvm.sh adds ~0.5s to every new shell/pane)
 # put the newest installed node on PATH, load nvm itself on first use

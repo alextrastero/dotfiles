@@ -87,7 +87,8 @@
     "lua-lsp@claude-plugins-official": true,
     "cc-plugin-you-should-know@builtin": true,
     "diagram-design@diagram-design": true,
-    "i-have-adhd@i-have-adhd": true
+    "i-have-adhd@i-have-adhd": true,
+    "context7@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-reflect-marketplace": {
@@ -117,9 +118,9 @@
   },
   "tui": "fullscreen",
   "theme": "auto",
+  "switchModelsOnFlag": false,
   "teammateMode": "tmux",
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "switchModelsOnFlag": false
+  "voiceEnabled": true
 }

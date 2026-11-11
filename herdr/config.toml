@@ -2,13 +2,21 @@ onboarding = false
 
 [theme]
 name = "terminal"
-auto_switch = false
+# kitty answers the appearance query from its background luminance, so this tracks the kitty theme
+auto_switch = true
+dark_name = "terminal"
+light_name = "terminal"
 
 [theme.custom]
 active_row_bg = "reset"
-# terminal theme draws active-tab text in surface_dim (ANSI dark gray) when panel_bg is reset,
-# unreadable on the blue accent; kitty everforest background gives dark text instead
-panel_bg = "#323d43"
+
+# panel_bg paints the tab bar/overlays and is also the active-tab text on the blue accent.
+# reset would make that text surface_dim (ANSI dark gray), unreadable, so match the kitty background instead.
+[theme.custom.dark]
+panel_bg = "#323d43" # everforest
+
+[theme.custom.light]
+panel_bg = "#fbf1c7" # gruvbox-light
 
 [keys]
 split_horizontal = "prefix+s"

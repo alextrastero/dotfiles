@@ -56,6 +56,7 @@ tab_bar_right = [
   { type = "datetime", format = "%H:%M" },
 ]
 tab_bar_right_separator = " · "
+mouse_scroll_lines = 1
 
 [ui.sidebar.agents.rows_by_agent]
 claude = [

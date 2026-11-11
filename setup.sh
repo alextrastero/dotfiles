@@ -44,6 +44,9 @@ ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
 # terminal workspace manager, started by zsh/.zshrc — https://herdr.dev
 [ -x "$HOME/.local/bin/herdr" ] ||
   curl -fsSL https://herdr.dev/install.sh | sh
+# gitview plugin: changed files + diff, bound in herdr/config.toml
+grep -qs '"chmarax.gitview"' "$HOME/.config/herdr/plugins.json" ||
+  "$HOME/.local/bin/herdr" plugin install ChmaraX/herdr-gitview
 
 # ── claude code ──────────────────────────────────────────────
 # native install: ~/.local/bin/claude, auto-updates itself

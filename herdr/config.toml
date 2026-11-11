@@ -16,6 +16,19 @@ focus_pane_left = "ctrl+h"
 focus_pane_down = "ctrl+j"
 focus_pane_up = "ctrl+k"
 focus_pane_right = "ctrl+l"
+goto = ""
+
+[[keys.command]]
+key = "prefix+g"
+type = "plugin_action"
+command = "chmarax.gitview.toggle-tab"
+description = "git view tab"
+
+[[keys.command]]
+key = "prefix+alt+g"
+type = "plugin_action"
+command = "chmarax.gitview.toggle"
+description = "git view sidebar"
 
 [ui]
 prompt_new_tab_name = false
@@ -38,3 +51,10 @@ claude = [
   ["state_icon", "workspace", "tab"],
   ["terminal_title_stripped"],
 ]
+pi = [
+  ["state_icon", "workspace", "tab"],
+  ["terminal_title_stripped"],
+]
+
+[ui.sound]
+enabled = false

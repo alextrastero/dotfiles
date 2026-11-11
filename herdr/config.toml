@@ -6,6 +6,9 @@ auto_switch = false
 
 [theme.custom]
 active_row_bg = "reset"
+# terminal theme draws active-tab text in surface_dim (ANSI dark gray) when panel_bg is reset,
+# unreadable on the blue accent; kitty everforest background gives dark text instead
+panel_bg = "#323d43"
 
 [keys]
 split_horizontal = "prefix+s"

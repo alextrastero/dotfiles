@@ -47,6 +47,10 @@ ZSH_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
 # gitview plugin: changed files + diff, bound in herdr/config.toml
 grep -qs '"chmarax.gitview"' "$HOME/.config/herdr/plugins.json" ||
   "$HOME/.local/bin/herdr" plugin install ChmaraX/herdr-gitview
+# auto-title: names tabs/panes from agent session (omp, claude), process, git branch.
+# Starts with the herdr server; after installing into a running one: herdr plugin action invoke herdr.auto-title.restart
+grep -qs '"herdr.auto-title"' "$HOME/.config/herdr/plugins.json" ||
+  "$HOME/.local/bin/herdr" plugin install kryptamine/herdr-auto-title --ref stable
 
 # ── claude code ──────────────────────────────────────────────
 # native install: ~/.local/bin/claude, auto-updates itself

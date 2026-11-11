@@ -118,7 +118,7 @@ touch "$HOME/.claude/.i-have-adhd-always"
 
 # ── settings ─────────────────────────────────────────────────
 # key repeat (gnome)
-gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
 gsettings set org.gnome.desktop.peripherals.keyboard delay 280
 
 git config --global push.default current

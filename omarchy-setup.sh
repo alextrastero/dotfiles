@@ -14,6 +14,12 @@ ln -sfn "$DOTFILES/zsh/.aliases"   "$HOME/.aliases"
 ln -sfn "$DOTFILES/ignore/.ignore" "$HOME/.ignore"
 ln -sfn "$DOTFILES/tig/tigrc"      "$HOME/.tigrc"
 
+# ── hyprland ─────────────────────────────────────────────────
+# hyprland.lua stays Omarchy's per-machine file; it only gains a require for our rules
+ln -sfn "$DOTFILES/hypr/windows.lua" "$HOME/.config/hypr/windows.lua"
+grep -qs 'require("hypr.windows")' "$HOME/.config/hypr/hyprland.lua" ||
+  echo 'require("hypr.windows")' >> "$HOME/.config/hypr/hyprland.lua"
+
 # ── herdr ────────────────────────────────────────────────────
 # installed and started by Omarchy; replace its config with ours
 mkdir -p "$HOME/.config/herdr"

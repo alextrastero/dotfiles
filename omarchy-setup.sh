@@ -19,6 +19,14 @@ ln -sfn "$DOTFILES/zsh/.aliases"   "$HOME/.aliases"
 ln -sfn "$DOTFILES/ignore/.ignore" "$HOME/.ignore"
 ln -sfn "$DOTFILES/tig/tigrc"      "$HOME/.tigrc"
 
+# ── ssh ──────────────────────────────────────────────────────
+# Omarchy runs no ssh agent; use OpenSSH's socket-activated one so the key passphrase is asked once per login
+systemctl --user enable --now ssh-agent.socket
+mkdir -p "$HOME/.config/environment.d"
+ln -sfn "$DOTFILES/environment.d/ssh-agent.conf" "$HOME/.config/environment.d/ssh-agent.conf"
+mkdir -p -m 700 "$HOME/.ssh"
+ln -sfn "$DOTFILES/ssh/config" "$HOME/.ssh/config"
+
 # ── hyprland ─────────────────────────────────────────────────
 # hyprland.lua stays Omarchy's per-machine file; it already requires input and only gains a require for our rules
 ln -sfn "$DOTFILES/hypr/input.lua"   "$HOME/.config/hypr/input.lua"

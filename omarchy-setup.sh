@@ -20,7 +20,8 @@ ln -sfn "$DOTFILES/ignore/.ignore" "$HOME/.ignore"
 ln -sfn "$DOTFILES/tig/tigrc"      "$HOME/.tigrc"
 
 # ── hyprland ─────────────────────────────────────────────────
-# hyprland.lua stays Omarchy's per-machine file; it only gains a require for our rules
+# hyprland.lua stays Omarchy's per-machine file; it already requires input and only gains a require for our rules
+ln -sfn "$DOTFILES/hypr/input.lua"   "$HOME/.config/hypr/input.lua"
 ln -sfn "$DOTFILES/hypr/windows.lua" "$HOME/.config/hypr/windows.lua"
 grep -qs 'require("hypr.windows")' "$HOME/.config/hypr/hyprland.lua" ||
   echo 'require("hypr.windows")' >> "$HOME/.config/hypr/hyprland.lua"

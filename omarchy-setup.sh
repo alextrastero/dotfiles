@@ -7,6 +7,11 @@ DOTFILES="$HOME/dev/dotfiles"
 # omarchy-pkg-add skips anything already installed
 omarchy-pkg-add tig tree
 
+# ── theme ────────────────────────────────────────────────────
+# everforest matches nvim/lua/plugins/colorscheme.lua; theme set restyles every app, so skip it when already applied
+[ "$(cat "$HOME/.local/state/omarchy/current/theme.name" 2>/dev/null)" = everforest ] ||
+  omarchy theme set everforest
+
 # ── shell ────────────────────────────────────────────────────
 # bash/.bashrc keeps Omarchy's stub and loads the aliases shared with zsh
 ln -sfn "$DOTFILES/bash/.bashrc"   "$HOME/.bashrc"

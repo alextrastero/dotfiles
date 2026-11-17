@@ -7,6 +7,12 @@ DOTFILES="$HOME/dev/dotfiles"
 # omarchy-pkg-add skips anything already installed
 omarchy-pkg-add tig tree
 
+# ── shell ────────────────────────────────────────────────────
+# bash/.bashrc keeps Omarchy's stub and loads the aliases shared with zsh
+ln -sfn "$DOTFILES/bash/.bashrc"   "$HOME/.bashrc"
+ln -sfn "$DOTFILES/zsh/.aliases"   "$HOME/.aliases"
+ln -sfn "$DOTFILES/ignore/.ignore" "$HOME/.ignore"
+
 # ── herdr ────────────────────────────────────────────────────
 # installed and started by Omarchy; replace its config with ours
 mkdir -p "$HOME/.config/herdr"

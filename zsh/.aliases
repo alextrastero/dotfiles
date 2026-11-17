@@ -4,11 +4,14 @@ alias ag="rg --ignore-file ~/.ignore"
 alias dl="yt-dlp -f 'ba' -x --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-metadata"
 
 # GIT
+# also in oh-my-zsh's git plugin; defined here for bash
+alias gco="git checkout"
+alias gst="git status"
 alias pick="git cherry-pick"
 alias glg="tig log -n20 --no-merges"
 alias gs="git show"
 alias gundo='git reset --soft HEAD~ && git reset HEAD .' # Uncommit last commit and unstage - to see all new stuff in vim-git
-alias gll="gfa && gf -p && gl"
+alias gll="git fetch --all --tags --prune && git pull"
 alias gamend="git commit --amend --no-edit --no-verify"
 alias gc="git commit -v -S"
 alias tempo="git add .; git commit -m tempo --no-verify"
@@ -17,7 +20,7 @@ alias gprune="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git br
 alias gdc="git diff --staged"
 # alias gd="git diff ':!package-lock.json'"
 alias gd="git diff"
-alias glc="git pull origin $(git_current_branch)"
+alias glc='git pull origin "$(git branch --show-current)"'
 
 # rebasing aliases
 alias rec="git rebase --continue"
@@ -45,3 +48,104 @@ alias vimg="nvim +Git +only"
 
 alias tree="tree -a"
 alias clip="wl-copy"
+
+# functions
+function hub() {
+  # Retrieve the remote origin URL of the Git repository
+  remote_url=$(git config remote.origin.url)
+
+  # Process the URL to convert it to HTTPS format suitable for opening in a browser
+  browser_url=$(echo "$remote_url" | sed -E 's#(git@|https://)([^:/]+)[:/]#https://\2/#; s/\.git$//')
+
+  # Open the processed URL in the default web browser using xdg-open
+  nohup xdg-open "$browser_url" > /dev/null 2>&1
+}
+
+# Open vim with git changed files, or files from last commit if no changes
+function w() {
+  git rev-parse --is-inside-work-tree &>/dev/null && \
+    vim $(git status --porcelain | awk '{print $2}' | grep -v '^$' || git diff-tree --no-commit-id --name-only -r HEAD)
+}
+
+# oh-my-zsh and Omarchy both define a gbg alias
+unalias gbg 2>/dev/null
+function gbg() {
+  git checkout "$(git branch --sort=-committerdate | fzf | tr -d '[:space:]')"
+}
+
+function fixup() {
+  git rebase -i $(git merge-base HEAD master)
+}
+
+git_main_branch() {
+  if git show-ref --verify --quiet refs/heads/main; then
+    echo "main"
+  else
+    echo "master"
+  fi
+}
+
+# update current branch with master
+function update() {
+  local main_branch=$(git_main_branch)
+
+  git checkout "$main_branch" && \
+  git pull && \
+  git checkout - && \
+  git rebase -
+}
+
+# gets files changed since since main_branch and pipes them through fzf
+function changes() {
+  local main_branch=$(git_main_branch)
+
+  vim $(git diff --name-only "$main_branch" | fzf)
+}
+
+# shows diff from master like a merge request would
+function mr() {
+  local main_branch=$(git_main_branch)
+
+  git diff "$main_branch"...HEAD
+}
+
+agv() {
+  local word="$1"
+  shift
+
+  if [[ -z "$word" ]]; then
+    echo -e "Find word and open files in vim\nUsage: agv <word> [path...]"
+    return 1
+  fi
+
+  local files
+  files=$(ag -l -- "$word" "$@")
+
+  if [[ -n "$files" ]]; then
+    echo "$files" | xargs -r nvim
+  else
+    echo "No files found containing '$word'"
+  fi
+}
+
+# Removes a specific file from the last commit while keeping everything else intact.
+uncommitfile() {
+  local file="$1"
+
+  if [[ -z "$file" ]]; then
+    echo "Usage: uncommitfile <path/to/file>"
+    return 1
+  fi
+
+  git reset --soft HEAD~1 \
+    && git restore --staged -- "$file" \
+    && git commit -C ORIG_HEAD
+}
+
+function blame() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: blame <word>"
+    return 1
+  fi
+  git log -S"$1" -p
+}

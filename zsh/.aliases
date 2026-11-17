@@ -9,6 +9,7 @@ alias dl="yt-dlp -f 'ba' -x --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-
 # also in oh-my-zsh's git plugin; defined here for bash
 alias gco="git checkout"
 alias gst="git status"
+alias gp="git push"
 alias pick="git cherry-pick"
 alias glg="tig log -n20 --no-merges"
 alias gs="git show"

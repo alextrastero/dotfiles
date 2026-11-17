@@ -12,6 +12,7 @@ omarchy-pkg-add tig tree
 ln -sfn "$DOTFILES/bash/.bashrc"   "$HOME/.bashrc"
 ln -sfn "$DOTFILES/zsh/.aliases"   "$HOME/.aliases"
 ln -sfn "$DOTFILES/ignore/.ignore" "$HOME/.ignore"
+ln -sfn "$DOTFILES/tig/tigrc"      "$HOME/.tigrc"
 
 # ── herdr ────────────────────────────────────────────────────
 # installed and started by Omarchy; replace its config with ours

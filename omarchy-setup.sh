@@ -20,6 +20,17 @@ ln -sfn "$DOTFILES/hypr/windows.lua" "$HOME/.config/hypr/windows.lua"
 grep -qs 'require("hypr.windows")' "$HOME/.config/hypr/hyprland.lua" ||
   echo 'require("hypr.windows")' >> "$HOME/.config/hypr/hyprland.lua"
 
+# ── neovim ───────────────────────────────────────────────────
+# Omarchy copies its LazyVim starter into ~/.config/nvim; replace it with ours
+link() {
+  if [ -d "$2" ] && [ ! -L "$2" ]; then
+    mv "$2" "$2.bak.$(date +%Y%m%d%H%M%S)"
+    echo "$2 was a directory - moved to $2.bak.*, copy anything you need into $DOTFILES/$1"
+  fi
+  ln -sfn "$DOTFILES/$1" "$2"
+}
+link nvim "$HOME/.config/nvim"
+
 # ── herdr ────────────────────────────────────────────────────
 # installed and started by Omarchy; replace its config with ours
 mkdir -p "$HOME/.config/herdr"

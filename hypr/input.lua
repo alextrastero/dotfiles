@@ -5,7 +5,9 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Variables/#input
 hl.config({
   input = {
-    kb_options = "ctrl:nocaps,compose:ralt"
+    kb_options = "ctrl:nocaps,compose:ralt",
+    repeat_rate = 67,
+    repeat_delay = 280,
   }
 })
 -- hl.config({

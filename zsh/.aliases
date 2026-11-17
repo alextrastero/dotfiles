@@ -1,4 +1,6 @@
 alias c="clear"
+# also in oh-my-zsh; on Omarchy ls is eza
+alias l="ls -lah"
 alias edit="vim ~/.config/nvim"
 alias ag="rg --ignore-file ~/.ignore"
 alias dl="yt-dlp -f 'ba' -x --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-metadata"

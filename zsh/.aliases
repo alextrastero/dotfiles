@@ -1,6 +1,6 @@
 alias c="clear"
 alias edit="vim ~/.config/nvim"
-alias ag="ag --path-to-ignore ~/.ignore --pager less"
+alias ag="rg --ignore-file ~/.ignore"
 alias dl="yt-dlp -f 'ba' -x --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-metadata"
 
 # GIT
@@ -26,13 +26,12 @@ alias rei="git rebase -i"
 alias rea="git rebase --abort"
 
 # work
-alias t="npm run studio:test"
 alias s="npm start"
 alias cov="npm nx coverage"
 alias ports="lsof -i -P -n | grep LISTEN"
 
 count() {
-  ag -o --nofilename --nobreak $1 | wc -l
+  ag -o --no-filename $1 | wc -l
 }
 
 # grep for a word and open all instances of word it in (n)vim and scroll to *it
@@ -43,9 +42,6 @@ rr() {
 # vim
 alias vim="nvim"
 alias vimg="nvim +Git +only"
-
-# jekyll serve
-alias static="bundle exec jekyll serve --livereload"
 
 alias tree="tree -a"
 alias clip="wl-copy"

@@ -10,6 +10,7 @@ alias dl="yt-dlp -f 'ba' -x --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-
 alias gco="git checkout"
 alias gst="git status"
 alias gp="git push"
+alias gpf="git push --force-with-lease --force-if-includes"
 alias gaa="git add --all"
 alias pick="git cherry-pick"
 alias glg="tig log -n20 --no-merges"

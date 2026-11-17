@@ -10,3 +10,8 @@ source "$OMARCHY_PATH/default/bash/rc"
 
 # Shared with zsh on Ubuntu; loaded last so these win over Omarchy's (c, gd, gbg)
 source "$HOME/.aliases"
+
+# Same as zsh. Omarchy's EDITOR (omarchy-launch-editor) passes args after `--`,
+# so nvim opens `+LINE` from tig and others as a file instead of jumping to the line.
+export VISUAL="nvim"
+export EDITOR="$VISUAL"

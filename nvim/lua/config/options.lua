@@ -3,7 +3,8 @@
 -- Add any additional options here
 vim.g.mapleader = ","
 vim.g.snacks_animate = false
-vim.opt.cursorline = false
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number" -- highlight only the current line number, not the line
 vim.opt.swapfile = false
 vim.opt.guicursor = ""
 -- vim.opt.colocolumn = "120"

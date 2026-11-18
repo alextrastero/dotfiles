@@ -45,6 +45,12 @@ link() {
 }
 link nvim "$HOME/.config/nvim"
 
+# ── omp ──────────────────────────────────────────────────────
+mkdir -p "$HOME/.omp/agent/extensions"
+link skills          "$HOME/.omp/agent/skills"
+link omp/config.yml  "$HOME/.omp/agent/config.yml"
+link omp/extensions/herdr-omp-agent-state.ts "$HOME/.omp/agent/extensions/herdr-omp-agent-state.ts"
+
 # ── herdr ────────────────────────────────────────────────────
 # installed and started by Omarchy; replace its config with ours
 mkdir -p "$HOME/.config/herdr"

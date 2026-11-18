@@ -14,3 +14,8 @@ source "$HOME/.aliases"
 # so nvim opens `+LINE` from tig and others as a file instead of jumping to the line.
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
+
+# Clear kitty keyboard protocol flags a TUI left pushed (omp leaks them when the
+# pane resizes during shutdown), otherwise Ctrl+C arrives as `9;5u` and Esc as `u`.
+# Terminals without the protocol ignore the sequence.
+PROMPT_COMMAND+=("printf '\e[<99u'")

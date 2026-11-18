@@ -17,3 +17,14 @@ for _, workspace in ipairs({ "w[tv1]s[false]", "f[1]s[false]" }) do
   hl.workspace_rule({ workspace = workspace, gaps_in = 0, gaps_out = 0 })
   o.window({ float = false, workspace = workspace }, { border_size = 0 })
 end
+
+-- The Quake console (Super + `) opens a plain terminal instead of the default agent.
+-- Omarchy seeds it from a workspace.created hook in default/hypr/qconsole.lua that
+-- can't be unregistered, so its spawn is swapped here.
+local exec_cmd = hl.exec_cmd
+hl.exec_cmd = function(cmd, rules)
+  if cmd == "omarchy-agent" and rules and rules.workspace == "special:qconsole silent" then
+    cmd = "omarchy-launch-terminal"
+  end
+  return exec_cmd(cmd, rules)
+end

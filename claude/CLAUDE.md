@@ -30,4 +30,4 @@ This overrides register and copy guidance from any skill, including artifact and
 - Never create git worktrees or new branches, in any repo. Edit the current checkout and commit to the branch already checked out.
 
 ## Docs lookup
-- "omp" means oh-my-pi (https://github.com/can1357/oh-my-pi), not Oh My Posh. For omp questions, query Context7 with library ID `/can1357/oh-my-pi`.
+- "omp" means oh-my-pi (https://github.com/can1357/oh-my-pi), not Oh My Posh. For omp questions, check that repo's docs.

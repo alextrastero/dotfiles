@@ -28,9 +28,10 @@ mkdir -p -m 700 "$HOME/.ssh"
 ln -sfn "$DOTFILES/ssh/config" "$HOME/.ssh/config"
 
 # ── hyprland ─────────────────────────────────────────────────
-# hyprland.lua stays Omarchy's per-machine file; it already requires input and only gains a require for our rules
-ln -sfn "$DOTFILES/hypr/input.lua"   "$HOME/.config/hypr/input.lua"
-ln -sfn "$DOTFILES/hypr/windows.lua" "$HOME/.config/hypr/windows.lua"
+# hyprland.lua stays Omarchy's per-machine file; it already requires input and bindings and only gains a require for our rules
+ln -sfn "$DOTFILES/hypr/input.lua"    "$HOME/.config/hypr/input.lua"
+ln -sfn "$DOTFILES/hypr/bindings.lua" "$HOME/.config/hypr/bindings.lua"
+ln -sfn "$DOTFILES/hypr/windows.lua"  "$HOME/.config/hypr/windows.lua"
 grep -qs 'require("hypr.windows")' "$HOME/.config/hypr/hyprland.lua" ||
   echo 'require("hypr.windows")' >> "$HOME/.config/hypr/hyprland.lua"
 

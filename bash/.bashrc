@@ -8,7 +8,6 @@
 # (don't mess with these directly, just overwrite them here!)
 source "$OMARCHY_PATH/default/bash/rc"
 
-# Shared with zsh on Ubuntu; loaded last so these win over Omarchy's (c, gd, gbg)
 source "$HOME/.aliases"
 
 # Same as zsh. Omarchy's EDITOR (omarchy-launch-editor) passes args after `--`,

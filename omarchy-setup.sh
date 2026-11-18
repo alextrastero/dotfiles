@@ -34,6 +34,18 @@ ln -sfn "$DOTFILES/hypr/windows.lua" "$HOME/.config/hypr/windows.lua"
 grep -qs 'require("hypr.windows")' "$HOME/.config/hypr/hyprland.lua" ||
   echo 'require("hypr.windows")' >> "$HOME/.config/hypr/hyprland.lua"
 
+# ── tmux ─────────────────────────────────────────────────────
+# tmux loads ~/.config/tmux/tmux.conf after ~/.tmux.conf, so Omarchy's copy would override ours.
+# Its default stays in /usr/share/omarchy/config/tmux, and Omarchy migrations skip a missing file.
+rm -f "$HOME/.config/tmux/tmux.conf"
+ln -sfn "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
+[ -d "$HOME/.tmux/plugins/tpm" ] ||
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+# tpm reads the plugin list from a running server, so give it a throwaway session
+tmux new-session -d -s tpm-install
+"$HOME/.tmux/plugins/tpm/bin/install_plugins" >/dev/null
+tmux kill-session -t tpm-install
+
 # ── neovim ───────────────────────────────────────────────────
 # Omarchy copies its LazyVim starter into ~/.config/nvim; replace it with ours
 link() {

@@ -20,10 +20,11 @@ ln -sfn "$DOTFILES/ignore/.ignore" "$HOME/.ignore"
 ln -sfn "$DOTFILES/tig/tigrc"      "$HOME/.tigrc"
 
 # ── ssh ──────────────────────────────────────────────────────
-# Omarchy runs no ssh agent; use OpenSSH's socket-activated one so the key passphrase is asked once per login
-systemctl --user enable --now ssh-agent.socket
-mkdir -p "$HOME/.config/environment.d"
-ln -sfn "$DOTFILES/environment.d/ssh-agent.conf" "$HOME/.config/environment.d/ssh-agent.conf"
+# Omarchy's opt-in agent (gcr-ssh-agent): graphical passphrase prompt that the keyring can remember
+omarchy setup security ssh agent
+# Machines set up with OpenSSH's agent: drop it so the session has a single SSH_AUTH_SOCK
+systemctl --user disable --now ssh-agent.socket ssh-agent.service 2>/dev/null || true
+rm -f "$HOME/.config/environment.d/ssh-agent.conf"
 mkdir -p -m 700 "$HOME/.ssh"
 ln -sfn "$DOTFILES/ssh/config" "$HOME/.ssh/config"
 
@@ -44,6 +45,8 @@ ln -sfn "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
   git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 # tpm reads the plugin list from a running server, so give it a throwaway session
 tmux new-session -d -s tpm-install
+# A tmux server that was already running joins with its old config; load ours so tpm finds the plugins
+tmux source-file "$HOME/.tmux.conf"
 "$HOME/.tmux/plugins/tpm/bin/install_plugins" >/dev/null
 tmux kill-session -t tpm-install
 
